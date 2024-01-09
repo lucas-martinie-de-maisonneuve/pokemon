@@ -11,14 +11,17 @@ class Combat:
             return donnees_pokemon
     
     def recuperer_typeAdvers(self):
-        info_pokemon = self.ouverture_pokemonjson()       
+        info_pokemon = self.ouverture_pokemonjson()
+        types_pokemon = []
         
         for pokemon in info_pokemon:
-            type_pokemon = random.choice(pokemon["type"])       
-        return type_pokemon
+            types_pokemon.append(pokemon["type"])
+        
+        return random.choice(types_pokemon)
             
     def recuperer_puissanceAdvers(self):
-        donnee_puissanceAdvers = self.ouverture_pokemonjson()        
+        donnee_puissanceAdvers = self.ouverture_pokemonjson()
+        puissances_adversaires = [] 
         
         for puissance in donnee_puissanceAdvers:
             puissance_adversaire = {
@@ -26,10 +29,15 @@ class Combat:
                 "hp": puissance["hp"],
                 "def": puissance["def"],
                 "vitesse": puissance["vitesse"]
-            }        
-        return puissance_adversaire
+            }
+            puissances_adversaires.append(puissance_adversaire)
+        
+        return random.choice(puissances_adversaires)
+    
+    def recup_pokemonGagnant(self):
+        pass
+        
 
-# Utilisation de la classe
 combat = Combat()
 types_adversaires = combat.recuperer_typeAdvers()
 puissances_adversaires = combat.recuperer_puissanceAdvers()
