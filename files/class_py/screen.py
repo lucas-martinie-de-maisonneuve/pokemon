@@ -2,7 +2,9 @@ import pygame
 
 class Screen:
     def __init__(self):
-        self.Fenetre = pygame.display.set_mode((1050, 700))
+        self.W = 1050
+        self.H = 700
+        self.Fenetre = pygame.display.set_mode((self.W, self.H))
         pygame.display.set_caption("Pokemon")
         self.clock = pygame.time.Clock()
 
