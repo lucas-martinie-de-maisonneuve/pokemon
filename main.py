@@ -1,6 +1,5 @@
 import pygame
-from menu import Menu
-from screen import Screen
+from files.class_py.menu import Menu
 
 pygame.init()
 
