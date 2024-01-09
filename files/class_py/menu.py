@@ -18,5 +18,7 @@ class Menu:
                     pygame.quit()
                     quit()
             element.img_background(525, 350, 1244, 700, f'background')
+            element.img(1000, 650, 70, 70,'pokeball')
+            element.img_mir(50, 50, 70,70,'pokeball')
             element.texte(30, 'Appuyer sur une touche pour continuer',(255, 255, 255), screen.W//2, screen.H//2)
             screen.update()
