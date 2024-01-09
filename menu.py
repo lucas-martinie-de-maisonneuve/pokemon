@@ -6,11 +6,11 @@ class Menu:
         self.run = True
 
     def menu_open(self):
+        screen = Screen()
         while self.run :
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     quit()
-            screen = Screen()
             screen.update()
-            screen.img(80, 80, 'pokemon/pika', 500, 350)
+            screen.img(180, 180, 'pokemon/pika', 500, 350)
