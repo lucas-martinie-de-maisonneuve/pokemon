@@ -18,9 +18,5 @@ class Menu:
                     pygame.quit()
                     quit()
             element.img_background(525, 350, 1244, 700, f'background')
-            i = 30
-            if i < 35:
-                element.texte(i, 'Appuyer sur une touche pour continuer',(255, 255, 255), screen.W//2, screen.H//2)
-                i+=1
-                pygame.time.delay(100)
-                screen.update()
+            element.texte(30, 'Appuyer sur une touche pour continuer',(255, 255, 255), screen.W//2, screen.H//2)
+            screen.update()
