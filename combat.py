@@ -1,6 +1,6 @@
 import json
 import random
-from files.class_py.screen import Screen()
+# from files.class_py.screen import Screen()
 
 class Combat:
     def __init__(self) -> None:
@@ -35,15 +35,15 @@ class Combat:
         
         return random.choice(puissances_adversaires)
     
-    def capacites(self):
-        button_attack = pygame.draw.rect(ecran, )
+    # def capacites(self):
+    #     button_attack =()
     
-    def calcule_combatPrincipal(self):
-        pass
+    # def calcule_combatPrincipal(self):
+    #     pass
     
-    def recup_pokemonGagnant(self):
-        mon_pokemon = self.apparition_pokemon()
-        pokemon = self.apparition_pokemon()
+    # def recup_pokemonGagnant(self):
+    #     mon_pokemon = self.apparition_pokemon()
+    #     pokemon = self.apparition_pokemon()
         
                 
 
