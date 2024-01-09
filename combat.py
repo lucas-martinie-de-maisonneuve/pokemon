@@ -1,8 +1,7 @@
 import json
 import random
-import pygame
+from files.class_py.screen import Screen()
 
-pygame.init()
 class Combat:
     def __init__(self) -> None:
         pass
