@@ -36,13 +36,17 @@ class Combat:
         
         return random.choice(puissances_adversaires)
     
+    def capacites(self):
+        button_attack = pygame.draw.rect(ecran, )
+    
     def calcule_combatPrincipal(self):
         pass
     
     def recup_pokemonGagnant(self):
-        mon_pokemon = self.calcule_combatPrincipal()
-        pokemon = self.calcule_combatPrincipal()
-        pass        
+        mon_pokemon = self.apparition_pokemon()
+        pokemon = self.apparition_pokemon()
+        
+                
 
 combat = Combat()
 types_adversaires_random = combat.recuperer_typeAdvers()
