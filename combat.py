@@ -1,6 +1,8 @@
 import json
 import random
+import pygame
 
+pygame.init()
 class Combat:
     def __init__(self) -> None:
         pass
@@ -34,13 +36,17 @@ class Combat:
         
         return random.choice(puissances_adversaires)
     
-    def recup_pokemonGagnant(self):
+    def calcule_combatPrincipal(self):
         pass
-        
+    
+    def recup_pokemonGagnant(self):
+        mon_pokemon = self.calcule_combatPrincipal()
+        pokemon = self.calcule_combatPrincipal()
+        pass        
 
 combat = Combat()
-types_adversaires = combat.recuperer_typeAdvers()
-puissances_adversaires = combat.recuperer_puissanceAdvers()
+types_adversaires_random = combat.recuperer_typeAdvers()
+puissances_adversaires_random = combat.recuperer_puissanceAdvers()
 
-print("Types d'adversaires:", types_adversaires)
-print("Puissances d'adversaires:", puissances_adversaires)
+print("Types d'adversaires:", types_adversaires_random)
+print("Puissances d'adversaires:", puissances_adversaires_random)
