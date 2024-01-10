@@ -13,31 +13,23 @@ class Combat:
         
     def ouverture_pokemonjson(self):
         with open('pokemon.json', 'r') as fichier:
-            donnees_pokemon = json.load(fichier)
-            return donnees_pokemon
+            self.donnees_pokemon = json.load(fichier)
+            return self.donnees_pokemon
     
-    def recuperer_pokemon_random(self):
-        info_pokemon = self.ouverture_pokemonjson()
-        nom_pokemon = []
+    # Pour le class combat, type            
+    def rand_pokemon(self):
+        self.info_pokemon = self.ouverture_pokemonjson()
+        self.pokeliste = []
+        for pokemon in self.info_pokemon:
+            self.pokeliste.append(pokemon)
+        self.poke_random = random.choice(self.pokeliste)
+        print (self.poke_random)
         
-        for pokemon in info_pokemon:
-            nom_pokemon.append(pokemon["nom"])        
-        return random.choice(nom_pokemon)        
-            
-    def recuperer_puissanceAdvers(self):
-        donnee_puissanceAdvers = self.ouverture_pokemonjson()
-        puissances_adversaires = [] 
-        
-        for puissance in donnee_puissanceAdvers:
-            puissance_adversaire = {
-                "attaque": puissance["attaque"],
-                "hp": puissance["hp"],
-                "def": puissance["def"],
-                "vitesse": puissance["vitesse"]
-            }
-            puissances_adversaires.append(puissance_adversaire)
-        
-        return random.choice(puissances_adversaires)
+    def info_rand_pokemon(self, data):
+        self.info_pokemon = self.ouverture_pokemonjson()
+        for pokemon in self.info_pokemon:
+            if pokemon['nom'] == self.poke_random['nom']:
+                print(pokemon[data])
     
     def afficher_capacite(self):
         self.red = (247, 7, 7)
