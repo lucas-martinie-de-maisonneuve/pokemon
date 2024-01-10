@@ -1,7 +1,7 @@
 import pygame
-from files.class_py.maps_combat import Maps
+from files.class_py.menu import Menu
 
 pygame.init()
 
-menu = Maps()
+menu = Menu()
 menu.home()
