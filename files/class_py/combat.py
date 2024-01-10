@@ -2,7 +2,7 @@ import json
 import random
 from files.class_py.element import Element
 from files.class_py.screen import Screen
-from main import pygame
+import pygame
 
 element = Element()
 screen = Screen()
@@ -16,14 +16,13 @@ class Combat:
             donnees_pokemon = json.load(fichier)
             return donnees_pokemon
     
-    def recuperer_typeAdvers(self):
+    def recuperer_pokemon_random(self):
         info_pokemon = self.ouverture_pokemonjson()
-        types_pokemon = []
+        nom_pokemon = []
         
         for pokemon in info_pokemon:
-            types_pokemon.append(pokemon["type"])
-        
-        return random.choice(types_pokemon)
+            nom_pokemon.append(pokemon["nom"])        
+        return random.choice(nom_pokemon)        
             
     def recuperer_puissanceAdvers(self):
         donnee_puissanceAdvers = self.ouverture_pokemonjson()
@@ -86,7 +85,7 @@ class Combat:
 
     def fonction_attack(self,sort1):        
         self.damage_sort1 = sort1        
-        type_attack = self.recuperer_typeAdvers()
+        # type_attack = self.recuperer_typeAdvers()
         pass
             
     def fonction_defense(self):
@@ -108,13 +107,16 @@ class Combat:
         pass
     
     def recup_pokemonGagnant(self):
-        mon_pokemon = self.apparition_pokemon()
-        pokemon = self.apparition_pokemon()
+        # mon_pokemon = self.apparition_pokemon()
+        # pokemon = self.apparition_pokemon()
         pass           
 
-combat = Combat()
-types_adversaires_random = combat.recuperer_typeAdvers()
-puissances_adversaires_random = combat.recuperer_puissanceAdvers()
+    def test(self):
+        combat = Combat()
+        types_adversaires_random = combat.recuperer_pokemon_random()
+        puissances_adversaires_random = combat.recuperer_puissanceAdvers()
 
-print("Types d'adversaires:", types_adversaires_random)
-print("Puissances d'adversaires:", puissances_adversaires_random)
+        print("Types d'adversaires:", types_adversaires_random)
+        print("Puissances d'adversaires:", puissances_adversaires_random)
+        
+    
