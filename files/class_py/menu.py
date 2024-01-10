@@ -1,9 +1,11 @@
 import pygame
 from files.class_py.screen import Screen
 from files.class_py.element import Element
+from files.class_py.pokedex import Pokedex
 
 element = Element()
 screen = Screen()
+pokedex = Pokedex()
 
 class Menu:
     def __init__(self):
@@ -27,6 +29,14 @@ class Menu:
                     elif event.key == pygame.K_LEFT:
                         if c > 1:
                             c -= 1
+                    elif event.key == pygame.K_UP:
+                        c = 5
+                    elif event.key == pygame.K_DOWN and c == 5:
+                        c = 4
+                    elif event.key == pygame.K_RETURN:
+                        if c == 2:
+                            pokedex.show_pokedex()
+                            self.show_menu = False
 
             if self.show_home:
                 element.img_background(525, 350, 1244, 700, 'background')
@@ -37,7 +47,6 @@ class Menu:
 
             if self.show_menu:      
                 element.img(525, 350, 1244, 700, 'menu/backgroundmenu')
-                element.img(1000, 50, 50, 50, 'menu/settings')
                 if c == 1 : 
                     element.img(200, 550, 120, 120, 'menu/play')
                     element.texte(20,'Play',(255,255,255),200,630)
@@ -56,12 +65,18 @@ class Menu:
                 else: 
                     element.img(600, 550, 100, 100, 'menu/bag')
                     element.texte(16,'Bag',(0,0,0),600,620)
-                if c== 4:                 
+                if c == 4:                 
                     element.img(800, 550, 120, 120, 'menu/add_poke')
                     element.texte(20,'Add Pokemon',(255,255,255),800,630)
                 else:
                     element.img(800, 550, 100, 100, 'menu/add_poke')
                     element.texte(16,'Add Pokemon',(0,0,0),800,620)
+                if c == 5:
+                    element.img(990, 60, 100, 100, 'menu/settings')
+                    element.texte(17,'Settings',(255,255,255),990,120)
+                else:
+                    element.img(990, 60, 80, 80, 'menu/settings')
+                    element.texte(14,'Settings',(0,0,0),990,110)
                 screen.update()
 
 
