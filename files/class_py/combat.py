@@ -111,12 +111,12 @@ class Combat:
         # pokemon = self.apparition_pokemon()
         pass           
 
-    def test(self):
-        combat = Combat()
-        types_adversaires_random = combat.recuperer_pokemon_random()
-        puissances_adversaires_random = combat.recuperer_puissanceAdvers()
+    
+combat = Combat()
+types_adversaires_random = combat.recuperer_pokemon_random()
+puissances_adversaires_random = combat.recuperer_puissanceAdvers()
 
-        print("Types d'adversaires:", types_adversaires_random)
-        print("Puissances d'adversaires:", puissances_adversaires_random)
+print("Types d'adversaires:", types_adversaires_random)
+print("Puissances d'adversaires:", puissances_adversaires_random)
         
     
