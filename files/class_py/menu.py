@@ -12,6 +12,7 @@ class Menu:
         self.show_home = True
 
     def home(self):
+        c = 1
         while self.run:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -20,6 +21,13 @@ class Menu:
                 if event.type == pygame.KEYDOWN:
                     self.show_menu = True
                     self.show_home = False
+                    if event.key == pygame.K_RIGHT:
+                        if c < 4:
+                            c += 1
+                    elif event.key == pygame.K_LEFT:
+                        if c > 1:
+                            c -= 1
+
             if self.show_home:
                 element.img_background(525, 350, 1244, 700, 'background')
                 element.img(1000, 650, 70, 70,'pokeball')
@@ -29,9 +37,33 @@ class Menu:
 
             if self.show_menu:      
                 element.img(525, 350, 1244, 700, 'menu/backgroundmenu')
-                element.img(200, 550, 100, 100, 'menu/play')
-                element.img(400, 550, 100, 100, 'menu/pokedex')
-                element.img(600, 550, 100, 100, 'menu/bag')
-                element.img(800, 550, 100, 100, 'menu/add_poke')
+                element.img(1000, 50, 50, 50, 'menu/settings')
+                if c == 1 : 
+                    element.img(200, 550, 120, 120, 'menu/play')
+                    element.texte(20,'Play',(255,255,255),200,630)
+                else:
+                    element.img(200, 550, 100, 100, 'menu/play')
+                    element.texte(16,'Play',(0,0,0),200,620)
+                if c == 2:
+                    element.img(400, 550, 120, 120, 'menu/pokedex')
+                    element.texte(20,'Pokedex',(255,255,255),400,630)
+                else:
+                    element.img(400, 550, 100, 100, 'menu/pokedex')
+                    element.texte(16,'Pokedex',(0,0,0),400,620)
+                if c == 3:
+                    element.img(600, 550, 120, 120, 'menu/bag')
+                    element.texte(20,'Bag',(255,255,255),600,630)
+                else: 
+                    element.img(600, 550, 100, 100, 'menu/bag')
+                    element.texte(16,'Bag',(0,0,0),600,620)
+                if c== 4:                 
+                    element.img(800, 550, 120, 120, 'menu/add_poke')
+                    element.texte(20,'Add Pokemon',(255,255,255),800,630)
+                else:
+                    element.img(800, 550, 100, 100, 'menu/add_poke')
+                    element.texte(16,'Add Pokemon',(0,0,0),800,620)
                 screen.update()
-                print(self.show_menu)
+
+
+
+                    # element.simple_rect((255, 255, 255), 800, 550, 120, 120, 3)
