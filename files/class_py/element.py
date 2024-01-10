@@ -25,14 +25,9 @@ class Element:
         Texte_rect = Texte.get_rect(center=(x, y))
         screen.Fenetre.blit(Texte, Texte_rect)
 
-    def texte_glow(self, texte_size, texte_content,color, x, y):
-        Texte = pygame.font.Font('files/font/pokefont.ttf', texte_size).render(texte_content, True, color)
-        Texte_rect = Texte.get_rect(center=(x, y))
-        screen.Fenetre.blit(Texte, Texte_rect)
-
     def rect(self, x, y, largeur, longueur, Texte):
         menu_button_rect = pygame.Rect(x, y, largeur, longueur)
         menu_text = pygame.font.Font(None, 30).render(Texte, True, (210, 180, 222))
         menu_text_rect = menu_text.get_rect(center=menu_button_rect.center)
-        pygame.draw.rect(self.Fenetre, (69, 90, 100), menu_button_rect)
+        pygame.draw.rect(screen.Fenetre, (69, 90, 100), menu_button_rect)
         screen.Fenetre.blit(menu_text, menu_text_rect)

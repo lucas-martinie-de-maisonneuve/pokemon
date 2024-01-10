@@ -72,13 +72,13 @@ class Combat:
                 elif event.type == pygame.KEYDOWN:                                                                
                     if event.button == 1:
                         if click_on_attack:
-                            self.calcule_attack()
+                            self.fonction_attack()
                             pass
                         elif click_on_run:
-                            self.calcule_run() 
+                            self.fonction_run() 
                             pass
                         elif click_on_bag:
-                            self.calcule_bag()
+                            self.fonction_bag()
                             pass
                         elif click_on_pokedex:
                             # permet d'ouvir le pokedex
