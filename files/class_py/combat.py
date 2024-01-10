@@ -81,14 +81,13 @@ class Combat:
                             self.fonction_bag()
                             pass
                         elif click_on_pokedex:
-                            # permet d'ouvir le pokedex
-                            pass
-    
+                            self.ouvrir_pokedex()
+                            pass    
+
     def fonction_attack(self,sort1):        
         self.damage_sort1 = sort1        
         type_attack = self.recuperer_typeAdvers()
         pass
-
             
     def fonction_defense(self):
         pass
