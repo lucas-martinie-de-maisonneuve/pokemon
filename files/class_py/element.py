@@ -8,8 +8,8 @@ class Element:
         image = pygame.transform.scale(image, (largeur, hauteur))
         screen.Fenetre.blit(image, (x - image.get_width()//2, y - image.get_height()//2))
 
-    def img_poke(self, x, y, largeur, hauteur, poke_random):
-        image = pygame.image.load(poke_random)
+    def img_poke(self, x, y, largeur, hauteur):
+        image = pygame.image.load(self.img())
         image = pygame.transform.scale(image, (largeur, hauteur))
         screen.Fenetre.blit(image, (x - image.get_width()//2, y - image.get_height()//2))
     

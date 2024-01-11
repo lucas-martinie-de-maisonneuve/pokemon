@@ -25,13 +25,13 @@ class Pokedex:
         for pokemon in self.info_pokemon:
             self.pokeliste.append(pokemon)
         self.poke_random = random.choice(self.pokeliste)
-        print (self.poke_random)
+        return self.poke_random
         
     def info_rand_pokemon(self, data):
         self.info_pokemon = self.ouverture_pokemonjson()
         for pokemon in self.info_pokemon:
             if pokemon['nom'] == self.poke_random['nom']:
-                print(pokemon[data])
+                print(pokemon["nom"])
     
 pokedex = Pokedex()
 pokedex.rand_pokemon()
