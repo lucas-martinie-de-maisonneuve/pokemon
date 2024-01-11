@@ -14,9 +14,8 @@ class Combat:
     def ouverture_pokemonjson(self):
         with open('pokemon.json', 'r') as fichier:
             self.donnees_pokemon = json.load(fichier)
-            return self.donnees_pokemon
-    
-    # Pour le class combat, type            
+            return self.donnees_pokemon    
+              
     def rand_pokemon(self):
         self.info_pokemon = self.ouverture_pokemonjson()
         self.pokeliste = []
@@ -41,8 +40,7 @@ class Combat:
         self.button_attack = element.texte(12, "Attack", self.red, cadre_capacite/4, cadre_capacite/2)
         self.button_run = element.texte(12, "Run", self.green, cadre_capacite/2 - self.button_attack, cadre_capacite /2 - self.button_attack)
         self.button_bag = element.texte(12,"Bag", self.blue, cadre_capacite/4 - self.button_run, cadre_capacite/2 - self.button_attack)
-        self.button_pokedex = element.texte(12,"Pokedex", self.yellow, cadre_capacite/4 - self.button_bag, cadre_capacite/2 - self.button_run)
-        
+        self.button_pokedex = element.texte(12,"Pokedex", self.yellow, cadre_capacite/4 - self.button_bag, cadre_capacite/2 - self.button_run)        
     
     def capacites(self):
         click_on_attack = self.button_attack
@@ -101,14 +99,12 @@ class Combat:
     def recup_pokemonGagnant(self):
         # mon_pokemon = self.apparition_pokemon()
         # pokemon = self.apparition_pokemon()
-        pass           
-
+        pass
     
 combat = Combat()
-types_adversaires_random = combat.recuperer_pokemon_random()
-puissances_adversaires_random = combat.recuperer_puissanceAdvers()
+print(combat.rand_pokemon())
+print(combat.info_rand_pokemon('nom'))
 
-print("Types d'adversaires:", types_adversaires_random)
-print("Puissances d'adversaires:", puissances_adversaires_random)
+
         
     
