@@ -32,6 +32,8 @@ class Pokedex(Element):
 
     def show_pokedex(self):
         element.img(525,350,1050,743,'pokedex/background')
+        page = 1
+        # for pokemon in enumerate(self.info_pokemon[0:10]):
         for pokemon in self.info_pokemon:
             pokemon_name = pokemon['nom'].lower()
             element.texte(10, str(pokemon['numero']), (0,0,0), 30, 50+ pokemon['numero'] * 60)

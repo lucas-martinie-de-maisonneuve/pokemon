@@ -21,7 +21,8 @@ class Menu:
                     pygame.quit()
                     quit()
                 if event.type == pygame.KEYDOWN:
-                    self.show_menu = True
+                    if self.show_home :
+                        self.show_menu = True
                     self.show_home = False
                     if event.key == pygame.K_RIGHT:
                         if c < 4:
