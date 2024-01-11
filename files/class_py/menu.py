@@ -9,13 +9,13 @@ pokedex = Pokedex()
 
 class Menu:
     def __init__(self):
-        self.run = True
+        self.menu_run = True
         self.show_menu = False
         self.show_home = True
 
     def home(self):
         c = 1
-        while self.run:
+        while self.menu_run:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
@@ -24,17 +24,17 @@ class Menu:
                     if self.show_home :
                         self.show_menu = True
                     self.show_home = False
-                    if event.key == pygame.K_RIGHT:
+                    if event.key == pygame.K_RIGHT and self.show_menu:
                         if c < 4:
                             c += 1
-                    elif event.key == pygame.K_LEFT:
+                    elif event.key == pygame.K_LEFT and self.show_menu:
                         if c > 1:
                             c -= 1
-                    elif event.key == pygame.K_UP:
+                    elif event.key == pygame.K_UP and self.show_menu:
                         c = 5
-                    elif event.key == pygame.K_DOWN and c == 5:
+                    elif event.key == pygame.K_DOWN and c == 5 and self.show_menu:
                         c = 4
-                    elif event.key == pygame.K_RETURN:
+                    elif event.key == pygame.K_RETURN and self.show_menu:
                         if c == 2:
                             pokedex.show_pokedex()
                             self.show_menu = False
@@ -79,7 +79,5 @@ class Menu:
                     element.img(990, 60, 80, 80, 'menu/settings')
                     element.texte(14,'Settings',(0,0,0),990,110)
                 screen.update()
-
-
 
                     # element.simple_rect((255, 255, 255), 800, 550, 120, 120, 3)
