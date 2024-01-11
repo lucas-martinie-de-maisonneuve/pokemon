@@ -8,11 +8,11 @@ class Element:
         image = pygame.transform.scale(image, (largeur, hauteur))
         screen.Fenetre.blit(image, (x - image.get_width()//2, y - image.get_height()//2))
 
-    def img_color(self, x, y, largeur, hauteur, image_name):
-        image = pygame.image.load(f'files/image/{image_name}.png')
+    def img_poke(self, x, y, largeur, hauteur):
+        image = pygame.image.load(self.img())
         image = pygame.transform.scale(image, (largeur, hauteur))
         screen.Fenetre.blit(image, (x - image.get_width()//2, y - image.get_height()//2))
-
+    
     def img_mir(self, x, y, largeur, hauteur, image_name):
         image = pygame.image.load(f'files/image/{image_name}.png')
         image = pygame.transform.scale(image, (largeur, hauteur))
