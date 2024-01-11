@@ -102,8 +102,7 @@ class Combat:
         pass
     
 combat = Combat()
-print(combat.rand_pokemon())
-print(combat.info_rand_pokemon('nom'))
+
 
 
         
