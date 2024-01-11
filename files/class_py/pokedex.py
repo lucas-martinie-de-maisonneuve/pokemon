@@ -68,18 +68,34 @@ class Pokedex(Element):
     #         screen.update()
 
     def show_pokedex(self):
-        page_size = 9 
+        poke_choose = 1
+        while self.pokedex_run:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_RIGHT:
+                        if poke_choose < self.get_last_pokemon_number():
+                            poke_choose += 1
 
-        element.img(525, 350, 1050, 743, 'pokedex/background')
+                    elif event.key == pygame.K_LEFT:
+                        if poke_choose > 1:
+                            poke_choose -= 1
+            element.img(525, 350, 1050, 743, 'pokedex/background')
 
-        for i, pokemon in enumerate(self.info_pokemon):
-            column = i % page_size
-            row = i // page_size
+            for i, pokemon in enumerate(self.info_pokemon):
+                column = i % 9
+                row = i // 9
+                pokemon_name = pokemon['nom'].lower()
+                if pokemon['numero'] == poke_choose:
+                    element.img(75 + column * 110, 90 + row * 110, 110, 110, f'pokemon/{pokemon_name}')
+                    element.simple_rect((255,255,255),75 + column * 110, 90 + row * 110, 120, 120,3)
 
-            pokemon_name = pokemon['nom'].lower()
-            element.img(75 + column * 110, 90 + row * 110, 85, 85, f'pokemon/{pokemon_name}')
+                else:
+                    element.img(75 + column * 110, 90 + row * 110, 85, 85, f'pokemon/{pokemon_name}')
 
-        screen.update()
+            screen.update()
 
     
 # pokedex.rand_pokemon()
