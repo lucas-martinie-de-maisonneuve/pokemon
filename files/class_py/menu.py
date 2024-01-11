@@ -3,11 +3,13 @@ from files.class_py.screen import Screen
 from files.class_py.element import Element
 from files.class_py.pokedex import Pokedex
 from files.class_py.maps_combat import Maps
+from files.class_py.combat import Combat
 
 element = Element()
 screen = Screen()
 pokedex = Pokedex()
 maps = Maps()
+combat = Combat()
 
 class Menu:
     def __init__(self):
@@ -43,10 +45,14 @@ class Menu:
                     elif event.key == pygame.K_RETURN:
                         if c == 1:
                             maps.home()
+                            combat.afficher_capacite()
+                            combat.fonction_capacites()
                             self.show_menu = False
                         elif c == 2:
                             pokedex.show_pokedex()
                             self.show_menu = False
+                        elif c == 3:
+                            pokedex.ajout_pokemon()
 
             if self.show_home:
                 element.img_background(525, 350, 1244, 700, 'background')
