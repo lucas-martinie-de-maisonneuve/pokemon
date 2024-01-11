@@ -39,7 +39,7 @@ class Pokedex(Element):
             element.texte(10, str(pokemon['numero']), (0,0,0), 30, 50+ pokemon['numero'] * 60)
             element.texte(10, str(pokemon['nom']), (0,0,0), 80, 50+ pokemon['numero'] * 60)
             element.img(180, 50 + pokemon['numero'] * 60, 50, 50, f'pokemon/{pokemon_name}')
-            element.texte(10, f'Type : {str(pokemon['type'])}', (0,0,0), 230, 50+ pokemon['numero'] * 60)
+            element.texte(10, f"Type : {str(pokemon['type'])}", (0,0,0), 230, 50+ pokemon['numero'] * 60)
             print(pokemon['numero'], pokemon['nom'], pokemon['type'], pokemon['attaque'], pokemon['hp'])
             print (pokemon_name)
         screen.update()
