@@ -45,7 +45,6 @@ class Menu:
                     elif event.key == pygame.K_RETURN:
                         if c == 1:
                             maps.home()
-                            combat.afficher_capacite()
                             self.show_menu = False
                         elif c == 2:
                             pokedex.show_pokedex()
