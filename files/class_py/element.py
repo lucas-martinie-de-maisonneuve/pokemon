@@ -7,6 +7,11 @@ class Element:
         image = pygame.image.load(f'files/image/{image_name}.png')
         image = pygame.transform.scale(image, (largeur, hauteur))
         screen.Fenetre.blit(image, (x - image.get_width()//2, y - image.get_height()//2))
+
+    def img_poke(self, x, y, largeur, hauteur):
+        image = pygame.image.load(self.img())
+        image = pygame.transform.scale(image, (largeur, hauteur))
+        screen.Fenetre.blit(image, (x - image.get_width()//2, y - image.get_height()//2))
     
     def img_mir(self, x, y, largeur, hauteur, image_name):
         image = pygame.image.load(f'files/image/{image_name}.png')
@@ -31,3 +36,8 @@ class Element:
         menu_text_rect = menu_text.get_rect(center=menu_button_rect.center)
         pygame.draw.rect(screen.Fenetre, (69, 90, 100), menu_button_rect)
         screen.Fenetre.blit(menu_text, menu_text_rect)
+
+    def simple_rect(self, color, x, y, largeur, longueur, epaisseur):
+        pygame.draw.rect(screen.Fenetre, color, pygame.Rect(x - largeur //2, y - longueur //2, largeur, longueur),  epaisseur)
+        # pygame.draw.rect(screen.Fenetre, (0,0,0), pygame.Rect(200, 550, 120, 120),  2)
+

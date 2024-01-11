@@ -13,32 +13,22 @@ class Combat:
         
     def ouverture_pokemonjson(self):
         with open('pokemon.json', 'r') as fichier:
-            donnees_pokemon = json.load(fichier)
-            return donnees_pokemon
-    
-    def recuperer_typeAdvers(self):
-        info_pokemon = self.ouverture_pokemonjson()
-        types_pokemon = []
+            self.donnees_pokemon = json.load(fichier)
+            return self.donnees_pokemon    
+              
+    def rand_pokemon(self):
+        self.info_pokemon = self.ouverture_pokemonjson()
+        self.pokeliste = []
+        for pokemon in self.info_pokemon:
+            self.pokeliste.append(pokemon)
+        self.poke_random = random.choice(self.pokeliste)
+        print (self.poke_random)
         
-        for pokemon in info_pokemon:
-            types_pokemon.append(pokemon["type"])
-        
-        return random.choice(types_pokemon)
-            
-    def recuperer_puissanceAdvers(self):
-        donnee_puissanceAdvers = self.ouverture_pokemonjson()
-        puissances_adversaires = [] 
-        
-        for puissance in donnee_puissanceAdvers:
-            puissance_adversaire = {
-                "attaque": puissance["attaque"],
-                "hp": puissance["hp"],
-                "def": puissance["def"],
-                "vitesse": puissance["vitesse"]
-            }
-            puissances_adversaires.append(puissance_adversaire)
-        
-        return random.choice(puissances_adversaires)
+    def info_rand_pokemon(self, data):
+        self.info_pokemon = self.ouverture_pokemonjson()
+        for pokemon in self.info_pokemon:
+            if pokemon['nom'] == self.poke_random['nom']:
+                print(pokemon[data])
     
     def afficher_capacite(self):
         self.red = (247, 7, 7)
@@ -50,8 +40,7 @@ class Combat:
         self.button_attack = element.texte(12, "Attack", self.red, cadre_capacite/4, cadre_capacite/2)
         self.button_run = element.texte(12, "Run", self.green, cadre_capacite/2 - self.button_attack, cadre_capacite /2 - self.button_attack)
         self.button_bag = element.texte(12,"Bag", self.blue, cadre_capacite/4 - self.button_run, cadre_capacite/2 - self.button_attack)
-        self.button_pokedex = element.texte(12,"Pokedex", self.yellow, cadre_capacite/4 - self.button_bag, cadre_capacite/2 - self.button_run)
-        
+        self.button_pokedex = element.texte(12,"Pokedex", self.yellow, cadre_capacite/4 - self.button_bag, cadre_capacite/2 - self.button_run)        
     
     def capacites(self):
         click_on_attack = self.button_attack
@@ -81,14 +70,13 @@ class Combat:
                             self.fonction_bag()
                             pass
                         elif click_on_pokedex:
-                            # permet d'ouvir le pokedex
-                            pass
-    
+                            self.ouvrir_pokedex()
+                            pass    
+
     def fonction_attack(self,sort1):        
         self.damage_sort1 = sort1        
-        type_attack = self.recuperer_typeAdvers()
+        # type_attack = self.recuperer_typeAdvers()
         pass
-
             
     def fonction_defense(self):
         pass
@@ -109,13 +97,14 @@ class Combat:
         pass
     
     def recup_pokemonGagnant(self):
-        mon_pokemon = self.apparition_pokemon()
-        pokemon = self.apparition_pokemon()
-        pass           
-
+        # mon_pokemon = self.apparition_pokemon()
+        # pokemon = self.apparition_pokemon()
+        pass
+    
 combat = Combat()
-types_adversaires_random = combat.recuperer_typeAdvers()
-puissances_adversaires_random = combat.recuperer_puissanceAdvers()
+print(combat.rand_pokemon())
+print(combat.info_rand_pokemon('nom'))
 
-print("Types d'adversaires:", types_adversaires_random)
-print("Puissances d'adversaires:", puissances_adversaires_random)
+
+        
+    
