@@ -2,7 +2,7 @@ import json
 import random
 from files.class_py.element import Element
 from files.class_py.screen import Screen
-from main import pygame
+import pygame
 
 element = Element()
 screen = Screen()
