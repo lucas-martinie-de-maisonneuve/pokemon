@@ -46,11 +46,9 @@ class Pokedex(Element):
         screen.update()
         
     def ajout_pokemon(self, nom, numero_actuelle):        
-        try:
-            # Assurez-vous que la méthode ouverture_pokemonjson() existe dans la classe combat
+        try:  
             pokemon_existants = combat.ouverture_pokemonjson()
         except FileNotFoundError:
-            # Si le fichier n'existe pas encore, initialisez la liste à vide
             pokemon_existants = []
 
         nouveau_pokemon = {

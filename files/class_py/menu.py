@@ -46,7 +46,6 @@ class Menu:
                         if c == 1:
                             maps.home()
                             combat.afficher_capacite()
-                            combat.fonction_capacites()
                             self.show_menu = False
                         elif c == 2:
                             pokedex.show_pokedex()
