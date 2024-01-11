@@ -26,7 +26,7 @@ class Maps:
                     pygame.quit()
                     quit()
             element.img(525, 350, 1244, 700,'fight_background')
-            element.img_mir(300, 550, 150, 150, f'pokemon/{img_poke2}')                    
-            element.img(700, 400, 150, 150, f"pokemon/{img_poke}")
+            element.img_mir(300, 550, 150, 180, f'pokemon/{img_poke2}')                    
+            element.img(700, 400, 150, 180, f"pokemon/{img_poke}")
             screen.update()
                 
