@@ -79,12 +79,12 @@ class Pokedex(Element):
                 for pokemon in self.info_pokemon:
                     if poke_choose == pokemon['numero']:
                         element.img(525, 350, 800, 600, 'pokedex/pokedex')
-                        element.img(320, 360, 300, 300, f'pokemon/{pokemon['nom']}')
+                        element.img(320, 360, 300, 300, f"pokemon/{pokemon['nom']}")
                         # element.img(750, 300, 300, 300, f'pokemon/{pokemon['type']}')
-                        element.texte(20, f'Num {pokemon['numero']} - {pokemon['nom']}', (0,0,0), 750, 350)
-                        element.texte(20, f'HP : {pokemon['hp']}', (0,0,0), 720, 400)
-                        element.texte(20, f'Atq : {pokemon['attaque']}', (0,0,0), 720, 450)
-                        element.texte(20, f'Def : {pokemon['def']}', (0,0,0), 720, 500)
+                        element.texte(20, f"Num {pokemon['numero']} - {pokemon['nom']}", (0,0,0), 750, 350)
+                        element.texte(20, f"HP : {pokemon['hp']}", (0,0,0), 720, 400)
+                        element.texte(20, f"Atq : {pokemon['attaque']}", (0,0,0), 720, 450)
+                        element.texte(20, f"Def : {pokemon['def']}", (0,0,0), 720, 500)
                         screen.update()
         
 
