@@ -3,7 +3,6 @@ import random
 import pygame
 from files.class_py.element import Element
 from files.class_py.screen import Screen
-from files.class_py.combat import Combat
 
 class Pokedex(Element):
     def __init__(self):
@@ -25,19 +24,17 @@ class Pokedex(Element):
         for info_pokemon in self.info_pokemon:
             self.pokemon_liste(info_pokemon[data])  
             print (info_pokemon[data])
-### Choix pokemon pour combat #####
-    def rand_pokemon(self):
+
+    def rand_pokemon(self,data):
         self.pokeliste = []
         for pokemon in self.info_pokemon:
             self.pokeliste.append(pokemon)
         self.poke_random = random.choice(self.pokeliste)
-        return self.poke_random
-        print (self.poke_random)
 
-    def info_rand_pokemon(self, data):
         for pokemon in self.info_pokemon:
             if pokemon['nom'] == self.poke_random['nom']:
-                print(pokemon[data])
+                print (pokemon[data])
+                return pokemon[data]
 
     def show_pokedex(self):
         poke_choose = 1
@@ -90,37 +87,10 @@ class Pokedex(Element):
                         element.texte(20, f'Def : {pokemon['def']}', (0,0,0), 720, 500)
                         screen.update()
         
-    def ajout_pokemon(self, nom, numero_actuelle):        
-        try:  
-            pokemon_existants = combat.ouverture_pokemonjson()
-        except FileNotFoundError:
-            pokemon_existants = []
 
-        nouveau_pokemon = {
-            "numero": numero_actuelle + 1,
-            "nom": nom,
-            "evol": 1,
-            "type": "feu",
-            "debut": 1,
-            "fin": None,
-            "attaque": None,
-            "hp": None,
-            "def": None,
-            "vitesse": None
-        }
-        
-        pokemon_existants.append(nouveau_pokemon)
-        
-        with open('pokemon.json', 'w') as fichier:
-            json.dump(pokemon_existants, fichier)
-
-        return nouveau_pokemon
-
-# pokedex.rand_pokemon()
 # pokedex.info_rand_pokemon('type')
 # pokedex.info_rand_pokemon('debut')
 pokedex = Pokedex()
 element = Element()
 screen = Screen()
-combat = Combat()
 # pokedex.show_pokedex()
