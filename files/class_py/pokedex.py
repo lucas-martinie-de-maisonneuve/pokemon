@@ -1,6 +1,7 @@
 import json
 import random
 import pygame
+import pygame
 from files.class_py.element import Element
 from files.class_py.screen import Screen
 
@@ -14,6 +15,11 @@ class Pokedex(Element):
         with open('pokemon.json', 'r') as fichier:
             self.donnees_pokemon = json.load(fichier)
             return self.donnees_pokemon
+        
+    def get_last_pokemon_number(self):
+        last_pokemon = self.info_pokemon[-1]
+        return last_pokemon['numero']
+    
         
     def get_last_pokemon_number(self):
         last_pokemon = self.info_pokemon[-1]
