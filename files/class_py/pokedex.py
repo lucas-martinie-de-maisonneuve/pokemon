@@ -85,10 +85,10 @@ class Pokedex(Element):
                 element.img(525, 350, 1050, 743, 'pokedex/background')
                 for pokemon in self.info_pokemon:
                     if poke_choose == pokemon['numero']:
-                        element.img(320,365, 340 ,360, f'pokedex/bg.{pokemon['type']}')
+                        element.img(320,365, 340 ,360, f"pokedex/bg.{pokemon['type']}")
                         element.img(525, 350, 800, 600, 'pokedex/pokedex')
                         element.img(320, 360, 300, 300, f"pokemon/{pokemon['nom']}")
-                        element.img(750, 280, 150, 150, f'pokedex/{pokemon['type']}')
+                        element.img(750, 280, 150, 150, f"pokedex/{pokemon['type']}")
                         element.texte(18, f"Num {pokemon['numero']} - {pokemon['nom']}", (0,0,0), 750, 380)
                         element.texte(18, f"HP : {pokemon['hp']}", (0,0,0), 720, 430)
                         element.texte(18, f"Atq : {pokemon['attaque']}", (0,0,0), 720, 480)
