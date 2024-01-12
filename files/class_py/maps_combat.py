@@ -48,14 +48,14 @@ class Maps:
                         elif self.action == 3:
                             pass
                         elif self.action == 4:
-                            pokedex.show_pokedex()
                             pokedex.pokedex_run = True
+                            pokedex.show_pokedex()
                             
             element.img(525, 200, 1244, 700,"combat/fight_background")
-            element.button_rect(element.brown,525,650,screen.W,215)            
-            element.img_mir(300, 375, 150, 180, f"pokemon/{img_poke}")                    
-            element.img(660, 225, 150, 180, f"pokemon/{img_poke2}")
+            element.img_mir(250, 325, 350, 350, f"pokemon/{img_poke}")                    
+            element.img(725, 225, 175, 175, f"pokemon/{img_poke2}")
             # combat.afficher_capacite()
+            element.button_rect(element.brown,525,650,screen.W,210)            
             element.img(300, 625, 470, 150, "combat/background_texte")           
             element.img(850, 625, 399, 150,"combat/zone_texte")
             element.texte(20, "What do you mean ?", element.black, 300, 625)
@@ -73,25 +73,25 @@ class Maps:
             element.simple_rect(element.yellow, 945,650,135,35,2)
 
             if self.action == 1 :
-                self.button_attack = element.texte(19, "Attack", element.white, 765, 600)
-                element.img(675, 600, 15, 15, f"combat/arrow")
+                self.button_attack = element.texte(19, "ATTACK", element.white, 765, 600)
+                element.img(680, 600, 15, 15, f"combat/arrow")
             else:
-                self.button_attack = element.texte(18, "Attack", element.black, 765, 600)
+                self.button_attack = element.texte(18, "ATTACK", element.black, 765, 600)
             if self.action == 2 :
-                self.button_run = element.texte(19, "Flee", element.white, 945 , 600)
-                element.img(855, 600, 15, 15, f"combat/arrow")
+                self.button_run = element.texte(19, "RUN", element.white, 945 , 600)
+                element.img(860, 600, 15, 15, f"combat/arrow")
             else:
-                self.button_run = element.texte(18, "Flee", element.black, 945 , 600)
+                self.button_run = element.texte(18, "RUN", element.black, 945 , 600)
             if self.action == 3 :
-                self.button_bag = element.texte(19,"Bag", element.white, 765, 650)
-                element.img(675, 650, 15, 15, f"combat/arrow")
+                self.button_bag = element.texte(19,"ITEMS", element.white, 765, 650)
+                element.img(680, 650, 15, 15, f"combat/arrow")
             else:
-                self.button_bag = element.texte(18,"Bag", element.black, 765, 650)
+                self.button_bag = element.texte(18,"ITEMS", element.black, 765, 650)
             if self.action ==4 :
-                self.button_pokedex = element.texte(19,"Pokedex", element.white, 945, 650)
-                element.img(855, 650, 15, 15, f"combat/arrow")
+                self.button_pokedex = element.texte(19,"POKEDEX", element.white, 945, 650)
+                element.img(860, 650, 15, 15, f"combat/arrow")
             else:
-                self.button_pokedex = element.texte(18,"Pokedex", element.black, 945, 650)
+                self.button_pokedex = element.texte(18,"POKEDEX", element.black, 945, 650)
 
             screen.update()
             

@@ -30,7 +30,6 @@ class Pokedex(Element):
         self.pokemon_liste = []
         for info_pokemon in self.info_pokemon:
             self.pokemon_liste(info_pokemon[data])  
-            print (info_pokemon[data])
 
     def rand_pokemon(self,data):
         self.pokeliste = []
@@ -40,7 +39,6 @@ class Pokedex(Element):
 
         for pokemon in self.info_pokemon:
             if pokemon['nom'] == self.poke_random['nom']:
-                print (pokemon[data])
                 return pokemon[data]
 
      
@@ -53,13 +51,11 @@ class Pokedex(Element):
                     quit()
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_RIGHT:
-                        print (poke_choose)
                         if poke_choose < self.get_last_pokemon_number() +1:
                             poke_choose += 1
                         if poke_choose == self.get_last_pokemon_number() +1:
                             poke_choose = 1
                     elif event.key == pygame.K_LEFT:
-                        print (poke_choose)
                         if poke_choose > 0:
                             poke_choose -= 1
                         if poke_choose == 0:
@@ -101,9 +97,9 @@ class Pokedex(Element):
                         element.img(320, 360, 300, 300, f"pokemon/{pokemon['nom']}")
                         element.img(750, 280, 150, 150, f"pokedex/{pokemon['type']}")
                         element.texte(18, f"Num {pokemon['numero']} - {pokemon['nom']}", (0,0,0), 750, 380)
-                        element.texte(18, f"HP : {pokemon['hp']}", (0,0,0), 720, 430)
-                        element.texte(18, f"Atq : {pokemon['attaque']}", (0,0,0), 720, 480)
-                        element.texte(18, f"Def : {pokemon['def']}", (0,0,0), 720, 530)
+                        element.texte(18, f"HP : {pokemon['hp']}", (0,0,0), 750, 430)
+                        element.texte(18, f"Atq : {pokemon['attaque']}", (0,0,0), 750, 480)
+                        element.texte(18, f"Def : {pokemon['def']}", (0,0,0), 750, 530)
                         screen.update()
         
 

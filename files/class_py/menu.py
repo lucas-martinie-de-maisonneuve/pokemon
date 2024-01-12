@@ -43,8 +43,8 @@ class Menu:
                             maps.home()
                             self.show_menu = False
                         elif c == 2:
-                            pokedex.show_pokedex()
                             pokedex.pokedex_run = True
+                            pokedex.show_pokedex()
                         elif c == 4:
                             maps.starter()
                             self.show_menu = False
