@@ -28,10 +28,6 @@ class Menu:
                     if self.show_home:
                         self.show_menu = True
                     self.show_home = False
-                    if event.key == pygame.K_ESCAPE or pygame.K_DELETE:
-                        self.show_menu = True
-                        self.show_home = False
-                        
                     if event.key == pygame.K_RIGHT:
                         if c < 4:
                             c += 1
@@ -48,7 +44,7 @@ class Menu:
                             self.show_menu = False
                         elif c == 2:
                             pokedex.show_pokedex()
-                            self.show_menu = False
+                            pokedex.pokedex_run = True
                         # elif c == 4:
                             # pokedex.ajout_pokemon()
 
