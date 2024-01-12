@@ -18,14 +18,14 @@ class Menu:
         self.show_home = True
 
     def home(self):
-        c = 1
+        c = 0
         while self.run:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     quit()
                 if event.type == pygame.KEYDOWN:
-                    if self.show_home :
+                    if self.show_home:
                         self.show_menu = True
                     self.show_home = False
                     if event.key == pygame.K_ESCAPE or pygame.K_DELETE:
