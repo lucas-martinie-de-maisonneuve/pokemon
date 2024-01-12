@@ -2,10 +2,14 @@ import pygame
 from files.class_py.screen import Screen
 from files.class_py.element import Element
 from files.class_py.pokedex import Pokedex
+from files.class_py.maps_combat import Maps
+from files.class_py.combat import Combat
 
 element = Element()
 screen = Screen()
 pokedex = Pokedex()
+maps = Maps()
+combat = Combat()
 
 class Menu:
     def __init__(self):
@@ -14,17 +18,21 @@ class Menu:
         self.show_home = True
 
     def home(self):
-        c = 1
-        while self.menu_run:
+        c = 0
+        while self.run:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     quit()
                 if event.type == pygame.KEYDOWN:
-                    if self.show_home :
+                    if self.show_home:
                         self.show_menu = True
                     self.show_home = False
-                    if event.key == pygame.K_RIGHT and self.show_menu:
+                    if event.key == pygame.K_ESCAPE or pygame.K_DELETE:
+                        self.show_menu = True
+                        self.show_home = False
+                        
+                    if event.key == pygame.K_RIGHT:
                         if c < 4:
                             c += 1
                     elif event.key == pygame.K_LEFT and self.show_menu:
@@ -34,10 +42,15 @@ class Menu:
                         c = 5
                     elif event.key == pygame.K_DOWN and c == 5 and self.show_menu:
                         c = 4
-                    elif event.key == pygame.K_RETURN and self.show_menu:
-                        if c == 2:
+                    elif event.key == pygame.K_RETURN:
+                        if c == 1:
+                            maps.home()
+                            self.show_menu = False
+                        elif c == 2:
                             pokedex.show_pokedex()
                             self.show_menu = False
+                        # elif c == 4:
+                            # pokedex.ajout_pokemon()
 
             if self.show_home:
                 element.img_background(525, 350, 1244, 700, 'background')
