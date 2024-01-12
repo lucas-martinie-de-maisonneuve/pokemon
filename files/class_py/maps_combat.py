@@ -28,9 +28,9 @@ class Maps:
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     quit()
-            element.img(525, 350, 1244, 700,'fight_background')
-            element.img_mir(300, 550, 150, 180, f'pokemon/{img_poke2}')                    
-            element.img(700, 400, 150, 180, f"pokemon/{img_poke}")
+            element.img(525, 200, 1244, 700,'fight_background')
+            element.img_mir(330, 400, 180, 180, f'pokemon/{img_poke2}')                    
+            element.img(665, 225, 180, 180, f"pokemon/{img_poke}")
             # combat.afficher_capacite()
             element.rect(screen.W -200,screen.H,1000,200," //")
             self.button_attack = element.texte(12, "Attack", self.red, 900, 600)
