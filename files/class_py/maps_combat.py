@@ -34,9 +34,9 @@ class Maps:
             self.button_pokedex = element.texte(18,"Pokedex", element.yellow, 950, 650) 
             screen.update()
 
-légendaire
-maps
-vol
+# légendaire
+# maps
+# vol
 #### a placer au dessus des éléments pokémon ####
 # if poke_rand["type"] == vol:
 
@@ -49,7 +49,7 @@ vol
 # if poke_rand["type"] == eau
 #   element.img(525, 200, 1244, 700,'combat/fight_background_eau')
 
-maps foret
-maps eau
-maps magma
-maps arena
+# maps foret
+# maps eau
+# maps magma
+# maps arena
