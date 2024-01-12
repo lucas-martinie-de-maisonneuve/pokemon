@@ -6,12 +6,7 @@ import random
 
 class Maps:
     def __init__(self):
-        self.run = True
-        self.red = (247, 7, 7)
-        self.blue = (0, 8, 255)
-        self.green = (35, 247, 7)
-        self.yellow = (244, 244, 9)
-        self.purple = (207, 7, 247)
+        self.run = True        
     def home(self):
         element = Element()
         screen = Screen()
