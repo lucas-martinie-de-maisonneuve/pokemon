@@ -47,14 +47,16 @@ class Pokedex(Element):
                     quit()
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_RIGHT:
-                        if poke_choose < self.get_last_pokemon_number():
+                        print (poke_choose)
+                        if poke_choose < self.get_last_pokemon_number() +1:
                             poke_choose += 1
-                        if poke_choose == self.get_last_pokemon_number():
+                        if poke_choose == self.get_last_pokemon_number() +1:
                             poke_choose = 1
                     elif event.key == pygame.K_LEFT:
-                        if poke_choose > 1:
+                        print (poke_choose)
+                        if poke_choose > 0:
                             poke_choose -= 1
-                        if poke_choose == 1:
+                        if poke_choose == 0:
                             poke_choose = self.get_last_pokemon_number()
                     elif event.key == pygame.K_UP:
                         if poke_choose > 9:
