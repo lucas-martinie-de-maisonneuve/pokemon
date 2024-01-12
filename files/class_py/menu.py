@@ -19,7 +19,7 @@ class Menu:
 
     def home(self):
         c = 0
-        while self.run:
+        while self.menu_run:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
