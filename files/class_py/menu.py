@@ -27,7 +27,7 @@ class Menu:
                 if event.type == pygame.KEYDOWN:
                     if self.show_home:
                         self.show_menu = True
-                    self.show_home = False
+                    self.show_home = False                    
                     if event.key == pygame.K_RIGHT:
                         if c < 4:
                             c += 1
