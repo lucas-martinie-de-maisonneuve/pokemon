@@ -24,8 +24,8 @@ class Maps:
                     pygame.quit()
                     quit()
             element.img(525, 200, 1244, 700,'combat/fight_background')
-            element.img_mir(300, 550, 150, 180, f'pokemon/{img_poke2}')                    
-            element.img(700, 400, 150, 180, f"pokemon/{img_poke}")
+            element.img_mir(300, 375, 150, 180, f'pokemon/{img_poke}')                    
+            element.img(660, 225, 150, 180, f"pokemon/{img_poke2}")
             # combat.afficher_capacite()
             element.img(850, 625, 399, 150,'combat/zone_texte')
             element.rect(screen.W -200,screen.H,1000,200," //")
@@ -34,3 +34,23 @@ class Maps:
             self.button_bag = element.texte(18,"Bag", element.blue, 750, 650)
             self.button_pokedex = element.texte(18,"Pokedex", element.yellow, 950, 650) 
             screen.update()
+
+légendaire
+maps
+vol
+#### a placer au dessus des éléments pokémon ####
+# if poke_rand["type"] == vol:
+
+#   if img_poke:
+#       element.img(660, 265, 150, 180, f"pokemon/{img_poke}")
+#    elif img_poke2:
+#        element.img_mir(300, 35, 150, 180, f'pokemon/{img_poke2}')
+
+#### ####
+# if poke_rand["type"] == eau
+#   element.img(525, 200, 1244, 700,'combat/fight_background_eau')
+
+maps foret
+maps eau
+maps magma
+maps arena

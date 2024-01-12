@@ -28,7 +28,6 @@ class Combat:
         for pokemon in self.info_pokemon:
             self.pokeliste.append(pokemon)
         self.poke_random = random.choice(self.pokeliste)
-        print (self.poke_random)
         
     def info_rand_pokemon(self, data):
         self.info_pokemon = self.ouverture_pokemonjson()
