@@ -4,18 +4,20 @@ from files.class_py.element import Element
 # from files.class_py.combat import Combat
 import random
 
+element = Element()
+screen = Screen()
+# combat = Combat()
+
 class Maps:
     def __init__(self):
         self.run = True
+        
     def home(self):
-        element = Element()
-        screen = Screen()
-        # combat = Combat()
+        
+        self.pokemon_liste = ["salameche", "reptincelle", "dracaufeu", "bulbizarre", "herbizarre", "florizarre", "carapuce", "carabaffe", "tortank", "pikachu", "raichu", "chenipotte", "blindalys", "papinox", "canarticho", "racaillou", "gravalanch", "grolem", "evoli", "aquali", "voltali", "pyroli", "phyllali", "tauros", "kangourex", "elektek", "magmar", "scarabrute", "magicarpe", "leviator", "grainipiot", "pifeuil", "tengalice", "roucool", "roucoups", "roucarnage", "goupix", "fenard", "sabelette", "sablaireau", "osselait", "ossatueur", "insecateur", "magneti", "artikodin", "electhor", "sulfura", "kyogre", "groudon", "rayquaza"]
 
-        pokemon_liste = ["salameche", "reptincelle", "dracaufeu", "bulbizarre", "herbizarre", "florizarre", "carapuce", "carabaffe", "tortank", "pikachu", "raichu", "chenipotte", "blindalys", "papinox", "canarticho", "racaillou", "gravalanch", "grolem", "evoli", "aquali", "voltali", "pyroli", "phyllali", "tauros", "kangourex", "elektek", "magmar", "scarabrute", "magicarpe", "leviator", "grainipiot", "pifeuil", "tengalice", "roucool", "roucoups", "roucarnage", "goupix", "fenard", "sabelette", "sablaireau", "osselait", "ossatueur", "insecateur", "magneti", "artikodin", "electhor", "sulfura", "kyogre", "groudon", "rayquaza"]
-
-        img_poke = random.choice(pokemon_liste)
-        img_poke2 = random.choice(pokemon_liste)
+        img_poke = random.choice(self.pokemon_liste)
+        img_poke2 = random.choice(self.pokemon_liste)
 
         while self.run :
             for event in pygame.event.get():
@@ -44,3 +46,16 @@ class Maps:
             element.simple_rect(element.black, 940,650,125,35,1)
             self.button_pokedex = element.texte(18,"Pokedex", element.black, 940, 650)
             screen.update()
+            
+    def starter(self):
+        img_salameche_starter = self.pokemon_liste[0]
+        img_carapuce_starter = self.pokemon_liste[6]
+        img_bulbi_starter = self.pokemon_liste[4]
+        
+        element.img(525, 200, 1244, 700, " ")
+        element.texte(23, "Choisissez un Pokémon (1, 2 ou 3)")
+        element.img(423, 325, 150, 180, f"pokemon/{img_salameche_starter}")
+        element.img(423, 325, 150, 180, f"pokemon/{img_carapuce_starter}")
+        element.img(423, 325, 150, 180, f"pokemon/{img_bulbi_starter}")
+        screen.update()
+        
