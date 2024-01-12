@@ -48,14 +48,17 @@ class Maps:
             screen.update()
             
     def starter(self):
-        img_salameche_starter = self.pokemon_liste[0]
-        img_carapuce_starter = self.pokemon_liste[6]
-        img_bulbi_starter = self.pokemon_liste[4]
         
-        element.img(525, 200, 1244, 700, "starter/sac_starter")
-        element.texte(23, "Choisissez un Pokémon (1, 2 ou 3)")
-        element.img(423, 325, 150, 180, f"pokemon/{img_salameche_starter}")
-        element.img(423, 325, 150, 180, f"pokemon/{img_carapuce_starter}")
-        element.img(423, 325, 150, 180, f"pokemon/{img_bulbi_starter}")
+        self.pokemon_liste = ["salameche", "reptincelle", "dracaufeu", "bulbizarre", "herbizarre", "florizarre", "carapuce", "carabaffe", "tortank", "pikachu", "raichu", "chenipotte", "blindalys", "papinox", "canarticho", "racaillou", "gravalanch", "grolem", "evoli", "aquali", "voltali", "pyroli", "phyllali", "tauros", "kangourex", "elektek", "magmar", "scarabrute", "magicarpe", "leviator", "grainipiot", "pifeuil", "tengalice", "roucool", "roucoups", "roucarnage", "goupix", "fenard", "sabelette", "sablaireau", "osselait", "ossatueur", "insecateur", "magneti", "artikodin", "electhor", "sulfura", "kyogre", "groudon", "rayquaza"]
+        
+        img_salameche_starter = self.pokemon_liste[0]
+        img_bulbi_starter = self.pokemon_liste[3]
+        img_carapuce_starter = self.pokemon_liste[6]
+        
+        element.img(525, 350, 854, 550, "starter/sac_starter")
+        element.texte(23, "Choisissez un Pokémon (1, 2 ou 3)", element.white, 525, 190)
+        element.img(215, 310, 180, 180, f"pokemon/{img_salameche_starter}")
+        element.img(515, 418, 180, 180, f"pokemon/{img_bulbi_starter}")
+        element.img(805, 310, 180, 180, f"pokemon/{img_carapuce_starter}")
         screen.update()
         
