@@ -36,6 +36,7 @@ class Pokedex(Element):
                 print (pokemon[data])
                 return pokemon[data]
 
+     
     def show_pokedex(self):
         poke_choose = 1
         detailed_pokemon = False
@@ -46,11 +47,17 @@ class Pokedex(Element):
                     quit()
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_RIGHT:
-                        if poke_choose < self.get_last_pokemon_number():
+                        print (poke_choose)
+                        if poke_choose < self.get_last_pokemon_number() +1:
                             poke_choose += 1
+                        if poke_choose == self.get_last_pokemon_number() +1:
+                            poke_choose = 1
                     elif event.key == pygame.K_LEFT:
-                        if poke_choose > 1:
+                        print (poke_choose)
+                        if poke_choose > 0:
                             poke_choose -= 1
+                        if poke_choose == 0:
+                            poke_choose = self.get_last_pokemon_number()
                     elif event.key == pygame.K_UP:
                         if poke_choose > 9:
                             poke_choose -= 9
@@ -78,13 +85,14 @@ class Pokedex(Element):
                 element.img(525, 350, 1050, 743, 'pokedex/background')
                 for pokemon in self.info_pokemon:
                     if poke_choose == pokemon['numero']:
+                        element.img(320,365, 340 ,360, f'pokedex/bg.{pokemon['type']}')
                         element.img(525, 350, 800, 600, 'pokedex/pokedex')
                         element.img(320, 360, 300, 300, f"pokemon/{pokemon['nom']}")
-                        # element.img(750, 300, 300, 300, f'pokemon/{pokemon['type']}')
-                        element.texte(20, f"Num {pokemon['numero']} - {pokemon['nom']}", (0,0,0), 750, 350)
-                        element.texte(20, f"HP : {pokemon['hp']}", (0,0,0), 720, 400)
-                        element.texte(20, f"Atq : {pokemon['attaque']}", (0,0,0), 720, 450)
-                        element.texte(20, f"Def : {pokemon['def']}", (0,0,0), 720, 500)
+                        element.img(750, 280, 150, 150, f'pokedex/{pokemon['type']}')
+                        element.texte(18, f"Num {pokemon['numero']} - {pokemon['nom']}", (0,0,0), 750, 380)
+                        element.texte(18, f"HP : {pokemon['hp']}", (0,0,0), 720, 430)
+                        element.texte(18, f"Atq : {pokemon['attaque']}", (0,0,0), 720, 480)
+                        element.texte(18, f"Def : {pokemon['def']}", (0,0,0), 720, 530)
                         screen.update()
         
 

@@ -28,7 +28,6 @@ class Maps:
             element.img(660, 225, 150, 180, f"pokemon/{img_poke2}")
             # combat.afficher_capacite()
             element.img(850, 625, 399, 150,'combat/zone_texte')
-            element.rect(screen.W -200,screen.H,1000,200," //")
             self.button_attack = element.texte(18, "Attack", element.red, 750, 600)
             self.button_run = element.texte(18, "Flee", element.green, 950 , 600)
             self.button_bag = element.texte(18,"Bag", element.blue, 750, 650)
