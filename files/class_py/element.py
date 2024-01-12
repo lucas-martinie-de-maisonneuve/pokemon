@@ -3,6 +3,13 @@ from files.class_py.screen import Screen
 screen = Screen()
 
 class Element:
+    def __init__(self):
+        self.red = (247, 7, 7)
+        self.blue = (0, 8, 255)
+        self.green = (35, 247, 7)
+        self.yellow = (244, 244, 9)
+        self.purple = (207, 7, 247)
+
     def img(self, x, y, largeur, hauteur, image_name):
         image = pygame.image.load(f'files/image/{image_name}.png')
         image = pygame.transform.scale(image, (largeur, hauteur))
@@ -41,3 +48,5 @@ class Element:
         pygame.draw.rect(screen.Fenetre, color, pygame.Rect(x - largeur //2, y - longueur //2, largeur, longueur),  epaisseur)
         # pygame.draw.rect(screen.Fenetre, (0,0,0), pygame.Rect(200, 550, 120, 120),  2)
 
+    def button_rect(self, color, x, y, longueur, largeur):
+        pygame.draw.rect(screen.Fenetre, color, pygame.Rect(x - longueur//2, y - largeur//2, longueur, largeur),  0, 4)

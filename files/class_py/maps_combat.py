@@ -7,11 +7,6 @@ import random
 class Maps:
     def __init__(self):
         self.run = True
-        self.red = (247, 7, 7)
-        self.blue = (0, 8, 255)
-        self.green = (35, 247, 7)
-        self.yellow = (244, 244, 9)
-        self.purple = (207, 7, 247)
     def home(self):
         element = Element()
         screen = Screen()
@@ -28,14 +23,13 @@ class Maps:
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     quit()
-            element.img(525, 350, 1244, 700,'fight_background')
+            element.img(525, 200, 1244, 700,'fight_background')
             element.img_mir(300, 550, 150, 180, f'pokemon/{img_poke2}')                    
             element.img(700, 400, 150, 180, f"pokemon/{img_poke}")
             # combat.afficher_capacite()
             element.rect(screen.W -200,screen.H,1000,200," //")
-            self.button_attack = element.texte(12, "Attack", self.red, 900, 600)
-            self.button_run = element.texte(12, "Flee", self.green, 950 , 600)
-            self.button_bag = element.texte(12,"Bag", self.blue, 900, 650)
-            self.button_pokedex = element.texte(12,"Pokedex", self.yellow, 950, 650) 
-
+            self.button_attack = element.texte(16, "Attack", element.red, 800, 600)
+            self.button_run = element.texte(16, "Flee", element.green, 950 , 600)
+            self.button_bag = element.texte(16,"Bag", element.blue, 800, 650)
+            self.button_pokedex = element.texte(16,"Pokedex", element.yellow, 950, 650) 
             screen.update()
