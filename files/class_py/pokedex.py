@@ -7,7 +7,8 @@ from files.class_py.screen import Screen
 class Pokedex(Element):
     def __init__(self):
         self.info_pokemon = self.ouverture_pokemonjson()
-        self.pokedex_run = True
+        self.pokedex_run = False
+        self.detailed_pokemon = False
 
     def ouverture_pokemonjson(self):
         with open('pokemon.json', 'r') as fichier:
@@ -39,7 +40,6 @@ class Pokedex(Element):
      
     def show_pokedex(self):
         poke_choose = 1
-        detailed_pokemon = False
         while self.pokedex_run:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -58,17 +58,22 @@ class Pokedex(Element):
                             poke_choose -= 1
                         if poke_choose == 0:
                             poke_choose = self.get_last_pokemon_number()
-                    elif event.key == pygame.K_UP:
+                    elif event.key == pygame.K_UP and not self.detailed_pokemon:
                         if poke_choose > 9:
                             poke_choose -= 9
-                    elif event.key == pygame.K_DOWN:
+                    elif event.key == pygame.K_DOWN and not self.detailed_pokemon:
                         if poke_choose < 45:
                             poke_choose += 9
                     elif event.key == pygame.K_RETURN:
-                        detailed_pokemon = True
+                        self.detailed_pokemon = True
+                    elif event.key == pygame.K_ESCAPE:
+                        if self.detailed_pokemon:
+                            self.detailed_pokemon = False
+                        else:
+                            self.pokedex_run = False
 
             element.img(525, 350, 1050, 743, 'pokedex/background')
-            if detailed_pokemon == False:
+            if self.detailed_pokemon == False:
                 for i, pokemon in enumerate(self.info_pokemon):
                     column = i % 9
                     row = i // 9
@@ -81,7 +86,7 @@ class Pokedex(Element):
                         element.img(75 + column * 110, 90 + row * 110, 85, 85, f'pokemon/{self.pokemon_name}')
                 screen.update()
 
-            if detailed_pokemon:
+            if self.detailed_pokemon:
                 element.img(525, 350, 1050, 743, 'pokedex/background')
                 for pokemon in self.info_pokemon:
                     if poke_choose == pokemon['numero']:
