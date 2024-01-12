@@ -49,8 +49,8 @@ class Menu:
                         elif c == 2:
                             pokedex.show_pokedex()
                             self.show_menu = False
-                        elif c == 3:
-                            pokedex.ajout_pokemon()
+                        # elif c == 4:
+                            # pokedex.ajout_pokemon()
 
             if self.show_home:
                 element.img_background(525, 350, 1244, 700, 'background')
