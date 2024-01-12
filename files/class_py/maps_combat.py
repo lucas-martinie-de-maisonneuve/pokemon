@@ -39,11 +39,10 @@ class Maps:
 # vol
 #### a placer au dessus des éléments pokémon ####
 # if poke_rand["type"] == vol:
-
 #   if img_poke:
-#       element.img(660, 265, 150, 180, f"pokemon/{img_poke}")
+#        element.img_mir(300, 35, 150, 180, f'pokemon/{img_poke}')
 #    elif img_poke2:
-#        element.img_mir(300, 35, 150, 180, f'pokemon/{img_poke2}')
+#       element.img(660, 265, 150, 180, f"pokemon/{img_poke2}")
 
 #### ####
 # if poke_rand["type"] == eau
