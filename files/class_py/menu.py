@@ -4,17 +4,18 @@ from files.class_py.element import Element
 from files.class_py.pokedex import Pokedex
 from files.class_py.maps_combat import Maps
 from files.class_py.combat import Combat
+from files.class_py.starter import Starter
 
 element = Element()
 screen = Screen()
 pokedex = Pokedex()
 maps = Maps()
 combat = Combat()
+starter = Starter()
 
 class Menu:
     def __init__(self):
         self.menu_run = True
-        self.show_menu = False
         self.show_home = True
 
     def home(self):
@@ -25,30 +26,32 @@ class Menu:
                     pygame.quit()
                     quit()
                 if event.type == pygame.KEYDOWN:
-                    if self.show_home:
-                        self.show_menu = True
-                    self.show_home = False                    
+                    self.show_home = False
+                    print (c)
                     if event.key == pygame.K_RIGHT:
                         if c < 4:
                             c += 1
-                    elif event.key == pygame.K_LEFT and self.show_menu:
+                    elif event.key == pygame.K_LEFT and not self.show_home:
                         if c > 1:
                             c -= 1
-                    elif event.key == pygame.K_UP and self.show_menu:
+                    elif event.key == pygame.K_UP and not self.show_home:
                         c = 5
-                    elif event.key == pygame.K_DOWN and c == 5 and self.show_menu:
+                    elif event.key == pygame.K_DOWN and c == 5 and not self.show_home:
                         c = 4
                     elif event.key == pygame.K_RETURN:
                         if c == 1:
-                            maps.home()
-                            self.show_menu = False
+                            if starter.poke_player == "":
+                                starter.choose_starter = True
+                                starter.starter()
+                            else:
+                                maps.home(starter.poke_player)
+                                maps.combat_run = True
                         elif c == 2:
                             pokedex.pokedex_run = True
                             pokedex.show_pokedex()
                         elif c == 4:
-                            maps.starter()
-                            self.show_menu = False
-
+                            # maps.starter()
+                            pass
             if self.show_home:
                 element.img_background(525, 350, 1244, 700, 'background')
                 element.img(1000, 650, 70, 70,'pokeball')
@@ -56,7 +59,7 @@ class Menu:
                 element.texte(30, 'Appuyer sur une touche pour continuer', (255, 255, 255), screen.W // 2, screen.H // 2)
                 screen.update()
 
-            if self.show_menu:      
+            if not self.show_home:      
                 element.img(525, 350, 1244, 700, 'menu/backgroundmenu')
                 if c == 1 : 
                     element.img(200, 550, 120, 120, 'menu/play')
@@ -89,5 +92,3 @@ class Menu:
                     element.img(990, 60, 80, 80, 'menu/settings')
                     element.texte(14,'Settings',(0,0,0),990,110)
                 screen.update()
-
-                    # element.simple_rect((255, 255, 255), 800, 550, 120, 120, 3)

@@ -1,7 +1,6 @@
 import json
 import random
 import pygame
-import pygame
 from files.class_py.element import Element
 from files.class_py.screen import Screen
 
@@ -21,11 +20,11 @@ class Pokedex(Element):
         return last_pokemon['numero']
     
     def starter(self):
-        starter1 = self.info_pokemon[0]
-        starter2 = self.info_pokemon[3]
-        starter3 = self.info_pokemon[6]
-        starter4 = self.info_pokemon[9]
-    
+        self.starter1 = self.info_pokemon[0]
+        self.starter2 = self.info_pokemon[3]
+        self.starter3 = self.info_pokemon[6]
+        self.starter4 = self.info_pokemon[9]
+        return self.starter1, self.starter2, self.starter3, self.starter4 
 #### Liste de tout les pokemon ####
     def information_pokemon(self, data):
         self.pokemon_liste = []
