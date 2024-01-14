@@ -20,10 +20,11 @@ class Pokedex(Element):
         last_pokemon = self.info_pokemon[-1]
         return last_pokemon['numero']
     
-        
-    def get_last_pokemon_number(self):
-        last_pokemon = self.info_pokemon[-1]
-        return last_pokemon['numero']
+    def starter(self):
+        starter1 = self.info_pokemon[0]
+        starter2 = self.info_pokemon[3]
+        starter3 = self.info_pokemon[6]
+        starter4 = self.info_pokemon[9]
     
 #### Liste de tout les pokemon ####
     def information_pokemon(self, data):
@@ -36,10 +37,7 @@ class Pokedex(Element):
         for pokemon in self.info_pokemon:
             self.pokeliste.append(pokemon)
         self.poke_random = random.choice(self.pokeliste)
-
-        for pokemon in self.info_pokemon:
-            if pokemon['nom'] == self.poke_random['nom']:
-                return pokemon[data]
+        return self.poke_random[data]
 
      
     def show_pokedex(self):

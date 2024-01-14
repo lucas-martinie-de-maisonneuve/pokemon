@@ -1,41 +1,25 @@
 import json
-import random
 from files.class_py.element import Element
 from files.class_py.screen import Screen
 from files.class_py.type import Type
-# from files.class_py.maps_combat import Maps
 from files.class_py.pokedex import Pokedex
 import pygame
 
 element = Element()
 screen = Screen()
 type = Type()
-# maps = Maps()
 pokedex = Pokedex()
 
 class Combat:
     def __init__(self):
         self.combat = True
+        self.info_pokemon = self.ouverture_pokemonjson()
         
     def ouverture_pokemonjson(self):
         with open('pokemon.json', 'r') as fichier:
             self.donnees_pokemon = json.load(fichier)
             return self.donnees_pokemon    
               
-    def rand_pokemon(self):
-        self.info_pokemon = self.ouverture_pokemonjson()
-        self.pokeliste = []
-        for pokemon in self.info_pokemon:
-            self.pokeliste.append(pokemon)
-        self.poke_random = random.choice(self.pokeliste)
-        
-    def info_rand_pokemon(self, data):
-        self.info_pokemon = self.ouverture_pokemonjson()
-        for pokemon in self.info_pokemon:
-            if pokemon['nom'] == self.poke_random['nom']:
-                print(pokemon[data])
-
-                            
     def fonction_AttackDefense():
         type.feu()
         type.eau()
@@ -45,6 +29,9 @@ class Combat:
         type.insecte()
         type.sol()
         type.vol()
+
+    def attack(self, vie, pokemon_attack):
+        vie = vie - pokemon_attack // 5
         
     def fonction_flee(self):
         while self.combat:
