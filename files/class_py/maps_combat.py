@@ -4,7 +4,6 @@ from files.class_py.element import Element
 from files.class_py.pokedex import Pokedex
 from files.class_py.combat import Combat
 from files.class_py.starter import Starter
-import random
 
 pokedex = Pokedex()
 class Maps(Element, Screen):
@@ -18,6 +17,8 @@ class Maps(Element, Screen):
         self.starter = Starter()
         self.pokemon_random = pokedex.rand_pokemon("nom").lower()
         self.attack_phase = False
+        self.text_phase = False
+        self.text = 1
 
     def home(self, poke_player):
 
@@ -52,13 +53,12 @@ class Maps(Element, Screen):
                         self.attack_phase = False
                             
             self.img(525, 200, 1244, 700,"combat/fight_background")
-            self.img_mir(250, 325, 350, 350, f"pokemon/{poke_player}")                    
+            self.img_mir(250, 325, 350, 350, f"pokemon/{poke_player['nom'].lower()}")                    
             self.img(725, 225, 175, 175, f"pokemon/{self.pokemon_random}")
             # combat.afficher_capacite()
             self.button_rect(self.brown,525,650,self.W,210)            
             self.img(300, 625, 470, 150, "combat/background_texte")           
             self.img(850, 625, 399, 150,"combat/zone_texte")
-            self.texte(20, "What do you mean ?", self.black, 300, 625)
 
             if not self.attack_phase:
                 self.button_rect(self.darkred,765,600,145,45)
@@ -94,7 +94,6 @@ class Maps(Element, Screen):
                 else:
                     self.button_pokedex = self.texte(18,"POKEDEX", self.black, 945, 650)
 
-                self.update()
             else: 
                 self.button_rect(self.white,765,600,145,45)
                 self.simple_rect(self.black,765,600,135,35,2)
@@ -121,4 +120,9 @@ class Maps(Element, Screen):
                 elif self.action ==4 :
                     self.img(860, 650, 15, 15, f"combat/arrow")
 
-                self.update()
+            if self.text_phase:
+                self.texte(20, "What do you mean ?", self.black, 300, 625)
+            else:
+                self.texte(20, f"What will {poke_player['nom']} do?", self.black, 300, 625)
+
+            self.update()

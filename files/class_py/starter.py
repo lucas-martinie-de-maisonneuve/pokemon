@@ -29,19 +29,19 @@ class Starter(Element, Screen):
                             self.action -= 1
                     elif event.key == pygame.K_RETURN:
                         if self.action == 1:
-                            self.poke_player = self.pokedex.starter()[0]['nom'].lower()
+                            self.poke_player = self.pokedex.starter()[0]
                             self.choose_starter = False
                             return self.poke_player
                         elif self.action == 2:
-                            self.poke_player = self.pokedex.starter()[1]['nom'].lower()
+                            self.poke_player = self.pokedex.starter()[1]
                             self.choose_starter = False
                             return self.poke_player                        
                         elif self.action == 3:
-                            self.poke_player = self.pokedex.starter()[2]['nom'].lower()
+                            self.poke_player = self.pokedex.starter()[2]
                             self.choose_starter = False
                             return self.poke_player
                         elif self.action == 4:
-                            self.poke_player = self.pokedex.starter()[3]['nom'].lower()
+                            self.poke_player = self.pokedex.starter()[3]
                             self.choose_starter = False
                             return self.poke_player
                                                 
