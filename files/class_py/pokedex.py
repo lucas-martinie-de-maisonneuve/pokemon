@@ -43,9 +43,8 @@ class Pokedex(Element):
         return {
             'numero': random_pokemon['numero'],
             'nom': random_pokemon['nom'],
+            'fin': random_pokemon['evol'],
             'type': random_pokemon['type'],
-            'debut': random_pokemon['debut'],
-            'fin': random_pokemon['fin'],
             'attaque': random_pokemon['attaque'],
             'hp': random_pokemon['hp'],
             'def': random_pokemon['def']

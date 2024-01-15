@@ -17,7 +17,6 @@ class Menu:
     def __init__(self):
         self.menu_run = True
         self.show_home = True
-        self.pokemon_random = pokedex.rand_pokemon()
 
     def home(self):
         c = 0
@@ -45,6 +44,7 @@ class Menu:
                                 starter.choose_starter = True
                                 starter.starter()
                             else:
+                                self.pokemon_random = pokedex.rand_pokemon()
                                 maps.home(starter.poke_player ,self.pokemon_random)
                                 maps.combat_run = True
                         elif c == 2:
