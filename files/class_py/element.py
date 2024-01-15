@@ -4,14 +4,19 @@ screen = Screen()
 
 class Element:
     def __init__(self):
-        self.red = (247, 7, 7)
-        self.blue = (0, 8, 255)
-        self.green = (35, 247, 7)
-        self.yellow = (244, 244, 9)
-        self.purple = (207, 7, 247)
         self.black = (0, 0, 0)
         self.white = (255, 255, 255)
+        self.green = (35, 247, 7)
+        self.blue = (72, 149, 239)
+        self.lightblue = (189, 224, 254)
         self.brown = (75, 67, 67)
+        self.red = (242, 106, 141)
+        self.darkred = (221, 45, 74)
+        self.darkblue = (67, 97, 238)
+        self.yellow = (255, 183, 3)
+        self.orange = (251, 133, 0)
+        self.green = (161, 193, 129)
+        self.darkgreen = (97, 155, 138)
 
     def img(self, x, y, largeur, hauteur, image_name):
         image = pygame.image.load(f'files/image/{image_name}.png')
