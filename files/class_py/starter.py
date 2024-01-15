@@ -20,7 +20,7 @@ class Starter(Element, Screen):
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     quit()
-                if event.type == pygame.KEYDOWN:                  
+                if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_RIGHT:
                         if self.action < 4:
                             self.action += 1
@@ -35,7 +35,7 @@ class Starter(Element, Screen):
                         elif self.action == 2:
                             self.poke_player = self.pokedex.starter()[1]
                             self.choose_starter = False
-                            return self.poke_player                        
+                            return self.poke_player
                         elif self.action == 3:
                             self.poke_player = self.pokedex.starter()[2]
                             self.choose_starter = False
