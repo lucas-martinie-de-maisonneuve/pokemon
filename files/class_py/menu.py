@@ -25,17 +25,19 @@ class Menu:
                     pygame.quit()
                     quit()
                 if event.type == pygame.KEYDOWN:
-                    self.show_home = False
-                    print (c)
+                    if self.show_home:
+                        self.show_home = False
+                        c = 1
+                        break
                     if event.key == pygame.K_RIGHT:
                         if c < 4:
                             c += 1
-                    elif event.key == pygame.K_LEFT and not self.show_home:
+                    elif event.key == pygame.K_LEFT:
                         if c > 1:
                             c -= 1
-                    elif event.key == pygame.K_UP and not self.show_home:
+                    elif event.key == pygame.K_UP:
                         c = 5
-                    elif event.key == pygame.K_DOWN and c == 5 and not self.show_home:
+                    elif event.key == pygame.K_DOWN:
                         c = 4
                     elif event.key == pygame.K_RETURN:
                         if c == 1:
@@ -62,6 +64,9 @@ class Menu:
 
             if not self.show_home:      
                 element.img(525, 350, 1244, 700, 'menu/backgroundmenu')
+                if starter.poke_player != "":
+                    element.img(525, 250, 400, 400, f'pokemon/{starter.poke_player["nom"].lower()}')
+
                 if c == 1 : 
                     element.img(200, 550, 120, 120, 'menu/play')
                     element.texte(20,'Play',(255,255,255),200,630)

@@ -65,8 +65,10 @@ class Maps(Element, Screen):
                     elif event.key == pygame.K_RETURN and self.attack_phase:
                         self.text_phase = False
                         self.attack_phase = False
+                        self.action = 1
                     elif event.key == pygame.K_ESCAPE and self.attack_phase:
                         self.attack_phase = False
+                        self.action = 1
                             
             self.img(525, 200, 1244, 700,"combat/fight_background")
             self.img_mir(250, 325, 350, 350, f"pokemon/{self.poke_player['nom'].lower()}")                    
