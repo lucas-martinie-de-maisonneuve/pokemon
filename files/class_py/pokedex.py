@@ -98,7 +98,52 @@ class Pokedex(Element):
                         element.texte(18, f"Atq : {pokemon['attaque']}", (0,0,0), 750, 480)
                         element.texte(18, f"Def : {pokemon['def']}", (0,0,0), 750, 530)
                         screen.update()
-        
+    
+    def ajout_pokemon(self):
+        enregistre = False
+        info_pokemon = ""
+        self.write = False
+
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                elif event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_RETURN:
+                        # Ouvrir le fichier JSON existant
+                        data_pokemon = self.ouverture_pokemonjson()
+                        self.write = True
+                        nouveau_pokemon = {
+                            "numero": info_pokemon,
+                            "nom": info_pokemon,
+                            "evol": info_pokemon,
+                            "type": info_pokemon,
+                            "debut": info_pokemon,
+                            "fin": info_pokemon,
+                            "attaque": info_pokemon,
+                            "hp": info_pokemon,
+                            "def": info_pokemon,
+                            "vitesse": info_pokemon
+                        }
+                        data_pokemon.append(nouveau_pokemon)
+
+                        # Écrire les données mises à jour dans le fichier JSON
+                        with open("pokemon.json", "w") as fichier:
+                            json.dump(data_pokemon, fichier)
+
+                        enregistre = True
+                    elif event.key == pygame.K_BACKSPACE:
+                        info_pokemon = info_pokemon[:-1]
+                    else:
+                        info_pokemon += event.unicode           
+
+            self.texte(20, "Saisir les informations du Pokémon:", element.black, 10, 10)
+            self.texte(20, info_pokemon, (0, 123, 255), 525, 425)
+
+            if enregistre:
+                self.texte(16, "Pokemon ajouté avec succès dans le fichier pokemon.json", element.red, 525, 680) 
+            screen.update()         
+
 
 # pokedex.info_rand_pokemon('type')
 # pokedex.info_rand_pokemon('debut')

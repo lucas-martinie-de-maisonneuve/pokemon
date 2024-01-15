@@ -33,14 +33,14 @@ class Combat:
     def attack(self, vie, pokemon_attack):
         vie = vie - pokemon_attack // 5
         
-    def fonction_flee(self):
-        while self.combat:
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    pygame.quit()
-                if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_RETURN:
-                        self.combat = False
+    # def fonction_flee(self):
+    #     while self.combat:
+    #         for event in pygame.event.get():
+    #             if event.type == pygame.QUIT:
+    #                 pygame.quit()
+    #             if event.type == pygame.KEYDOWN:
+    #                 if event.key == pygame.K_RETURN:
+    #                     self.combat = False
 
     def fonction_bag(self):
         pass                             
@@ -54,33 +54,8 @@ class Combat:
     def recup_pokemonGagnant(self):
         # mon_pokemon = self.apparition_pokemon()
         # pokemon = self.apparition_pokemon()
-        pass
-                                                                                      
-    def ajout_pokemon(self, nom, numero_actuelle):        
-        try:  
-            pokemon_existants = self.ouverture_pokemonjson()
-        except FileNotFoundError:
-            pokemon_existants = []
-
-        nouveau_pokemon = {
-            "numero": pokedex.get_last_pokemon_number() + 1,
-            "nom": nom,
-            "evol": 1,
-            "type": "feu",
-            "debut": 1,
-            "fin": None,
-            "attaque": None,
-            "hp": None,
-            "def": None,
-            "vitesse": None
-        }
-        
-        pokemon_existants.append(nouveau_pokemon)
-        
-        with open('pokemon.json', 'w') as fichier:
-            json.dump(pokemon_existants, fichier)
-
-        return nouveau_pokemon
+        pass                                                              
+    
 
 # pokedex.rand_pokemon()
     

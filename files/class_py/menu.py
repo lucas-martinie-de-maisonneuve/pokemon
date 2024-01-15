@@ -50,7 +50,7 @@ class Menu:
                             pokedex.pokedex_run = True
                             pokedex.show_pokedex()
                         elif c == 4:
-                            # maps.starter()
+                            pokedex.ajout_pokemon()
                             pass
             if self.show_home:
                 element.img_background(525, 350, 1244, 700, 'background')
