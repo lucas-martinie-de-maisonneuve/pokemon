@@ -71,12 +71,18 @@ class Maps(Element, Screen):
                         self.action = 1
                             
             self.img(525, 200, 1244, 700,"combat/fight_background")
-            self.img_mir(250, 325, 350, 350, f"pokemon/{self.poke_player['nom'].lower()}")                    
+            self.img_mir(350, 350, 310, 310, f"pokemon/{self.poke_player['nom'].lower()}")                    
             self.img(725, 225, 175, 175, f"pokemon/{self.pokemon_random['nom'].lower()}")
             # combat.afficher_capacite()
             self.button_rect(self.brown,525,650,self.W,210)            
             self.img(300, 625, 470, 150, "combat/background_texte")           
             self.img(850, 625, 399, 150,"combat/zone_texte")
+
+            self.img(839, 454, 350, 128, "combat/player_hp")
+            self.texte(25, f"{self.poke_player['nom']}", self.black, 830, 420)
+
+            self.img(211, 100, 350, 128, "combat/rand_pokemon_hp")
+            self.texte(25, f"{self.pokemon_random['nom']}", self.black, 160, 70)
 
             if not self.attack_phase:
                 self.button_rect(self.darkred,765,600,145,45)

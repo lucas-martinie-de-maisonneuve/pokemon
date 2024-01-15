@@ -9,6 +9,7 @@ class Pokedex(Element):
         self.info_pokemon = self.ouverture_pokemonjson()
         self.pokedex_run = False
         self.detailed_pokemon = False
+        self.pokemon_counter = {}
 
     def ouverture_pokemonjson(self):
         with open('pokemon.json', 'r') as fichier:
@@ -31,12 +32,18 @@ class Pokedex(Element):
         for info_pokemon in self.info_pokemon:
             self.pokemon_liste(info_pokemon[data])  
 
-    def rand_pokemon(self,data):
-        self.pokeliste = []
+    def pokemon_rencontre(self, meet):
         for pokemon in self.info_pokemon:
-            self.pokeliste.append(pokemon)
-        self.poke_random = random.choice(self.pokeliste)
-        return self.poke_random[data]
+            if meet == pokemon["nom"]:
+                if meet in self.pokemon_counter:
+                    self.pokemon_counter[meet] += 1
+                else:
+                    self.pokemon_counter[meet] = 1
+
+                return {
+                    "nom": pokemon,
+                    "counter": self.pokemon_counter[meet]
+                }
 
     def rand_pokemon(self):
         random_pokemon = random.choice(self.info_pokemon)
@@ -108,6 +115,10 @@ class Pokedex(Element):
                         element.texte(18, f"HP : {pokemon['hp']}", (0,0,0), 750, 430)
                         element.texte(18, f"Atq : {pokemon['attaque']}", (0,0,0), 750, 480)
                         element.texte(18, f"Def : {pokemon['def']}", (0,0,0), 750, 530)
+
+                        if pokemon['nom'] in self.pokemon_counter:
+                            element.texte(18, f"Rencontre : {self.pokemon_counter[pokemon['nom']]} fois", (0,0,0), 750, 530)
+                    
                         screen.update()
         
 

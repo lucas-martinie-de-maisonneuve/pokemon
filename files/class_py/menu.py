@@ -18,7 +18,7 @@ class Menu:
         self.show_home = True
 
     def home(self):
-        c = 0
+        c = 1
         while self.menu_run:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -27,7 +27,6 @@ class Menu:
                 if event.type == pygame.KEYDOWN:
                     if self.show_home:
                         self.show_home = False
-                        c = 1
                         break
                     if event.key == pygame.K_RIGHT:
                         if c < 4:
@@ -49,6 +48,8 @@ class Menu:
                                 maps = Maps(starter.poke_player ,pokemon_random)
                                 maps.home()
                                 maps.combat_run = True
+                                pokedex.pokemon_rencontre(pokemon_random["nom"])
+                                print (pokedex.pokemon_counter)
                         elif c == 2:
                             pokedex.pokedex_run = True
                             pokedex.show_pokedex()
