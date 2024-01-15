@@ -4,7 +4,7 @@ import pygame
 from files.class_py.element import Element
 from files.class_py.screen import Screen
 
-class Pokedex(Element):
+class Pokedex( ):
     def __init__(self):
         self.info_pokemon = self.ouverture_pokemonjson()
         self.pokedex_run = False
