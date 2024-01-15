@@ -9,7 +9,6 @@ from files.class_py.starter import Starter
 element = Element()
 screen = Screen()
 pokedex = Pokedex()
-maps = Maps()
 combat = Combat()
 starter = Starter()
 
@@ -44,7 +43,9 @@ class Menu:
                                 starter.choose_starter = True
                                 starter.starter()
                             else:
-                                maps.home(starter.poke_player)
+                                pokemon_random = pokedex.rand_pokemon()
+                                maps = Maps(starter.poke_player ,pokemon_random)
+                                maps.home()
                                 maps.combat_run = True
                         elif c == 2:
                             pokedex.pokedex_run = True

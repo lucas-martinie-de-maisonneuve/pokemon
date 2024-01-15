@@ -31,16 +31,18 @@ class Combat:
         type.vol()
 
     def attack(self, vie, pokemon_attack):
-        vie = vie - pokemon_attack // 5
-        
-    # def fonction_flee(self):
-    #     while self.combat:
-    #         for event in pygame.event.get():
-    #             if event.type == pygame.QUIT:
-    #                 pygame.quit()
-    #             if event.type == pygame.KEYDOWN:
-    #                 if event.key == pygame.K_RETURN:
-    #                     self.combat = False
+        vie_restante = vie - pokemon_attack // 5
+        print (f"Le pokemon inflige {pokemon_attack //5}, l'autre avait {vie}, il lui reste {vie_restante}")
+        return vie_restante
+    
+    def fonction_flee(self):
+        while self.combat:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_RETURN:
+                        self.combat = False
 
     def fonction_bag(self):
         pass                             

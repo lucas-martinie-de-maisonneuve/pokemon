@@ -8,27 +8,30 @@ from files.class_py.starter import Starter
 pokedex = Pokedex()
 class Maps(Element, Screen):
 
-    def __init__(self):
+    def __init__(self, poke_player, pokemon_random):
         self.combat_run = True
         self.action = 1
         Element.__init__(self)
         Screen.__init__(self)
         self.combat = Combat()
         self.starter = Starter()
-        self.pokemon_random = pokedex.rand_pokemon("nom").lower()
+        combat = Combat()
         self.attack_phase = False
         self.text_phase = False
         self.text = 1
+        self.poke_player = poke_player
+        self.pokemon_random = pokemon_random
+        self.pokemon_random_hp = pokemon_random['hp']
 
-    def home(self, poke_player):
-
+    def home(self):
         while self.combat_run:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     quit()
                 if event.type == pygame.KEYDOWN: 
-                    print(poke_player)                 
+                    # print('pokeplayer :', poke_player)
+                    # print ('pokerandom', pokemon_random)
                     if event.key == pygame.K_RIGHT:
                         if self.action < 4:
                             self.action += 1
@@ -39,7 +42,7 @@ class Maps(Element, Screen):
                         self.action -= 2
                     elif event.key == pygame.K_DOWN and self.action < 3:
                         self.action += 2
-                    elif event.key == pygame.K_RETURN:
+                    elif event.key == pygame.K_RETURN and not self.attack_phase:
                         if self.action == 1:
                             self.attack_phase = True
                         elif self.action == 2 and not self.attack_phase:
@@ -49,12 +52,22 @@ class Maps(Element, Screen):
                         elif self.action == 4 and not self.attack_phase:
                             pokedex.pokedex_run = True
                             pokedex.show_pokedex()
+                    elif event.key == pygame.K_RETURN and self.attack_phase:
+                        if self.action == 1:
+                            self.pokemon_random_hp = self.combat.attack(self.pokemon_random_hp, self.poke_player['attaque'])
+
+                        elif self.action == 2 and not self.attack_phase:
+                            self.attack_phase = False
+                        elif self.action == 3 and not self.attack_phase:
+                            self.attack_phase = False
+                        elif self.action == 4 and not self.attack_phase:
+                            self.attack_phase = False
                     elif event.key == pygame.K_ESCAPE and self.attack_phase:
                         self.attack_phase = False
                             
             self.img(525, 200, 1244, 700,"combat/fight_background")
-            self.img_mir(250, 325, 350, 350, f"pokemon/{poke_player['nom'].lower()}")                    
-            self.img(725, 225, 175, 175, f"pokemon/{self.pokemon_random}")
+            self.img_mir(250, 325, 350, 350, f"pokemon/{self.poke_player['nom'].lower()}")                    
+            self.img(725, 225, 175, 175, f"pokemon/{self.pokemon_random['nom'].lower()}")
             # combat.afficher_capacite()
             self.button_rect(self.brown,525,650,self.W,210)            
             self.img(300, 625, 470, 150, "combat/background_texte")           
@@ -123,6 +136,6 @@ class Maps(Element, Screen):
             if self.text_phase:
                 self.texte(20, "What do you mean ?", self.black, 300, 625)
             else:
-                self.texte(20, f"What will {poke_player['nom']} do?", self.black, 300, 625)
+                self.texte(20, f"What will {self.poke_player['nom']} do?", self.black, 300, 625)
 
             self.update()
