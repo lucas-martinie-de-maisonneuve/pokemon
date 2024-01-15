@@ -29,15 +29,15 @@ class Maps(Element, Screen):
                 if event.type == pygame.KEYDOWN: 
                     print('pokeplayer :', poke_player)
                     print ('pokerandom', pokemon_random)
-                    if event.key == pygame.K_RIGHT:
+                    if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                         if self.action < 4:
                             self.action += 1
-                    elif event.key == pygame.K_LEFT:
+                    elif event.key == pygame.K_LEFT or event.key == pygame.K_q:
                         if self.action > 1:
                             self.action -= 1
-                    elif event.key == pygame.K_UP and self.action > 2:
+                    elif event.key == pygame.K_UP or event.key == pygame.K_z and self.action > 2:
                         self.action -= 2
-                    elif event.key == pygame.K_DOWN and self.action < 3:
+                    elif event.key == pygame.K_DOWN or event.key == pygame.K_s and self.action < 3:
                         self.action += 2
                     elif event.key == pygame.K_RETURN:
                         if self.action == 1:

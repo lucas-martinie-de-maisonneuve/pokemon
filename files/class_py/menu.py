@@ -28,15 +28,15 @@ class Menu:
                 if event.type == pygame.KEYDOWN:
                     self.show_home = False
                     print (c)
-                    if event.key == pygame.K_RIGHT:
+                    if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                         if c < 4:
                             c += 1
-                    elif event.key == pygame.K_LEFT and not self.show_home:
+                    elif event.key == pygame.K_LEFT or event.key == pygame.K_q and not self.show_home:
                         if c > 1:
                             c -= 1
-                    elif event.key == pygame.K_UP and not self.show_home:
+                    elif event.key == pygame.K_UP or event.key == pygame.K_z and not self.show_home:
                         c = 5
-                    elif event.key == pygame.K_DOWN and c == 5 and not self.show_home:
+                    elif event.key == pygame.K_DOWN or event.key == pygame.K_s and c == 5 and not self.show_home:
                         c = 4
                     elif event.key == pygame.K_RETURN:
                         if c == 1:
