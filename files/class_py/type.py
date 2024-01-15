@@ -11,16 +11,19 @@ class Type:
         # self.data_damage = pokedex.rand_pokemon("attaque")
         # self.data_defend = pokedex.rand_pokemon("def")                 
                 
-    def feu(self,type,damage,player):
+    def feu(self,type,damage):
 
         if type == "feu" or "eau":
             damage == damage / 2
+            return damage
             
         elif type == "plante" or "insecte":
             damage == damage*2
+            return damage
             
         elif type == "normal" or "elec" or "sol" or "vol":
             damage == damage
+            return damage
 
     #     #Defend
     #     for type in self.type_pokemon:

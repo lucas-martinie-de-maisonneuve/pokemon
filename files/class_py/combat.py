@@ -30,19 +30,56 @@ class Combat:
         type.sol()
         type.vol()
 
-    def attack(self, vie, pokemon_attack):
-        vie_restante = vie - pokemon_attack // 5
-        print (f"Le pokemon inflige {pokemon_attack //5}, l'autre avait {vie}, il lui reste {vie_restante}")
-        return vie_restante
-    
-    def fonction_flee(self):
-        while self.combat:
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    pygame.quit()
-                if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_RETURN:
-                        self.combat = False
+    def attack(self, vie, pokemon_attack, type_pokemon_starter, type_pokemon_advers):
+        
+        if type_pokemon_starter == "feu":
+            damage = type.feu(type_pokemon_advers, pokemon_attack)
+            vie_restante = vie - damage
+            print (f"Le pokemon inflige {damage}, l'autre avait {vie}, il lui reste {vie_restante}")
+            return vie_restante
+        
+        if type_pokemon_starter == "eau":
+            damage = type.eau(type_pokemon_advers, pokemon_attack)
+            vie_restante = vie - damage
+            print (f"Le pokemon inflige {damage}, l'autre avait {vie}, il lui reste {vie_restante}")
+            return vie_restante
+        
+        if type_pokemon_starter == "plante":
+            damage = type.plante(type_pokemon_advers, pokemon_attack)
+            vie_restante = vie - damage
+            print (f"Le pokemon inflige {damage}, l'autre avait {vie}, il lui reste {vie_restante}")
+            return vie_restante
+        
+        if type_pokemon_starter == "insecte":
+            damage = type.insecte(type_pokemon_advers, pokemon_attack)
+            vie_restante = vie - damage
+            print (f"Le pokemon inflige {damage}, l'autre avait {vie}, il lui reste {vie_restante}")
+            return vie_restante
+        
+        if type_pokemon_starter == "sol":
+            damage = type.sol(type_pokemon_advers, pokemon_attack)
+            vie_restante = vie - damage
+            print (f"Le pokemon inflige {damage}, l'autre avait {vie}, il lui reste {vie_restante}")
+            return vie_restante
+        
+        if type_pokemon_starter == "vol":
+            damage = type.vol(type_pokemon_advers, pokemon_attack)
+            vie_restante = vie - damage
+            print (f"Le pokemon inflige {damage}, l'autre avait {vie}, il lui reste {vie_restante}")
+            return vie_restante
+        
+        if type_pokemon_starter == "elec":
+            damage = type.elec(type_pokemon_advers, pokemon_attack)
+            vie_restante = vie - damage
+            print (f"Le pokemon inflige {damage}, l'autre avait {vie}, il lui reste {vie_restante}")
+            return vie_restante
+        
+        if type_pokemon_starter == "normal":
+            damage = type.normal(type_pokemon_advers, pokemon_attack)
+            vie_restante = vie - damage
+            print (f"Le pokemon inflige {damage}, l'autre avait {vie}, il lui reste {vie_restante}")
+            return vie_restante
+                
 
     def fonction_bag(self):
         pass                             

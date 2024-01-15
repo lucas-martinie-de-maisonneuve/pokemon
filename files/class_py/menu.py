@@ -44,7 +44,8 @@ class Menu:
                                 starter.starter()
                             else:
                                 pokemon_random = pokedex.rand_pokemon()
-                                maps = Maps(starter.poke_player ,pokemon_random)
+                                type_pokemon = pokedex.rand_pokemon()
+                                maps = Maps(starter.poke_player ,pokemon_random, type_pokemon)
                                 maps.home()
                                 maps.combat_run = True
                         elif c == 2:

@@ -8,7 +8,7 @@ from files.class_py.starter import Starter
 pokedex = Pokedex()
 class Maps(Element, Screen):
 
-    def __init__(self, poke_player, pokemon_random):
+    def __init__(self, poke_player, pokemon_random, type_pokemon):
         self.combat_run = True
         self.action = 1
         Element.__init__(self)
@@ -22,6 +22,7 @@ class Maps(Element, Screen):
         self.poke_player = poke_player
         self.pokemon_random = pokemon_random
         self.pokemon_random_hp = pokemon_random['hp']
+        self.pokemon_type = type_pokemon
 
     def home(self):
         while self.combat_run:
@@ -101,7 +102,7 @@ class Maps(Element, Screen):
                     self.img(680, 650, 15, 15, f"combat/arrow")
                 else:
                     self.button_bag = self.texte(18,"ITEMS", self.black, 765, 650)
-                if self.action ==4 :
+                if self.action == 4 :
                     self.button_pokedex = self.texte(19,"POKEDEX", self.white, 945, 650)
                     self.img(860, 650, 15, 15, f"combat/arrow")
                 else:
