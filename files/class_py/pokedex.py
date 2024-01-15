@@ -152,14 +152,14 @@ class Pokedex(Element):
                         
             
             self.img(525, 350, 1050, 743, "img_ajout_pokemon/test_img")
-            self.texte(20, "Saisir les informations du Pokémon :", element.white, 525, 350)
-            self.texte(20, info_pokemon, (0, 123, 255), 525, 425)            
+            self.texte(20, "Saisir les informations du Pokémon :", element.black, 525, 250)
+            self.texte(20, info_pokemon, (38, 0, 255), 525, 320)           
 
             if enregistre:
-                self.texte(16, "Pokemon ajouté avec succes dans le fichier pokemon.json", (255, 0, 0), 525, 450)
+                self.texte(16, "Pokemon ajouté avec succes dans le fichier pokemon.json", (219, 19, 209), 525, 380)
                 enregistre = False
                 active = False
-                screen.clock.tick(90)              
+                screen.clock.tick(240)              
             screen.update()
 
 
