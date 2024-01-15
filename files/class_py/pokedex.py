@@ -113,9 +113,11 @@ class Pokedex(Element):
     def ajout_pokemon(self):
         enregistre = False
         info_pokemon = ""
-        self.write = False
+        categories = ["numero", "nom", "evol", "type", "debut", "fin", "attaque", "hp", "def", "vitesse"]
+        current_category_index = 0
+        active = True
 
-        while True:
+        while active:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
@@ -123,7 +125,6 @@ class Pokedex(Element):
                     if event.key == pygame.K_RETURN:
                         # Ouvrir le fichier JSON existant
                         data_pokemon = self.ouverture_pokemonjson()
-                        self.write = True
                         nouveau_pokemon = {
                             "numero": info_pokemon,
                             "nom": info_pokemon,
@@ -141,19 +142,29 @@ class Pokedex(Element):
                         # Écrire les données mises à jour dans le fichier JSON
                         with open("pokemon.json", "w") as fichier:
                             json.dump(data_pokemon, fichier)
-
-                        enregistre = True
+                        enregistre = True               
                     elif event.key == pygame.K_BACKSPACE:
                         info_pokemon = info_pokemon[:-1]
+                    elif event.key == pygame.K_SPACE:                        
+                        current_category_index = (current_category_index + 1) % len(categories)
                     else:
-                        info_pokemon += event.unicode           
-
-            self.texte(20, "Saisir les informations du Pokémon:", element.black, 10, 10)
-            self.texte(20, info_pokemon, (0, 123, 255), 525, 425)
+                        info_pokemon += event.unicode
+                        
+            
+            self.img(525, 350, 1050, 743, "img_ajout_pokemon/test_img")
+            self.texte(20, "Saisir les informations du Pokémon :", element.white, 525, 350)
+            self.texte(20, info_pokemon, (0, 123, 255), 525, 425)            
 
             if enregistre:
-                self.texte(16, "Pokemon ajouté avec succès dans le fichier pokemon.json", element.red, 525, 680) 
-            screen.update()         
+                self.texte(16, "Pokemon ajouté avec succes dans le fichier pokemon.json", (255, 0, 0), 525, 450)
+                enregistre = False
+                active = False
+                screen.clock.tick(90)              
+            screen.update()
+
+
+            
+         
 
 
 # pokedex.info_rand_pokemon('type')
