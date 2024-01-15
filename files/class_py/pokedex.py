@@ -38,6 +38,18 @@ class Pokedex(Element):
         self.poke_random = random.choice(self.pokeliste)
         return self.poke_random[data]
 
+    def rand_pokemon(self):
+        random_pokemon = random.choice(self.info_pokemon)
+        return {
+            'numero': random_pokemon['numero'],
+            'nom': random_pokemon['nom'],
+            'type': random_pokemon['type'],
+            'debut': random_pokemon['debut'],
+            'fin': random_pokemon['fin'],
+            'attaque': random_pokemon['attaque'],
+            'hp': random_pokemon['hp'],
+            'def': random_pokemon['def']
+        }
      
     def show_pokedex(self):
         poke_choose = 1

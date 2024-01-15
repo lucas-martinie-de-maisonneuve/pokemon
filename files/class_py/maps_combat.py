@@ -15,12 +15,11 @@ class Maps(Element, Screen):
         Screen.__init__(self)
         self.combat = Combat()
         self.starter = Starter()
-        self.pokemon_random = pokedex.rand_pokemon("nom").lower()
         self.attack_phase = False
         self.text_phase = False
         self.text = 1
 
-    def home(self, poke_player):
+    def home(self, poke_player, pokemon_random):
 
         while self.combat_run:
             for event in pygame.event.get():
@@ -28,7 +27,8 @@ class Maps(Element, Screen):
                     pygame.quit()
                     quit()
                 if event.type == pygame.KEYDOWN: 
-                    print(poke_player)                 
+                    print('pokeplayer :', poke_player)
+                    print ('pokerandom', pokemon_random)
                     if event.key == pygame.K_RIGHT:
                         if self.action < 4:
                             self.action += 1
@@ -54,7 +54,7 @@ class Maps(Element, Screen):
                             
             self.img(525, 200, 1244, 700,"combat/fight_background")
             self.img_mir(250, 325, 350, 350, f"pokemon/{poke_player['nom'].lower()}")                    
-            self.img(725, 225, 175, 175, f"pokemon/{self.pokemon_random}")
+            self.img(725, 225, 175, 175, f"pokemon/{pokemon_random['nom'].lower()}")
             # combat.afficher_capacite()
             self.button_rect(self.brown,525,650,self.W,210)            
             self.img(300, 625, 470, 150, "combat/background_texte")           
