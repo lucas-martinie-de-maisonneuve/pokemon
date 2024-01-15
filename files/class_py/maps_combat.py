@@ -43,7 +43,7 @@ class Maps(Element, Screen):
                     elif event.key == pygame.K_DOWN and self.action < 3:
                         self.action += 2
                     elif event.key == pygame.K_RETURN and not self.attack_phase:
-                        if self.action == 1:
+                        if self.action == 1 and not self.attack_phase:
                             self.attack_phase = True
                         elif self.action == 2 and not self.attack_phase:
                             self.combat_run = False
@@ -52,16 +52,19 @@ class Maps(Element, Screen):
                         elif self.action == 4 and not self.attack_phase:
                             pokedex.pokedex_run = True
                             pokedex.show_pokedex()
-                    elif event.key == pygame.K_RETURN and self.attack_phase:
+                    elif event.key == pygame.K_RETURN and self.attack_phase and not self.text_phase:
                         if self.action == 1:
                             self.pokemon_random_hp = self.combat.attack(self.pokemon_random_hp, self.poke_player['attaque'])
-
+                            self.text_phase = True
                         elif self.action == 2 and not self.attack_phase:
                             self.attack_phase = False
                         elif self.action == 3 and not self.attack_phase:
                             self.attack_phase = False
                         elif self.action == 4 and not self.attack_phase:
                             self.attack_phase = False
+                    elif event.key == pygame.K_RETURN and self.attack_phase:
+                        self.text_phase = False
+                        self.attack_phase = False
                     elif event.key == pygame.K_ESCAPE and self.attack_phase:
                         self.attack_phase = False
                             
@@ -134,7 +137,9 @@ class Maps(Element, Screen):
                     self.img(860, 650, 15, 15, f"combat/arrow")
 
             if self.text_phase:
-                self.texte(20, "What do you mean ?", self.black, 300, 625)
+                self.texte(20, f"{self.poke_player['nom']} inflige {self.poke_player['attaque'] //5}", self.black, 300, 590)
+                self.texte(20, f"{self.pokemon_random['nom']} avait {self.pokemon_random_hp + self.poke_player['attaque'] //5}", self.black, 300, 625)
+                self.texte(20, f"Il lui reste {self.pokemon_random_hp}", self.black, 300, 660)
             else:
                 self.texte(20, f"What will {self.poke_player['nom']} do?", self.black, 300, 625)
 
