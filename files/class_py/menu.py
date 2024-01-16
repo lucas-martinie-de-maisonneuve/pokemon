@@ -43,9 +43,9 @@ class Menu:
                             if starter.poke_player == "":
                                 starter.choose_starter = True
                                 starter.starter()
+                                pokedex.pokemon_rencontre(starter.poke_player["nom"])
                             else:
                                 pokemon_random = pokedex.rand_pokemon()                           
-                                
                                 maps = Maps(starter.poke_player,pokemon_random)
                                 maps.home()
                                 maps.combat_run = True

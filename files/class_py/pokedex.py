@@ -15,11 +15,11 @@ class Pokedex(Element):
         with open('pokemon.json', 'r') as fichier:
             self.donnees_pokemon = json.load(fichier)
             return self.donnees_pokemon
-        
+
     def get_last_pokemon_number(self):
         last_pokemon = self.info_pokemon[-1]
         return last_pokemon['numero']
-    
+
     def starter(self):
         self.starter1 = self.info_pokemon[0]
         self.starter2 = self.info_pokemon[3]
@@ -56,7 +56,7 @@ class Pokedex(Element):
             'hp': random_pokemon['hp'],
             'def': random_pokemon['def']
         }
-     
+
     def show_pokedex(self):
         poke_choose = 1
         while self.pokedex_run:
@@ -95,32 +95,57 @@ class Pokedex(Element):
                     column = i % 9
                     row = i // 9
                     self.pokemon_name = pokemon['nom'].lower()
-                    if pokemon['numero'] == poke_choose:
-                        element.img(75 + column * 110, 90 + row * 110, 110, 110, f'pokemon/{self.pokemon_name}')
-                        element.simple_rect((255,255,255),75 + column * 110, 90 + row * 110, 120, 120,3)
+                    if pokemon['nom'] in self.pokemon_counter:
+                        if pokemon['numero'] == poke_choose:
+                            element.img(75 + column * 110, 90 + row * 110, 110, 110, f'pokemon/{self.pokemon_name}')
+                            element.simple_rect((255,255,255),75 + column * 110, 90 + row * 110, 120, 120,3)
+                            element.texte(18, f"{pokemon['numero']} / {self.get_last_pokemon_number()}",(255,255,255),1000, 680)
 
+
+                        else:
+                            element.img(75 + column * 110, 90 + row * 110, 85, 85, f'pokemon/{self.pokemon_name}')
                     else:
-                        element.img(75 + column * 110, 90 + row * 110, 85, 85, f'pokemon/{self.pokemon_name}')
+                        if pokemon['numero'] == poke_choose:
+                            element.simple_rect((255,255,255),75 + column * 110, 90 + row * 110, 120, 120,3)
+                            element.img(75 + column * 110, 90 + row * 110, 85, 85, f'pokemon/unknown')
+                            element.texte(30, "?", (255, 255, 255), 75 + column * 110, 90 + row * 110)
+                            element.texte(18, f"{pokemon['numero']} / {self.get_last_pokemon_number()}",(255,255,255),1000, 680)
+
+                        else:
+                            element.img(75 + column * 110, 90 + row * 110, 85, 85, f'pokemon/unknown')
+                            element.texte(30, "?", (255, 255, 255), 75 + column * 110, 90 + row * 110)
                 screen.update()
 
             if self.detailed_pokemon:
                 element.img(525, 350, 1050, 743, 'pokedex/background')
                 for pokemon in self.info_pokemon:
-                    if poke_choose == pokemon['numero']:
-                        element.img(320,365, 340 ,360, f"pokedex/bg.{pokemon['type']}")
-                        element.img(525, 350, 800, 600, 'pokedex/pokedex')
-                        element.img(320, 360, 300, 300, f"pokemon/{pokemon['nom']}")
-                        element.img(750, 280, 150, 150, f"pokedex/{pokemon['type']}")
-                        element.texte(18, f"Num {pokemon['numero']} - {pokemon['nom']}", (0,0,0), 750, 380)
-                        element.texte(18, f"HP : {pokemon['hp']}", (0,0,0), 750, 430)
-                        element.texte(18, f"Atq : {pokemon['attaque']}", (0,0,0), 750, 480)
-                        element.texte(18, f"Def : {pokemon['def']}", (0,0,0), 750, 530)
+                    if pokemon['nom'] in self.pokemon_counter:
+                        if poke_choose == pokemon['numero']:
+                            element.img(320,365, 340 ,360, f"pokedex/bg.{pokemon['type']}")
+                            element.img(525, 350, 800, 600, 'pokedex/pokedex')
+                            element.img(320, 360, 300, 300, f"pokemon/{pokemon['nom']}")
+                            element.img(750, 280, 150, 150, f"pokedex/{pokemon['type']}")
+                            element.texte(18, f"Num {pokemon['numero']} - {pokemon['nom']}", (0,0,0), 750, 380)
+                            element.texte(18, f"HP : {pokemon['hp']}", (0,0,0), 750, 430)
+                            element.texte(18, f"Atq : {pokemon['attaque']}", (0,0,0), 750, 480)
+                            element.texte(18, f"Def : {pokemon['def']}", (0,0,0), 750, 530)
+                            element.texte(18, f"{pokemon['numero']} / {self.get_last_pokemon_number()}",(255,255,255),1000, 680)
+                    elif pokemon['nom'] not in self.pokemon_counter:
+                        if poke_choose == pokemon['numero']:
+                            element.img(525, 350, 800, 600, 'pokedex/pokedex')
+                            element.img(320, 360, 300, 300, f"pokemon/unknown")
+                            element.texte(100, "?", (255,255,255), 325, 360)
+                            element.img(750, 280, 150, 150, f"pokedex/unknowntype")
+                            element.texte(50, "?", (255,255,255), 750, 290)
+                            element.texte(18, "Num ??? - ???", (0,0,0), 750, 380)
+                            element.texte(18, "HP : ???", (0,0,0), 750, 430)
+                            element.texte(18, "Atq : ???", (0,0,0), 750, 480)
+                            element.texte(18, "Def : ???", (0,0,0), 750, 530)
+                            element.texte(18, f"{pokemon['numero']} / {self.get_last_pokemon_number()}",(255,255,255),1000, 680)
 
-                        if pokemon['nom'] in self.pokemon_counter:
-                            element.texte(18, f"Rencontre : {self.pokemon_counter[pokemon['nom']]} fois", (0,0,0), 750, 530)
-                    
-                        screen.update()
-    
+                screen.update()
+
+
     def ajout_pokemon(self):
         enregistre = False
         info_pokemon = ""
@@ -136,7 +161,6 @@ class Pokedex(Element):
                     if event.type == pygame.K_ESCAPE:
                         active = False
                     if event.key == pygame.K_RETURN:
-                        # Ouvrir le fichier JSON existant
                         data_pokemon = self.ouverture_pokemonjson()
                         nouveau_pokemon = {
                             "numero": info_pokemon,
@@ -152,7 +176,6 @@ class Pokedex(Element):
                         }
                         data_pokemon.append(nouveau_pokemon)
 
-                        # Écrire les données mises à jour dans le fichier JSON
                         with open("pokemon.json", "w") as fichier:
                             json.dump(data_pokemon, fichier)
                         enregistre = True               
@@ -165,11 +188,11 @@ class Pokedex(Element):
                         
             
             self.img(525, 350, 1050, 743, "img_ajout_pokemon/test_img")
-            self.texte(20, "Saisir les informations du Pokémon :", element.black, 525, 250)
+            self.texte(20, "Saisir les informations du Pokemon :", element.white, 525, 250)
             self.texte(20, info_pokemon, (38, 0, 255), 525, 320)           
 
             if enregistre:
-                self.texte(16, "Pokemon ajouté avec succes dans le fichier pokemon.json", (219, 19, 209), 525, 380)
+                self.texte(16, "Pokemon ajoute avec succes dans le fichier pokemon.json", (219, 19, 209), 525, 380)
                 enregistre = False
                 active = False
                 screen.clock.tick(240)              

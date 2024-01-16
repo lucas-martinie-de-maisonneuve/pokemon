@@ -23,6 +23,13 @@ class Element:
         image = pygame.transform.scale(image, (largeur, hauteur))
         screen.Fenetre.blit(image, (x - image.get_width()//2, y - image.get_height()//2))
 
+    def img_grey(self, x, y, largeur, hauteur, image_name):
+        image = pygame.image.load(f'files/image/{image_name}.png')
+        image = pygame.transform.scale(image, (largeur, hauteur))
+        image_color = image.convert()
+        image_color.fill((200, 200, 200), special_flags=pygame.BLEND_RGBA_MULT)
+        screen.Fenetre.blit(image_color, (x - image.get_width() // 2, y - image.get_height() // 2))
+
     def img_poke(self, x, y, largeur, hauteur):
         image = pygame.image.load(self.img())
         image = pygame.transform.scale(image, (largeur, hauteur))
