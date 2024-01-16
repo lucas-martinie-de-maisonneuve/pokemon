@@ -15,13 +15,15 @@ class Maps(Element, Screen):
         Screen.__init__(self)
         self.combat = Combat()
         self.starter = Starter()
-        combat = Combat()
         self.attack_phase = False
         self.text_phase = False
         self.text = 1
         self.poke_player = poke_player
+        self.poke_player_hp = poke_player["hp"]
+        self.poke_player_hp_max = poke_player["hp"]
         self.pokemon_random = pokemon_random
-        self.pokemon_random_hp = pokemon_random['hp']
+        self.pokemon_random_hp = pokemon_random["hp"]
+        self.pokemon_random_hp_max = pokemon_random["hp"]
 
     def home(self):
         while self.combat_run:
@@ -30,8 +32,8 @@ class Maps(Element, Screen):
                     pygame.quit()
                     quit()
                 if event.type == pygame.KEYDOWN: 
-                    # print('pokeplayer :', poke_player)
-                    # print ('pokerandom', pokemon_random)
+                    print("pokeplayer :", self.poke_player_hp)
+                    print ("pokerandom", self.poke_player)
                     if event.key == pygame.K_RIGHT:
                         if self.action < 4:
                             self.action += 1
@@ -53,8 +55,9 @@ class Maps(Element, Screen):
                             pokedex.pokedex_run = True
                             pokedex.show_pokedex()
                     elif event.key == pygame.K_RETURN and self.attack_phase and not self.text_phase:
+                        self.text = 1
                         if self.action == 1:
-                            self.pokemon_random_hp = self.combat.attack(self.pokemon_random_hp, self.poke_player['attaque'])
+                            self.pokemon_random_hp = self.combat.attack(self.pokemon_random_hp, self.poke_player["attaque"])
                             self.text_phase = True
                         elif self.action == 2 and not self.attack_phase:
                             self.attack_phase = False
@@ -63,26 +66,33 @@ class Maps(Element, Screen):
                         elif self.action == 4 and not self.attack_phase:
                             self.attack_phase = False
                     elif event.key == pygame.K_RETURN and self.attack_phase:
-                        self.text_phase = False
-                        self.attack_phase = False
-                        self.action = 1
+                        if self.text == 3:
+                            self.text_phase = False
+                            self.attack_phase = False
+                            self.action = 1
+                        else:
+                            self.text += 1
                     elif event.key == pygame.K_ESCAPE and self.attack_phase:
                         self.attack_phase = False
                         self.action = 1
                             
             self.img(525, 200, 1244, 700,"combat/fight_background")
-            self.img_mir(350, 350, 310, 310, f"pokemon/{self.poke_player['nom'].lower()}")                    
-            self.img(725, 225, 175, 175, f"pokemon/{self.pokemon_random['nom'].lower()}")
+            self.img_mir(350, 350, 310, 310, f"pokemon/{self.poke_player["nom"].lower()}")                    
+            self.img(725, 225, 175, 175, f"pokemon/{self.pokemon_random["nom"].lower()}")
             # combat.afficher_capacite()
             self.button_rect(self.brown,525,650,self.W,210)            
             self.img(300, 625, 470, 150, "combat/background_texte")           
             self.img(850, 625, 399, 150,"combat/zone_texte")
 
-            self.img(839, 454, 350, 128, "combat/player_hp")
-            self.texte(25, f"{self.poke_player['nom']}", self.black, 830, 420)
+            self.button_rect(self.brown, 794, 484, 170, 12)
+            self.rect_hp(709, 478, 170, 12, self.poke_player["hp"], self.poke_player_hp_max)
+            self.img(839, 454, 350, 128, "combat/player_hp")            
+            self.texte(25, f"{self.poke_player["nom"]}", self.black, 830, 420)
 
+            self.button_rect(self.brown, 257, 130, 170, 12)
+            self.rect_hp(172, 124, 170, 12, self.pokemon_random_hp, self.pokemon_random_hp_max)
             self.img(211, 100, 350, 128, "combat/rand_pokemon_hp")
-            self.texte(25, f"{self.pokemon_random['nom']}", self.black, 160, 70)
+            self.texte(25, f"{self.pokemon_random["nom"]}", self.black, 160, 70)
 
             if not self.attack_phase:
                 self.button_rect(self.darkred,765,600,145,45)
@@ -145,10 +155,16 @@ class Maps(Element, Screen):
                     self.img(860, 650, 15, 15, f"combat/arrow")
 
             if self.text_phase:
-                self.texte(20, f"{self.poke_player['nom']} inflige {self.poke_player['attaque'] //5}", self.black, 300, 590)
-                self.texte(20, f"{self.pokemon_random['nom']} avait {self.pokemon_random_hp + self.poke_player['attaque'] //5}", self.black, 300, 625)
-                self.texte(20, f"Il lui reste {self.pokemon_random_hp}", self.black, 300, 660)
+                if self.text == 1:
+                    self.texte(20, f"{self.poke_player["nom"]} inflige {self.poke_player["attaque"] //5}", self.black, 300, 590)
+                    self.texte(20, f"{self.pokemon_random["nom"]} avait {self.pokemon_random_hp + self.poke_player["attaque"] //5}", self.black, 300, 625)
+                    self.texte(20, f"Il lui reste {self.pokemon_random_hp}", self.black, 300, 660)
+                # elif self.text == 2:
+                #     # self.poke_player_hp = self.combat.attack(self.poke_player_hp, self.pokemon_random["attaque"])
+                #     self.texte(20, f"{self.pokemon_random["nom"]} inflige {self.pokemon_random["attaque"] //5}", self.black, 300, 590)
+                #     self.texte(20, f"{self.poke_player["nom"]} avait {self.poke_player_hp + self.pokemon_random["attaque"] //5}", self.black, 300, 625)
+                #     self.texte(20, f"Il lui reste {self.poke_player_hp}", self.black, 300, 660)
             else:
-                self.texte(20, f"What will {self.poke_player['nom']} do?", self.black, 300, 625)
+                self.texte(20, f"What will {self.poke_player["nom"]} do?", self.black, 300, 625)
 
             self.update()

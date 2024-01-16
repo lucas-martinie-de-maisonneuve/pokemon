@@ -58,3 +58,11 @@ class Element:
 
     def button_rect(self, color, x, y, longueur, largeur):
         pygame.draw.rect(screen.Fenetre, color, pygame.Rect(x - longueur//2, y - largeur//2, longueur, largeur),  0, 8)
+
+    def rect_hp(self, x, y, longueur, largeur, hp, hp_max):
+        if longueur * hp // hp_max >= 85:
+            pygame.draw.rect(screen.Fenetre, (6, 214, 160), pygame.Rect(x, y, longueur * hp // hp_max, largeur))
+        elif 85 > longueur * hp // hp_max >= 42 :
+            pygame.draw.rect(screen.Fenetre, (255, 209, 102), pygame.Rect(x, y, longueur * hp // hp_max, largeur))
+        else:
+            pygame.draw.rect(screen.Fenetre, (239, 71, 111), pygame.Rect(x, y, longueur * hp // hp_max, largeur))
