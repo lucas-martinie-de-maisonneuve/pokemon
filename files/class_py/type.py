@@ -4,12 +4,8 @@ from files.class_py.pokedex import Pokedex
 pokedex = Pokedex()
 
 class Type:
-    # def __init__(self):
-        # # self.degats = degats
-        # # self.reduction = reduction_degats
-        # # self.coup_critique = coup_critique #En pourcentage
-        # self.data_damage = pokedex.rand_pokemon("attaque")
-        # self.data_defend = pokedex.rand_pokemon("def")                 
+    def __init__(self) -> None:
+        pass                        
                 
     def feu(self,type,damage):
 
@@ -24,6 +20,11 @@ class Type:
         elif type == "normal" or "elec" or "sol" or "vol":
             damage == damage
             return damage
+        
+    def eau(self,type,damage):
+        
+        # if type == 
+        pass
 
     #     #Defend
     #     for type in self.type_pokemon:
