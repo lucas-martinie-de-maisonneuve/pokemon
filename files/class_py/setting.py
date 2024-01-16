@@ -10,7 +10,7 @@ class Setting(Element):
     def setting(self):
         d = 0
         while self.setting_run:
-             for event in pygame.event.get():
+            for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     quit()
@@ -23,15 +23,29 @@ class Setting(Element):
                         if d > 1:
                             d -= 1
                     elif event.key == pygame.K_UP or event.key == pygame.K_z and not self.show_home:
-                        d = 5
+                        if d > 1:
+                            d -= 1
                     elif event.key == pygame.K_DOWN or event.key == pygame.K_s and d == 5 and not self.show_home:
-                        d = 4
+                        if d < 4:
+                            d += 1
                     elif event.key == pygame.K_RETURN:
                         if d == 1:
+                            # Logique pour l'option 1
                             pass
-                            
-                                
-    #                         else:
-    #                 elif 
+                        elif d == 2:
+                            # Logique pour l'option 2
+                            pass
+                        elif d == 3:
+                            # Logique pour l'option 3
+                            pass
+                        elif d == 4:
+                            # Logique pour l'option 4
+                            pass
 
-    # def daption(self)
+                self.draw_overlay()
+
+    def draw_overlay(self):
+        overlay_color = (0, 0, 0, 128) 
+        overlay_surface = pygame.Surface((Screen.W, Screen.H), pygame.SRCALPHA)
+        overlay_surface.fill(overlay_color)
+        Screen.screen.blit(overlay_surface, (0, 0))
