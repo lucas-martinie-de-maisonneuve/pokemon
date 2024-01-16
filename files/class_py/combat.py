@@ -20,23 +20,23 @@ class Combat:
             self.donnees_pokemon = json.load(fichier)
             return self.donnees_pokemon    
               
-    def fonction_AttackDefense():
-        type.feu()
-        type.eau()
-        type.plante()
-        type.elec()
-        type.normal()
-        type.insecte()
-        type.sol()
-        type.vol()
+    # def fonction_AttackDefense():
+    #     type.feu()
+    #     type.eau()
+    #     type.plante()
+    #     type.elec()
+    #     type.normal()
+    #     type.insecte()
+    #     type.sol()
+    #     type.vol()
 
-    def fct_capacite1(self):
-        self.attack()
-        self.defense()
+    # def fct_capacite1(self):
+    #     self.attack()
+    #     self.defense()
         
-    def defense(self, poke_def):
-        poke_def = (1 - poke_def // 200)
-        return poke_def
+    # def defense(self, poke_def):
+    #     poke_def = (1 - poke_def // 200)
+    #     return poke_def
         
     def attack(self, vie, pokemon_attack, type_pokemon_starter, type_pokemon_advers, poke_def):
         
@@ -51,49 +51,49 @@ class Combat:
             poke_dmg = type.eau(type_pokemon_advers, pokemon_attack)
             dmg_poke = poke_dmg * (1 - poke_def // 200) 
             vie_restante = vie - dmg_poke
-            print (f"Le pokemon inflige {poke_dmg}, l'autre avait {vie}, il lui reste {vie_restante} mais il avait {poke_def}")
+            print (f"Le pokemon inflige {dmg_poke}, l'autre avait {vie}, il lui reste {vie_restante} mais il avait {poke_def}")
             return vie_restante
         
         if type_pokemon_starter == "plante":
             poke_dmg = type.plante(type_pokemon_advers, pokemon_attack) 
             dmg_poke = poke_dmg * (1 - poke_def // 200) 
             vie_restante = vie - dmg_poke
-            print (f"Le pokemon inflige {poke_dmg}, l'autre avait {vie}, il lui reste {vie_restante}")
+            print (f"Le pokemon inflige {dmg_poke}, l'autre avait {vie}, il lui reste {vie_restante}")
             return vie_restante
         
         if type_pokemon_starter == "insecte":
             poke_dmg = type.insecte(type_pokemon_advers, pokemon_attack) 
             dmg_poke = poke_dmg * (1 - poke_def // 200) 
             vie_restante = vie - dmg_poke
-            print (f"Le pokemon inflige {poke_dmg}, l'autre avait {vie}, il lui reste {vie_restante}")
+            print (f"Le pokemon inflige {dmg_poke}, l'autre avait {vie}, il lui reste {vie_restante}")
             return vie_restante
         
         if type_pokemon_starter == "sol":
             poke_dmg = type.sol(type_pokemon_advers, pokemon_attack)
             dmg_poke = poke_dmg * (1 - poke_def // 200) 
             vie_restante = vie - dmg_poke 
-            print (f"Le pokemon inflige {poke_dmg}, l'autre avait {vie}, il lui reste {vie_restante}")
+            print (f"Le pokemon inflige {dmg_poke}, l'autre avait {vie}, il lui reste {vie_restante}")
             return vie_restante
         
         if type_pokemon_starter == "vol":
             poke_dmg = type.vol(type_pokemon_advers, pokemon_attack)
             dmg_poke = poke_dmg * (1 - poke_def // 200) 
             vie_restante = vie - dmg_poke
-            print (f"Le pokemon inflige {poke_dmg}, l'autre avait {vie}, il lui reste {vie_restante}")
+            print (f"Le pokemon inflige {dmg_poke}, l'autre avait {vie}, il lui reste {vie_restante}")
             return vie_restante
         
         if type_pokemon_starter == "elec":
-            poke_dmg = type.elec(type_pokemon_advers, pokemon_attack) * self.defense(poke_def)
+            poke_dmg = type.elec(type_pokemon_advers, pokemon_attack) 
             dmg_poke = poke_dmg * (1 - poke_def // 200) 
             vie_restante = vie - dmg_poke 
-            print (f"Le pokemon inflige {poke_dmg}, l'autre avait {vie}, il lui reste {vie_restante}")
+            print (f"Le pokemon inflige {dmg_poke}, l'autre avait {vie}, il lui reste {vie_restante}")
             return vie_restante
         
         if type_pokemon_starter == "normal":
             poke_dmg = type.normal(type_pokemon_advers, pokemon_attack) 
             dmg_poke = poke_dmg * (1 - poke_def // 200) 
             vie_restante = vie - dmg_poke 
-            print (f"Le pokemon inflige {poke_dmg}, l'autre avait {vie}, il lui reste {vie_restante}")
+            print (f"Le pokemon inflige {dmg_poke}, l'autre avait {vie}, il lui reste {vie_restante}")
             return vie_restante
                 
 
