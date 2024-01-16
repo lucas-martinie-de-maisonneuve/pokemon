@@ -21,16 +21,18 @@ class Setting(Element,Screen):
                     if event.key == pygame.K_RIGHT or event.key == pygame.K_d: #and not self.detail_setting:
                         pass
                     elif event.key == pygame.K_LEFT or event.key == pygame.K_q: #and self.detail_setting:
-                        if d > 1:
+                        if d > 0:
                             d -= 1
                     elif event.key == pygame.K_UP or event.key == pygame.K_z: #and not self.detail_setting:
-                        if d > 1:
+                        if d > 0:
                             d -= 1
                     elif event.key == pygame.K_DOWN or event.key == pygame.K_s: #and not self.detail_setting:
-                        if d < 4:
+                        if d < 5:
                             d += 1
                     elif event.key == pygame.K_RETURN:
-                        if d == 1:
+                        if d == 0:
+                            self.setting_run = False
+                        elif d == 1:
                             pass
                         elif d == 2:
                             # Logique pour l'option 2
@@ -56,30 +58,34 @@ class Setting(Element,Screen):
                 
                 self.button_rect((150, 140, 130),525,350,830,560)
                 self.button_rect((100,100,100),205,350,170,350)
-
-                # Rectangle 1
-                if d == 1:
-                    self.button_rect((160, 160, 160), 205, 220, 160, 40)  # Selected color
+                if d == 0:
+                    self.img(200,100,46,46,"/setting/croix_jaune")
 
                 else:
-                    self.button_rect((70, 70, 70), 205, 220, 160, 40)  # Default color
+                    self.img(200,100,46,46,"/setting/croix_rouge")
+                # Selecteur 1
+                if d == 1:
+                    self.button_rect((160, 160, 160), 205, 220, 160, 40)  # Boutton selectionné
+
+                else:
+                    self.button_rect((70, 70, 70), 205, 220, 160, 40)  # Color de base
                 self.texte(15, 'Controles', (0, 0, 0), 205, 220)
 
-                # Rectangle 2
+                # Selecteur 2
                 if d == 2:
                     self.button_rect((160, 160, 160), 205, 307, 160, 40)
                 else:
                     self.button_rect((70, 70, 70), 205, 307, 160, 40)
-                self.texte(30, 'Audio', (0, 0, 0), 205, 307)
+                self.texte(15, 'Audio', (0, 0, 0), 205, 307)
 
-                # Rectangle 3
+                # Selecteur 3
                 if d == 3:
                     self.button_rect((160, 160, 160), 205, 394, 160, 40)
                 else:
                     self.button_rect((70, 70, 70), 205, 394, 160, 40)
                 self.texte(15, 'Compte', (0, 0, 0), 205, 394)
 
-                # Rectangle 4
+                # Selecteur 4
                 if d == 4:
                     self.button_rect((160, 160, 160), 205, 481, 160, 40)
                 else:
