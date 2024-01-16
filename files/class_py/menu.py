@@ -44,8 +44,9 @@ class Menu:
                                 starter.choose_starter = True
                                 starter.starter()
                             else:
-                                pokemon_random = pokedex.rand_pokemon()
-                                maps = Maps(starter.poke_player ,pokemon_random)
+                                pokemon_random = pokedex.rand_pokemon()                           
+                                
+                                maps = Maps(starter.poke_player,pokemon_random)
                                 maps.home()
                                 maps.combat_run = True
                                 pokedex.pokemon_rencontre(pokemon_random["nom"])
@@ -54,7 +55,7 @@ class Menu:
                             pokedex.pokedex_run = True
                             pokedex.show_pokedex()
                         elif c == 4:
-                            # maps.starter()
+                            pokedex.ajout_pokemon()
                             pass
             if self.show_home:
                 element.img_background(525, 350, 1244, 700, 'background')

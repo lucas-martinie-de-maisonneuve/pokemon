@@ -120,7 +120,65 @@ class Pokedex(Element):
                             element.texte(18, f"Rencontre : {self.pokemon_counter[pokemon['nom']]} fois", (0,0,0), 750, 530)
                     
                         screen.update()
-        
+    
+    def ajout_pokemon(self):
+        enregistre = False
+        info_pokemon = ""
+        categories = ["numero", "nom", "evol", "type", "debut", "fin", "attaque", "hp", "def", "vitesse"]
+        current_category_index = 0
+        active = True
+
+        while active:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                elif event.type == pygame.KEYDOWN:
+                    if event.type == pygame.K_ESCAPE:
+                        active = False
+                    if event.key == pygame.K_RETURN:
+                        # Ouvrir le fichier JSON existant
+                        data_pokemon = self.ouverture_pokemonjson()
+                        nouveau_pokemon = {
+                            "numero": info_pokemon,
+                            "nom": info_pokemon,
+                            "evol": info_pokemon,
+                            "type": info_pokemon,
+                            "debut": info_pokemon,
+                            "fin": info_pokemon,
+                            "attaque": info_pokemon,
+                            "hp": info_pokemon,
+                            "def": info_pokemon,
+                            "vitesse": info_pokemon
+                        }
+                        data_pokemon.append(nouveau_pokemon)
+
+                        # Écrire les données mises à jour dans le fichier JSON
+                        with open("pokemon.json", "w") as fichier:
+                            json.dump(data_pokemon, fichier)
+                        enregistre = True               
+                    elif event.key == pygame.K_BACKSPACE:
+                        info_pokemon = info_pokemon[:-1]
+                    elif event.key == pygame.K_SPACE:                        
+                        current_category_index = (current_category_index + 1) % len(categories)
+                    else:
+                        info_pokemon += event.unicode
+                        
+            
+            self.img(525, 350, 1050, 743, "img_ajout_pokemon/test_img")
+            self.texte(20, "Saisir les informations du Pokémon :", element.black, 525, 250)
+            self.texte(20, info_pokemon, (38, 0, 255), 525, 320)           
+
+            if enregistre:
+                self.texte(16, "Pokemon ajouté avec succes dans le fichier pokemon.json", (219, 19, 209), 525, 380)
+                enregistre = False
+                active = False
+                screen.clock.tick(240)              
+            screen.update()
+
+
+            
+         
+
 
 # pokedex.info_rand_pokemon('type')
 # pokedex.info_rand_pokemon('debut')
