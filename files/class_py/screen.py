@@ -13,6 +13,11 @@ class Screen:
         pygame.display.update()
         self.clock.tick(60)
         self.Fenetre.fill((0, 0, 0))
+    
+    def update_no_fill(self):
+        pygame.display.flip()
+        pygame.display.update()
+        self.clock.tick(60)
 
     def get_size(self):
         return self.Fenetre.get_size()

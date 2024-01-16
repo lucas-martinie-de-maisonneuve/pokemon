@@ -58,6 +58,7 @@ class Menu:
                         elif c == 5:
                             setting.setting_run = True
                             setting.setting()
+                            # = True
             if self.show_home:
                 element.img_background(525, 350, 1244, 700, 'background')
                 element.img(1000, 650, 70, 70,'pokeball')
