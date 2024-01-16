@@ -1,6 +1,6 @@
 import pygame
 from files.class_py.element import Element
-from files.class_py.sdreen import Sdreen
+from files.class_py.screen import Screen
 
 class Setting(Element):
     def __init__(self):
@@ -28,9 +28,10 @@ class Setting(Element):
                         d = 4
                     elif event.key == pygame.K_RETURN:
                         if d == 1:
+                            pass
                             
                                 
-                            else:
-                    elif 
+    #                         else:
+    #                 elif 
 
-    def daption(self):
+    # def daption(self)
