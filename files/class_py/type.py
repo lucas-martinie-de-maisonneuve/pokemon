@@ -1,5 +1,3 @@
-type
-
 from files.class_py.pokedex import Pokedex
 pokedex = Pokedex()
 

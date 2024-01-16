@@ -149,8 +149,7 @@ class Pokedex(Element):
     def ajout_pokemon(self):
         enregistre = False
         info_pokemon = ""
-        categories = ["numero", "nom", "evol", "type", "debut", "fin", "attaque", "hp", "def", "vitesse"]
-        current_category_index = 0
+        categories = ["numero", "nom", "evol", "type", "debut", "fin", "attaque", "hp", "def", "vitesse"]        
         active = True
 
         while active:
@@ -196,11 +195,7 @@ class Pokedex(Element):
                 enregistre = False
                 active = False
                 screen.clock.tick(240)              
-            screen.update()
-
-
-            
-         
+            screen.update() 
 
 
 # pokedex.info_rand_pokemon('type')
