@@ -28,6 +28,7 @@ class Maps(Element, Screen):
         self.pokemon_random_hp_max = pokemon_random["hp"]        
         self.pokemon_type_player = poke_player['type']
         self.type_pokemon_advers = pokemon_random['type']
+        self.pokemon_def_advers  = pokemon_random['def']
                 
 
     def home(self):
@@ -62,7 +63,7 @@ class Maps(Element, Screen):
                     elif event.key == pygame.K_RETURN and self.attack_phase and not self.text_phase:
                         self.text = 1
                         if self.action == 1:
-                            self.pokemon_random_hp = self.combat.attack(self.pokemon_random_hp, self.poke_player['attaque'],self.pokemon_type_player,self.type_pokemon_advers)
+                            self.pokemon_random_hp = self.combat.attack(self.pokemon_random_hp, self.poke_player['attaque'],self.pokemon_type_player,self.type_pokemon_advers, self.pokemon_def_advers)
                             self.text_phase = True
                         elif self.action == 2 and not self.attack_phase:
                             self.attack_phase = False
