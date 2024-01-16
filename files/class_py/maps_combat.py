@@ -28,8 +28,7 @@ class Maps(Element, Screen):
         self.pokemon_random_hp_max = pokemon_random["hp"]        
         self.pokemon_type_player = poke_player['type']
         self.type_pokemon_advers = pokemon_random['type']
-        self.pokemon_def_advers  = pokemon_random['def']
-                
+        self.pokemon_def_advers  = pokemon_random['def']               
 
     def home(self):
         while self.combat_run:

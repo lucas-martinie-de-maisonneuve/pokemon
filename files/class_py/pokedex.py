@@ -148,8 +148,7 @@ class Pokedex(Element):
 
     def ajout_pokemon(self):
         enregistre = False
-        info_pokemon = ""
-        categories = ["numero", "nom", "evol", "type", "debut", "fin", "attaque", "hp", "def", "vitesse"]        
+        info_pokemon = ""              
         active = True
 
         while active:
@@ -180,8 +179,6 @@ class Pokedex(Element):
                         enregistre = True               
                     elif event.key == pygame.K_BACKSPACE:
                         info_pokemon = info_pokemon[:-1]
-                    elif event.key == pygame.K_SPACE:                        
-                        current_category_index = (current_category_index + 1) % len(categories)
                     else:
                         info_pokemon += event.unicode
                         
