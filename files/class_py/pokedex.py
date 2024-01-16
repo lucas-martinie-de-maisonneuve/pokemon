@@ -122,6 +122,8 @@ class Pokedex(Element):
                 if event.type == pygame.QUIT:
                     pygame.quit()
                 elif event.type == pygame.KEYDOWN:
+                    if event.type == pygame.K_ESCAPE:
+                        active = False
                     if event.key == pygame.K_RETURN:
                         # Ouvrir le fichier JSON existant
                         data_pokemon = self.ouverture_pokemonjson()

@@ -33,9 +33,9 @@ class Combat:
     def attack(self, vie, pokemon_attack, type_pokemon_starter, type_pokemon_advers):
         
         if type_pokemon_starter == "feu":
-            damage = type.feu(type_pokemon_advers, pokemon_attack)
-            vie_restante = vie - damage
-            print (f"Le pokemon inflige {damage}, l'autre avait {vie}, il lui reste {vie_restante}")
+            poke_dmg = type.feu(type_pokemon_advers, pokemon_attack)
+            vie_restante = vie - poke_dmg
+            print (f"Le pokemon inflige {poke_dmg}, l'autre avait {vie}, il lui reste {vie_restante}")
             return vie_restante
         
         if type_pokemon_starter == "eau":

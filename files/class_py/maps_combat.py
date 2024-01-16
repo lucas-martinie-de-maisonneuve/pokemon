@@ -5,24 +5,26 @@ from files.class_py.pokedex import Pokedex
 from files.class_py.combat import Combat
 from files.class_py.starter import Starter
 
+
 pokedex = Pokedex()
 class Maps(Element, Screen):
 
-    def __init__(self, poke_player, pokemon_random, type_pokemon):
+    def __init__(self, poke_player, pokemon_random):
         self.combat_run = True
         self.action = 1
         Element.__init__(self)
         Screen.__init__(self)
         self.combat = Combat()
-        self.starter = Starter()
-        combat = Combat()
+        self.starter = Starter()               
         self.attack_phase = False
         self.text_phase = False
         self.text = 1
         self.poke_player = poke_player
         self.pokemon_random = pokemon_random
         self.pokemon_random_hp = pokemon_random['hp']
-        self.pokemon_type = type_pokemon
+        self.pokemon_type_player = poke_player['type']
+        self.type_pokemon_advers = pokemon_random['type']
+                
 
     def home(self):
         while self.combat_run:
@@ -55,7 +57,7 @@ class Maps(Element, Screen):
                             pokedex.show_pokedex()
                     elif event.key == pygame.K_RETURN and self.attack_phase:
                         if self.action == 1:
-                            self.pokemon_random_hp = self.combat.attack(self.pokemon_random_hp, self.poke_player['attaque'])
+                            self.pokemon_random_hp = self.combat.attack(self.pokemon_random_hp, self.poke_player['attaque'],self.pokemon_type_player,self.type_pokemon_advers)
 
                         elif self.action == 2 and not self.attack_phase:
                             self.attack_phase = False
