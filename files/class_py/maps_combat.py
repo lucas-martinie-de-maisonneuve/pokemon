@@ -23,7 +23,8 @@ class Maps(Element, Screen):
         self.poke_player_hp = poke_player['hp']
         self.poke_player_hp_max = poke_player['hp']
         self.pokemon_random = pokemon_random
-        self.pokemon_random_hp = pokemon_random['hp']
+        self.pokemon_random_hp = pokemon_random["hp"]
+        self.pokemon_random_hp_max = pokemon_random["hp"]        
         self.pokemon_type_player = poke_player['type']
         self.type_pokemon_advers = pokemon_random['type']
                 
@@ -61,8 +62,6 @@ class Maps(Element, Screen):
                         self.text = 1
                         if self.action == 1:
                             self.pokemon_random_hp = self.combat.attack(self.pokemon_random_hp, self.poke_player['attaque'],self.pokemon_type_player,self.type_pokemon_advers)
-
-                            self.pokemon_random_hp = self.combat.attack(self.pokemon_random_hp, self.poke_player['attaque'])
                             self.text_phase = True
                         elif self.action == 2 and not self.attack_phase:
                             self.attack_phase = False
