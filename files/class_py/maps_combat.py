@@ -16,6 +16,7 @@ class Maps(Element, Screen):
         Screen.__init__(self)
         self.combat = Combat()
         self.starter = Starter()
+        combat = Combat()
         self.attack_phase = False
         self.text_phase = False
         self.text = 1
@@ -24,9 +25,6 @@ class Maps(Element, Screen):
         self.poke_player_hp_max = poke_player['hp']
         self.pokemon_random = pokemon_random
         self.pokemon_random_hp = pokemon_random['hp']
-        self.pokemon_type_player = poke_player['type']
-        self.type_pokemon_advers = pokemon_random['type']
-                
 
     def home(self):
         while self.combat_run:
@@ -60,10 +58,8 @@ class Maps(Element, Screen):
                     elif event.key == pygame.K_RETURN and self.attack_phase and not self.text_phase:
                         self.text = 1
                         if self.action == 1:
-                            self.pokemon_random_hp = self.combat.attack(self.pokemon_random_hp, self.poke_player['attaque'],self.pokemon_type_player,self.type_pokemon_advers)
-
                             self.pokemon_random_hp = self.combat.attack(self.pokemon_random_hp, self.poke_player['attaque'])
-                            self.text_phase = True
+
                         elif self.action == 2 and not self.attack_phase:
                             self.attack_phase = False
                         elif self.action == 3 and not self.attack_phase:
@@ -126,10 +122,10 @@ class Maps(Element, Screen):
                     self.button_bag = self.texte(19,'ITEMS', self.white, 765, 650)
                     self.img(680, 650, 15, 15, f'combat/arrow')
                 else:
-                    self.button_bag = self.texte(18,'ITEMS', self.black, 765, 650)
-                if self.action == 4 :
-                    self.button_pokedex = self.texte(19,'POKEDEX', self.white, 945, 650)
-                    self.img(860, 650, 15, 15, f'combat/arrow')
+                    self.button_bag = self.texte(18,"ITEMS", self.black, 765, 650)
+                if self.action ==4 :
+                    self.button_pokedex = self.texte(19,"POKEDEX", self.white, 945, 650)
+                    self.img(860, 650, 15, 15, f"combat/arrow")
                 else:
                     self.button_pokedex = self.texte(18,'POKEDEX', self.black, 945, 650)
 
