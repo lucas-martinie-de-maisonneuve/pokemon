@@ -14,7 +14,7 @@ class Maps(Element, Screen, Combat):
         self.action = 1
         Element.__init__(self)
         Screen.__init__(self)
-        self.combat = Combat()
+        Combat.__init__(self)        
         self.starter = Starter()        
         self.attack_phase = False
         self.text_phase = False
@@ -28,7 +28,8 @@ class Maps(Element, Screen, Combat):
         self.pokemon_type_player = poke_player['type']
         self.type_pokemon_advers = pokemon_random['type']
         self.pokemon_def_advers  = pokemon_random['def']
-        self.poke_advers = pokemon_random['nom']               
+        self.poke_advers = pokemon_random['nom']
+        self.game_over = False               
 
     def home(self):
         while self.combat_run:
@@ -62,12 +63,12 @@ class Maps(Element, Screen, Combat):
                     elif event.key == pygame.K_RETURN and self.attack_phase and not self.text_phase:
                         self.text = 1
                         if self.action == 1:
-                            self.combat.verify_poke_player_HP(self.poke_player_hp)
-                            self.combat.verify_poke_advers_HP(self.pokemon_random_hp)
-                            self.pokemon_random_hp = self.combat.attack(self.pokemon_random_hp, self.poke_player['attaque'],self.pokemon_type_player,self.type_pokemon_advers, self.pokemon_def_advers)
-                            self.combat.verify_poke_player_HP(self.poke_player)
-                            self.combat.verify_poke_advers_HP(self.poke_advers)
-                            self.combat.recup_poke_winner(self.starter.poke_player, self.poke_advers)
+                            self.verify_poke_player_HP(self.poke_player_hp)
+                            self.verify_poke_advers_HP(self.pokemon_random_hp)
+                            self.pokemon_random_hp = self.attack(self.pokemon_random_hp, self.poke_player['attaque'],self.pokemon_type_player,self.type_pokemon_advers, self.pokemon_def_advers)
+                            self.verify_poke_player_HP(self.poke_player)
+                            self.verify_poke_advers_HP(self.poke_advers)
+                            self.recup_poke_winner(self.poke_player['nom'], self.poke_advers, self.poke_player_hp, self.pokemon_random_hp)
                             self.text_phase = True
                         elif self.action == 2 and not self.attack_phase:
                             self.attack_phase = False
@@ -177,9 +178,9 @@ class Maps(Element, Screen, Combat):
             else:
                 self.texte(20, f"What will {self.poke_player['nom']} do?", self.black, 300, 625)
                 
-            if self.poke_player_hp <= 0 or self.pokemon_random_hp <= 0:
-                self.img(425, 525, 470, 150, "combat/background.png")
-                self.texte(16, f"{self.combat.recup_poke_winner()} à gagner le combat", self.black, 425, 525)
-                self.clock.tick(240)
+            if self.game_over:
+                self.img(540, 280, 470, 190, "combat/background_texte")
+                self.texte(18, f"{self.recup_poke_winner(self.poke_player['nom'], self.poke_advers, self.poke_player_hp, self.pokemon_random_hp)} à gagner le combat", self.black, 540, 280)
+                self.clock.tick(320)
                 self.combat_run = False                
             self.update()
