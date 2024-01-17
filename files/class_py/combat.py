@@ -16,7 +16,8 @@ class Combat:
         self.info_pokemon = self.ouverture_pokemonjson()
         self.poke = pokedex.rand_pokemon()
         self.poke_player = self.poke['nom']       
-        self.game_over = False        
+        self.game_over = False
+        self.win = ""       
         
     def ouverture_pokemonjson(self):
         with open('pokemon.json', 'r') as fichier:
@@ -45,77 +46,77 @@ class Combat:
         
         if type_pokemon_starter == "feu":
             poke_dmg = type.feu(type_pokemon_advers, pokemon_attack)
-            dmg_poke = poke_dmg * (1 - poke_def // 200) 
-            vie_restante = vie - dmg_poke
-            print (f"Le pokemon inflige {dmg_poke} dégats, l'autre avait {vie}HP, il lui reste {vie_restante}HP mais il avait {poke_def}de def")
+            self.dmg_poke = poke_dmg * (1 - poke_def // 200) 
+            vie_restante = vie - self.dmg_poke
+            print (f"Le pokemon inflige {self.dmg_poke} dégats, l'autre avait {vie}HP, il lui reste {vie_restante}HP mais il avait {poke_def}de def")
             return vie_restante
         
         if type_pokemon_starter == "eau":
             poke_dmg = type.eau(type_pokemon_advers, pokemon_attack)
-            dmg_poke = poke_dmg * (1 - poke_def // 200) 
-            vie_restante = vie - dmg_poke
-            print (f"Le pokemon inflige {dmg_poke}, l'autre avait {vie}, il lui reste {vie_restante} mais il avait {poke_def}")
+            self.dmg_poke = poke_dmg * (1 - poke_def // 200) 
+            vie_restante = vie - self.dmg_poke
+            print (f"Le pokemon inflige {self.dmg_poke}, l'autre avait {vie}, il lui reste {vie_restante} mais il avait {poke_def}")
             return vie_restante
         
         if type_pokemon_starter == "plante":
             poke_dmg = type.plante(type_pokemon_advers, pokemon_attack) 
-            dmg_poke = poke_dmg * (1 - poke_def // 200) 
-            vie_restante = vie - dmg_poke
-            print (f"Le pokemon inflige {dmg_poke}, l'autre avait {vie}, il lui reste {vie_restante}")
+            self.dmg_poke = poke_dmg * (1 - poke_def // 200) 
+            vie_restante = vie - self.dmg_poke
+            print (f"Le pokemon inflige {self.dmg_poke}, l'autre avait {vie}, il lui reste {vie_restante}")
             return vie_restante
         
         if type_pokemon_starter == "insecte":
             poke_dmg = type.insecte(type_pokemon_advers, pokemon_attack) 
-            dmg_poke = poke_dmg * (1 - poke_def // 200) 
-            vie_restante = vie - dmg_poke
-            print (f"Le pokemon inflige {dmg_poke}, l'autre avait {vie}, il lui reste {vie_restante}")
+            self.dmg_poke = poke_dmg * (1 - poke_def // 200) 
+            vie_restante = vie - self.dmg_poke
+            print (f"Le pokemon inflige {self.dmg_poke}, l'autre avait {vie}, il lui reste {vie_restante}")
             return vie_restante
         
         if type_pokemon_starter == "sol":
             poke_dmg = type.sol(type_pokemon_advers, pokemon_attack)
-            dmg_poke = poke_dmg * (1 - poke_def // 200) 
-            vie_restante = vie - dmg_poke 
-            print (f"Le pokemon inflige {dmg_poke}, l'autre avait {vie}, il lui reste {vie_restante}")
+            self.dmg_poke = poke_dmg * (1 - poke_def // 200) 
+            vie_restante = vie - self.dmg_poke 
+            print (f"Le pokemon inflige {self.dmg_poke}, l'autre avait {vie}, il lui reste {vie_restante}")
             return vie_restante
         
         if type_pokemon_starter == "vol":
             poke_dmg = type.vol(type_pokemon_advers, pokemon_attack)
-            dmg_poke = poke_dmg * (1 - poke_def // 200) 
-            vie_restante = vie - dmg_poke
-            print (f"Le pokemon inflige {dmg_poke}, l'autre avait {vie}, il lui reste {vie_restante}")
+            self.dmg_poke = poke_dmg * (1 - poke_def // 200) 
+            vie_restante = vie - self.dmg_poke
+            print (f"Le pokemon inflige {self.dmg_poke}, l'autre avait {vie}, il lui reste {vie_restante}")
             return vie_restante
         
         if type_pokemon_starter == "elec":
             poke_dmg = type.elec(type_pokemon_advers, pokemon_attack) 
-            dmg_poke = poke_dmg * (1 - poke_def // 200) 
-            vie_restante = vie - dmg_poke 
-            print (f"Le pokemon inflige {dmg_poke}, l'autre avait {vie}, il lui reste {vie_restante}")
+            self.dmg_poke = poke_dmg * (1 - poke_def // 200) 
+            vie_restante = vie - self.dmg_poke 
+            print (f"Le pokemon inflige {self.dmg_poke}, l'autre avait {vie}, il lui reste {vie_restante}")
             return vie_restante
         
         if type_pokemon_starter == "normal":
             poke_dmg = type.normal(type_pokemon_advers, pokemon_attack) 
-            dmg_poke = poke_dmg * (1 - poke_def // 200) 
-            vie_restante = vie - dmg_poke 
-            print (f"Le pokemon inflige {dmg_poke}, l'autre avait {vie}, il lui reste {vie_restante}")
-            return vie_restante
-        
-    def verify_poke_player_HP(self, poke_hp_player):
-        return poke_hp_player
+            self.dmg_poke = poke_dmg * (1 - poke_def // 200) 
+            vie_restante = vie - self.dmg_poke 
+            print (f"Le pokemon inflige {self.dmg_poke}, l'autre avait {vie}, il lui reste {vie_restante}")
+            return vie_restante   
     
-    def verify_poke_advers_HP(self, poke_hp_advers):
-        return poke_hp_advers
-    
-    def recup_poke_winner(self, poke_player, poke_advers, poke_player_hp, poke_rand_hp):        
+    def recup_poke_winner(self, poke_player, poke_advers, poke_player_hp, poke_rand_hp):
+        print("player",poke_player_hp)
+        print(poke_rand_hp)       
         if poke_player_hp <= 0:
             self.game_over = True
-            print(f"{poke_advers} à gagner le combat")
-            return poke_advers
+            print(f"{poke_advers} à gagner le combat")            
+            self.win = poke_advers            
         elif poke_rand_hp <= 0:
             self.game_over = True
             print(f"{poke_player} à gagner le combat")
-            return poke_player
-        else:
-            self.game_over = False
+            print(poke_rand_hp)
+            print(f"player{poke_player_hp}")
+            self.win = poke_player
+            
+        return self.win
+        
+        
                                                                      
     
 

@@ -4,12 +4,13 @@ import pygame
 from files.class_py.element import Element
 from files.class_py.screen import Screen
 
-class Pokedex( ):
+class Pokedex(Element):
     def __init__(self):
         self.info_pokemon = self.ouverture_pokemonjson()
         self.pokedex_run = False
         self.detailed_pokemon = False
         self.pokemon_counter = {}
+        Element.__init__(self)
 
     def ouverture_pokemonjson(self):
         with open('pokemon.json', 'r') as fichier:
