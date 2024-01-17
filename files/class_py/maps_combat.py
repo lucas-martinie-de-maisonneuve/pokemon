@@ -120,22 +120,22 @@ class Maps(Element, Screen, Combat):
 
                 if self.action == 1 :
                     self.button_attack = self.texte(19, 'ATTACK', self.white, 765, 600)
-                    self.img(680, 600, 15, 15, f'combat/arrow')
+                    self.img(680, 600, 15, 15, 'combat/arrow')
                 else:
                     self.button_attack = self.texte(18, 'ATTACK', self.black, 765, 600)
                 if self.action == 2 :
                     self.button_run = self.texte(19, 'RUN', self.white, 945 , 600)
-                    self.img(860, 600, 15, 15, f'combat/arrow')
+                    self.img(860, 600, 15, 15, 'combat/arrow')
                 else:
                     self.button_run = self.texte(18, 'RUN', self.black, 945 , 600)
                 if self.action == 3 :
                     self.button_bag = self.texte(19,'ITEMS', self.white, 765, 650)
-                    self.img(680, 650, 15, 15, f'combat/arrow')
+                    self.img(680, 650, 15, 15, 'combat/arrow')
                 else:
                     self.button_bag = self.texte(18,"ITEMS", self.black, 765, 650)
                 if self.action ==4 :
                     self.button_pokedex = self.texte(19,"POKEDEX", self.white, 945, 650)
-                    self.img(860, 650, 15, 15, f"combat/arrow")
+                    self.img(860, 650, 15, 15, "combat/arrow")
                 else:
                     self.button_pokedex = self.texte(18,'POKEDEX', self.black, 945, 650)
 

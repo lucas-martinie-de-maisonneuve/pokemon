@@ -17,6 +17,7 @@ class Element:
         self.orange = (251, 133, 0)
         self.green = (161, 193, 129)
         self.darkgreen = (97, 155, 138)
+        self.lightyellow = (244, 226, 133)
 
     def img(self, x, y, largeur, hauteur, image_name):
         image = pygame.image.load(f'files/image/{image_name}.png')
@@ -52,12 +53,9 @@ class Element:
         Texte_rect = Texte.get_rect(center=(x, y))
         screen.Fenetre.blit(Texte, Texte_rect)
 
-    def rect(self, x, y, largeur, longueur, Texte):
-        menu_button_rect = pygame.Rect(x, y, largeur, longueur)
-        menu_text = pygame.font.Font(None, 30).render(Texte, True, (210, 180, 222))
-        menu_text_rect = menu_text.get_rect(center=menu_button_rect.center)
-        pygame.draw.rect(screen.Fenetre, (69, 90, 100), menu_button_rect)
-        screen.Fenetre.blit(menu_text, menu_text_rect)
+    def rect(self, x, y, largeur, longueur, color):
+        pygame.draw.rect(screen.Fenetre, color, pygame.Rect(x - largeur //2, y - longueur //2, largeur, longueur))
+
 
     def simple_rect(self, color, x, y, largeur, longueur, epaisseur):
         pygame.draw.rect(screen.Fenetre, color, pygame.Rect(x - largeur //2, y - longueur //2, largeur, longueur),  epaisseur, 5)
