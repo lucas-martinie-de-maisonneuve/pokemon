@@ -55,21 +55,29 @@ class AddPokemon(Element, Screen):
                         elif event.key == pygame.K_BACKSPACE:
                             add_pokemon_name = add_pokemon_name[:-1]
                         else:
-                            add_pokemon_name += event.unicode
+                            if self.cate == 1:
+                                add_pokemon_name += event.unicode
+                            
                             
                 self.img(525, 350, 1050, 743, "img_ajout_pokemon/test_img")
                 self.texte(25, "Saisir les informations du Pokemon :", self.white, 525, 50)
 
-                self.texte(30, "Nom :", self.black,100, 150)
-                self.button_rect(self.white, 525, 150, 500 ,80)
-                self.simple_rect(self.black, 525, 150, 500, 80, 3)
-                self.texte(30, add_pokemon_name, self.black, 525, 150)
+                self.texte(20, "Nom :", self.black,525, 120)
+                self.button_rect(self.white, 525, 180, 500 ,70)
+                self.simple_rect(self.black, 525, 180, 500, 70, 3)
+                self.texte(30, add_pokemon_name, self.black, 525, 180)
 
-                self.texte(30, "Niveau Evol :", self.black,100, 350)
-                self.button_rect(self.white, 525, 350, 500 ,80)
-                self.simple_rect(self.black, 525, 350, 500, 80, 3)
-                self.texte(30, add_pokemon_name, self.black, 525, 350)
+                self.texte(20, "Niveau Evol :", self.black,525, 260)
+                self.button_rect(self.white, 525, 320, 500 ,70)
+                self.simple_rect(self.black, 525, 320, 500, 70, 3)
 
+                if self.cate == 1:
+                    self.img(100, 180, 60, 60, "combat/arrow")
+                elif self.cate == 2:
+                    self.img(100, 320, 60, 60, "combat/arrow")
+                elif self.cate == 3:
+                    self.img(100, 550, 60, 60, "combat/arrow")
+                    
 
                 if enregistre:
                     self.texte(16, "Pokemon ajoute avec succes dans le fichier pokemon.json", (219, 19, 209), 525, 380)
