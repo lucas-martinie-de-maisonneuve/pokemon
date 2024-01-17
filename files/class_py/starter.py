@@ -21,10 +21,10 @@ class Starter(Element, Screen):
                     pygame.quit()
                     quit()
                 if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_RIGHT:
+                    if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                         if self.action < 4:
                             self.action += 1
-                    elif event.key == pygame.K_LEFT:
+                    elif event.key == pygame.K_LEFT or event.key == pygame.K_q:
                         if self.action > 1:
                             self.action -= 1
                     elif event.key == pygame.K_RETURN:

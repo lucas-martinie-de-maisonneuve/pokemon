@@ -5,12 +5,14 @@ from files.class_py.pokedex import Pokedex
 from files.class_py.maps_combat import Maps
 from files.class_py.combat import Combat
 from files.class_py.starter import Starter
+from files.class_py.setting import Setting
 
 element = Element()
 screen = Screen()
 pokedex = Pokedex()
 combat = Combat()
 starter = Starter()
+setting = Setting()
 
 class Menu:
     def __init__(self):
@@ -28,15 +30,15 @@ class Menu:
                     if self.show_home:
                         self.show_home = False
                         break
-                    if event.key == pygame.K_RIGHT:
+                    if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                         if c < 4:
                             c += 1
-                    elif event.key == pygame.K_LEFT:
+                    elif event.key == pygame.K_LEFT or event.key == pygame.K_q:
                         if c > 1:
                             c -= 1
-                    elif event.key == pygame.K_UP:
+                    elif event.key == pygame.K_UP or event.key == pygame.K_z:
                         c = 5
-                    elif event.key == pygame.K_DOWN:
+                    elif event.key == pygame.K_DOWN or event.key == pygame.K_s:
                         c = 4
                     elif event.key == pygame.K_RETURN:
                         if c == 1:
@@ -57,6 +59,10 @@ class Menu:
                         elif c == 4:
                             pokedex.ajout_pokemon()
                             pass
+                        elif c == 5:
+                            setting.setting_run = True
+                            setting.setting()
+                            # = True
             if self.show_home:
                 element.img_background(525, 350, 1244, 700, 'background')
                 element.img(1000, 650, 70, 70,'pokeball')

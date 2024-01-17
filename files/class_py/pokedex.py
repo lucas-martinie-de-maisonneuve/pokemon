@@ -4,7 +4,7 @@ import pygame
 from files.class_py.element import Element
 from files.class_py.screen import Screen
 
-class Pokedex(Element):
+class Pokedex( ):
     def __init__(self):
         self.info_pokemon = self.ouverture_pokemonjson()
         self.pokedex_run = False
@@ -65,20 +65,20 @@ class Pokedex(Element):
                     pygame.quit()
                     quit()
                 if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_RIGHT:
+                    if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                         if poke_choose < self.get_last_pokemon_number() +1:
                             poke_choose += 1
                         if poke_choose == self.get_last_pokemon_number() +1:
                             poke_choose = 1
-                    elif event.key == pygame.K_LEFT:
+                    elif event.key == pygame.K_LEFT or event.key == pygame.K_q:
                         if poke_choose > 0:
                             poke_choose -= 1
                         if poke_choose == 0:
                             poke_choose = self.get_last_pokemon_number()
-                    elif event.key == pygame.K_UP and not self.detailed_pokemon:
+                    elif event.key == pygame.K_UP or event.key == pygame.K_z and not self.detailed_pokemon:
                         if poke_choose > 9:
                             poke_choose -= 9
-                    elif event.key == pygame.K_DOWN and not self.detailed_pokemon:
+                    elif event.key == pygame.K_DOWN or event.key == pygame.K_s and not self.detailed_pokemon:
                         if poke_choose < 45:
                             poke_choose += 9
                     elif event.key == pygame.K_RETURN:
