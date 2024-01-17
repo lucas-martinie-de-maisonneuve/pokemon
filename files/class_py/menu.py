@@ -5,6 +5,7 @@ from files.class_py.pokedex import Pokedex
 from files.class_py.maps_combat import Maps
 from files.class_py.combat import Combat
 from files.class_py.starter import Starter
+from files.class_py.add_pokemon import AddPokemon
 from files.class_py.setting import Setting
 
 element = Element()
@@ -12,6 +13,7 @@ screen = Screen()
 pokedex = Pokedex()
 combat = Combat()
 starter = Starter()
+addpokemon = AddPokemon()
 setting = Setting()
 
 class Menu:
@@ -57,7 +59,7 @@ class Menu:
                             pokedex.pokedex_run = True
                             pokedex.show_pokedex()
                         elif c == 4:
-                            pokedex.ajout_pokemon()
+                            addpokemon.ajout_pokemon()
                             pass
                         elif c == 5:
                             setting.setting_run = True
