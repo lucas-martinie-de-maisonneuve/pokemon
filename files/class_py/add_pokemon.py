@@ -30,7 +30,6 @@ class AddPokemon(Element, Screen):
                     if event.type == pygame.QUIT:
                         pygame.quit()
                     elif event.type == pygame.KEYDOWN:
-                        print(add_pokemon_type)
                         if event.key == pygame.K_ESCAPE:
                             active = False
                         elif event.key == pygame.K_DOWN:
