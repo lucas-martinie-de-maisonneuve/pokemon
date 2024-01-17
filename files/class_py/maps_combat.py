@@ -42,12 +42,12 @@ class Maps(Element, Screen):
                     if event.key == pygame.K_RIGHT:
                         if self.action < 4:
                             self.action += 1
-                    elif event.key == pygame.K_LEFT:
+                    elif event.key == pygame.K_LEFT or event.key == pygame.K_q:
                         if self.action > 1:
                             self.action -= 1
-                    elif event.key == pygame.K_UP and self.action > 2:
+                    elif event.key == pygame.K_UP or event.key == pygame.K_z and self.action > 2:
                         self.action -= 2
-                    elif event.key == pygame.K_DOWN and self.action < 3:
+                    elif event.key == pygame.K_DOWN or event.key == pygame.K_s and self.action < 3:
                         self.action += 2
                     elif event.key == pygame.K_RETURN and not self.attack_phase:
                         if self.action == 1 and not self.attack_phase:

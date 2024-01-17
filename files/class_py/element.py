@@ -73,3 +73,8 @@ class Element:
             pygame.draw.rect(screen.Fenetre, (255, 209, 102), pygame.Rect(x, y, longueur * hp // hp_max, largeur))
         else:
             pygame.draw.rect(screen.Fenetre, (239, 71, 111), pygame.Rect(x, y, longueur * hp // hp_max, largeur))
+    def draw_overlay(self,alpha):
+        overlay_color = (0, 0, 0, alpha) 
+        overlay_surface = pygame.Surface((screen.W, screen.H), pygame.SRCALPHA)
+        overlay_surface.fill(overlay_color)
+        screen.Fenetre.blit(overlay_surface, (0, 0))
