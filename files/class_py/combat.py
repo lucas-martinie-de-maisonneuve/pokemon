@@ -104,12 +104,14 @@ class Combat:
     def verify_poke_advers_HP(self, poke_hp_advers):
         return poke_hp_advers
     
-    def recup_poke_winner(self):        
+    def recup_poke_winner(self, poke_player, poke_advers):        
         if self.verify_poke_player_HP < 0:
-            print(f"{self.poke_player} à gagner le combat") 
+            print(f"{poke_player} à gagner le combat")
+            return poke_player
         elif self.verify_poke_advers_HP < 0:
-            print()
-            pass                                                             
+            print(f"{poke_advers} à gagner le combat")
+            return poke_advers
+                                                                     
     
 
 # pokedex.rand_pokemon()

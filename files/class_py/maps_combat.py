@@ -7,7 +7,7 @@ from files.class_py.starter import Starter
 
 
 pokedex = Pokedex()
-class Maps(Element, Screen):
+class Maps(Element, Screen, Combat):
 
     def __init__(self, poke_player, pokemon_random):
         self.combat_run = True
@@ -15,8 +15,7 @@ class Maps(Element, Screen):
         Element.__init__(self)
         Screen.__init__(self)
         self.combat = Combat()
-        self.starter = Starter()
-        combat = Combat()
+        self.starter = Starter()        
         self.attack_phase = False
         self.text_phase = False
         self.text = 1
@@ -28,7 +27,8 @@ class Maps(Element, Screen):
         self.pokemon_random_hp_max = pokemon_random["hp"]        
         self.pokemon_type_player = poke_player['type']
         self.type_pokemon_advers = pokemon_random['type']
-        self.pokemon_def_advers  = pokemon_random['def']               
+        self.pokemon_def_advers  = pokemon_random['def']
+        self.poke_advers = pokemon_random['nom']               
 
     def home(self):
         while self.combat_run:
@@ -62,7 +62,11 @@ class Maps(Element, Screen):
                     elif event.key == pygame.K_RETURN and self.attack_phase and not self.text_phase:
                         self.text = 1
                         if self.action == 1:
+                            self.combat.verify_poke_player_HP(self.poke_player_hp)
+                            self.combat.verify_poke_advers_HP(self.pokemon_random_hp)
                             self.pokemon_random_hp = self.combat.attack(self.pokemon_random_hp, self.poke_player['attaque'],self.pokemon_type_player,self.type_pokemon_advers, self.pokemon_def_advers)
+                            self.combat.verify_poke_player_HP(self.poke_player)
+                            self.combat.verify_poke_advers_HP(self.poke_advers)
                             self.text_phase = True
                         elif self.action == 2 and not self.attack_phase:
                             self.attack_phase = False
@@ -171,5 +175,8 @@ class Maps(Element, Screen):
                 #     self.texte(20, f'Il lui reste {self.poke_player_hp}', self.black, 300, 660)
             else:
                 self.texte(20, f"What will {self.poke_player['nom']} do?", self.black, 300, 625)
-
+                
+            if self.combat.recup_poke_winner(self.starter.poke_player, self.poke_advers):
+                self.img(425, 525, 470, 150, "combat/background.png")
+                self.texte(16, f"{self.combat.recup_poke_winner()} à gagner le combat", self.black, 425, 525)
             self.update()
