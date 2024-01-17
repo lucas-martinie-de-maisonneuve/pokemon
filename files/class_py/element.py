@@ -17,6 +17,7 @@ class Element:
         self.orange = (251, 133, 0)
         self.green = (161, 193, 129)
         self.darkgreen = (97, 155, 138)
+        self.lightyellow = (244, 226, 133)
 
     def img(self, x, y, largeur, hauteur, image_name):
         image = pygame.image.load(f'files/image/{image_name}.png')
