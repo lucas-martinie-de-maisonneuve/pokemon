@@ -52,7 +52,7 @@ class Menu:
                                 maps.home()
                                 maps.combat_run = True
                                 pokedex.pokemon_rencontre(pokemon_random["nom"])
-                                print (pokedex.pokemon_counter)
+                                print(pokedex.pokemon_counter)
                         elif c == 2:
                             pokedex.pokedex_run = True
                             pokedex.show_pokedex()

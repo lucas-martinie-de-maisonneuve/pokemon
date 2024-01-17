@@ -14,6 +14,9 @@ class Combat:
     def __init__(self):
         self.combat = True
         self.info_pokemon = self.ouverture_pokemonjson()
+        self.poke = pokedex.rand_pokemon()
+        self.poke_player = self.poke['nom']       
+        self.game_over = False        
         
     def ouverture_pokemonjson(self):
         with open('pokemon.json', 'r') as fichier:
@@ -95,21 +98,25 @@ class Combat:
             vie_restante = vie - dmg_poke 
             print (f"Le pokemon inflige {dmg_poke}, l'autre avait {vie}, il lui reste {vie_restante}")
             return vie_restante
-                
-
-    def fonction_bag(self):
-        pass                             
+        
+    def verify_poke_player_HP(self, poke_hp_player):
+        return poke_hp_player
     
-    def calcule_combatPrincipal(self):
-        pass
+    def verify_poke_advers_HP(self, poke_hp_advers):
+        return poke_hp_advers
     
-    def jouer_combat(self):
-        pass
-    
-    def recup_pokemonGagnant(self):
-        # mon_pokemon = self.apparition_pokemon()
-        # pokemon = self.apparition_pokemon()
-        pass                                                              
+    def recup_poke_winner(self, poke_player, poke_advers, poke_player_hp, poke_rand_hp):        
+        if poke_player_hp <= 0:
+            self.game_over = True
+            print(f"{poke_advers} à gagner le combat")
+            return poke_advers
+        elif poke_rand_hp <= 0:
+            self.game_over = True
+            print(f"{poke_player} à gagner le combat")
+            return poke_player
+        else:
+            self.game_over = False
+                                                                     
     
 
 # pokedex.rand_pokemon()
