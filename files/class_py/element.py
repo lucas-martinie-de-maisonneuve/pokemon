@@ -61,6 +61,9 @@ class Element:
         pygame.draw.rect(screen.Fenetre, color, pygame.Rect(x - largeur //2, y - longueur //2, largeur, longueur),  epaisseur, 5)
         # pygame.draw.rect(screen.Fenetre, (0,0,0), pygame.Rect(200, 550, 120, 120),  2)
 
+    def border_rect(self, color, x, y, largeur, longueur, epaisseur):
+        pygame.draw.rect(screen.Fenetre, color, pygame.Rect(x - largeur //2, y - longueur //2, largeur, longueur),  epaisseur, 100)
+
     def button_rect(self, color, x, y, longueur, largeur):
         pygame.draw.rect(screen.Fenetre, color, pygame.Rect(x - longueur//2, y - largeur//2, longueur, largeur),  0, 8)
 
