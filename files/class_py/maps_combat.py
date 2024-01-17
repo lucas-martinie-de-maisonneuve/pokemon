@@ -39,7 +39,7 @@ class Maps(Element, Screen):
                 if event.type == pygame.KEYDOWN: 
                     print('pokeplayer :', self.poke_player_hp)
                     print ('pokerandom', self.poke_player)
-                    if event.key == pygame.K_RIGHT:
+                    if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                         if self.action < 4:
                             self.action += 1
                     elif event.key == pygame.K_LEFT or event.key == pygame.K_q:
