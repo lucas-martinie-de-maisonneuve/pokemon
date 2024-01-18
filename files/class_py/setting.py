@@ -3,11 +3,10 @@ from files.class_py.element import Element
 from files.class_py.screen import Screen
 from files.class_py.pokedex import Pokedex
 
-class Setting(Element,Screen,Pokedex):
+class Setting(Element,Screen):
     def __init__(self):
         Element.__init__(self)
         Screen.__init__(self)
-        Pokedex.__init__(self)
 
         self.verif_quitter = False
         self.setting_run = False
@@ -16,6 +15,7 @@ class Setting(Element,Screen,Pokedex):
         d = 1
         e = 1
         f = 0
+        pokedex = Pokedex()
         while self.setting_run:
             for event in pygame.event.get():
 
@@ -122,13 +122,13 @@ class Setting(Element,Screen,Pokedex):
                 if d == 2:
                     self.button_rect((39, 76, 119), 205, 307, 160, 40)
                     self.img(205,576,150,150,"/setting/pikachu_awake")
-                    self.texte_not_align(15,f"Nombre de pokemon rencontré: {self.pokemon_counter}", self.black,320,130)
-                    self.texte_not_align(15,f"Nombre de combat gagné: {self.info_pokemon}", self.black,320,180)
-                    self.texte_not_align(15,f"Nombre de fuite: {self.detailed_pokemon}", self.black,320,230)
+                    self.texte_not_align(15,f"Nombre de pokemon rencontré: {pokedex.pokemon_counter}", self.black,320,130)
+                    self.texte_not_align(15,f"Nombre de combat gagné: {pokedex.info_pokemon}", self.black,320,180)
+                    self.texte_not_align(15,f"Nombre de fuite: {pokedex.detailed_pokemon}", self.black,320,230)
                     self.texte_not_align(15,f"Pokemon les plus rencontres:", self.black,320, 280)
-                    self.texte_not_align(15,f"{self.rand_pokemon()}:", self.black,620, 300)
-                    self.texte_not_align(15,f"{self.rand_pokemon()}", self.black,620, 320)
-                    self.texte_not_align(15,f"{self.rand_pokemon()}", self.black,620, 340)
+                    self.texte_not_align(15,f"{pokedex.rand_pokemon()}:", self.black,620, 300)
+                    self.texte_not_align(15,f"{pokedex.rand_pokemon()}", self.black,620, 320)
+                    self.texte_not_align(15,f"{pokedex.rand_pokemon()}", self.black,620, 340)
 
                 else:
                     self.button_rect((37, 50, 55), 205, 307, 160, 40)
