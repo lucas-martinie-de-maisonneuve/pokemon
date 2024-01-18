@@ -205,8 +205,12 @@ class AddPokemon(Element, Screen):
                 if confirm == 1:
                     self.texte(25, "Résumé des informations", self.white, 525, 50)
                 elif confirm == 2:
-                    self.texte(25, f"{add_pokemon_name} a bien été ajouté au Pokedex", self.black, 525, 50)
-                    self.simple_rect(self.white, 525, 50, 800, 50, 3)
+                    self.img(525, 350, 900, 400, "add_pokemon/menuselect")
+
+                    self.draw_overlay((255,255,255,200), 525, 350, 750, 50)
+                    self.border_rect((255,255,255), 525, 350, 900, 400, 3)
+                    self.texte(30, f"{add_pokemon_name} a été ajouté au Pokedex", (self.black), 525, 350)
+
                     if not enregistre:
                         data_pokemon = pokedex.ouverture_pokemonjson()
                         nouveau_pokemon = {
@@ -214,9 +218,9 @@ class AddPokemon(Element, Screen):
                             "nom": add_pokemon_name,
                             "evol": add_pokemon_level,
                             "type": add_pokemon_type,
-                            "attaque": add_pokemon_attaque,
-                            "hp": add_pokemon_hp,
-                            "def": add_pokemon_def,
+                            "attaque": int(add_pokemon_attaque),
+                            "hp": int(add_pokemon_hp),
+                            "def": int(add_pokemon_def),
                             "rencontre": 1,
                         }
                         data_pokemon.append(nouveau_pokemon)
@@ -225,8 +229,6 @@ class AddPokemon(Element, Screen):
                             json.dump(data_pokemon, fichier)
                         enregistre = True
                 elif confirm == 3:
-                    self.texte(25, f"{add_pokemon_name} a bien été ajouté au Pokedex", self.black, 525, 50)
-                    self.simple_rect(self.white, 525, 50, 800, 50, 3)
                     self.img(525, 350, 900, 400, "add_pokemon/menuselect")
                     self.border_rect((255,255,255), 525, 350, 900, 400, 3)
                     if self.menu_selec == 1:

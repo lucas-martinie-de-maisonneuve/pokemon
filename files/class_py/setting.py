@@ -53,8 +53,8 @@ class Setting(Element,Screen):
                 self.img(800, 550, 100, 100, 'menu/add_poke')
                 self.texte(16,'Add Pokemon',(0,0,0),800,620) 
                 self.img(990, 60, 80, 80, 'menu/settings')
+                self.draw_overlay((0,0,0,200), 525,350, self.W, self.H)
                 self.texte(14,'Settings',(0,0,0),990,110)     
-                self.draw_overlay(200)
                 
                 self.button_rect((150, 140, 130),525,350,830,560)
                 self.button_rect((100,100,100),205,350,170,350)

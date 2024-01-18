@@ -46,56 +46,56 @@ class Combat:
         
         if type_pokemon_starter == "feu":
             poke_dmg = type.feu(type_pokemon_advers, pokemon_attack)
-            self.dmg_poke = poke_dmg * (1 - poke_def // 200) 
+            self.dmg_poke = poke_dmg * (1 - poke_def / 200) 
             vie_restante = vie - self.dmg_poke
             print (f"Le pokemon inflige {self.dmg_poke} dégats, l'autre avait {vie}HP, il lui reste {vie_restante}HP mais il avait {poke_def}de def")
             return vie_restante
         
         if type_pokemon_starter == "eau":
             poke_dmg = type.eau(type_pokemon_advers, pokemon_attack)
-            self.dmg_poke = poke_dmg * (1 - poke_def // 200) 
+            self.dmg_poke = poke_dmg * (1 - poke_def / 200) 
             vie_restante = vie - self.dmg_poke
             print (f"Le pokemon inflige {self.dmg_poke}, l'autre avait {vie}, il lui reste {vie_restante} mais il avait {poke_def}")
             return vie_restante
         
         if type_pokemon_starter == "plante":
             poke_dmg = type.plante(type_pokemon_advers, pokemon_attack) 
-            self.dmg_poke = poke_dmg * (1 - poke_def // 200) 
+            self.dmg_poke = poke_dmg * (1 - poke_def / 200) 
             vie_restante = vie - self.dmg_poke
             print (f"Le pokemon inflige {self.dmg_poke}, l'autre avait {vie}, il lui reste {vie_restante}")
             return vie_restante
         
         if type_pokemon_starter == "insecte":
             poke_dmg = type.insecte(type_pokemon_advers, pokemon_attack) 
-            self.dmg_poke = poke_dmg * (1 - poke_def // 200) 
+            self.dmg_poke = poke_dmg * (1 - poke_def / 200) 
             vie_restante = vie - self.dmg_poke
             print (f"Le pokemon inflige {self.dmg_poke}, l'autre avait {vie}, il lui reste {vie_restante}")
             return vie_restante
         
         if type_pokemon_starter == "sol":
             poke_dmg = type.sol(type_pokemon_advers, pokemon_attack)
-            self.dmg_poke = poke_dmg * (1 - poke_def // 200) 
+            self.dmg_poke = poke_dmg * (1 - poke_def / 200) 
             vie_restante = vie - self.dmg_poke 
             print (f"Le pokemon inflige {self.dmg_poke}, l'autre avait {vie}, il lui reste {vie_restante}")
             return vie_restante
         
         if type_pokemon_starter == "vol":
             poke_dmg = type.vol(type_pokemon_advers, pokemon_attack)
-            self.dmg_poke = poke_dmg * (1 - poke_def // 200) 
+            self.dmg_poke = poke_dmg * (1 - poke_def / 200) 
             vie_restante = vie - self.dmg_poke
             print (f"Le pokemon inflige {self.dmg_poke}, l'autre avait {vie}, il lui reste {vie_restante}")
             return vie_restante
         
         if type_pokemon_starter == "elec":
             poke_dmg = type.elec(type_pokemon_advers, pokemon_attack) 
-            self.dmg_poke = poke_dmg * (1 - poke_def // 200) 
+            self.dmg_poke = poke_dmg * (1 - poke_def / 200) 
             vie_restante = vie - self.dmg_poke 
             print (f"Le pokemon inflige {self.dmg_poke}, l'autre avait {vie}, il lui reste {vie_restante}")
             return vie_restante
         
         if type_pokemon_starter == "normal":
             poke_dmg = type.normal(type_pokemon_advers, pokemon_attack) 
-            self.dmg_poke = poke_dmg * (1 - poke_def // 200) 
+            self.dmg_poke = poke_dmg * (1 - poke_def / 200) 
             vie_restante = vie - self.dmg_poke 
             print (f"Le pokemon inflige {self.dmg_poke}, l'autre avait {vie}, il lui reste {vie_restante}")
             return vie_restante   
