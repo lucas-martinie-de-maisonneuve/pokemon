@@ -6,12 +6,12 @@ from files.class_py.screen import Screen
 
 class Pokedex(Element):
     def __init__(self):
+        Element.__init__(self)
         self.info_pokemon = self.ouverture_pokemonjson()
         self.pkmn_rencontre = self.ouverture_pokemonrencontre()
         self.pokedex_run = False
         self.detailed_pokemon = False
         self.pokemon_counter = {}
-        Element.__init__(self)
 
     def ouverture_pokemonjson(self):
         with open('pokemon.json', 'r') as fichier:
@@ -67,8 +67,11 @@ class Pokedex(Element):
             json.dump(self.pkmn_rencontre, file, indent=2)
 
         return False
-
-
+    
+    def info_rencontre(self):
+        self.liste_rencontre = []
+        for pokemon in self.pkmn_rencontre:
+            self.liste_rencontre(pokemon)
 
     def rand_pokemon(self):
         random_pokemon = random.choice(self.info_pokemon)
