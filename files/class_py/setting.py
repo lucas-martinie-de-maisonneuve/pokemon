@@ -7,11 +7,11 @@ class Setting(Element,Screen):
     def __init__(self):
         Element.__init__(self)
         Screen.__init__(self)
-
         self.verif_quitter = False
         self.setting_run = False
 
     def setting(self):
+        pokedex = Pokedex()
         d = 1
         e = 1
         f = 0
@@ -23,43 +23,33 @@ class Setting(Element,Screen):
                     pygame.quit()
                     quit()
                 if event.type == pygame.KEYDOWN:
-                    #self.detail_setting = False
                     if event.key == pygame.K_LEFT or event.key == pygame.K_q:
                         if self.verif_quitter and e == 2:
                             e = 1
                         elif f == 1 and d == 4:
                             f = 0
                     elif event.key == pygame.K_RIGHT or event.key == pygame.K_d:
-                        if not self.verif_quitter and d < 4:
-                            pass
+                        if self.verif_quitter and e == 1:
+                            e = 2
                         elif d == 4:
                             f = 1
-                        elif self.verif_quitter and e == 1:
-                            e = 2
                     elif event.key == pygame.K_UP or event.key == pygame.K_z :
-                        if not self.verif_quitter and d > 0:
+                        if not self.verif_quitter and d > 0 and f == 0:
                             d -= 1
                     elif event.key == pygame.K_DOWN or event.key == pygame.K_s:
-                        if not self.verif_quitter and d < 4:
+                        if not self.verif_quitter and d < 4 and f == 0:
                             d += 1
                     elif event.key == pygame.K_RETURN:
                         if d == 0:
                             self.setting_run = False
-                        elif d == 1:
-                            pass
-                        elif d == 2:
-                            # Logique pour l'option 2
-                            pass
-                        elif d == 3:
-                            # Logique pour l'option 3
-                            pass
                         elif f == 1:
                             self.verif_quitter = True
-                        if e == 1:
-                            self.verif_quitte = False
-                            
+                            f = 0
+                        elif e == 1 and self.verif_quitter:
+                            self.verif_quitter = False
                         elif e == 2:
                             pygame.quit()
+                            quit()
                     elif event.key == pygame.K_ESCAPE and not self.verif_quitter:
                         self.setting_run = False
                     elif event.key == pygame.K_ESCAPE and self.verif_quitter:
@@ -72,8 +62,13 @@ class Setting(Element,Screen):
                 self.texte(14,'Settings',(0,0,0),990,110)     
                 
                 self.button_rect((139, 140, 137),525,350,830,560) #Bloc Principal Parametre
+                
                 self.button_rect((92, 103, 125),205,350,170,350) #Bloc Menu
+                self.simple_rect((self.black),205,350,170,350,2) #Bordure Menu
+
+                self.button_rect((92, 103, 125),615,350,610,500) #Bloc Détails
                 self.simple_rect((self.black),615,350,610,500,2) #Bordure Détails
+
 
                 #Croix exit
                 if d == 0:
@@ -125,7 +120,7 @@ class Setting(Element,Screen):
                     self.texte_not_align(15,f"Nombre de combat gagné: {pokedex.info_pokemon}", self.black,320,180)
                     self.texte_not_align(15,f"Nombre de fuite: {pokedex.detailed_pokemon}", self.black,320,230)
                     self.texte_not_align(15,f"Pokemon les plus rencontres:", self.black,320, 280)
-                    self.texte_not_align(15,f"{pokedex.rand_pokemon()}:", self.black,620, 300)
+                    self.texte_not_align(15,f"Bulbizarre: 5", self.black,620, 300)
                     self.texte_not_align(15,f"{pokedex.rand_pokemon()}", self.black,620, 320)
                     self.texte_not_align(15,f"{pokedex.rand_pokemon()}", self.black,620, 340)
 
@@ -146,12 +141,16 @@ class Setting(Element,Screen):
                     self.button_rect((39, 76, 119), 205, 481, 160, 40)
                     self.img(205,576,150,150,"/setting/pikachu_angry")
                     self.button_rect((160, 160, 160),615,350,500,200)
+                    self.simple_rect(self.black,615,350,500,200,2)
                     self.texte(18,"Quitter le jeu",self.black,615,340)
+
                     if f == 1:
                         self.button_rect((180, 120, 230),615,400,50,30)
+                        self.texte(13,"Oui", self.black,615,400)
                     else:
                         self.button_rect((37, 50, 55),615,400,50,30)
-                    self.texte(13,"Oui", self.white,615,400)
+                        self.texte(13,"Oui", self.white,615,400)
+
                 else:
                     self.button_rect((37, 50, 55), 205, 481, 160, 40)
                 self.texte(15, 'Quitter', self.white, 205, 481)
@@ -161,6 +160,7 @@ class Setting(Element,Screen):
 
                 if self.verif_quitter:
                     self.button_rect((100,100,100),615,350,500,200)
+                    self.simple_rect(self.black,615,350,500,200,2)
                     self.texte(18,"Voulez vous vraiment quitter ?", self.white,615,340)
 
                     if e == 1:
