@@ -174,17 +174,17 @@ class Maps(Element, Screen, Combat):
 
             if self.text_phase:
                 if self.text == 1:
-                    self.texte(20, f"{self.poke_player['nom']} inflige {self.dmg_poke}", self.black, 300, 590)
-                    self.texte(20, f"{self.pokemon_random['nom']} avait {self.pokemon_random_hp + self.dmg_poke}", self.black, 300, 625)
-                    self.texte(20, f'Il lui reste {self.pokemon_random_hp}', self.black, 300, 660)
+                    self.texte(20, f"{self.poke_player['nom']} inflige {int(self.dmg_poke)}", self.black, 300, 590)
+                    self.texte(20, f"{self.pokemon_random['nom']} avait {int(self.pokemon_random_hp + self.dmg_poke)}", self.black, 300, 625)
+                    self.texte(20, f'Il lui reste {int(self.pokemon_random_hp)}', self.black, 300, 660)
                 elif self.text == 2:
                     if self.attack_phase_advers:
                         self.poke_player_hp = self.attack(self.poke_player_hp, self.pokemon_random['attaque'],self.type_pokemon_advers, self.pokemon_type_player, self.def_poke_player)
                         self.attack_phase_advers = False                            
                     self.recup_poke_winner(self.poke_player['nom'], self.pokemon_random['nom'], self.poke_player_hp, self.pokemon_random_hp)
-                    self.texte(20, f"{self.pokemon_random['nom']} inflige {self.dmg_poke}", self.black, 300, 590)
-                    self.texte(20, f"{self.poke_player['nom']} avait {self.poke_player_hp + self.dmg_poke}", self.black, 300, 625)
-                    self.texte(20, f"Il lui reste {self.poke_player_hp}", self.black, 300, 660)
+                    self.texte(20, f"{self.pokemon_random['nom']} inflige {int(self.dmg_poke)}", self.black, 300, 590)
+                    self.texte(20, f"{self.poke_player['nom']} avait {int(self.poke_player_hp + self.dmg_poke)}", self.black, 300, 625)
+                    self.texte(20, f"Il lui reste {int(self.poke_player_hp)}", self.black, 300, 660)
             else:
                 self.texte(20, f"What will {self.poke_player['nom']} do?", self.black, 300, 625)         
             

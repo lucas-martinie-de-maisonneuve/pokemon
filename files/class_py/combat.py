@@ -97,18 +97,3 @@ class Combat:
             self.win = poke_player
             
         return self.win
-        
-        
-                                                                     
-    
-
-
-                               
-
-    
-
-
-
-
-        
-    
