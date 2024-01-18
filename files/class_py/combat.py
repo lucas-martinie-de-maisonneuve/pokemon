@@ -163,12 +163,3 @@ class Combat:
     #                     elif c == 4:
     #                         if click_on_pokedex:
     #                             pokedex.show_pokedex()
-                               
-
-    
-
-
-
-
-        
-    

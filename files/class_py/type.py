@@ -144,14 +144,6 @@ class Type:
             print(damage)
             return damage
         
-
-
-        
-    
-        
-        
-        
-
     #     #Defend
     #     for type in self.type_pokemon:
     #         if type == self.type_pokemon["feu"] or self.type_pokemon["eau"]:

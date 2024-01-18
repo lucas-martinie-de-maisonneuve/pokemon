@@ -73,4 +73,3 @@ class Starter(Element, Screen):
                 self.img(880, 570, 110, 110, "starter/pokeball")
                 
             self.update()
-            

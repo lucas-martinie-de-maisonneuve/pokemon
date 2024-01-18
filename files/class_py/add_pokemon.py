@@ -12,11 +12,12 @@ class AddPokemon(Element, Screen):
         Screen.__init__(self)
         
     def ajout_pokemon(self):
-            select_type = ["plante", "feu", "eau", "sol", "elec", "vol", "normal", "insecte", "plante", "feu", "eau", "sol", "elec", "vol", "normal", "insecte"]
             self.i = 0
             self.cate = 1
+            self.select_stat = 1
+            select_type = ["plante", "feu", "eau", "sol", "elec", "vol", "normal", "insecte", "plante", "feu", "eau", "sol", "elec", "vol", "normal", "insecte"]
             enregistre = False
-            confirm = False
+            confirm = 0
             add_pokemon_name = ""
             add_pokemon_level = 1
             add_pokemon_type = select_type[self.i]
@@ -24,7 +25,7 @@ class AddPokemon(Element, Screen):
             add_pokemon_attaque = ""
             add_pokemon_def = ""
             active = True
-            self.select_stat = 1
+            self.menu_selec = 1
             while active:
                 for event in pygame.event.get():
                     if event.type == pygame.QUIT:
@@ -32,13 +33,13 @@ class AddPokemon(Element, Screen):
                     elif event.type == pygame.KEYDOWN:
                         if event.key == pygame.K_ESCAPE:
                             active = False
-                        elif event.key == pygame.K_DOWN:
+                        elif event.key == pygame.K_DOWN and confirm == 0:
                             if self.cate < 5:
                                 self.cate +=1
-                        elif event.key == pygame.K_UP:
+                        elif event.key == pygame.K_UP and confirm == 0:
                             if self.cate > 1:
                                 self.cate -= 1
-                        elif event.key == pygame.K_RIGHT:
+                        elif event.key == pygame.K_RIGHT :
                             if self.cate == 2 and add_pokemon_level < 3:
                                  add_pokemon_level += 1
                             elif self.cate == 3:
@@ -46,9 +47,10 @@ class AddPokemon(Element, Screen):
                                     self.i = 0
                                 self.i +=1
                                 add_pokemon_type = select_type[self.i]
-                            elif self.cate ==4 and self.select_stat < 3:
+                            elif self.cate == 4 and self.select_stat < 3:
                                 self.select_stat += 1
-
+                            if confirm == 3:
+                                self.menu_selec = 2
                         elif event.key == pygame.K_LEFT:
                             if self.cate == 2 and add_pokemon_level > 1:
                                 add_pokemon_level -= 1
@@ -59,26 +61,16 @@ class AddPokemon(Element, Screen):
                                 add_pokemon_type = select_type[self.i]
                             elif self.cate ==4 and self.select_stat > 1:
                                 self.select_stat -= 1
-
+                            if confirm == 3:
+                                self.menu_selec = 1
                         elif event.key == pygame.K_RETURN and self.cate == 5:
-                            confirm = True
-                            # data_pokemon = pokedex.ouverture_pokemonjson()
-                            # nouveau_pokemon = {
-                            #     "numero": (pokedex.get_last_pokemon_number() +1),
-                            #     "nom": add_pokemon_name,
-                            #     "evol": add_pokemon_level,
-                            #     "type": add_pokemon_type,
-                            #     "attaque": add_pokemon_attaque,
-                            #     "hp": add_pokemon_hp,
-                            #     "def": add_pokemon_def,
-                            #     "rencontre": 1,
-                            # }
-                            # data_pokemon.append(nouveau_pokemon)
-
-                            # with open("pokemon.json", "w") as fichier:
-                            #     json.dump(data_pokemon, fichier)
-                            # enregistre = True
-
+                            if confirm < 3:
+                                confirm += 1
+                            elif confirm == 3:
+                                if self.menu_selec == 1:
+                                    active = False
+                                else:
+                                    self.ajout_pokemon()
                         elif event.key == pygame.K_BACKSPACE:
                             if self.cate == 1 :
                                 add_pokemon_name = add_pokemon_name[:-1]
@@ -101,10 +93,6 @@ class AddPokemon(Element, Screen):
                                     add_pokemon_def += event.unicode
 
                 self.img(525, 350, 1050, 743, "add_pokemon/test_img")
-                if confirm: 
-                    self.texte(25, "Résumé des informations", self.white, 525, 50)
-                else:
-                    self.texte(25, "Saisir les informations du Pokemon :", self.white, 525, 50)
 
                 self.texte(20, "Nom :", self.black,525, 100)
                 self.button_rect(self.white, 525, 160, 450 ,70)
@@ -199,7 +187,7 @@ class AddPokemon(Element, Screen):
                 else: 
                     self.img(525, 660, 130, 55, "add_pokemon/confirmoff")
 
-                if confirm: 
+                if 0 < confirm < 4: 
                     self.button_rect((122, 122, 122), 525, 350, 800, 535)
                     self.img(525, 350, 800, 535, "pokedex/background")
                     self.img(370,365, 255 ,265, f"pokedex/bg.{add_pokemon_type}")
@@ -210,12 +198,49 @@ class AddPokemon(Element, Screen):
                     self.texte(16, f"{add_pokemon_name}", self.black ,680, 370)
                     self.texte(16, f"HP {add_pokemon_hp}", self.black ,680, 410)
                     self.texte(16, f"Atq {add_pokemon_attaque}", self.black ,680, 450)
-                    self.texte(16, f"Def {add_pokemon_def}", self.black ,680, 490) 
+                    self.texte(16, f"Def {add_pokemon_def}", self.black ,680, 490)
+                
+                if confirm == 0:
+                    self.texte(25, "Saisir les informations du Pokemon :", self.white, 525, 50)
+                if confirm == 1:
+                    self.texte(25, "Résumé des informations", self.white, 525, 50)
+                elif confirm == 2:
+                    self.img(525, 350, 900, 400, "add_pokemon/menuselect")
 
+                    self.draw_overlay((255,255,255,200), 525, 350, 750, 50)
+                    self.border_rect((255,255,255), 525, 350, 900, 400, 3)
+                    self.texte(30, f"{add_pokemon_name} a été ajouté au Pokedex", (self.black), 525, 350)
 
-                if enregistre:
-                    self.texte(16, "Pokemon ajoute avec succes dans le fichier pokemon.json", (219, 19, 209), 525, 380)
-                    enregistre = False
-                    active = False
-                    self.clock.tick(240)              
+                    if not enregistre:
+                        data_pokemon = pokedex.ouverture_pokemonjson()
+                        nouveau_pokemon = {
+                            "numero": (pokedex.get_last_pokemon_number() +1),
+                            "nom": add_pokemon_name,
+                            "evol": add_pokemon_level,
+                            "type": add_pokemon_type,
+                            "attaque": int(add_pokemon_attaque),
+                            "hp": int(add_pokemon_hp),
+                            "def": int(add_pokemon_def),
+                            "rencontre": 1,
+                        }
+                        data_pokemon.append(nouveau_pokemon)
+
+                        with open("pokemon.json", "w") as fichier:
+                            json.dump(data_pokemon, fichier)
+                        enregistre = True
+                elif confirm == 3:
+                    self.img(525, 350, 900, 400, "add_pokemon/menuselect")
+                    self.border_rect((255,255,255), 525, 350, 900, 400, 3)
+                    if self.menu_selec == 1:
+                        self.button_rect((183, 228, 199), 325, 435, 300, 70)
+                        self.button_rect((255,255,255), 725, 435, 300, 70)
+                    else: 
+                        self.button_rect((255,255,255), 325, 435, 300, 70)
+                        self.button_rect((183, 228, 199), 725, 435, 300, 70)
+                    self.simple_rect(self.black, 325, 435, 300, 70, 3)
+                    self.simple_rect(self.black, 725, 435, 300, 70, 3)
+                    self.texte(30, "Que voulez vous faire ?", (self.black), 525, 225)
+                    self.texte(22, "Retour menu", (self.black), 325, 435)
+                    self.texte(22, "Ajout Pokemon", (self.black), 725, 435)
+
                 self.update()

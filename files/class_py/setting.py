@@ -65,12 +65,11 @@ class Setting(Element,Screen):
                     elif event.key == pygame.K_ESCAPE and self.verif_quitter:
                         self.verif_quitter = False
                         e = 1
-                    
-                
+
                 self.img(525, 350, 1244, 700, 'menu/backgroundmenu')
                 self.img(990, 60, 80, 80, 'menu/settings')
+                self.draw_overlay((0,0,0,200), 525,350, self.W, self.H)
                 self.texte(14,'Settings',(0,0,0),990,110)     
-                self.draw_overlay(200)
                 
                 self.button_rect((139, 140, 137),525,350,830,560) #Bloc Principal Parametre
                 self.button_rect((92, 103, 125),205,350,170,350) #Bloc Menu

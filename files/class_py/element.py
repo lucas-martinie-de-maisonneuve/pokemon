@@ -66,7 +66,9 @@ class Element:
 
     def simple_rect(self, color, x, y, largeur, longueur, epaisseur):
         pygame.draw.rect(screen.Fenetre, color, pygame.Rect(x - largeur //2, y - longueur //2, largeur, longueur),  epaisseur, 5)
-        # pygame.draw.rect(screen.Fenetre, (0,0,0), pygame.Rect(200, 550, 120, 120),  2)
+
+    def border_rect(self, color, x, y, largeur, longueur, epaisseur):
+        pygame.draw.rect(screen.Fenetre, color, pygame.Rect(x - largeur //2, y - longueur //2, largeur, longueur),  epaisseur, 100)
 
     def button_rect(self, color, x, y, longueur, largeur):
         pygame.draw.rect(screen.Fenetre, color, pygame.Rect(x - longueur//2, y - largeur//2, longueur, largeur),  0, 8)
@@ -78,8 +80,8 @@ class Element:
             pygame.draw.rect(screen.Fenetre, (255, 209, 102), pygame.Rect(x, y, longueur * hp // hp_max, largeur))
         else:
             pygame.draw.rect(screen.Fenetre, (239, 71, 111), pygame.Rect(x, y, longueur * hp // hp_max, largeur))
-    def draw_overlay(self,alpha):
-        overlay_color = (0, 0, 0, alpha) 
-        overlay_surface = pygame.Surface((screen.W, screen.H), pygame.SRCALPHA)
-        overlay_surface.fill(overlay_color)
-        screen.Fenetre.blit(overlay_surface, (0, 0))
+
+    def draw_overlay(self, coloralpha, x, y, largeur, longueur):
+        overlay_surface = pygame.Surface((largeur, longueur), pygame.SRCALPHA)
+        overlay_surface.fill(coloralpha)
+        screen.Fenetre.blit(overlay_surface, (x - largeur // 2, y - longueur // 2))

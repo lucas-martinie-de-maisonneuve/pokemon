@@ -92,8 +92,11 @@ class Maps(Element, Screen, Combat):
                         self.combat_run = False 
                             
             self.img(525, 200, 1244, 700,'combat/fight_background')
-            self.img_mir(350, 350, 310, 310, f"pokemon/{self.poke_player['nom'].lower()}")                    
-            self.img(725, 225, 175, 175, f"pokemon/{self.pokemon_random['nom'].lower()}")
+            self.img_mir(350, 350, 310, 310, f"pokemon/{self.poke_player['nom'].lower()}")
+            if self.pokemon_random['numero'] <=50: 
+                self.img(725, 225, 175, 175, f"pokemon/{self.pokemon_random['nom'].lower()}")
+            else: 
+                self.img(725, 225, 175, 175, f"pokemon/default")
             # combat.afficher_capacite()
             self.button_rect(self.brown,525,650,self.W,210)            
             self.img(300, 625, 470, 150, 'combat/background_texte')           
