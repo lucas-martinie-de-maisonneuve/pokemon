@@ -26,6 +26,8 @@ class Pokedex(Element):
     def vider_fichier_json(self):
         with open('rencontre.json', 'w') as fichier:
             json.dump([], fichier)
+        self.pkmn_rencontre = self.ouverture_pokemonrencontre()
+        return self.pkmn_rencontre
 
     def get_last_pokemon_number(self):
         last_pokemon = self.info_pokemon[-1]

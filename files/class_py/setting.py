@@ -67,7 +67,7 @@ class Setting(Element,Screen):
                             pygame.quit()
                             quit()
                         #Vérification reset
-                        elif c_stat == 1 and m == 2 :
+                        elif c_stat == 1 and m == 2 and not self.verif_reset:
                             self.verif_reset = True
                         #Réponse "non" au reset
                         elif c_verif_reset == 1 and self.verif_reset:
@@ -75,6 +75,7 @@ class Setting(Element,Screen):
                         #Réponse "oui" au reset
                         elif c_verif_reset == 2 and self.verif_reset:
                             pokedex.vider_fichier_json()
+                            self.top_pokemon = sorted(pokedex.pkmn_rencontre,key=lambda x: x['rencontre'], reverse=True)
                             self.verif_reset = False
 
 #Touche Echap
@@ -146,7 +147,7 @@ class Setting(Element,Screen):
                 self.texte(15, 'Controles', self.white, 205, 220)
 
                 # Selecteur 2 Statistiques/Reset
-                if m == 2:
+                if m == 2 and not self.verif_reset:
                     self.button_rect(self.lightbluesea, 205, 307, 160, 40)
                     self.img(205,576,150,150,"/setting/pikachu_awake")
 
