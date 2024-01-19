@@ -4,91 +4,173 @@ from files.class_py.element import Element
 from files.class_py.pokedex import Pokedex
 from files.class_py.maps_combat import Maps
 from files.class_py.combat import Combat
+from files.class_py.starter import Starter
+from files.class_py.add_pokemon import AddPokemon
+from files.class_py.setting import Setting
 
-element = Element()
-screen = Screen()
 pokedex = Pokedex()
-maps = Maps()
 combat = Combat()
+starter = Starter()
+addpokemon = AddPokemon()
+setting = Setting()
 
-class Menu:
+class Menu(Element, Screen):
     def __init__(self):
-        self.run = True
-        self.show_menu = False
+        Element.__init__(self)
+        Screen.__init__(self)
+        self.menu_run = True
         self.show_home = True
+        self.load_home = False
 
     def home(self):
-        c = 0
-        while self.run:
+        c = 1
+        d = 1 
+        while self.menu_run:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     quit()
-                if event.type == pygame.KEYDOWN:
+                if event.type == pygame.KEYDOWN and not setting.setting_run:
                     if self.show_home:
-                        self.show_menu = True
-                    self.show_home = False
-                    if event.key == pygame.K_RIGHT:
-                        if c < 4:
+                        self.show_home = False
+                        self.load_home = True
+                        break
+                    if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
+                        if c < 5:
                             c += 1
-                    elif event.key == pygame.K_LEFT:
+                    elif event.key == pygame.K_LEFT or event.key == pygame.K_q:
                         if c > 1:
                             c -= 1
-                    elif event.key == pygame.K_UP:
-                        c = 5
-                    elif event.key == pygame.K_DOWN and c == 5:
-                        c = 4
-                    elif event.key == pygame.K_RETURN:
+                    elif event.key == pygame.K_UP or event.key == pygame.K_z:
+                        if d > 1 and self.load_home:
+                            d -= 1
+                        if c == 3 or c == 4 or c == 5:
+                            c = 6
+                        elif c == 1 or c == 2:
+                            c = 0                        
+                    elif event.key == pygame.K_DOWN or event.key == pygame.K_s:
+                        if d < 3 and self.load_home:
+                            d += 1
+                        if c == 6:
+                            c = 5
+                        elif c == 0:
+                            c = 1                   
+                    elif event.key == pygame.K_RETURN and self.load_home and not self.show_home:
+                        if d == 1 and self.load_home:
+                            self.load_home = False
+                        if d == 2 and self.load_home:
+                            self.load_home = False
+                            # + fonction_save
+                        if d == 3 and self.load_home:
+                            self.menu_run = False
+                            self.show_home = False
+                            pygame.quit()
+                    elif event.key == pygame.K_RETURN and not self.load_home:
                         if c == 1:
-                            maps.home()
-                            self.show_menu = False
+                            self.load_home = False
+                            if starter.poke_player == "":
+                                starter.choose_starter = True
+                                starter.starter()
+                                if not any(pokemon['nom'] == starter.poke_player["nom"] for pokemon in pokedex.pkmn_rencontre):
+                                    pokedex.poke_rencontre(starter.poke_player["nom"])
+                            else:
+                                pokemon_random = pokedex.rand_pokemon()                           
+                                maps = Maps(starter.poke_player,pokemon_random)
+                                maps.home()
+                                maps.combat_run = True
+                                pokedex.poke_rencontre(pokemon_random["nom"])
+
                         elif c == 2:
-                            pokedex.show_pokedex()
                             pokedex.pokedex_run = True
-                        # elif c == 4:
-                            # pokedex.ajout_pokemon()
-
+                            pokedex.show_pokedex()
+                        elif c == 4:
+                            addpokemon.ajout_pokemon()
+                            pass
+                        elif c == 6:
+                            setting.setting_run = True
+                            setting.setting()
+                        elif c == 0:
+                            self.load_home = True
+                            
             if self.show_home:
-                element.img_background(525, 350, 1244, 700, 'background')
-                element.img(1000, 650, 70, 70,'pokeball')
-                element.img_mir(50, 50, 70,70,'pokeball')
-                element.texte(30, 'Appuyer sur une touche pour continuer', (255, 255, 255), screen.W // 2, screen.H // 2)
-                screen.update()
+                self.img_background(525, 350, 1244, 700, 'background')
+                self.img(1000, 650, 70, 70,'pokeball')
+                self.img_mir(50, 50, 70,70,'pokeball')
+                self.texte(30, 'Appuyer sur une touche pour continuer', self.white, self.W // 2, self.H // 2)
+                self.update()
+                
+            
+            if self.load_home and not self.show_home:
+                self.img(525, 350, 1244, 700, "menu_load/img_background_load")
+                if d == 1:
+                    self.button_rect(self.black, 525, 200, 300, 80 )
+                    self.texte(20, "Nouvelle Partie", self.white, 525, 200)
+                else:
+                    self.button_rect(self.white, 525, 200, 300, 80 )
+                    self.texte(20, "Nouvelle Partie", self.black, 525, 200)
+                    
+                if d == 2:
+                    self.button_rect(self.black, 525, 400, 300, 80 )
+                    self.texte(20, "Charger une partie", self.white, 525, 400)
+                else:
+                    self.button_rect(self.white, 525, 400, 300, 80 )
+                    self.texte(20, "Charger une partie", self.black, 525, 400)
+                    
+                if d == 3:
+                    self.button_rect(self.black, 525, 600, 300, 80  )
+                    self.texte(20, "Quitter le jeu", self.white, 525, 600)
+                else:
+                    self.button_rect(self.white, 525, 600, 300, 80 )
+                    self.texte(20, "Quitter le jeu", self.black, 525, 600)                                    
+                self.update()
+                                
 
-            if self.show_menu:      
-                element.img(525, 350, 1244, 700, 'menu/backgroundmenu')
+            if not self.show_home and not self.load_home:      
+                self.img(525, 350, 1244, 700, 'menu/backgroundmenu')
+                if starter.poke_player != "":
+                    self.img(525, 250, 400, 400, f'pokemon/{starter.poke_player["nom"].lower()}')
+
+                if c == 0:
+                    self.img(30, 30, 53, 53, "setting/croix_rouge")                
+                else:
+                    self.img(30, 30, 46, 46, "setting/croix_rouge")
                 if c == 1 : 
-                    element.img(200, 550, 120, 120, 'menu/play')
-                    element.texte(20,'Play',(255,255,255),200,630)
+                    self.img(125, 550, 120, 120, 'menu/play')
+                    self.texte(20,'Play',self.white,125,630)
                 else:
-                    element.img(200, 550, 100, 100, 'menu/play')
-                    element.texte(16,'Play',(0,0,0),200,620)
+                    self.img(125, 550, 100, 100, 'menu/play')
+                    self.texte(16,'Play',self.black,125,620)
                 if c == 2:
-                    element.img(400, 550, 120, 120, 'menu/pokedex')
-                    element.texte(20,'Pokedex',(255,255,255),400,630)
+                    self.img(325, 550, 120, 120, 'menu/pokedex')
+                    self.texte(20,'Pokedex',self.white,325,630)
                 else:
-                    element.img(400, 550, 100, 100, 'menu/pokedex')
-                    element.texte(16,'Pokedex',(0,0,0),400,620)
+                    self.img(325, 550, 100, 100, 'menu/pokedex')
+                    self.texte(16,'Pokedex',self.black,325,620)
                 if c == 3:
-                    element.img(600, 550, 120, 120, 'menu/bag')
-                    element.texte(20,'Bag',(255,255,255),600,630)
+                    self.img(525, 550, 120, 120, 'menu/bag')
+                    self.texte(20,'Bag',self.white,525,630)
                 else: 
-                    element.img(600, 550, 100, 100, 'menu/bag')
-                    element.texte(16,'Bag',(0,0,0),600,620)
+                    self.img(525, 550, 100, 100, 'menu/bag')
+                    self.texte(16,'Bag',self.black,525,620)
                 if c == 4:                 
-                    element.img(800, 550, 120, 120, 'menu/add_poke')
-                    element.texte(20,'Add Pokemon',(255,255,255),800,630)
+                    self.img(725, 550, 120, 120, 'menu/add_poke')
+                    self.texte(20,'Add Pokemon',self.white,725,630)
                 else:
-                    element.img(800, 550, 100, 100, 'menu/add_poke')
-                    element.texte(16,'Add Pokemon',(0,0,0),800,620)
+                    self.img(725, 550, 100, 100, 'menu/add_poke')
+                    self.texte(16,'Add Pokemon',self.black,725,620)
                 if c == 5:
-                    element.img(990, 60, 100, 100, 'menu/settings')
-                    element.texte(17,'Settings',(255,255,255),990,120)
+                    self.img(925, 550, 120, 120, 'menu/settings')
+                    self.texte(20,'Changer de',self.white,925,630)
+                    self.texte(20,'Pokemon',self.white,925,650)
                 else:
-                    element.img(990, 60, 80, 80, 'menu/settings')
-                    element.texte(14,'Settings',(0,0,0),990,110)
-                screen.update()
-
-
-
-                    # element.simple_rect((255, 255, 255), 800, 550, 120, 120, 3)
+                    self.img(925, 550, 100, 100, 'menu/settings')
+                    self.texte(16,'Changer de',self.black,925,620)
+                    self.texte(16,'Pokemon',self.black,925,640)
+                if c == 6:
+                    self.img(990, 60, 100, 100, 'menu/settings')
+                    self.texte(17,'Settings',self.white,990,120)
+                else:
+                    self.img(990, 60, 80, 80, 'menu/settings')
+                    self.texte(14,'Settings',self.black,990,110)
+                    
+                self.update()
