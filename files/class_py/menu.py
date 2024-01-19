@@ -38,9 +38,13 @@ class Menu:
                     if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                         if c < 4:
                             c += 1
+                        if c == 6:
+                            c = 5
                     elif event.key == pygame.K_LEFT or event.key == pygame.K_q:
-                        if c > 1:
+                        if c > 1 and c != 5:
                             c -= 1
+                        if c == 5:
+                            c = 6
                     elif event.key == pygame.K_UP or event.key == pygame.K_z:
                         if d > 1 and self.load_home:
                             d -= 1
@@ -105,26 +109,27 @@ class Menu:
             
             if self.load_home and not self.show_home:
                 element.img(525, 350, 1244, 700, "menu_load/img_background_load")
+                element.img(525, 180, 540, 220, "menu_load/titre_jeu-removebg-preview")
                 if d == 1:
-                    element.button_rect(element.black, 525, 230, 300, 60 )
-                    element.texte(20, "Nouvelle Partie", element.white, 525, 200)
+                    element.button_rect(element.black, 525, 385, 300, 60 )
+                    element.texte(20, "Nouvelle Partie", element.white, 525, 385)
                 else:
-                    element.button_rect(element.white, 525, 230, 300, 60 )
-                    element.texte(20, "Nouvelle Partie", element.black, 525, 200)
+                    element.button_rect(element.white, 525, 385, 300, 60 )
+                    element.texte(20, "Nouvelle Partie", element.black, 525, 385)
                     
                 if d == 2:
-                    element.button_rect(element.black, 525, 430, 300, 60 )
-                    element.texte(20, "Charger une partie", element.white, 525, 400)
+                    element.button_rect(element.black, 525, 510, 300, 60 )
+                    element.texte(20, "Charger une partie", element.white, 525, 510)
                 else:
-                    element.button_rect(element.white, 525, 430, 300, 60 )
-                    element.texte(20, "Charger une partie", element.black, 525, 400)
+                    element.button_rect(element.white, 525, 510, 300, 60 )
+                    element.texte(20, "Charger une partie", element.black, 525, 510)
                     
                 if d == 3:
-                    element.button_rect(element.black, 525, 630, 300, 60  )
-                    element.texte(20, "Quitter le jeu", element.white, 525, 600)
+                    element.button_rect(element.black, 525, 635, 300, 60  )
+                    element.texte(20, "Quitter le jeu", element.white, 525, 635)
                 else:
-                    element.button_rect(element.white, 525, 630, 300, 60 )
-                    element.texte(20, "Quitter le jeu", element.black, 525, 600)                                    
+                    element.button_rect(element.white, 525, 635, 300, 60 )
+                    element.texte(20, "Quitter le jeu", element.black, 525, 635)                                    
                 screen.update()
                                 
 

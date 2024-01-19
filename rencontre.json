@@ -1,11 +1,11 @@
 [
   {
     "nom": "Salameche",
-    "rencontre": 6
+    "rencontre": 7
   },
   {
     "nom": "Pikachu",
-    "rencontre": 5
+    "rencontre": 6
   },
   {
     "nom": "Phyllali",
@@ -13,11 +13,11 @@
   },
   {
     "nom": "Blindalys",
-    "rencontre": 2
+    "rencontre": 3
   },
   {
     "nom": "Roucool",
-    "rencontre": 3
+    "rencontre": 4
   },
   {
     "nom": "Reptincelle",
@@ -53,7 +53,7 @@
   },
   {
     "nom": "Pifeuil",
-    "rencontre": 1
+    "rencontre": 2
   },
   {
     "nom": "Osselait",
@@ -73,7 +73,7 @@
   },
   {
     "nom": "Chenipotte",
-    "rencontre": 1
+    "rencontre": 2
   },
   {
     "nom": "Fenard",
@@ -105,7 +105,7 @@
   },
   {
     "nom": "Insecateur",
-    "rencontre": 1
+    "rencontre": 2
   },
   {
     "nom": "Groudon",
@@ -129,11 +129,11 @@
   },
   {
     "nom": "Tauros",
-    "rencontre": 1
+    "rencontre": 2
   },
   {
     "nom": "Scarabrute",
-    "rencontre": 1
+    "rencontre": 2
   },
   {
     "nom": "Racaillou",
@@ -141,7 +141,7 @@
   },
   {
     "nom": "Bulbizarre",
-    "rencontre": 2
+    "rencontre": 3
   },
   {
     "nom": "Gravalanch",
@@ -149,7 +149,7 @@
   },
   {
     "nom": "Tortank",
-    "rencontre": 1
+    "rencontre": 2
   },
   {
     "nom": "Grainipiot",
@@ -157,6 +157,10 @@
   },
   {
     "nom": "Sulfura",
+    "rencontre": 1
+  },
+  {
+    "nom": "Magicarpe",
     "rencontre": 1
   }
 ]
