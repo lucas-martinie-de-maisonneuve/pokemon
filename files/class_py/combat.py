@@ -12,49 +12,49 @@ class Combat():
         
         if type_pokemon_starter == "feu":
             poke_dmg = type.feu(type_pokemon_advers, pokemon_attack)
-            self.dmg_poke = poke_dmg * (1 - poke_def / 200) 
+            self.dmg_poke = round(poke_dmg * (1 - poke_def / 200)) 
             vie_restante = vie - self.dmg_poke
             return vie_restante
         
         if type_pokemon_starter == "eau":
             poke_dmg = type.eau(type_pokemon_advers, pokemon_attack)
-            self.dmg_poke = poke_dmg * (1 - poke_def / 200) 
+            self.dmg_poke = round(poke_dmg * (1 - poke_def / 200)) 
             vie_restante = vie - self.dmg_poke
             return vie_restante
         
         if type_pokemon_starter == "plante":
             poke_dmg = type.plante(type_pokemon_advers, pokemon_attack) 
-            self.dmg_poke = poke_dmg * (1 - poke_def / 200) 
+            self.dmg_poke = round(poke_dmg * (1 - poke_def / 200)) 
             vie_restante = vie - self.dmg_poke
             return vie_restante
         
         if type_pokemon_starter == "insecte":
             poke_dmg = type.insecte(type_pokemon_advers, pokemon_attack) 
-            self.dmg_poke = poke_dmg * (1 - poke_def / 200) 
+            self.dmg_poke = round(poke_dmg * (1 - poke_def / 200)) 
             vie_restante = vie - self.dmg_poke
             return vie_restante
         
         if type_pokemon_starter == "sol":
             poke_dmg = type.sol(type_pokemon_advers, pokemon_attack)
-            self.dmg_poke = poke_dmg * (1 - poke_def / 200) 
+            self.dmg_poke = round(poke_dmg * (1 - poke_def / 200)) 
             vie_restante = vie - self.dmg_poke 
             return vie_restante
         
         if type_pokemon_starter == "vol":
             poke_dmg = type.vol(type_pokemon_advers, pokemon_attack)
-            self.dmg_poke = poke_dmg * (1 - poke_def / 200) 
+            self.dmg_poke = round(poke_dmg * (1 - poke_def / 200)) 
             vie_restante = vie - self.dmg_poke
             return vie_restante
         
         if type_pokemon_starter == "elec":
             poke_dmg = type.elec(type_pokemon_advers, pokemon_attack) 
-            self.dmg_poke = poke_dmg * (1 - poke_def / 200) 
+            self.dmg_poke = round(poke_dmg * (1 - poke_def / 200)) 
             vie_restante = vie - self.dmg_poke 
             return vie_restante
         
         if type_pokemon_starter == "normal":
             poke_dmg = type.normal(type_pokemon_advers, pokemon_attack) 
-            self.dmg_poke = poke_dmg * (1 - poke_def / 200) 
+            self.dmg_poke = round(poke_dmg * (1 - poke_def / 200)) 
             vie_restante = vie - self.dmg_poke 
             return vie_restante
         

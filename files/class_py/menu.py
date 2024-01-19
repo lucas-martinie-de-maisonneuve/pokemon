@@ -20,9 +20,11 @@ class Menu:
     def __init__(self):
         self.menu_run = True
         self.show_home = True
+        self.load_home = False
 
     def home(self):
         c = 1
+        d = 1 
         while self.menu_run:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -31,6 +33,7 @@ class Menu:
                 if event.type == pygame.KEYDOWN:
                     if self.show_home:
                         self.show_home = False
+                        self.load_home = True
                         break
                     if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                         if c < 4:
@@ -39,11 +42,32 @@ class Menu:
                         if c > 1:
                             c -= 1
                     elif event.key == pygame.K_UP or event.key == pygame.K_z:
-                        c = 5
+                        if d > 1:
+                            d -= 1
+                        if c == 3 or c == 4:
+                            c = 5
+                        elif c == 1 or c == 2:
+                            c = 6                        
                     elif event.key == pygame.K_DOWN or event.key == pygame.K_s:
-                        c = 4
-                    elif event.key == pygame.K_RETURN:
+                        if d < 4:
+                            d += 1
+                        if c == 5:
+                            c = 4
+                        elif c == 6:
+                            c = 1                   
+                    elif event.key == pygame.K_RETURN and self.load_home and not self.show_home:
+                        if d == 1:
+                            self.load_home = False
+                        if d == 2:
+                            self.load_home = False
+                            # + fonction_save
+                        if d == 3:
+                            self.menu_run = False
+                            self.show_home = False
+                            pygame.quit()
+                    elif event.key == pygame.K_RETURN and not self.load_home:
                         if c == 1:
+                            self.load_home = False
                             if starter.poke_player == "":
                                 starter.choose_starter = True
                                 starter.starter()
@@ -67,15 +91,44 @@ class Menu:
                         elif c == 5:
                             setting.setting_run = True
                             setting.setting()
+                        elif c == 6:
+                            self.load_home = True
                             # = True
+                            
             if self.show_home:
                 element.img_background(525, 350, 1244, 700, 'background')
                 element.img(1000, 650, 70, 70,'pokeball')
                 element.img_mir(50, 50, 70,70,'pokeball')
                 element.texte(30, 'Appuyer sur une touche pour continuer', (255, 255, 255), screen.W // 2, screen.H // 2)
                 screen.update()
+                
+            
+            if self.load_home and not self.show_home:
+                element.img(525, 350, 1244, 700, "menu_load/img_background_load")
+                if d == 1:
+                    element.button_rect(element.black, 525, 200, 300, 80 )
+                    element.texte(20, "Nouvelle Partie", element.white, 525, 200)
+                else:
+                    element.button_rect(element.white, 525, 200, 300, 80 )
+                    element.texte(20, "Nouvelle Partie", element.black, 525, 200)
+                    
+                if d == 2:
+                    element.button_rect(element.black, 525, 400, 300, 80 )
+                    element.texte(20, "Charger une partie", element.white, 525, 400)
+                else:
+                    element.button_rect(element.white, 525, 400, 300, 80 )
+                    element.texte(20, "Charger une partie", element.black, 525, 400)
+                    
+                if d == 3:
+                    element.button_rect(element.black, 525, 600, 300, 80  )
+                    element.texte(20, "Quitter le jeu", element.white, 525, 600)
+                else:
+                    element.button_rect(element.white, 525, 600, 300, 80 )
+                    element.texte(20, "Quitter le jeu", element.black, 525, 600)                                    
+                screen.update()
+                                
 
-            if not self.show_home:      
+            if not self.show_home and not self.load_home:      
                 element.img(525, 350, 1244, 700, 'menu/backgroundmenu')
                 if starter.poke_player != "":
                     element.img(525, 250, 400, 400, f'pokemon/{starter.poke_player["nom"].lower()}')
@@ -110,4 +163,9 @@ class Menu:
                 else:
                     element.img(990, 60, 80, 80, 'menu/settings')
                     element.texte(14,'Settings',(0,0,0),990,110)
+                    
+                if c == 6:
+                    element.img(30, 30, 53, 53, "setting/croix_rouge")                
+                else:
+                    element.img(30, 30, 46, 46, "setting/croix_rouge")
                 screen.update()
