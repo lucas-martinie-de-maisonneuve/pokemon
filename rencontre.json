@@ -1,106 +1,10 @@
 [
   {
     "nom": "Salameche",
-    "rencontre": 2
-  },
-  {
-    "nom": "Papinox",
-    "rencontre": 2
-  },
-  {
-    "nom": "Phyllali",
-    "rencontre": 4
-  },
-  {
-    "nom": "Grolem",
-    "rencontre": 2
-  },
-  {
-    "nom": "Fenard",
     "rencontre": 1
   },
   {
-    "nom": "Sabelette",
-    "rencontre": 2
-  },
-  {
-    "nom": "Voltali",
-    "rencontre": 3
-  },
-  {
-    "nom": "Dracaufeu",
-    "rencontre": 4
-  },
-  {
-    "nom": "Grainipiot",
-    "rencontre": 4
-  },
-  {
-    "nom": "Reptincelle",
-    "rencontre": 2
-  },
-  {
-    "nom": "Roucool",
-    "rencontre": 2
-  },
-  {
-    "nom": "Ossatueur",
-    "rencontre": 1
-  },
-  {
-    "nom": "Gravalanch",
-    "rencontre": 2
-  },
-  {
-    "nom": "Leviator",
-    "rencontre": 1
-  },
-  {
-    "nom": "Canarticho",
-    "rencontre": 2
-  },
-  {
-    "nom": "Kangourex",
-    "rencontre": 1
-  },
-  {
-    "nom": "Insecateur",
-    "rencontre": 2
-  },
-  {
-    "nom": "Osselait",
-    "rencontre": 2
-  },
-  {
-    "nom": "Blindalys",
-    "rencontre": 2
-  },
-  {
-    "nom": "Tauros",
-    "rencontre": 2
-  },
-  {
-    "nom": "Artikodin",
-    "rencontre": 2
-  },
-  {
-    "nom": "Magicarpe",
-    "rencontre": 2
-  },
-  {
-    "nom": "Pyroli",
-    "rencontre": 1
-  },
-  {
-    "nom": "Tengalice",
-    "rencontre": 1
-  },
-  {
-    "nom": "Herbizarre",
-    "rencontre": 1
-  },
-  {
-    "nom": "Sulfura",
+    "nom": "Pikachu",
     "rencontre": 1
   },
   {
@@ -108,47 +12,19 @@
     "rencontre": 1
   },
   {
-    "nom": "Evoli",
+    "nom": "Kyogre",
     "rencontre": 1
   },
   {
-    "nom": "Roucoups",
+    "nom": "Tauros",
     "rencontre": 1
   },
   {
-    "nom": "Bulbizarre",
+    "nom": "Pyroli",
     "rencontre": 1
   },
   {
-    "nom": "Pomme",
-    "rencontre": 2
-  },
-  {
-    "nom": "Banane",
-    "rencontre": 1
-  },
-  {
-    "nom": "Roucarnage",
-    "rencontre": 1
-  },
-  {
-    "nom": "Magneti",
-    "rencontre": 1
-  },
-  {
-    "nom": "Tortank",
-    "rencontre": 1
-  },
-  {
-    "nom": "Goupix",
-    "rencontre": 1
-  },
-  {
-    "nom": "Pikachu",
-    "rencontre": 3
-  },
-  {
-    "nom": "Aquali",
+    "nom": "Tengalice",
     "rencontre": 1
   }
 ]

@@ -18,7 +18,13 @@ class Element:
         self.green = (161, 193, 129)
         self.darkgreen = (97, 155, 138)
         self.lightyellow = (244, 226, 133)
-
+        self.darkgreenblue = (37, 50, 55)
+        self.grey = (139, 140, 137)
+        self.darkgrey = (100,100,100)
+        self.greyblue = (92, 103, 125)
+        self.lightgrey = (160, 160, 160)
+        self.darkbluesea = (0, 40, 85)
+        self.lightbluesea = (39, 76, 119)
     def img(self, x, y, largeur, hauteur, image_name):
         image = pygame.image.load(f'files/image/{image_name}.png')
         image = pygame.transform.scale(image, (largeur, hauteur))
