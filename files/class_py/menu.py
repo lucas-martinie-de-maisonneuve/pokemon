@@ -102,24 +102,24 @@ class Menu:
             if self.load_home and not self.show_home:
                 element.img(525, 350, 1244, 700, "menu_load/img_background_load")
                 if d == 1:
-                    element.button_rect(element.black, 525, 200, 300, 80 )
+                    element.button_rect(element.black, 525, 230, 300, 60 )
                     element.texte(20, "Nouvelle Partie", element.white, 525, 200)
                 else:
-                    element.button_rect(element.white, 525, 200, 300, 80 )
+                    element.button_rect(element.white, 525, 230, 300, 60 )
                     element.texte(20, "Nouvelle Partie", element.black, 525, 200)
                     
                 if d == 2:
-                    element.button_rect(element.black, 525, 400, 300, 80 )
+                    element.button_rect(element.black, 525, 430, 300, 60 )
                     element.texte(20, "Charger une partie", element.white, 525, 400)
                 else:
-                    element.button_rect(element.white, 525, 400, 300, 80 )
+                    element.button_rect(element.white, 525, 430, 300, 60 )
                     element.texte(20, "Charger une partie", element.black, 525, 400)
                     
                 if d == 3:
-                    element.button_rect(element.black, 525, 600, 300, 80  )
+                    element.button_rect(element.black, 525, 630, 300, 60  )
                     element.texte(20, "Quitter le jeu", element.white, 525, 600)
                 else:
-                    element.button_rect(element.white, 525, 600, 300, 80 )
+                    element.button_rect(element.white, 525, 630, 300, 60 )
                     element.texte(20, "Quitter le jeu", element.black, 525, 600)                                    
                 screen.update()
                                 

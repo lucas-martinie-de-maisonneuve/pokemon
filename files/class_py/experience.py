@@ -14,7 +14,7 @@ class Experience:
             self.exp_winner = 25 * level_adv
             return self.exp_winner
         elif 15 < level_adv < 35:
-            self.exp_winner =+ 45
+            self.exp_winner =+ 35 * level_adv
             return self.exp_winner
             
     def evolve(self, exp, exp_max, evolve_poke):
