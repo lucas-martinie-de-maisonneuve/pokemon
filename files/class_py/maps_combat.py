@@ -4,7 +4,7 @@ from files.class_py.element import Element
 from files.class_py.pokedex import Pokedex
 from files.class_py.combat import Combat
 from files.class_py.starter import Starter
-# from files.class_py.experience import Experience
+from files.class_py.experience import Experience
 
 
 pokedex = Pokedex()
