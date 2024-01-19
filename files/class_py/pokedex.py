@@ -17,7 +17,7 @@ class Pokedex(Element):
         with open('pokemon.json', 'r') as fichier:
             self.donnees_pokemon = json.load(fichier)
             return self.donnees_pokemon
-        
+
     def ouverture_pokemonrencontre(self):
         with open('rencontre.json', 'r') as file:
             self.donnees_rencontre = json.load(file)

@@ -30,7 +30,7 @@ class Menu:
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     quit()
-                if event.type == pygame.KEYDOWN:
+                if event.type == pygame.KEYDOWN and not setting.setting_run:
                     if self.show_home:
                         self.show_home = False
                         self.load_home = True
