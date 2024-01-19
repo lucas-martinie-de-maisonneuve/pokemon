@@ -14,7 +14,7 @@ class Setting(Element,Screen):
         pokedex = Pokedex()
         m = 1
         verif_quit = 1
-        selected_quit = 0
+        selected_quit = 1
         selected_stat = 0
         self.top_pokemon = sorted(pokedex.pkmn_rencontre,key=lambda x: x['rencontre'], reverse=True)
         pokedex = Pokedex()
@@ -28,8 +28,6 @@ class Setting(Element,Screen):
                     if event.key == pygame.K_LEFT or event.key == pygame.K_q:
                         if self.verif_quitter and verif_quit == 2:
                             verif_quit = 1
-                        elif  selected_quit == 1 and m == 4:
-                             selected_quit = 0
                         elif m == 2:
                             selected_stat -= 1
                     elif event.key == pygame.K_RIGHT or event.key == pygame.K_d:
@@ -37,28 +35,26 @@ class Setting(Element,Screen):
                             verif_quit = 2
                         elif m == 2:
                             selected_stat += 1
-                        elif m == 4:
-                             selected_quit = 1
                         
-                    elif event.key == pygame.K_UP or event.key == pygame.K_z :
-                        if not self.verif_quitter and m > 0 and  selected_quit == 0:
+                    elif event.key == pygame.K_UP or event.key == pygame.K_z:
+                        if not self.verif_quitter and m > 0:
                             m -= 1
                     elif event.key == pygame.K_DOWN or event.key == pygame.K_s:
-                        if not self.verif_quitter and m < 4 and  selected_quit == 0:
+                        if not self.verif_quitter and m < 4:
                             m += 1
                     elif event.key == pygame.K_RETURN:
                         #Croix exit setting
                         if m == 0:
                             self.setting_run = False
                         #Lance la fonction "voulez vous vraiment quitter"
-                        elif  selected_quit == 1:
+                        elif  selected_quit == 1 and m == 4 and not self.verif_quitter:
                             self.verif_quitter = True
-                            selected_quit = 0
                         #Reponse "non" à "voulez vous vraiment quitter"
                         elif verif_quit == 1 and self.verif_quitter:
                             self.verif_quitter = False
+                            verif_quit = 1
                         #Reponse "oui" à "voulez vous vraiment quitter"
-                        elif verif_quit == 2:
+                        elif verif_quit == 2 :
                             pygame.quit()
                             quit()
                     elif event.key == pygame.K_ESCAPE and not self.verif_quitter:
