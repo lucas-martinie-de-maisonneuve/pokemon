@@ -4,11 +4,11 @@ from files.class_py.element import Element
 from files.class_py.pokedex import Pokedex
 from files.class_py.combat import Combat
 from files.class_py.starter import Starter
-from files.class_py.experience import Experience
+# from files.class_py.experience import Experience
 
 
 pokedex = Pokedex()
-class Maps(Element, Screen, Combat, Experience):
+class Maps(Element, Screen, Combat):
 
     def __init__(self, poke_player, pokemon_random):
         self.combat_run = True
