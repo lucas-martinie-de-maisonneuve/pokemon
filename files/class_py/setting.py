@@ -129,10 +129,10 @@ class Setting(Element,Screen):
                     self.texte_not_align(15,f"Nombre de combat gagné: ", self.black,320,180)
                     self.texte_not_align(15,f"Nombre de fuite: ", self.black,320,230)
                     self.texte_not_align(15,f"Pokemon les plus rencontres:", self.black,320, 280)
-                    self.texte_not_align(15,f"{self.top_pokemon[0]["nom"]} (x{self.top_pokemon[0]["rencontre"]})", self.black,640, 280)
-                    self.texte_not_align(15,f"{self.top_pokemon[1]["nom"]} (x{self.top_pokemon[1]["rencontre"]})", self.black,640, 300)
-                    self.texte_not_align(15,f"{self.top_pokemon[2]["nom"]} (x{self.top_pokemon[2]["rencontre"]})", self.black,640, 320)
-                    self.texte_not_align(15,f"Dernier pokemon découvert: {pokedex.pkmn_rencontre[-1]["nom"]}", self.black,320, 340)
+                    self.texte_not_align(15,f"{self.top_pokemon[0]['nom']} (x{self.top_pokemon[0]['rencontre']})", self.black,640, 280)
+                    self.texte_not_align(15,f"{self.top_pokemon[1]['nom']} (x{self.top_pokemon[1]['rencontre']})", self.black,640, 300)
+                    self.texte_not_align(15,f"{self.top_pokemon[2]['nom']} (x{self.top_pokemon[2]['rencontre']})", self.black,640, 320)
+                    self.texte_not_align(15,f"Dernier pokemon découvert: {pokedex.pkmn_rencontre[-1]['nom']}", self.black,320, 340)
                     # Statistiques parties pokemon
 
                     if selected_stat == 1:
