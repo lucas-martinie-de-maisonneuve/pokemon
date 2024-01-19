@@ -28,13 +28,13 @@ class Setting(Element,Screen):
                     if event.key == pygame.K_LEFT or event.key == pygame.K_q:
                         if self.verif_quitter and verif_quit == 2:
                             verif_quit = 1
-                        elif m == 2:
-                            selected_stat -= 1
+                        elif m == 2 and selected_stat == 1:
+                            selected_stat = 0
                     elif event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                         if self.verif_quitter and verif_quit == 1:
                             verif_quit = 2
-                        elif m == 2:
-                            selected_stat += 1
+                        elif m == 2 and selected_stat == 0:
+                            selected_stat = 1
                         
                     elif event.key == pygame.K_UP or event.key == pygame.K_z:
                         if not self.verif_quitter and m > 0:
@@ -46,6 +46,9 @@ class Setting(Element,Screen):
                         #Croix exit setting
                         if m == 0:
                             self.setting_run = False
+                        #Reset pokemon rencontre
+                        if m == 2 and selected_stat == 1:
+                            pokedex.vider_fichier_json()
                         #Lance la fonction "voulez vous vraiment quitter"
                         elif  selected_quit == 1 and m == 4 and not self.verif_quitter:
                             self.verif_quitter = True
@@ -75,7 +78,6 @@ class Setting(Element,Screen):
 
                 self.button_rect((92, 103, 125),615,350,610,500) #Bloc Détails
                 self.simple_rect((self.black),615,350,610,500,2) #Bordure Détails
-
 
                 #Croix exit
                 if m == 0:
@@ -123,24 +125,35 @@ class Setting(Element,Screen):
                 if m == 2:
                     self.button_rect((39, 76, 119), 205, 307, 160, 40)
                     self.img(205,576,150,150,"/setting/pikachu_awake")
-                    
+
                     # Statistiques parties pokemon
                     self.texte_not_align(15,f"Nombre de pokemon rencontré: {len(pokedex.pkmn_rencontre)}/{pokedex.get_last_pokemon_number()}", self.black,320,130)
                     self.texte_not_align(15,f"Nombre de combat gagné: ", self.black,320,180)
                     self.texte_not_align(15,f"Nombre de fuite: ", self.black,320,230)
                     self.texte_not_align(15,f"Pokemon les plus rencontres:", self.black,320, 280)
-                    self.texte_not_align(15,f"{self.top_pokemon[0]["nom"]} (x{self.top_pokemon[0]["rencontre"]})", self.black,640, 280)
-                    self.texte_not_align(15,f"{self.top_pokemon[1]["nom"]} (x{self.top_pokemon[1]["rencontre"]})", self.black,640, 300)
-                    self.texte_not_align(15,f"{self.top_pokemon[2]["nom"]} (x{self.top_pokemon[2]["rencontre"]})", self.black,640, 320)
-                    self.texte_not_align(15,f"Dernier pokemon découvert: {pokedex.pkmn_rencontre[-1]["nom"]}", self.black,320, 340)
+                    if self.top_pokemon:
+                        self.texte_not_align(15, f"{self.top_pokemon[0]['nom']} (x{self.top_pokemon[0]['rencontre']})", self.black, 640, 280)
+                        self.texte_not_align(15, f"Dernier pokemon découvert: {pokedex.pkmn_rencontre[-1]['nom']}", self.black, 320, 340)
+                        if len(self.top_pokemon) > 1:
+                            self.texte_not_align(15, f"{self.top_pokemon[1]['nom']} (x{self.top_pokemon[1]['rencontre']})", self.black, 640, 300)
+                        else:
+                            self.texte_not_align(15, f"Aucun", self.black, 640, 300)
+                        if len(self.top_pokemon) > 2:
+                            self.texte_not_align(15, f"{self.top_pokemon[2]['nom']} (x{self.top_pokemon[2]['rencontre']})", self.black, 640, 320)
+                        else:
+                            self.texte_not_align(15, f"Aucun", self.black, 640, 320)
+                    else: 
+                        self.texte_not_align(15, f"Aucun", self.black, 640, 280)
+                        self.texte_not_align(15, f"Dernier pokemon découvert: Aucun", self.black, 320, 340)
+
                     # Statistiques parties pokemon
 
                     if selected_stat == 1:
-                        self.button_rect((37, 50, 55),880,140,50,50)
+                        self.button_rect((39, 76, 119),880,140,50,50)
                         self.img_mir(880,140,30,30,"/setting/logo_reset")
 
                     else:
-                        self.button_rect((39, 76, 119),880,140,50,50)
+                        self.button_rect((37, 50, 55),880,140,50,50)
                         self.img_mir(880,140,30,30,"/setting/logo_reset")
 
                 else:
@@ -173,9 +186,6 @@ class Setting(Element,Screen):
                 else:
                     self.button_rect((37, 50, 55), 205, 481, 160, 40)
                 self.texte(15, 'Quitter', self.white, 205, 481)
-
-
-                
 
                 if self.verif_quitter:
                     self.button_rect((100,100,100),615,350,500,200)

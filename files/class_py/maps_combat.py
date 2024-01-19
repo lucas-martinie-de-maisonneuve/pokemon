@@ -16,7 +16,7 @@ class Maps(Element, Screen, Combat, Experience):
         Element.__init__(self)
         Screen.__init__(self)
         Combat.__init__(self)
-        Experience.__init__(self)        
+        Experience.__init__(self, poke_player)        
         self.starter = Starter()        
         self.attack_phase = False
         self.text_phase = False
@@ -42,8 +42,6 @@ class Maps(Element, Screen, Combat, Experience):
                     pygame.quit()
                     quit()
                 if event.type == pygame.KEYDOWN: 
-                    print('pokeplayer :', self.poke_player_hp)
-                    print ('pokerandom', self.poke_player)
                     if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                         if self.action < 4:
                             self.action += 1

@@ -71,15 +71,13 @@ class Menu:
                             if starter.poke_player == "":
                                 starter.choose_starter = True
                                 starter.starter()
-                                pokedex.pokemon_rencontre(starter.poke_player["nom"])
-                                pokedex.poke_rencontre(starter.poke_player["nom"])
-
+                                if not any(pokemon['nom'] == starter.poke_player["nom"] for pokemon in pokedex.pkmn_rencontre):
+                                    pokedex.poke_rencontre(starter.poke_player["nom"])
                             else:
                                 pokemon_random = pokedex.rand_pokemon()                           
                                 maps = Maps(starter.poke_player,pokemon_random)
                                 maps.home()
                                 maps.combat_run = True
-                                pokedex.pokemon_rencontre(pokemon_random["nom"])
                                 pokedex.poke_rencontre(pokemon_random["nom"])
 
                         elif c == 2:

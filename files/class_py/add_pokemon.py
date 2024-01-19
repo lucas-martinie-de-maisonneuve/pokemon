@@ -213,8 +213,8 @@ class AddPokemon(Element, Screen):
                     self.img(525, 350, 900, 400, "add_pokemon/menuselect")
 
                     self.draw_overlay((255,255,255,200), 525, 350, 750, 50)
-                    self.border_rect((255,255,255), 525, 350, 900, 400, 3)
-                    self.texte(30, f"{add_pokemon_name} a été ajouté au Pokedex", (self.black), 525, 350)
+                    self.border_rect((255,255,255), 525, 350, 920, 400, 3)
+                    self.texte(30, f"{add_pokemon_name} a été ajouté au Pokedex", (self.black), 525, 375)
 
                     if not enregistre:
                         data_pokemon = pokedex.ouverture_pokemonjson()

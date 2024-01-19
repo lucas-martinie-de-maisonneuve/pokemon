@@ -23,6 +23,10 @@ class Pokedex(Element):
             self.donnees_rencontre = json.load(file)
             return self.donnees_rencontre
 
+    def vider_fichier_json(self):
+        with open('rencontre.json', 'w') as fichier:
+            json.dump([], fichier)
+
     def get_last_pokemon_number(self):
         last_pokemon = self.info_pokemon[-1]
         return last_pokemon['numero']
@@ -38,19 +42,6 @@ class Pokedex(Element):
         self.pokemon_liste = []
         for info_pokemon in self.info_pokemon:
             self.pokemon_liste(info_pokemon[data])  
-
-    def pokemon_rencontre(self, meet):
-        for pokemon in self.info_pokemon:
-            if meet == pokemon["nom"]:
-                if meet in self.pokemon_counter:
-                    self.pokemon_counter[meet] += 1
-                else:
-                    self.pokemon_counter[meet] = 1
-
-                return {
-                    "nom": pokemon,
-                    "counter": self.pokemon_counter[meet]
-                }
 
     def poke_rencontre(self, pokemon_name):
         self.ouverture_pokemonrencontre()
