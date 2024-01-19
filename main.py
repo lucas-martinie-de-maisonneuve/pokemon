@@ -5,4 +5,3 @@ menu = Menu()
 pygame.init()
 
 menu.home()
- 

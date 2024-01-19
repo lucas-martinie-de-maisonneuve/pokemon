@@ -63,7 +63,7 @@ class AddPokemon(Element, Screen):
                                 self.select_stat -= 1
                             if confirm == 3:
                                 self.menu_selec = 1
-                        elif event.key == pygame.K_RETURN and self.cate == 5:
+                        elif event.key == pygame.K_RETURN and self.cate == 5 and add_pokemon_name != "" and add_pokemon_attaque != "" and add_pokemon_hp != "" and add_pokemon_def != "":
                             if confirm < 3:
                                 confirm += 1
                             elif confirm == 3:
@@ -80,17 +80,22 @@ class AddPokemon(Element, Screen):
                                 add_pokemon_attaque = add_pokemon_attaque[:-1]
                             if self.cate == 4 and self.select_stat == 3 :
                                 add_pokemon_def = add_pokemon_def[:-1]
-
                         else:
                             if self.cate == 1:
-                                add_pokemon_name += event.unicode
+                                if event.unicode.isalpha() and len(add_pokemon_name) < 15:
+                                    add_pokemon_name += event.unicode
+                                    add_pokemon_name = add_pokemon_name.capitalize()
                             if self.cate == 4:
                                 if self.select_stat == 1:
-                                    add_pokemon_hp += event.unicode
+                                    if event.unicode.isdigit() and len(add_pokemon_hp) < 3:
+                                        add_pokemon_hp += event.unicode
                                 if self.select_stat == 2:
-                                    add_pokemon_attaque += event.unicode
+                                    if event.unicode.isdigit() and len(add_pokemon_attaque) < 3:
+                                        add_pokemon_attaque += event.unicode
                                 if self.select_stat == 3:
-                                    add_pokemon_def += event.unicode
+                                    if event.unicode.isdigit() and len(add_pokemon_def) < 3:
+                                        add_pokemon_def += event.unicode
+
 
                 self.img(525, 350, 1050, 743, "add_pokemon/test_img")
 
@@ -182,7 +187,7 @@ class AddPokemon(Element, Screen):
                 self.simple_rect(self.darkred, 525, 580, 120, 65, 3)
                 self.simple_rect(self.darkgreen, 675, 580, 120, 65, 3)
                 
-                if self.cate == 5:
+                if self.cate == 5 and add_pokemon_name != "" and add_pokemon_attaque != "" and add_pokemon_hp != "" and add_pokemon_def != "":
                     self.img(525, 660, 130, 55, "add_pokemon/confirmon")
                 else: 
                     self.img(525, 660, 130, 55, "add_pokemon/confirmoff")

@@ -52,7 +52,6 @@ class Element:
         Texte = pygame.font.Font('files/font/pokefont.ttf', texte_size).render(texte_content, True, color)
         Texte_rect = Texte.get_rect(center=(x, y))
         screen.Fenetre.blit(Texte, Texte_rect)
-    
         
     def texte_not_align(self, texte_size, texte_content, color, x, y):
         font = pygame.font.Font('files/font/pokefont.ttf', texte_size)
