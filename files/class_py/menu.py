@@ -97,6 +97,10 @@ class Menu(Element, Screen):
                 self.img(1000, 650, 70, 70,'pokeball')
                 self.img_mir(50, 50, 70,70,'pokeball')
                 self.texte(30, 'Appuyer sur une touche pour continuer', self.white, self.W // 2, self.H // 2)
+                self.img(385, 660, 20, 20, 'menu/copyright')
+                self.texte(15, '2024 - LaPlateforme', self.white, 525, 660)
+                self.img(100, 680, 17,17, 'menu/copyright')
+                self.texte(15, "Le  patron  (Lucas)  -  L'autre  Lucas  avec  les  lunettes (rondes)  -  Keviiiineu", self.white, 525, 680)
                 self.update()
                 
             
