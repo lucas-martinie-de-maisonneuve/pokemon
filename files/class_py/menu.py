@@ -30,7 +30,7 @@ class Menu:
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     quit()
-                if event.type == pygame.KEYDOWN:
+                if event.type == pygame.KEYDOWN and not setting.setting_run:
                     if self.show_home:
                         self.show_home = False
                         self.load_home = True
@@ -42,26 +42,26 @@ class Menu:
                         if c > 1:
                             c -= 1
                     elif event.key == pygame.K_UP or event.key == pygame.K_z:
-                        if d > 1:
+                        if d > 1 and self.load_home:
                             d -= 1
                         if c == 3 or c == 4:
                             c = 5
                         elif c == 1 or c == 2:
                             c = 6                        
                     elif event.key == pygame.K_DOWN or event.key == pygame.K_s:
-                        if d < 4:
+                        if d < 3 and self.load_home:
                             d += 1
                         if c == 5:
                             c = 4
                         elif c == 6:
                             c = 1                   
                     elif event.key == pygame.K_RETURN and self.load_home and not self.show_home:
-                        if d == 1:
+                        if d == 1 and self.load_home:
                             self.load_home = False
-                        if d == 2:
+                        if d == 2 and self.load_home:
                             self.load_home = False
                             # + fonction_save
-                        if d == 3:
+                        if d == 3 and self.load_home:
                             self.menu_run = False
                             self.show_home = False
                             pygame.quit()
