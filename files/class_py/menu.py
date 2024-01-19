@@ -28,7 +28,7 @@ class Menu:
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     quit()
-                if event.type == pygame.KEYDOWN:
+                if event.type == pygame.KEYDOWN and not setting.setting_run:
                     if self.show_home:
                         self.show_home = False
                         break
@@ -75,7 +75,7 @@ class Menu:
                 element.texte(30, 'Appuyer sur une touche pour continuer', (255, 255, 255), screen.W // 2, screen.H // 2)
                 screen.update()
 
-            if not self.show_home:      
+            if not self.show_home and not setting.setting_run:      
                 element.img(525, 350, 1244, 700, 'menu/backgroundmenu')
                 if starter.poke_player != "":
                     element.img(525, 250, 400, 400, f'pokemon/{starter.poke_player["nom"].lower()}')
