@@ -4,17 +4,19 @@ from files.class_py.element import Element
 from files.class_py.pokedex import Pokedex
 from files.class_py.combat import Combat
 from files.class_py.starter import Starter
+from files.class_py.experience import Experience
 
 
 pokedex = Pokedex()
-class Maps(Element, Screen, Combat):
+class Maps(Element, Screen, Combat, Experience):
 
     def __init__(self, poke_player, pokemon_random):
         self.combat_run = True
         self.action = 1
         Element.__init__(self)
         Screen.__init__(self)
-        Combat.__init__(self)        
+        Combat.__init__(self)
+        Experience.__init__(self)        
         self.starter = Starter()        
         self.attack_phase = False
         self.text_phase = False
