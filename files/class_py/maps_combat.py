@@ -42,8 +42,6 @@ class Maps(Element, Screen, Combat, Experience):
                     pygame.quit()
                     quit()
                 if event.type == pygame.KEYDOWN: 
-                    print('pokeplayer :', self.poke_player_hp)
-                    print ('pokerandom', self.poke_player)
                     if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                         if self.action < 4:
                             self.action += 1
