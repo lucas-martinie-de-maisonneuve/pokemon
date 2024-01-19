@@ -65,6 +65,7 @@ class Menu:
                             self.menu_run = False
                             self.show_home = False
                             pygame.quit()
+                            quit()
                     elif event.key == pygame.K_RETURN and not self.load_home:
                         if c == 1:
                             self.load_home = False

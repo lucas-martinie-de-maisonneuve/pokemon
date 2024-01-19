@@ -29,7 +29,7 @@
   },
   {
     "nom": "Roucoups",
-    "rencontre": 3
+    "rencontre": 4
   },
   {
     "nom": "Tengalice",
@@ -49,7 +49,7 @@
   },
   {
     "nom": "Herbizarre",
-    "rencontre": 2
+    "rencontre": 3
   },
   {
     "nom": "Pifeuil",
@@ -57,11 +57,11 @@
   },
   {
     "nom": "Osselait",
-    "rencontre": 1
+    "rencontre": 2
   },
   {
     "nom": "Kangourex",
-    "rencontre": 2
+    "rencontre": 3
   },
   {
     "nom": "Roucarnage",
@@ -93,7 +93,7 @@
   },
   {
     "nom": "Ossatueur",
-    "rencontre": 3
+    "rencontre": 4
   },
   {
     "nom": "Carabaffe",
@@ -125,11 +125,11 @@
   },
   {
     "nom": "Magmar",
-    "rencontre": 2
+    "rencontre": 3
   },
   {
     "nom": "Tauros",
-    "rencontre": 1
+    "rencontre": 2
   },
   {
     "nom": "Scarabrute",
@@ -141,7 +141,7 @@
   },
   {
     "nom": "Bulbizarre",
-    "rencontre": 2
+    "rencontre": 4
   },
   {
     "nom": "Gravalanch",
@@ -157,6 +157,14 @@
   },
   {
     "nom": "Sulfura",
+    "rencontre": 1
+  },
+  {
+    "nom": "Canarticho",
+    "rencontre": 1
+  },
+  {
+    "nom": "Carapuce",
     "rencontre": 1
   }
 ]
