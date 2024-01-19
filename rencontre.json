@@ -5,19 +5,19 @@
   },
   {
     "nom": "Pikachu",
-    "rencontre": 1
+    "rencontre": 4
   },
   {
     "nom": "Phyllali",
-    "rencontre": 1
+    "rencontre": 3
   },
   {
     "nom": "Blindalys",
-    "rencontre": 1
+    "rencontre": 2
   },
   {
     "nom": "Roucool",
-    "rencontre": 1
+    "rencontre": 2
   },
   {
     "nom": "Reptincelle",
@@ -25,26 +25,138 @@
   },
   {
     "nom": "Pyroli",
-    "rencontre": 1
+    "rencontre": 4
   },
   {
     "nom": "Roucoups",
-    "rencontre": 1
+    "rencontre": 3
   },
   {
     "nom": "Tengalice",
-    "rencontre": 1
+    "rencontre": 2
   },
   {
     "nom": "Sabelette",
-    "rencontre": 8
+    "rencontre": 3
   },
   {
     "nom": "Evoli",
-    "rencontre": 1
+    "rencontre": 3
   },
   {
     "nom": "Goupix",
+    "rencontre": 1
+  },
+  {
+    "nom": "Herbizarre",
+    "rencontre": 2
+  },
+  {
+    "nom": "Pifeuil",
+    "rencontre": 1
+  },
+  {
+    "nom": "Osselait",
+    "rencontre": 1
+  },
+  {
+    "nom": "Kangourex",
+    "rencontre": 1
+  },
+  {
+    "nom": "Roucarnage",
+    "rencontre": 3
+  },
+  {
+    "nom": "Grolem",
+    "rencontre": 1
+  },
+  {
+    "nom": "Chenipotte",
+    "rencontre": 1
+  },
+  {
+    "nom": "Fenard",
+    "rencontre": 3
+  },
+  {
+    "nom": "Papinox",
+    "rencontre": 3
+  },
+  {
+    "nom": "Dracaufeu",
+    "rencontre": 1
+  },
+  {
+    "nom": "Leviator",
+    "rencontre": 1
+  },
+  {
+    "nom": "Ossatueur",
+    "rencontre": 2
+  },
+  {
+    "nom": "Carabaffe",
+    "rencontre": 1
+  },
+  {
+    "nom": "Raichu",
+    "rencontre": 2
+  },
+  {
+    "nom": "Insecateur",
+    "rencontre": 1
+  },
+  {
+    "nom": "Groudon",
+    "rencontre": 1
+  },
+  {
+    "nom": "Elektek",
+    "rencontre": 3
+  },
+  {
+    "nom": "Magneti",
+    "rencontre": 2
+  },
+  {
+    "nom": "Voltali",
+    "rencontre": 1
+  },
+  {
+    "nom": "Magmar",
+    "rencontre": 2
+  },
+  {
+    "nom": "Tauros",
+    "rencontre": 1
+  },
+  {
+    "nom": "Scarabrute",
+    "rencontre": 1
+  },
+  {
+    "nom": "Racaillou",
+    "rencontre": 1
+  },
+  {
+    "nom": "Bulbizarre",
+    "rencontre": 2
+  },
+  {
+    "nom": "Gravalanch",
+    "rencontre": 1
+  },
+  {
+    "nom": "Tortank",
+    "rencontre": 1
+  },
+  {
+    "nom": "Grainipiot",
+    "rencontre": 1
+  },
+  {
+    "nom": "Sulfura",
     "rencontre": 1
   }
 ]
