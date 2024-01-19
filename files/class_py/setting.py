@@ -67,7 +67,7 @@ class Setting(Element,Screen):
                             pygame.quit()
                             quit()
                         #Vérification reset
-                        elif c_stat == 1 and m == 2 :
+                        elif c_stat == 1 and m == 2 and not self.verif_reset:
                             self.verif_reset = True
                         #Réponse "non" au reset
                         elif c_verif_reset == 1 and self.verif_reset:

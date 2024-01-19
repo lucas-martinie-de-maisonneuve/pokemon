@@ -4,27 +4,23 @@
     "rencontre": 1
   },
   {
-    "nom": "Pikachu",
-    "rencontre": 1
-  },
-  {
-    "nom": "Sablaireau",
+    "nom": "Magneti",
     "rencontre": 1
   },
   {
     "nom": "Kyogre",
+    "rencontre": 3
+  },
+  {
+    "nom": "Magmar",
     "rencontre": 1
   },
   {
-    "nom": "Tauros",
-    "rencontre": 1
+    "nom": "Blindalys",
+    "rencontre": 3
   },
   {
-    "nom": "Pyroli",
-    "rencontre": 1
-  },
-  {
-    "nom": "Tengalice",
+    "nom": "Herbizarre",
     "rencontre": 1
   }
 ]
