@@ -25,7 +25,7 @@
   },
   {
     "nom": "Magicarpe",
-    "rencontre": 1
+    "rencontre": 2
   },
   {
     "nom": "Kyogre",
@@ -49,6 +49,18 @@
   },
   {
     "nom": "Pyroli",
+    "rencontre": 1
+  },
+  {
+    "nom": "Canarticho",
+    "rencontre": 1
+  },
+  {
+    "nom": "Chenipotte",
+    "rencontre": 1
+  },
+  {
+    "nom": "Goupix",
     "rencontre": 1
   }
 ]
