@@ -4,9 +4,8 @@ class Experience:
         self.exp_winner = 0
         self.barre_expMax = 0
         self.levels = 1 
-        
+
     def exp_par_combat(self, evolve):
-    
         if evolve == 1:        
             self.exp_winner =+ 15
             return self.exp_winner
@@ -38,12 +37,7 @@ class Experience:
             self.barre_expMax = 290(12/self.levels)
             
         return self.barre_expMax
-        
-experience = Experience()
 
-         
-            
-            
     # def evolve(self, exp, exp_max, evolve_poke):
     #     if exp == exp_max:
     #         if evolve_poke == 1:
@@ -55,10 +49,3 @@ experience = Experience()
     # def levels(self):
     #     nb_lvl = ["1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,5,46,47,48,49,50"]
     #     return nb_lvl
-        
-        
-    
-                      
-      
-        
-        

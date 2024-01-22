@@ -38,13 +38,9 @@ class Menu(Element, Screen):
                     if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                         if c < 5:
                             c += 1
-                        if c == 6:
-                            c = 5
                     elif event.key == pygame.K_LEFT or event.key == pygame.K_q:
-                        if c > 1 and c != 5:
+                        if c > 1:
                             c -= 1
-                        if c == 5:
-                            c = 6
                     elif event.key == pygame.K_UP or event.key == pygame.K_z:
                         if d > 1 and self.load_home:
                             d -= 1
@@ -58,7 +54,7 @@ class Menu(Element, Screen):
                         if c == 6:
                             c = 5
                         elif c == 0:
-                            c = 1                   
+                            c = 1                  
                     elif event.key == pygame.K_RETURN and self.load_home and not self.show_home:
                         if d == 1 and self.load_home:
                             self.load_home = False
