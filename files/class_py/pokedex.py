@@ -4,14 +4,14 @@ import pygame
 from files.class_py.element import Element
 from files.class_py.screen import Screen
 
-class Pokedex(Element):
+class Pokedex(Element, Screen):
     def __init__(self):
         Element.__init__(self)
+        Screen.__init__(self)
         self.info_pokemon = self.ouverture_pokemonjson()
         self.pkmn_rencontre = self.ouverture_pokemonrencontre()
         self.pokedex_run = False
         self.detailed_pokemon = False
-        self.pokemon_counter = {}
 
     def ouverture_pokemonjson(self):
         with open('pokemon.json', 'r') as fichier:
@@ -32,6 +32,12 @@ class Pokedex(Element):
     def get_last_pokemon_number(self):
         last_pokemon = self.info_pokemon[-1]
         return last_pokemon['numero']
+
+    def get_last_pokemon_rencontre_number(self):
+        with open('rencontre.json', 'r') as fichier:
+            data = json.load(fichier)
+            max_poke_rencontre = len(data)
+        return max_poke_rencontre
 
     def starter(self):
         self.starter1 = self.info_pokemon[0]
@@ -54,7 +60,12 @@ class Pokedex(Element):
                 existe = True
 
         if not existe:
-            self.pkmn_rencontre.append({'nom': pokemon_name, 'rencontre': 1})
+            for index, pokemon_info in enumerate(self.info_pokemon):
+                if pokemon_info['nom'] == pokemon_name:
+                    pokemon_num = pokemon_info['numero']
+            rencontre_num = self.get_last_pokemon_rencontre_number()
+            if self.ouverture_pokemonjson() != []:
+                self.pkmn_rencontre.append({'numero': rencontre_num + 1, 'nom': pokemon_name, 'rencontre': 1, 'true_num': pokemon_num})
 
         with open('rencontre.json', 'w') as file:
             json.dump(self.pkmn_rencontre, file, indent=2)
@@ -116,7 +127,7 @@ class Pokedex(Element):
             for pokemon in self.pkmn_rencontre:
                 pkmn_rencontre_liste.append(pokemon['nom'])
 
-            element.img(525, 350, 1050, 743, 'pokedex/background')
+            self.img(525, 350, 1050, 743, 'pokedex/background')
             if self.detailed_pokemon == False:
                 for i, pokemon in enumerate(self.info_pokemon):
                     column = i % 9
@@ -125,59 +136,55 @@ class Pokedex(Element):
                     if pokemon['nom'] in pkmn_rencontre_liste:
                         if pokemon['numero'] == poke_choose:
                             if pokemon['numero'] <= 50:
-                                element.img(75 + column * 110, 90 + row * 110, 110, 110, f'pokemon/{self.pokemon_name}')
+                                self.img(75 + column * 110, 90 + row * 110, 110, 110, f'pokemon/{self.pokemon_name}')
                             else:
-                                element.img(75 + column * 110, 90 + row * 110, 110, 110, f'pokemon/default')
-                            element.simple_rect((255,255,255),75 + column * 110, 90 + row * 110, 120, 120,3)
-                            element.texte(18, f"{pokemon['numero']} / {self.get_last_pokemon_number()}",(255,255,255),1000, 680)
+                                self.img(75 + column * 110, 90 + row * 110, 110, 110, f'pokemon/default')
+                            self.simple_rect((255,255,255),75 + column * 110, 90 + row * 110, 120, 120,3)
+                            self.texte(18, f"{pokemon['numero']} / {self.get_last_pokemon_number()}",(255,255,255),1000, 680)
                         else:
                             if pokemon['numero'] <= 50:
-                                element.img(75 + column * 110, 90 + row * 110, 85, 85, f'pokemon/{self.pokemon_name}')
+                                self.img(75 + column * 110, 90 + row * 110, 85, 85, f'pokemon/{self.pokemon_name}')
                             else:
-                                element.img(75 + column * 110, 90 + row * 110, 85, 85, f'pokemon/default')
+                                self.img(75 + column * 110, 90 + row * 110, 85, 85, f'pokemon/default')
                     else:
                         if pokemon['numero'] == poke_choose:
-                            element.simple_rect((255,255,255),75 + column * 110, 90 + row * 110, 120, 120,3)
-                            element.img(75 + column * 110, 90 + row * 110, 85, 85, f'pokemon/unknown')
-                            element.texte(30, "?", (255, 255, 255), 75 + column * 110, 90 + row * 110)
-                            element.texte(18, f"{pokemon['numero']} / {self.get_last_pokemon_number()}",(255,255,255),1000, 680)
+                            self.simple_rect((255,255,255),75 + column * 110, 90 + row * 110, 120, 120,3)
+                            self.img(75 + column * 110, 90 + row * 110, 85, 85, f'pokemon/unknown')
+                            self.texte(30, "?", (255, 255, 255), 75 + column * 110, 90 + row * 110)
+                            self.texte(18, f"{pokemon['numero']} / {self.get_last_pokemon_number()}",(255,255,255),1000, 680)
                         else:
-                            element.img(75 + column * 110, 90 + row * 110, 85, 85, f'pokemon/unknown')
-                            element.texte(30, "?", (255, 255, 255), 75 + column * 110, 90 + row * 110)
-                screen.update()
+                            self.img(75 + column * 110, 90 + row * 110, 85, 85, f'pokemon/unknown')
+                            self.texte(30, "?", (255, 255, 255), 75 + column * 110, 90 + row * 110)
+                self.update()
 
             if self.detailed_pokemon:
-                element.img(525, 350, 1050, 743, 'pokedex/background')
+                self.img(525, 350, 1050, 743, 'pokedex/background')
                 for pokemon in self.info_pokemon:
                     if pokemon['nom'] in pkmn_rencontre_liste:
                         if poke_choose == pokemon['numero']:
-                            element.img(320,365, 340 ,360, f"pokedex/bg.{pokemon['type']}")
-                            element.img(525, 350, 800, 600, 'pokedex/pokedex')
+                            self.img(320,365, 340 ,360, f"pokedex/bg.{pokemon['type']}")
+                            self.img(525, 350, 800, 600, 'pokedex/pokedex')
                             if pokemon['numero'] <= 50: 
-                                element.img(320, 360, 300, 300, f"pokemon/{pokemon['nom']}")
+                                self.img(320, 360, 300, 300, f"pokemon/{pokemon['nom']}")
                             else:
-                                element.img(320, 360, 300, 300, f"pokemon/default")                                
-                            element.img(750, 280, 150, 150, f"pokedex/{pokemon['type']}")
-                            element.texte(18, f"Num {pokemon['numero']} - {pokemon['nom']}", (0,0,0), 750, 380)
-                            element.texte(18, f"HP : {pokemon['hp']}", (0,0,0), 750, 430)
-                            element.texte(18, f"Atq : {pokemon['attaque']}", (0,0,0), 750, 480)
-                            element.texte(18, f"Def : {pokemon['def']}", (0,0,0), 750, 530)
-                            element.texte(18, f"{pokemon['numero']} / {self.get_last_pokemon_number()}",(255,255,255),1000, 680)
+                                self.img(320, 360, 300, 300, f"pokemon/default")                                
+                            self.img(750, 280, 150, 150, f"pokedex/{pokemon['type']}")
+                            self.texte(18, f"Num {pokemon['numero']} - {pokemon['nom']}", (0,0,0), 750, 380)
+                            self.texte(18, f"HP : {pokemon['hp']}", (0,0,0), 750, 430)
+                            self.texte(18, f"Atq : {pokemon['attaque']}", (0,0,0), 750, 480)
+                            self.texte(18, f"Def : {pokemon['def']}", (0,0,0), 750, 530)
+                            self.texte(18, f"{pokemon['numero']} / {self.get_last_pokemon_number()}",(255,255,255),1000, 680)
                     elif pokemon['nom'] not in pkmn_rencontre_liste:
                         if poke_choose == pokemon['numero']:
-                            element.img(525, 350, 800, 600, 'pokedex/pokedex')
-                            element.img(320, 360, 300, 300, f"pokemon/unknown")
-                            element.texte(100, "?", (255,255,255), 325, 360)
-                            element.img(750, 280, 150, 150, f"pokedex/unknowntype")
-                            element.texte(50, "?", (255,255,255), 750, 290)
-                            element.texte(18, "Num ??? - ???", (0,0,0), 750, 380)
-                            element.texte(18, "HP : ???", (0,0,0), 750, 430)
-                            element.texte(18, "Atq : ???", (0,0,0), 750, 480)
-                            element.texte(18, "Def : ???", (0,0,0), 750, 530)
-                            element.texte(18, f"{pokemon['numero']} / {self.get_last_pokemon_number()}",(255,255,255),1000, 680)
+                            self.img(525, 350, 800, 600, 'pokedex/pokedex')
+                            self.img(320, 360, 300, 300, f"pokemon/unknown")
+                            self.texte(100, "?", (255,255,255), 325, 360)
+                            self.img(750, 280, 150, 150, f"pokedex/unknowntype")
+                            self.texte(50, "?", (255,255,255), 750, 290)
+                            self.texte(18, "Num ??? - ???", (0,0,0), 750, 380)
+                            self.texte(18, "HP : ???", (0,0,0), 750, 430)
+                            self.texte(18, "Atq : ???", (0,0,0), 750, 480)
+                            self.texte(18, "Def : ???", (0,0,0), 750, 530)
+                            self.texte(18, f"{pokemon['numero']} / {self.get_last_pokemon_number()}",(255,255,255),1000, 680)
 
-                screen.update()
-
-pokedex = Pokedex()
-element = Element()
-screen = Screen()
+                self.update()

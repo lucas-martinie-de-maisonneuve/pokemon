@@ -1,34 +1,14 @@
 [
   {
+    "numero": 1,
     "nom": "Salameche",
-    "rencontre": 1
+    "rencontre": 1,
+    "true_num": 1
   },
   {
-    "nom": "Magneti",
-    "rencontre": 1
-  },
-  {
-    "nom": "Kyogre",
-    "rencontre": 3
-  },
-  {
-    "nom": "Magmar",
-    "rencontre": 1
-  },
-  {
-    "nom": "Blindalys",
-    "rencontre": 3
-  },
-  {
-    "nom": "Herbizarre",
-    "rencontre": 1
-  },
-  {
-    "nom": "Magicarpe",
-    "rencontre": 1
-  },
-  {
-    "nom": "Kyogre",
-    "rencontre": 1
+    "numero": 2,
+    "nom": "Evoli",
+    "rencontre": 1,
+    "true_num": 19
   }
 ]

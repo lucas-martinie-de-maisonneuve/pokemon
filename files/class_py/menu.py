@@ -86,7 +86,9 @@ class Menu(Element, Screen):
                             pokedex.show_pokedex()
                         elif c == 4:
                             addpokemon.ajout_pokemon()
-                            pass
+                        elif c == 5:
+                            starter.changing_pokemon = True
+                            starter.change_pokemon()
                         elif c == 6:
                             setting.setting_run = True
                             setting.setting()
