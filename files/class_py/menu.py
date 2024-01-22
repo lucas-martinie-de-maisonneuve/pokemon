@@ -36,34 +36,33 @@ class Menu(Element, Screen):
                         self.load_home = True
                         break
                     if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
-                        if c < 5:
+                        if c < 5 and not self.load_home and not self.show_home:
                             c += 1
                     elif event.key == pygame.K_LEFT or event.key == pygame.K_q:
-                        if c > 1:
+                        if c > 1 and not self.load_home and not self.show_home:
                             c -= 1
                     elif event.key == pygame.K_UP or event.key == pygame.K_z:
                         if d > 1 and self.load_home:
                             d -= 1
-                        if c == 3 or c == 4 or c == 5:
+                        if c == 3 or c == 4 or c == 5 and not self.load_home and not self.show_home:
                             c = 6
-                        elif c == 1 or c == 2:
+                        elif c == 1 or c == 2 and not self.load_home and not self.show_home:
                             c = 0                        
                     elif event.key == pygame.K_DOWN or event.key == pygame.K_s:
                         if d < 3 and self.load_home:
                             d += 1
-                        if c == 6:
+                        if c == 6 and not self.load_home and not self.show_home:
                             c = 5
-                        elif c == 0:
+                        elif c == 0 and not self.load_home and not self.show_home:
                             c = 1                  
                     elif event.key == pygame.K_RETURN and self.load_home and not self.show_home:
                         if d == 1 and self.load_home:
                             self.load_home = False
+                            c = 1
                         if d == 2 and self.load_home:
                             self.load_home = False
                             # + fonction_save
                         if d == 3 and self.load_home:
-                            self.menu_run = False
-                            self.show_home = False
                             pygame.quit()
                             quit()
                     elif event.key == pygame.K_RETURN and not self.load_home:
@@ -139,7 +138,7 @@ class Menu(Element, Screen):
                     self.img(525, 250, 400, 400, f'pokemon/{starter.poke_player["nom"].lower()}')
 
                 if c == 0:
-                    self.img(30, 30, 53, 53, "setting/croix_rouge")                
+                    self.img(30, 30, 53, 53, "setting/croix_jaune")                
                 else:
                     self.img(30, 30, 46, 46, "setting/croix_rouge")
                 if c == 1 : 
