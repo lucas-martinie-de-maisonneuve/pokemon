@@ -108,6 +108,7 @@ class Starter(Element, Screen):
 
             self.img(525, 350, 1050, 743, 'pokedex/background')
             for i, pokemon in enumerate(self.pokedex.pkmn_rencontre):
+                print(pokemon)
                 for poke_info_index, poke_info in enumerate(self.pokedex.info_pokemon):
                     if poke_info['nom'] == pokemon['nom']:
                         column = i % 9

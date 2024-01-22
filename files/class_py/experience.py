@@ -2,10 +2,11 @@ class Experience:
     def __init__(self, poke_player):
         self.poke_player = poke_player
         self.exp_winner = 0
+        self.exp_poke = 0
         self.barre_expMax = 0
         self.levels = 1 
-
-    def exp_par_combat(self, evolve):
+        
+    def exp_par_combat(self, evolve):    
         if evolve == 1:        
             self.exp_winner =+ 15
             return self.exp_winner
@@ -14,11 +15,10 @@ class Experience:
             return self.exp_winner
         elif evolve == 3:
             self.exp_winner =+ 45
-            return self.exp_winner
-        
+            return self.exp_winner        
     
     def exp_needed(self):        
-        if 1 < self.levels < 2 :
+        if 1 <= self.levels <= 2 :
             self.barre_expMax = 15
             
         if 3 < self.levels < 4:
@@ -37,7 +37,12 @@ class Experience:
             self.barre_expMax = 290(12/self.levels)
             
         return self.barre_expMax
+        
 
+
+         
+            
+            
     # def evolve(self, exp, exp_max, evolve_poke):
     #     if exp == exp_max:
     #         if evolve_poke == 1:
@@ -48,4 +53,5 @@ class Experience:
                 
     # def levels(self):
     #     nb_lvl = ["1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,5,46,47,48,49,50"]
+    #     return nb_lvl
     #     return nb_lvl

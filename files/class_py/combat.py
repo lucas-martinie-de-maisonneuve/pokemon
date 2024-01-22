@@ -1,12 +1,14 @@
 from files.class_py.type import Type
+from files.class_py.experience import Experience
 
 type = Type()
 
-class Combat():
+class Combat(Experience):
     def __init__(self):
         self.combat = True       
         self.game_over = False
-        self.win = ""       
+        self.win = ""
+        # Experience.__init__(self)       
         
     def attack(self, vie, pokemon_attack, type_pokemon_starter, type_pokemon_advers, poke_def):
         
@@ -82,6 +84,5 @@ class Combat():
             self.win = poke_advers   
         elif poke_rand_hp <= 0:
             self.game_over = True
-            self.win = poke_player
-            
+            self.win = poke_player            
         return self.win

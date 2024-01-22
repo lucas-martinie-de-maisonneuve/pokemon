@@ -102,7 +102,7 @@ class Menu(Element, Screen):
                 self.img(385, 660, 20, 20, 'menu/copyright')
                 self.texte(15, '2024 - LaPlateforme', self.white, 525, 660)
                 self.img(100, 680, 17,17, 'menu/copyright')
-                self.texte(15, "Le  patron  (Lucas)  -  L'autre  Lucas  avec  les  lunettes (rondes)  -  Keviiiineu", self.white, 525, 680)
+                self.texte(15, "Le  patron  (Lucas)  -  L'autre  Lucas  avec  les  lunettes (rondes)  -  Keviiiineu (le bg au yeux bleu)", self.white, 525, 680)
                 self.update()
                 
             
