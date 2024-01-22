@@ -61,7 +61,7 @@ class Menu(Element, Screen):
                         if c == 6:
                             c = 5
                         elif c == 0:
-                            c = 1                   
+                            c = 1                  
                     elif event.key == pygame.K_RETURN and self.load_home and not self.show_home:
                         if d == 1 and self.load_home:
                             self.load_home = False
