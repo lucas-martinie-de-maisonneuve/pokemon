@@ -68,7 +68,6 @@ class Element:
     def rect(self, x, y, largeur, longueur, color):
         pygame.draw.rect(screen.Fenetre, color, pygame.Rect(x - largeur //2, y - longueur //2, largeur, longueur))
 
-
     def simple_rect(self, color, x, y, largeur, longueur, epaisseur):
         pygame.draw.rect(screen.Fenetre, color, pygame.Rect(x - largeur //2, y - longueur //2, largeur, longueur),  epaisseur, 5)
 
@@ -81,10 +80,13 @@ class Element:
     def rect_hp(self, x, y, longueur, largeur, hp, hp_max):
         if longueur * hp // hp_max >= 85:
             pygame.draw.rect(screen.Fenetre, (6, 214, 160), pygame.Rect(x, y, longueur * hp // hp_max, largeur))
-        elif 85 > longueur * hp // hp_max >= 42 :
+        elif 85 > longueur * hp // hp_max >= 35 :
             pygame.draw.rect(screen.Fenetre, (255, 209, 102), pygame.Rect(x, y, longueur * hp // hp_max, largeur))
         else:
             pygame.draw.rect(screen.Fenetre, (239, 71, 111), pygame.Rect(x, y, longueur * hp // hp_max, largeur))
+    
+    def rect_exp(self, x, y, longueur, largeur, exp, exp_max):
+        pygame.draw.rect(screen.Fenetre, (37, 107, 247), pygame.Rect(x, y, longueur * exp // exp_max, largeur), 0, 5)
 
     def draw_overlay(self, coloralpha, x, y, largeur, longueur):
         overlay_surface = pygame.Surface((largeur, longueur), pygame.SRCALPHA)

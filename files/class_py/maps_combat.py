@@ -8,7 +8,7 @@ from files.class_py.experience import Experience
 
 
 pokedex = Pokedex()
-class Maps(Element, Screen, Combat):
+class Maps(Element, Screen, Combat, Experience):
 
     def __init__(self, poke_player, pokemon_random):
         self.combat_run = True
@@ -33,7 +33,8 @@ class Maps(Element, Screen, Combat):
         self.def_poke_player = poke_player['def']
         self.poke_advers = pokemon_random['nom']
         self.game_over = False
-        self.attack_phase_advers = False                    
+        self.attack_phase_advers = False
+        self.poke_evolve = poke_player["evol"]                    
 
     def home(self):
         while self.combat_run:
@@ -66,7 +67,7 @@ class Maps(Element, Screen, Combat):
                         self.text = 1
                         if self.action == 1:                            
                             self.pokemon_random_hp = self.attack(self.pokemon_random_hp, self.poke_player['attaque'],self.pokemon_type_player,self.type_pokemon_advers, self.pokemon_def_advers)                            
-                            self.recup_poke_winner(self.poke_player['nom'], self.pokemon_random['nom'], self.poke_player_hp, self.pokemon_random_hp)
+                            self.recup_poke_winner(self.poke_player['nom'], self.pokemon_random['nom'], self.poke_player_hp, self.pokemon_random_hp)                            
                             self.text_phase = True
                         elif self.action == 2:
                             self.pokemon_random_hp = self.attack(self.pokemon_random_hp, self.poke_player['attaque'],self.pokemon_type_player,self.type_pokemon_advers, self.pokemon_def_advers)                            
@@ -106,11 +107,14 @@ class Maps(Element, Screen, Combat):
             self.rect_hp(709, 478, 170, 12, self.poke_player_hp, self.poke_player_hp_max)
             self.img(839, 454, 350, 128, 'combat/player_hp')            
             self.texte(25, f"{self.poke_player['nom']}", self.black, 830, 420)
+            self.rect_exp(706, 455, 243, 11, 15, self.exp_needed())            
+            self.img(855, 558, 430, 330, "combat/player_exp")
 
             self.button_rect(self.brown, 257, 130, 170, 12)
-            self.rect_hp(172, 124, 170, 12, self.pokemon_random_hp, self.pokemon_random_hp_max)
+            self.rect_hp(172, 124, 170, 12, self.pokemon_random_hp, self.pokemon_random_hp_max)            
             self.img(211, 100, 350, 128, 'combat/rand_pokemon_hp')
-            self.texte(25, f"{self.pokemon_random['nom']}", self.black, 160, 70)
+            self.texte(25, f"{self.pokemon_random['nom']}", self.black, 160, 70)            
+            
 
             if not self.attack_phase:
                 self.button_rect(self.darkred,765,600,145,45)

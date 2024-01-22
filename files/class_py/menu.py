@@ -38,13 +38,9 @@ class Menu(Element, Screen):
                     if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                         if c < 5:
                             c += 1
-                        if c == 6:
-                            c = 5
                     elif event.key == pygame.K_LEFT or event.key == pygame.K_q:
-                        if c > 1 and c != 5:
+                        if c > 1:
                             c -= 1
-                        if c == 5:
-                            c = 6
                     elif event.key == pygame.K_UP or event.key == pygame.K_z:
                         if d > 1 and self.load_home:
                             d -= 1
@@ -52,6 +48,13 @@ class Menu(Element, Screen):
                             c = 6
                         elif c == 1 or c == 2:
                             c = 0                        
+                    elif event.key == pygame.K_DOWN or event.key == pygame.K_s:
+                        if d < 3 and self.load_home:
+                            d += 1
+                        if c == 6:
+                            c = 5
+                        elif c == 0:
+                            c = 1                        
                     elif event.key == pygame.K_DOWN or event.key == pygame.K_s:
                         if d < 3 and self.load_home:
                             d += 1
@@ -105,7 +108,7 @@ class Menu(Element, Screen):
                 self.img(385, 660, 20, 20, 'menu/copyright')
                 self.texte(15, '2024 - LaPlateforme', self.white, 525, 660)
                 self.img(100, 680, 17,17, 'menu/copyright')
-                self.texte(15, "Le  patron  (Lucas)  -  L'autre  Lucas  avec  les  lunettes (rondes)  -  Keviiiineu", self.white, 525, 680)
+                self.texte(15, "Le  patron  (Lucas)  -  L'autre  Lucas  avec  les  lunettes (rondes)  -  Keviiiineu (le bg au yeux bleu)", self.white, 525, 680)
                 self.update()
                 
             

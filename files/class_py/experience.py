@@ -2,11 +2,11 @@ class Experience:
     def __init__(self, poke_player):
         self.poke_player = poke_player
         self.exp_winner = 0
+        self.exp_poke = 0
         self.barre_expMax = 0
         self.levels = 1 
         
-    def exp_par_combat(self, evolve):
-    
+    def exp_par_combat(self, evolve):    
         if evolve == 1:        
             self.exp_winner =+ 15
             return self.exp_winner
@@ -15,11 +15,10 @@ class Experience:
             return self.exp_winner
         elif evolve == 3:
             self.exp_winner =+ 45
-            return self.exp_winner
-        
+            return self.exp_winner        
     
     def exp_needed(self):        
-        if 1 < self.levels < 2 :
+        if 1 <= self.levels <= 2 :
             self.barre_expMax = 15
             
         if 3 < self.levels < 4:
@@ -39,7 +38,7 @@ class Experience:
             
         return self.barre_expMax
         
-experience = Experience()
+
 
          
             
