@@ -7,12 +7,14 @@ from files.class_py.combat import Combat
 from files.class_py.starter import Starter
 from files.class_py.add_pokemon import AddPokemon
 from files.class_py.setting import Setting
+from files.class_py.animation import Animation
 
 pokedex = Pokedex()
 combat = Combat()
 starter = Starter()
 addpokemon = AddPokemon()
 setting = Setting()
+animation = Animation()
 
 class Menu(Element, Screen):
     def __init__(self):
@@ -103,6 +105,8 @@ class Menu(Element, Screen):
                 self.img(100, 680, 17,17, 'menu/copyright')
                 self.texte(15, "Le  patron  (Lucas)  -  L'autre  Lucas  avec  les  lunettes (rondes)  -  Keviiiineu", self.white, 525, 680)
                 self.update()
+                # animation.anim_pokeball()
+
                 
             
             if self.load_home and not self.show_home:

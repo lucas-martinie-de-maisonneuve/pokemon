@@ -13,7 +13,12 @@ class Screen:
         pygame.display.update()
         self.clock.tick(60)
         self.Fenetre.fill((0, 0, 0))
-    
+
+    def animation_update(self):
+        pygame.display.flip()
+        pygame.display.update()
+        self.clock.tick(60)
+
     def update_no_fill(self):
         pygame.display.flip()
         pygame.display.update()
@@ -24,3 +29,6 @@ class Screen:
 
     def get_display(self):
         return self.Fenetre
+
+    def delai(self):
+        pygame.time.delay(300)

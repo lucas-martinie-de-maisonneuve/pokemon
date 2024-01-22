@@ -54,6 +54,12 @@ class Element:
         image.set_alpha(115)
         screen.Fenetre.blit(image, (x - image.get_width()//2, y - image.get_height()//2))
 
+    def img_pokeball(self, x, y, largeur, hauteur, image_name, angle):
+        image = pygame.image.load(f'files/image/{image_name}.png')
+        image = pygame.transform.scale(image, (largeur, hauteur))
+        image = pygame.transform.rotate(image, angle)
+        screen.Fenetre.blit(image, (x - image.get_width()//2, y - image.get_height()//2))
+
     def texte(self, texte_size, texte_content,color, x, y):
         Texte = pygame.font.Font('files/font/pokefont.ttf', texte_size).render(texte_content, True, color)
         Texte_rect = Texte.get_rect(center=(x, y))

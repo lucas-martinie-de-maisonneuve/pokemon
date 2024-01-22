@@ -77,7 +77,6 @@ class Setting(Element,Screen):
                             pokedex.vider_fichier_json()
                             self.top_pokemon = sorted(pokedex.pkmn_rencontre,key=lambda x: x['rencontre'], reverse=True)
                             self.verif_reset = False
-
 #Touche Echap
                     #Quitter les paramètre 
                     elif event.key == pygame.K_ESCAPE and not self.verif_quitter and not self.verif_reset:

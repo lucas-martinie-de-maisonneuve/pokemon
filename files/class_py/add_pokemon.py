@@ -96,7 +96,6 @@ class AddPokemon(Element, Screen):
                                     if event.unicode.isdigit() and len(add_pokemon_def) < 3:
                                         add_pokemon_def += event.unicode
 
-
                 self.img(525, 350, 1050, 743, "add_pokemon/test_img")
 
                 self.texte(20, "Nom :", self.black,525, 100)
