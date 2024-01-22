@@ -18,6 +18,8 @@ class Setting(Element,Screen):
         c_stat = 0
         c_verif_quit = 1
         c_verif_reset = 1
+        c_audio = 0
+        pourcent = 0
         self.top_pokemon = sorted(pokedex.pkmn_rencontre,key=lambda x: x['rencontre'], reverse=True)
         pokedex = Pokedex()
         while self.setting_run:
@@ -29,26 +31,34 @@ class Setting(Element,Screen):
                 if event.type == pygame.KEYDOWN:
 #Touche Gauche
                     if event.key == pygame.K_LEFT or event.key == pygame.K_q:
+                        #Gauche verif quit
                         if self.verif_quitter and c_verif_quit == 2:
                             c_verif_quit = 1
+                        #Gauche stat
                         elif m == 2 and c_stat > 0:
                             c_stat -= 1
+                        #Gauche reset
                         if self.verif_reset and c_verif_reset == 2:
                             c_verif_reset = 1
 #Touche Droite
                     elif event.key == pygame.K_RIGHT or event.key == pygame.K_d:
+                        #Droite vérif quitter
                         if self.verif_quitter and c_verif_quit == 1:
                             c_verif_quit = 2
+                        #Droite stat
                         elif m == 2 and c_stat < 1:
                             c_stat += 1
+                        # Droite reset
                         if self.verif_reset and c_verif_reset == 1:
                             c_verif_reset = 2
 #Touche Haut
                     elif event.key == pygame.K_UP or event.key == pygame.K_z:
+                        #menu haut
                         if not self.verif_quitter and not self.verif_reset and m > 0:
                             m -= 1
 #Touche Bas
                     elif event.key == pygame.K_DOWN or event.key == pygame.K_s:
+                        #menu bas
                         if not self.verif_quitter and not self.verif_reset and m < 4:
                             m += 1
 #Touche Entrée
@@ -59,20 +69,20 @@ class Setting(Element,Screen):
                         #Lance la fonction "voulez vous vraiment quitter"
                         elif m == 4 and not self.verif_quitter and not self.verif_reset:
                             self.verif_quitter = True
-                        #Reponse "non" à "voulez vous vraiment quitter"
+                        #Action à "non" à "voulez vous vraiment quitter"
                         elif c_verif_quit == 1 and self.verif_quitter:
                             self.verif_quitter = False
-                        #Reponse "oui" à "voulez vous vraiment quitter"
+                        #Action à "oui" à "voulez vous vraiment quitter"
                         elif c_verif_quit == 2 :
                             pygame.quit()
                             quit()
                         #Vérification reset
                         elif c_stat == 1 and m == 2 and not self.verif_reset:
                             self.verif_reset = True
-                        #Réponse "non" au reset
+                        #Action à "non" au reset
                         elif c_verif_reset == 1 and self.verif_reset:
                             self.verif_reset = False
-                        #Réponse "oui" au reset
+                        #Action à "oui" au reset 
                         elif c_verif_reset == 2 and self.verif_reset:
                             pokedex.vider_fichier_json()
                             self.top_pokemon = sorted(pokedex.pkmn_rencontre,key=lambda x: x['rencontre'], reverse=True)
@@ -155,21 +165,35 @@ class Setting(Element,Screen):
                     self.texte_not_align(15,f"Nombre de pokemon rencontré: {len(pokedex.pkmn_rencontre)}/{pokedex.get_last_pokemon_number()}", self.black,320,130)
                     self.texte_not_align(15,f"Nombre de combat gagné: ", self.black,320,180)
                     self.texte_not_align(15,f"Nombre de fuite: ", self.black,320,230)
-                    self.texte_not_align(15,f"Pokemon les plus rencontres:", self.black,320, 280)
+                    self.texte_not_align(15,f"Pokemon les plus rencontres:", self.black,320, 340)
                     if self.top_pokemon:
-                        self.texte_not_align(15, f"{self.top_pokemon[0]['nom']} (x{self.top_pokemon[0]['rencontre']})", self.black, 640, 280)
-                        self.texte_not_align(15, f"Dernier pokemon découvert: {pokedex.pkmn_rencontre[-1]['nom']}", self.black, 320, 340)
+                        self.texte_not_align(15, f"Dernier pokemon découvert: {pokedex.pkmn_rencontre[-1]['nom']}", self.black, 320, 280)
+
+                        self.button_rect(self.black,430, 560, 150,50)#cadre noir titre nom
+                        self.button_rect(self.lightgrey,430, 475, 150,150) #cadre gris clair pokemon
+                        self.img(430, 475, 150,150,f"/pokemon/{self.top_pokemon[0]['nom'].lower()}") #img pokemon
+                        self.texte(15, f"(x{self.top_pokemon[0]['rencontre']})", self.black,470, 540) #nombre de fois rencontrer
+                        self.texte(15, f"{self.top_pokemon[0]['nom']}", self.white,430, 565) #nom pokemon dans cadre noir
+
                         if len(self.top_pokemon) > 1:
-                            self.texte_not_align(15, f"{self.top_pokemon[1]['nom']} (x{self.top_pokemon[1]['rencontre']})", self.black, 640, 300)
+                            self.button_rect(self.black,620, 560, 150,50)
+                            self.button_rect(self.lightgrey,620, 475, 150,150)
+                            self.img(620, 475, 150,150,f"/pokemon/{self.top_pokemon[1]['nom'].lower()}")
+                            self.texte(15, f"(x{self.top_pokemon[1]['rencontre']})", self.black,660, 540) 
+                            self.texte(15, f"{self.top_pokemon[1]['nom']}", self.white,620, 565) 
                         else:
-                            self.texte_not_align(15, f"Aucun", self.black, 640, 300)
+                            self.texte_not_align(15, f"Aucun", self.black, 640, 340)
                         if len(self.top_pokemon) > 2:
-                            self.texte_not_align(15, f"{self.top_pokemon[2]['nom']} (x{self.top_pokemon[2]['rencontre']})", self.black, 640, 320)
+                            self.button_rect(self.black,810, 560, 150,50)
+                            self.button_rect(self.lightgrey,810, 475, 150,150)
+                            self.img(810, 475, 150,150,f"/pokemon/{self.top_pokemon[2]['nom'].lower()}")
+                            self.texte(15, f"(x{self.top_pokemon[2]['rencontre']})", self.black,850, 540) 
+                            self.texte(15, f"{self.top_pokemon[2]['nom']}", self.white,810, 565) 
                         else:
                             self.texte_not_align(15, f"Aucun", self.black, 640, 320)
                     else: 
-                        self.texte_not_align(15, f"Aucun", self.black, 640, 280)
-                        self.texte_not_align(15, f"Dernier pokemon découvert: Aucun", self.black, 320, 340)
+                        self.texte_not_align(15, f"Dernier pokemon découvert: Aucun", self.black, 320, 280)
+                        self.texte_not_align(15, f"Aucun", self.black, 640, 340)
 
                     if c_stat == 1:
                         self.button_rect(self.darkbluesea,880,140,50,50)
@@ -184,10 +208,17 @@ class Setting(Element,Screen):
 
                 # Selecteur 3 Audio
                 if m == 3:
-                    self.button_rect((39, 76, 119), 205, 394, 160, 40)
                     self.img(205,576,150,150,"/setting/pikachu_music")
+                    self.button_rect(self.lightbluesea, 205, 394, 160, 40)
+                    self.button_rect(self.lightgrey,570,170,450,60) #Barre de son
+                    
+                    if c_audio == 2:
+                        pass
+                    else:
+                        self.button_rect(self.lightgrey,860,170,60,60) #Bouton Mute
+
                 else:
-                    self.button_rect((37, 50, 55), 205, 394, 160, 40)
+                    self.button_rect(self.darkgreenblue, 205, 394, 160, 40)
                 self.texte(15, 'Audio', self.white, 205, 394)
 
                 # Selecteur 4 Quitter

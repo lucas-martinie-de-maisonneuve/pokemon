@@ -202,11 +202,6 @@ class Maps(Element, Screen, Combat, Experience):
                 self.texte(12, "PRESS RETURN TO ESCAPE", self.black, 540, 400)                               
             self.update()
             
-            
-            
-            
-            
-            
             # self.poke_hp = self.attack(self.poke_player_hp, self.pokemon_random['attaque'],self.type_pokemon_advers, self.pokemon_type_player, self.def_poke_player)                            
             # self.recup_poke_winner(self.poke_player['nom'], self.pokemon_random['nom'], self.poke_player_hp, self.pokemon_random_hp)
             # self.texte(20, f"{self.pokemon_random['nom']} inflige {self.dmg_poke}", self.black, 300, 590)
