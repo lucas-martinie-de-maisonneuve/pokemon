@@ -56,7 +56,7 @@ class Menu(Element, Screen):
                         if c == 6:
                             c = 5
                         elif c == 0:
-                            c = 1                   
+                            c = 1 
                     elif event.key == pygame.K_RETURN and self.load_home and not self.show_home:
                         if d == 1 and self.load_home:
                             self.load_home = False
@@ -104,18 +104,17 @@ class Menu(Element, Screen):
                 self.texte(15, '2024 - LaPlateforme', self.white, 525, 660)
                 self.img(100, 680, 17,17, 'menu/copyright')
                 self.texte(15, "Le  patron  (Lucas)  -  L'autre  Lucas  avec  les  lunettes (rondes)  -  Keviiiineu", self.white, 525, 680)
-                self.update()
                 # animation.anim_pokeball()
+                animation.pokeball_move()
+                self.update()
 
-                
-            
             if self.load_home and not self.show_home:
                 self.img(525, 350, 1244, 700, "menu_load/img_background_load")
                 if d == 1:
                     self.button_rect(self.black, 525, 200, 300, 80 )
                     self.texte(20, "Nouvelle Partie", self.white, 525, 200)
                 else:
-                    self.button_rect(self.white, 525, 200, 300, 80 )
+                    self.button_rect(self.white, 525, 200, 300, 80)
                     self.texte(20, "Nouvelle Partie", self.black, 525, 200)
                     
                 if d == 2:

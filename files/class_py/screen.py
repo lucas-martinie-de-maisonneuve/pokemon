@@ -17,7 +17,7 @@ class Screen:
     def animation_update(self):
         pygame.display.flip()
         pygame.display.update()
-        self.clock.tick(60)
+        self.clock.tick(120)
 
     def update_no_fill(self):
         pygame.display.flip()
