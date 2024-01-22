@@ -1,34 +1,62 @@
 [
   {
-    "nom": "Salameche",
-    "rencontre": 1
+    "numero": 1,
+    "nom": "Bulbizarre",
+    "rencontre": 1,
+    "true_num": 4
   },
   {
+    "numero": 2,
+    "nom": "Carapuce",
+    "rencontre": 2,
+    "true_num": 7
+  },
+  {
+    "numero": 3,
+    "nom": "Grolem",
+    "rencontre": 1,
+    "true_num": 18
+  },
+  {
+    "numero": 4,
     "nom": "Magneti",
-    "rencontre": 1
+    "rencontre": 1,
+    "true_num": 44
   },
   {
-    "nom": "Kyogre",
-    "rencontre": 3
+    "numero": 5,
+    "nom": "Dracaufeu",
+    "rencontre": 1,
+    "true_num": 3
   },
   {
-    "nom": "Magmar",
-    "rencontre": 1
+    "numero": 6,
+    "nom": "Kangourex",
+    "rencontre": 1,
+    "true_num": 25
   },
   {
-    "nom": "Blindalys",
-    "rencontre": 3
+    "numero": 7,
+    "nom": "Pyroli",
+    "rencontre": 1,
+    "true_num": 22
   },
   {
-    "nom": "Herbizarre",
-    "rencontre": 1
+    "numero": 1,
+    "nom": "Carabaffe",
+    "rencontre": 1,
+    "true_num": 8
   },
   {
-    "nom": "Magicarpe",
-    "rencontre": 1
+    "numero": 1,
+    "nom": "Artikodin",
+    "rencontre": 1,
+    "true_num": 45
   },
   {
-    "nom": "Kyogre",
-    "rencontre": 1
+    "numero": 10,
+    "nom": "Grainipiot",
+    "rencontre": 1,
+    "true_num": 31
   }
 ]

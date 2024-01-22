@@ -245,8 +245,15 @@ class Setting(Element,Screen):
                     self.button_rect(self.darkbluesea,615,175,350,50) #Rectangle bleu
                     self.texte(20,"Effacer les données",self.white,615,175)
                     self.simple_rect(self.black,615,350,350,400,2) #Bordure
-                    self.texte(13,"Les données de sauvergarde de Pokémon seront complétements effacées. Une fois effacées, les données ne pourront plus être utilisées ou récupérées. Voulez vous continuer ?",self.darkgreenblue,700,350)
+                    self.texte(13,"Les données de sauvergarde  ",self.darkgreenblue,615,245)
+                    self.texte(13,"de Pokémon seront",self.darkgreenblue,615,270)
+                    self.texte(13,"complétements effacées.",self.darkgreenblue,615,295)
+                    self.texte(13,"Une fois effacées,",self.darkgreenblue,615,320)
+                    self.texte(13,"les données ne pourront",self.darkgreenblue,615,345)
+                    self.texte(13,"plus etre utilisées ou récupérées.",self.darkgreenblue,615,370)
+                    self.texte(13,"Voulez vous continuer ?",self.darkgreenblue,615,395)
 
+    
                     if c_verif_reset == 1:
                         self.button_rect(self.darkbluesea,515,500,70,50)
                         self.texte(13,"Non", self.white,515,500)
