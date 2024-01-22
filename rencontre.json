@@ -1,68 +1,34 @@
 [
   {
-    "numero": 1,
     "nom": "Salameche",
-    "rencontre": 1,
-    "true_num": 1
+    "rencontre": 1
   },
   {
-    "numero": 2,
-    "nom": "Evoli",
-    "rencontre": 1,
-    "true_num": 19
-  },
-  {
-    "numero": 3,
     "nom": "Magneti",
-    "rencontre": 1,
-    "true_num": 44
+    "rencontre": 1
   },
   {
-    "numero": 4,
-    "nom": "Dracaufeu",
-    "rencontre": 1,
-    "true_num": 3
+    "nom": "Kyogre",
+    "rencontre": 3
   },
   {
-    "numero": 5,
-    "nom": "Sablaireau",
-    "rencontre": 1,
-    "true_num": 40
+    "nom": "Magmar",
+    "rencontre": 1
   },
   {
-    "numero": 6,
-    "nom": "Racaillou",
-    "rencontre": 1,
-    "true_num": 16
+    "nom": "Blindalys",
+    "rencontre": 3
   },
   {
-    "numero": 7,
-    "nom": "Insecateur",
-    "rencontre": 1,
-    "true_num": 43
+    "nom": "Herbizarre",
+    "rencontre": 1
   },
   {
-    "numero": 8,
-    "nom": "Kangourex",
-    "rencontre": 1,
-    "true_num": 25
+    "nom": "Magicarpe",
+    "rencontre": 1
   },
   {
-    "numero": 9,
-    "nom": "Phyllali",
-    "rencontre": 1,
-    "true_num": 23
-  },
-  {
-    "numero": 10,
-    "nom": "Grainipiot",
-    "rencontre": 1,
-    "true_num": 31
-  },
-  {
-    "numero": 11,
-    "nom": "Ossatueur",
-    "rencontre": 1,
-    "true_num": 42
+    "nom": "Kyogre",
+    "rencontre": 1
   }
 ]
