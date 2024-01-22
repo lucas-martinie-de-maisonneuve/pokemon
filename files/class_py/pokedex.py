@@ -17,11 +17,17 @@ class Pokedex(Element):
         with open('pokemon.json', 'r') as fichier:
             self.donnees_pokemon = json.load(fichier)
             return self.donnees_pokemon
-        
+
     def ouverture_pokemonrencontre(self):
         with open('rencontre.json', 'r') as file:
             self.donnees_rencontre = json.load(file)
             return self.donnees_rencontre
+
+    def vider_fichier_json(self):
+        with open('rencontre.json', 'w') as fichier:
+            json.dump([], fichier)
+        self.pkmn_rencontre = self.ouverture_pokemonrencontre()
+        return self.pkmn_rencontre
 
     def get_last_pokemon_number(self):
         last_pokemon = self.info_pokemon[-1]
@@ -38,19 +44,6 @@ class Pokedex(Element):
         self.pokemon_liste = []
         for info_pokemon in self.info_pokemon:
             self.pokemon_liste(info_pokemon[data])  
-
-    def pokemon_rencontre(self, meet):
-        for pokemon in self.info_pokemon:
-            if meet == pokemon["nom"]:
-                if meet in self.pokemon_counter:
-                    self.pokemon_counter[meet] += 1
-                else:
-                    self.pokemon_counter[meet] = 1
-
-                return {
-                    "nom": pokemon,
-                    "counter": self.pokemon_counter[meet]
-                }
 
     def poke_rencontre(self, pokemon_name):
         self.ouverture_pokemonrencontre()
@@ -86,6 +79,8 @@ class Pokedex(Element):
         }
 
     def show_pokedex(self):
+        self.info_pokemon = self.ouverture_pokemonjson()
+        self.pkmn_rencontre = self.ouverture_pokemonrencontre()
         poke_choose = 1
         pkmn_rencontre_liste = []
         while self.pokedex_run:
@@ -129,11 +124,17 @@ class Pokedex(Element):
                     self.pokemon_name = pokemon['nom'].lower()
                     if pokemon['nom'] in pkmn_rencontre_liste:
                         if pokemon['numero'] == poke_choose:
-                            element.img(75 + column * 110, 90 + row * 110, 110, 110, f'pokemon/{self.pokemon_name}')
+                            if pokemon['numero'] <= 50:
+                                element.img(75 + column * 110, 90 + row * 110, 110, 110, f'pokemon/{self.pokemon_name}')
+                            else:
+                                element.img(75 + column * 110, 90 + row * 110, 110, 110, f'pokemon/default')
                             element.simple_rect((255,255,255),75 + column * 110, 90 + row * 110, 120, 120,3)
                             element.texte(18, f"{pokemon['numero']} / {self.get_last_pokemon_number()}",(255,255,255),1000, 680)
                         else:
-                            element.img(75 + column * 110, 90 + row * 110, 85, 85, f'pokemon/{self.pokemon_name}')
+                            if pokemon['numero'] <= 50:
+                                element.img(75 + column * 110, 90 + row * 110, 85, 85, f'pokemon/{self.pokemon_name}')
+                            else:
+                                element.img(75 + column * 110, 90 + row * 110, 85, 85, f'pokemon/default')
                     else:
                         if pokemon['numero'] == poke_choose:
                             element.simple_rect((255,255,255),75 + column * 110, 90 + row * 110, 120, 120,3)
@@ -152,7 +153,10 @@ class Pokedex(Element):
                         if poke_choose == pokemon['numero']:
                             element.img(320,365, 340 ,360, f"pokedex/bg.{pokemon['type']}")
                             element.img(525, 350, 800, 600, 'pokedex/pokedex')
-                            element.img(320, 360, 300, 300, f"pokemon/{pokemon['nom']}")
+                            if pokemon['numero'] <= 50: 
+                                element.img(320, 360, 300, 300, f"pokemon/{pokemon['nom']}")
+                            else:
+                                element.img(320, 360, 300, 300, f"pokemon/default")                                
                             element.img(750, 280, 150, 150, f"pokedex/{pokemon['type']}")
                             element.texte(18, f"Num {pokemon['numero']} - {pokemon['nom']}", (0,0,0), 750, 380)
                             element.texte(18, f"HP : {pokemon['hp']}", (0,0,0), 750, 430)

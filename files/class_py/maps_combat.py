@@ -8,7 +8,7 @@ from files.class_py.experience import Experience
 
 
 pokedex = Pokedex()
-class Maps(Element, Screen, Combat, Experience):
+class Maps(Element, Screen, Combat):
 
     def __init__(self, poke_player, pokemon_random):
         self.combat_run = True
@@ -16,7 +16,7 @@ class Maps(Element, Screen, Combat, Experience):
         Element.__init__(self)
         Screen.__init__(self)
         Combat.__init__(self)
-        Experience.__init__(self)        
+        Experience.__init__(self, poke_player)        
         self.starter = Starter()        
         self.attack_phase = False
         self.text_phase = False

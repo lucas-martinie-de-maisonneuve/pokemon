@@ -211,9 +211,9 @@ class AddPokemon(Element, Screen):
                     self.texte(25, "Résumé des informations", self.white, 525, 50)
                 elif confirm == 2:
                     self.img(525, 350, 900, 400, "add_pokemon/menuselect")
-
-                    self.draw_overlay((255,255,255,200), 525, 350, 750, 50)
                     self.border_rect((255,255,255), 525, 350, 900, 400, 3)
+
+                    self.draw_overlay((255,255,255,200), 525, 350, 800, 50)
                     self.texte(30, f"{add_pokemon_name} a été ajouté au Pokedex", (self.black), 525, 350)
 
                     if not enregistre:
