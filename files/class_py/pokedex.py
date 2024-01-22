@@ -12,6 +12,11 @@ class Pokedex(Element, Screen):
         self.pkmn_rencontre = self.ouverture_pokemonrencontre()
         self.pokedex_run = False
         self.detailed_pokemon = False
+    
+    def print_pkmn(self):
+        print(self.pkmn_rencontre)
+        # for pokemon in self.pkmn_rencontre:
+        #     print(pokemon)
 
     def ouverture_pokemonjson(self):
         with open('pokemon.json', 'r') as fichier:
@@ -44,7 +49,7 @@ class Pokedex(Element, Screen):
         self.starter2 = self.info_pokemon[3]
         self.starter3 = self.info_pokemon[6]
         self.starter4 = self.info_pokemon[9]
-        return self.starter1, self.starter2, self.starter3, self.starter4 
+        return self.starter1, self.starter2, self.starter3, self.starter4
     
     def information_pokemon(self, data):
         self.pokemon_liste = []
@@ -64,11 +69,9 @@ class Pokedex(Element, Screen):
                 if pokemon_info['nom'] == pokemon_name:
                     pokemon_num = pokemon_info['numero']
             rencontre_num = self.get_last_pokemon_rencontre_number()
-            if self.ouverture_pokemonjson() != []:
-                self.pkmn_rencontre.append({'numero': rencontre_num + 1, 'nom': pokemon_name, 'rencontre': 1, 'true_num': pokemon_num})
-
-        with open('rencontre.json', 'w') as file:
-            json.dump(self.pkmn_rencontre, file, indent=2)
+            self.pkmn_rencontre.append({'numero': rencontre_num + 1, 'nom': pokemon_name, 'rencontre': 1, 'true_num': pokemon_num})
+            with open('rencontre.json', 'w') as file:
+                json.dump(self.pkmn_rencontre, file, indent=2)  
 
         return False
     

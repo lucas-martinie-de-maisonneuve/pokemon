@@ -68,7 +68,7 @@ class Menu(Element, Screen):
                     elif event.key == pygame.K_RETURN and not self.load_home:
                         if c == 1:
                             self.load_home = False
-                            if starter.poke_player == "":
+                            if pokedex.poke_rencontre == []:
                                 starter.choose_starter = True
                                 starter.starter()
                                 if not any(pokemon['nom'] == starter.poke_player["nom"] for pokemon in pokedex.pkmn_rencontre):
@@ -76,8 +76,8 @@ class Menu(Element, Screen):
                             else:
                                 pokemon_random = pokedex.rand_pokemon()                           
                                 maps = Maps(starter.poke_player,pokemon_random)
-                                maps.home()
                                 maps.combat_run = True
+                                maps.home()
                                 pokedex.poke_rencontre(pokemon_random["nom"])
 
                         elif c == 2:

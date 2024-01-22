@@ -11,13 +11,13 @@ pokedex = Pokedex()
 class Maps(Element, Screen, Combat, Experience):
 
     def __init__(self, poke_player, pokemon_random):
-        self.combat_run = True
-        self.action = 1
         Element.__init__(self)
         Screen.__init__(self)
         Combat.__init__(self)
         Experience.__init__(self, poke_player)        
         self.starter = Starter()        
+        self.combat_run = False
+        self.action = 1
         self.attack_phase = False
         self.text_phase = False
         self.text = 1
@@ -38,6 +38,7 @@ class Maps(Element, Screen, Combat, Experience):
 
     def home(self):
         while self.combat_run:
+            pokedex.pkmn_rencontre = pokedex.ouverture_pokemonrencontre()
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()

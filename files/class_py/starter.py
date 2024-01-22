@@ -77,7 +77,7 @@ class Starter(Element, Screen):
             self.update()
 
     def change_pokemon(self):
-        self.pokedex.ouverture_pokemonrencontre()
+        self.pokedex.pkmn_rencontre = self.pokedex.ouverture_pokemonrencontre()
         self.pokechoose = 1
         while self.changing_pokemon:
             for event in pygame.event.get():

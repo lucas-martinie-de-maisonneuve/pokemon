@@ -20,8 +20,11 @@ class Setting(Element,Screen):
         c_verif_reset = 1
         c_audio = 0
         pourcent = 0
+        pokedex.pkmn_rencontre = pokedex.ouverture_pokemonrencontre()
         self.top_pokemon = sorted(pokedex.pkmn_rencontre,key=lambda x: x['rencontre'], reverse=True)
         pokedex = Pokedex()
+        if self.setting_run:
+            pokedex.print_pkmn()
         while self.setting_run:
             for event in pygame.event.get():
 
