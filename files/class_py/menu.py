@@ -110,29 +110,29 @@ class Menu(Element, Screen):
                 
             
             if self.load_home and not self.show_home:
-                element.img(525, 350, 1244, 700, "menu_load/img_background_load")
-                element.img(525, 180, 540, 220, "menu_load/titre_jeu-removebg-preview")
+                self.img(525, 350, 1244, 700, "menu_load/img_background_load")
+                self.img(525, 180, 540, 220, "menu_load/titre_jeu-removebg-preview")
                 if d == 1:
-                    element.button_rect(element.black, 525, 385, 300, 60 )
-                    element.texte(20, "Nouvelle Partie", element.white, 525, 385)
+                    self.button_rect(self.black, 525, 385, 300, 60 )
+                    self.texte(20, "Nouvelle Partie", self.white, 525, 385)
                 else:
                     self.button_rect(self.white, 525, 385, 300, 60 )
                     self.texte(20, "Nouvelle Partie", self.black, 525, 385)
                     
                 if d == 2:
-                    element.button_rect(element.black, 525, 510, 300, 60 )
-                    element.texte(20, "Charger une partie", element.white, 525, 510)
+                    self.button_rect(self.black, 525, 510, 300, 60 )
+                    self.texte(20, "Charger une partie", self.white, 525, 510)
                 else:
-                    element.button_rect(element.white, 525, 510, 300, 60 )
-                    element.texte(20, "Charger une partie", element.black, 525, 510)
+                    self.button_rect(self.white, 525, 510, 300, 60 )
+                    self.texte(20, "Charger une partie", self.black, 525, 510)
                     
                 if d == 3:
-                    element.button_rect(element.black, 525, 635, 300, 60  )
-                    element.texte(20, "Quitter le jeu", element.white, 525, 635)
+                    self.button_rect(self.black, 525, 635, 300, 60  )
+                    self.texte(20, "Quitter le jeu", self.white, 525, 635)
                 else:
-                    element.button_rect(element.white, 525, 635, 300, 60 )
-                    element.texte(20, "Quitter le jeu", element.black, 525, 635)                                    
-                screen.update()
+                    self.button_rect(self.white, 525, 635, 300, 60 )
+                    self.texte(20, "Quitter le jeu", self.black, 525, 635)                                    
+                self.update()
                                 
 
             if not self.show_home and not self.load_home:      
