@@ -1,42 +1,23 @@
 [
   {
+    "numero": 1,
     "nom": "Salameche",
-    "rencontre": 1
+    "rencontre": 1,
+    "true_num": 1,
+    "level": 1
   },
   {
-    "nom": "Magneti",
-    "rencontre": 1
+    "numero": 2,
+    "nom": "Artikodin",
+    "rencontre": 1,
+    "true_num": 45,
+    "level": 1
   },
   {
-    "nom": "Kyogre",
-    "rencontre": 3
-  },
-  {
-    "nom": "Magmar",
-    "rencontre": 1
-  },
-  {
-    "nom": "Blindalys",
-    "rencontre": 3
-  },
-  {
-    "nom": "Herbizarre",
-    "rencontre": 1
-  },
-  {
-    "nom": "Magicarpe",
-    "rencontre": 1
-  },
-  {
-    "nom": "Kyogre",
-    "rencontre": 1
-  },
-  {
-    "nom": "Florizarre",
-    "rencontre": 1
-  },
-  {
-    "nom": "Tauros",
-    "rencontre": 1
+    "numero": 3,
+    "nom": "Leviator",
+    "rencontre": 1,
+    "true_num": 30,
+    "level": 1
   }
 ]
