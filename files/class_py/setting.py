@@ -18,6 +18,8 @@ class Setting(Element,Screen):
         c_stat = 0
         c_verif_quit = 1
         c_verif_reset = 1
+        c_audio = 0
+        pourcent = 0
         self.top_pokemon = sorted(pokedex.pkmn_rencontre,key=lambda x: x['rencontre'], reverse=True)
         pokedex = Pokedex()
         while self.setting_run:
@@ -208,7 +210,13 @@ class Setting(Element,Screen):
                 if m == 3:
                     self.img(205,576,150,150,"/setting/pikachu_music")
                     self.button_rect(self.lightbluesea, 205, 394, 160, 40)
-                    self.
+                    self.button_rect(self.lightgrey,570,170,450,60) #Barre de son
+                    
+                    if c_audio == 2:
+                        pass
+                    else:
+                        self.button_rect(self.lightgrey,860,170,60,60) #Bouton Mute
+
                 else:
                     self.button_rect(self.darkgreenblue, 205, 394, 160, 40)
                 self.texte(15, 'Audio', self.white, 205, 394)
