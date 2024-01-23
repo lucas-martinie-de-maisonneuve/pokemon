@@ -1,0 +1,26 @@
+[
+  {
+    "numero": 1,
+    "nom": "Salameche",
+    "rencontre": 1,
+    "true_num": 1
+  },
+  {
+    "numero": 2,
+    "nom": "Grainipiot",
+    "rencontre": 1,
+    "true_num": 31
+  },
+  {
+    "numero": 3,
+    "nom": "Tortank",
+    "rencontre": 1,
+    "true_num": 9
+  },
+  {
+    "numero": 3,
+    "nom": "Canarticho",
+    "rencontre": 1,
+    "true_num": 15
+  }
+]
