@@ -1,4 +1,4 @@
-import pygame
+import pygame, time
 from files.class_py.screen import Screen
 from files.class_py.element import Element
 from files.class_py.pokedex import Pokedex
@@ -8,26 +8,28 @@ from files.class_py.starter import Starter
 from files.class_py.add_pokemon import AddPokemon
 from files.class_py.setting import Setting
 
-pokedex = Pokedex()
 combat = Combat()
 starter = Starter()
 addpokemon = AddPokemon()
 setting = Setting()
 
-class Menu(Element, Screen):
+class Menu(Pokedex):
     def __init__(self):
         Element.__init__(self)
         Screen.__init__(self)
+        Pokedex.__init__(self)
         self.menu_run = True
         self.show_home = True
         self.load_home = False
+        self.load_game = False
+        self.new_game = False
 
     def home(self):
-        if pokedex.pkmn_rencontre != []:
-            pokemon_default = pokedex.pkmn_rencontre[0]['true_num']
-            starter.poke_player = pokedex.info_pokemon[pokemon_default -1]
-        c = 1
-        d = 1 
+        if self.pkmn_rencontre != []:
+            pokemon_default = self.pkmn_rencontre[0]['true_num']
+            starter.poke_player = self.info_pokemon[pokemon_default - 1]
+        c = 1 #Navigation menu home
+        d = 1 #Navigation menu sauvegarde
         while self.menu_run:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -47,9 +49,9 @@ class Menu(Element, Screen):
                     elif event.key == pygame.K_UP or event.key == pygame.K_z:
                         if d > 1 and self.load_home:
                             d -= 1
-                        if c == 3 or c == 4 or c == 5 and not self.load_home and not self.show_home:
+                        if c >= 3 and not self.load_home and not self.show_home:
                             c = 6
-                        elif c == 1 or c == 2 and not self.load_home and not self.show_home:
+                        elif c < 3 and not self.load_home and not self.show_home:
                             c = 0                        
                     elif event.key == pygame.K_DOWN or event.key == pygame.K_s:
                         if d < 3 and self.load_home:
@@ -60,31 +62,50 @@ class Menu(Element, Screen):
                             c = 1                  
                     elif event.key == pygame.K_RETURN and self.load_home and not self.show_home:
                         if d == 1 and self.load_home:
-                            self.load_home = False
+                            if not self.load_game and not self.new_game:
+                                self.load_game = True
+                            elif self.load_game:
+                                self.load_home = False
+                                self.load_game = False
+                                self.ouverture_pokemonrencontre()
+                                print(self.choose_save)
                             c = 1
                         if d == 2 and self.load_home:
-                            self.load_home = False
-                            # + fonction_save
+                            if not self.load_game and not self.new_game:
+                                self.load_game = True
+                            elif self.load_game:
+                                self.load_home = False
+                                self.load_game = False
+                                self.ouverture_pokemonrencontre()
+                                print(self.choose_save)
+                            c = 1
                         if d == 3 and self.load_home:
-                            pygame.quit()
-                            quit()
+                            if not self.load_game and not self.new_game:
+                                pygame.quit()
+                                quit()
+                            elif self.load_game:
+                                self.load_home = False
+                                self.load_game = False
+                                self.ouverture_pokemonrencontre()
+                                print(self.choose_save)
+                            c = 1
                     elif event.key == pygame.K_RETURN and not self.load_home:
                         if c == 1:
                             self.load_home = False
                             if starter.poke_player == "":
                                 starter.choose_starter = True
                                 starter.starter()
-                                pokedex.poke_rencontre(starter.poke_player["nom"])
+                                self.poke_rencontre(starter.poke_player["nom"])
                             else:
-                                pokemon_random = pokedex.rand_pokemon()                           
+                                pokemon_random = self.rand_pokemon()                           
                                 maps = Maps(starter.poke_player,pokemon_random)
                                 maps.combat_run = True
                                 maps.home()
-                                pokedex.poke_rencontre(pokemon_random["nom"])
+                                self.poke_rencontre(pokemon_random["nom"])
 
                         elif c == 2:
-                            pokedex.pokedex_run = True
-                            pokedex.show_pokedex()
+                            self.pokedex_run = True
+                            self.show_pokedex()
                         elif c == 4:
                             addpokemon.ajout_pokemon()
                         elif c == 5:
@@ -95,8 +116,9 @@ class Menu(Element, Screen):
                             setting.setting()
                         elif c == 0:
                             self.load_home = True
+
             if setting.reset :
-                pokedex.vider_fichier_json()
+                self.vider_fichier_json()
                 starter.poke_player = ""
                 setting.reset = False
             
@@ -115,28 +137,57 @@ class Menu(Element, Screen):
             if self.load_home and not self.show_home:
                 self.img(525, 350, 1244, 700, "menu_load/img_background_load")
                 self.img(525, 180, 540, 220, "menu_load/titre_jeu-removebg-preview")
-                if d == 1:
-                    self.button_rect(self.black, 525, 385, 300, 60 )
-                    self.texte(20, "Nouvelle Partie", self.white, 525, 385)
-                else:
-                    self.button_rect(self.white, 525, 385, 300, 60 )
-                    self.texte(20, "Nouvelle Partie", self.black, 525, 385)
-                    
-                if d == 2:
-                    self.button_rect(self.black, 525, 510, 300, 60 )
-                    self.texte(20, "Charger une partie", self.white, 525, 510)
-                else:
-                    self.button_rect(self.white, 525, 510, 300, 60 )
-                    self.texte(20, "Charger une partie", self.black, 525, 510)
-                    
-                if d == 3:
-                    self.button_rect(self.black, 525, 635, 300, 60  )
-                    self.texte(20, "Quitter le jeu", self.white, 525, 635)
-                else:
-                    self.button_rect(self.white, 525, 635, 300, 60 )
-                    self.texte(20, "Quitter le jeu", self.black, 525, 635)                                    
+                if not self.load_game and not self.new_game:
+                    if d == 1:
+                        self.button_rect(self.black, 525, 385, 300, 60 )
+                        self.texte(20, "Nouvelle Partie", self.white, 525, 385)
+                    else:
+                        self.button_rect(self.white, 525, 385, 300, 60 )
+                        self.texte(20, "Nouvelle Partie", self.black, 525, 385)
+                        
+                    if d == 2:
+                        self.button_rect(self.black, 525, 510, 300, 60 )
+                        self.texte(20, "Charger une partie", self.white, 525, 510)
+                    else:
+                        self.button_rect(self.white, 525, 510, 300, 60 )
+                        self.texte(20, "Charger une partie", self.black, 525, 510)
+                        
+                    if d == 3:
+                        self.button_rect(self.black, 525, 635, 300, 60  )
+                        self.texte(20, "Quitter le jeu", self.white, 525, 635)
+                    else:
+                        self.button_rect(self.white, 525, 635, 300, 60 )
+                        self.texte(20, "Quitter le jeu", self.black, 525, 635)                                    
+            
+                if self.load_game:
+                    d == 1
+                    if d == 1:
+                        self.button_rect(self.white, 100, 175, 120, 120)
+                        self.texte(20, "Save 1", self.white, 100, 250)
+                        self.img_rotate(100, 175, 100,100,'menu_load/loading', 5)
+                        self.choose_save = 'save1'
+                    else:
+                        self.button_rect(self.white, 100, 175, 100, 100)
+                        self.texte(20, "Save 1", self.black, 100, 175)
+                        
+                    if d == 2:
+                        self.button_rect(self.white, 100, 350, 120, 120)
+                        self.texte(20, "Save 2", self.white, 100, 425)
+                        self.img_rotate(100, 350, 100,100,'menu_load/loading', 5)
+                        self.choose_save = 'save2'
+                    else:
+                        self.button_rect(self.white, 100, 350, 100, 100)
+                        self.texte(20, "Save 2", self.black, 100, 350)
+                        
+                    if d == 3:
+                        self.button_rect(self.white, 100, 525, 120, 120)
+                        self.texte(20, "Save 3", self.white, 100, 600)
+                        self.img_rotate(100, 525, 100,100,'menu_load/loading', 5)
+                        self.choose_save = 'save3'
+                    else:
+                        self.button_rect(self.white, 100, 525, 100, 100)
+                        self.texte(20, "Save 3", self.black, 100, 525)                                    
                 self.update()
-                                
 
             if not self.show_home and not self.load_home:      
                 self.img(525, 350, 1244, 700, 'menu/backgroundmenu')
