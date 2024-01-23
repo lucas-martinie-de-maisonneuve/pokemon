@@ -1,14 +1,26 @@
 [
   {
     "numero": 1,
-    "nom": "Pikachu",
+    "nom": "Carapuce",
     "rencontre": 1,
-    "true_num": 10
+    "true_num": 7
   },
   {
     "numero": 2,
-    "nom": "Blindalys",
+    "nom": "Aquali",
     "rencontre": 1,
-    "true_num": 13
+    "true_num": 20
+  },
+  {
+    "numero": 3,
+    "nom": "Racaillou",
+    "rencontre": 1,
+    "true_num": 16
+  },
+  {
+    "numero": 4,
+    "nom": "Tengalice",
+    "rencontre": 1,
+    "true_num": 33
   }
 ]

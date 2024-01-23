@@ -1,20 +1,8 @@
 [
   {
     "numero": 1,
-    "nom": "Carapuce",
+    "nom": "Bulbizarre",
     "rencontre": 1,
-    "true_num": 7
-  },
-  {
-    "numero": 2,
-    "nom": "Grolem",
-    "rencontre": 1,
-    "true_num": 18
-  },
-  {
-    "numero": 3,
-    "nom": "Metamorphe",
-    "rencontre": 1,
-    "true_num": 51
+    "true_num": 4
   }
 ]

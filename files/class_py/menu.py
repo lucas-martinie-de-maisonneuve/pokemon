@@ -25,9 +25,12 @@ class Menu(Pokedex):
         self.new_game = False
 
     def home(self):
+        self.ouverture_pokemonrencontre()
         if self.pkmn_rencontre != []:
             pokemon_default = self.pkmn_rencontre[0]['true_num']
             starter.poke_player = self.info_pokemon[pokemon_default - 1]
+            self.poke_player = self.info_pokemon[pokemon_default - 1]
+            starter.starter_choosed = True
         c = 1 #Navigation menu home
         d = 1 #Navigation menu sauvegarde
         while self.menu_run:
@@ -109,19 +112,24 @@ class Menu(Pokedex):
                         elif c == 4:
                             addpokemon.ajout_pokemon()
                         elif c == 5:
-                            starter.changing_pokemon = True
-                            starter.change_pokemon()
+                            self.changing_pokemon = True
+                            self.change_pokemon()
                         elif c == 6:
                             setting.setting_run = True
                             setting.setting()
                         elif c == 0:
                             self.load_home = True
 
+            if self.pokemon_changed:
+                starter.poke_player = self.poke_player
+                self.pokedex_changed = False
+
             if setting.reset :
                 self.vider_fichier_json()
+                self.poke_player = ""
                 starter.poke_player = ""
                 setting.reset = False
-            
+
             if self.show_home:
                 self.img_background(525, 350, 1244, 700, 'background')
                 self.img(1000, 650, 70, 70,'pokeball')
