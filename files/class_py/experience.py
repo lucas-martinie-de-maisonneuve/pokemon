@@ -12,11 +12,12 @@ class Experience:
     
     def recup_level(self):
         for info_poke_rencontre in self.liste_rencontre_poke:
-            for pokemon in self.liste_poke:  # Correction: Utiliser la variable poke_player au lieu de numero
+            for pokemon in self.liste_poke:
                 if info_poke_rencontre["nom"] == pokemon["nom"]:
-                    return info_poke_rencontre["level"]
-                   
+                    poke_level = info_poke_rencontre["level"]
+                    return poke_level
         
+           
     def exp_par_combat(self, level):
         # self.exp_poke = 0    
         if 1 <= level <= 2 :
