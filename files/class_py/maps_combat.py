@@ -71,11 +71,13 @@ class Maps(Element, Screen, Combat, Experience):
                             self.pokemon_random_hp = self.attack(self.pokemon_random_hp, self.poke_player['attaque'],self.pokemon_type_player,self.type_pokemon_advers, self.pokemon_def_advers)                            
                             self.recup_poke_winner(self.poke_player['nom'], self.pokemon_random['nom'], self.poke_player_hp, self.pokemon_random_hp)
                             if self.game_over == True:
+                                print(self.exp_poke)
                                 self.verif_exp(self.exp_poke)
                                 self.verif_for_evolve()
                                 self.exp_par_combat(self.exp_poke)
                                 self.verif_exp(self.exp_poke)
-                                self.verif_for_evolve()  
+                                self.verif_for_evolve()
+                                print(2)  
                             self.text_phase = True
                         elif self.action == 2:
                             self.pokemon_random_hp = self.attack(self.pokemon_random_hp, self.poke_player['attaque'],self.pokemon_type_player,self.type_pokemon_advers, self.pokemon_def_advers)                            

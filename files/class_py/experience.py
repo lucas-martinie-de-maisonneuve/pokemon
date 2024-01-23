@@ -1,4 +1,5 @@
 from files.class_py.pokedex import Pokedex
+import json
 pokedex = Pokedex()
 
 class Experience:
@@ -12,10 +13,10 @@ class Experience:
     
     def recup_level(self):
         for info_poke_rencontre in self.liste_rencontre_poke:
-            for pokemon in self.liste_poke:  # Correction: Utiliser la variable poke_player au lieu de numero
+            for pokemon in self.liste_poke: 
                 if info_poke_rencontre["nom"] == pokemon["nom"]:
-                    return info_poke_rencontre["level"]
-                   
+                    poke_lvl = info_poke_rencontre["level"]
+                    return poke_lvl                   
         
     def exp_par_combat(self, level):
         # self.exp_poke = 0    
@@ -30,8 +31,12 @@ class Experience:
         if 21 < level < 35:
             self.exp_poke =+ 75
         if 36 < level < 50:
-            self.exp_poke =+ 125            
-        return self.exp_poke
+            self.exp_poke =+ 125
+            
+        self.liste_rencontre_poke.append({"level": self.exp_poke})          
+        
+        with open('rencontre.json', 'w') as file:
+            json.dump(self.liste_rencontre_poke, file, indent=2)
     
     def verif_exp(self, level):
         if level == self.exp_max(level):
