@@ -68,9 +68,11 @@ class Pokedex(Element, Screen):
                 if pokemon_info['nom'] == pokemon_name:
                     pokemon_num = pokemon_info['numero']
             rencontre_num = self.get_last_pokemon_rencontre_number()
-            self.pkmn_rencontre.append({'numero': rencontre_num + 1, 'nom': pokemon_name, 'rencontre': 1, 'true_num': pokemon_num})
-            with open('rencontre.json', 'w') as file:
-                json.dump(self.pkmn_rencontre, file, indent=2)  
+            if self.ouverture_pokemonjson() != []:
+                self.pkmn_rencontre.append({'numero': rencontre_num + 1, 'nom': pokemon_name, 'rencontre': 1, 'true_num': pokemon_num, 'level': 1})
+
+        with open('rencontre.json', 'w') as file:
+            json.dump(self.pkmn_rencontre, file, indent=2)
 
         return False
     

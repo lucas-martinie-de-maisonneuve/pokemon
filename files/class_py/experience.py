@@ -1,57 +1,76 @@
+from files.class_py.pokedex import Pokedex
+pokedex = Pokedex()
+
 class Experience:
     def __init__(self, poke_player):
         self.poke_player = poke_player
-        self.exp_winner = 0
-        self.exp_poke = 0
-        self.barre_expMax = 0
-        self.levels = 1 
-        
-    def exp_par_combat(self, evolve):    
-        if evolve == 1:        
-            self.exp_winner =+ 15
-            return self.exp_winner
-        elif evolve == 2:
-            self.exp_winner =+ 30
-            return self.exp_winner
-        elif evolve == 3:
-            self.exp_winner =+ 45
-            return self.exp_winner        
+        # self.exp_max_poke = 0        
+        # self.numero_poke = poke_player["numero"]
+        # self.poke_evol = self.numero_poke["numero"]+ 1
+        self.liste_poke = pokedex.info_pokemon
+        self.liste_rencontre_poke = pokedex.pkmn_rencontre
     
-    def exp_needed(self):        
-        if 1 <= self.levels <= 2 :
-            self.barre_expMax = 15
-            
-        if 3 < self.levels < 4:
-            self.barre_expMax = 25
-
-        if 5 < self.levels < 10:
-            self.barre_expMax = 30(+5/self.levels)
-
-        if 11 < self.levels < 20:
-            self.barre_expMax = 60(+5/self.levels)
-
-        if 21 < self.levels < 35:
-            self.barre_expMax = 140(+8/self.levels)
-
-        if 36 < self.levels < 50:
-            self.barre_expMax = 290(12/self.levels)
-            
-        return self.barre_expMax
+    def recup_level(self):
+        for info_poke_rencontre in self.liste_rencontre_poke:
+            for pokemon in self.liste_poke:  # Correction: Utiliser la variable poke_player au lieu de numero
+                if info_poke_rencontre["nom"] == pokemon["nom"]:
+                    return info_poke_rencontre["level"]
+                   
         
-
-
-         
-            
-            
-    # def evolve(self, exp, exp_max, evolve_poke):
-    #     if exp == exp_max:
-    #         if evolve_poke == 1:
-    #             evolve_poke == 2
-    #         elif evolve_poke == 2:
-    #             evolve_poke = 3
-    #     return evolve_poke
-                
-    # def levels(self):
-    #     nb_lvl = ["1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,5,46,47,48,49,50"]
-    #     return nb_lvl
-    #     return nb_lvl
+    def exp_par_combat(self, level):
+        # self.exp_poke = 0    
+        if 1 <= level <= 2 :
+            self.exp_poke =+ 15            
+        if 3 < level < 4:
+            self.exp_poke =+ 25
+        if 5 < level < 10:
+            self.exp_poke =+ 30
+        if 11 < level < 20:
+            self.exp_poke =+ 45
+        if 21 < level < 35:
+            self.exp_poke =+ 75
+        if 36 < level < 50:
+            self.exp_poke =+ 125            
+        return self.exp_poke
+    
+    def verif_exp(self, level):
+        if level == self.exp_max(level):
+            level =+ 1 
+    
+    def verif_for_evolve(self):
+        for info_poke_rencontre in self.liste_rencontre_poke:
+            for position, poke_player in enumerate(self.liste_poke):
+                if self.poke_player["nom"] == poke_player["nom"]:  
+                    if info_poke_rencontre["level"] == 16:
+                        next_poke = self.liste_poke[position + 1]
+                        if next_poke["evol"] == 2:
+                            self.poke_player = next_poke
+                    if info_poke_rencontre["level"] == 36:
+                        next_poke = self.liste_poke[position + 1]
+                        if next_poke["evol"] == 3:
+                            self.poke_player = next_poke
+     
+                     
+        # if self.poke_player["level"] == 16:
+        #     if self.poke_evol and self.poke_evol["evol"] == 2:
+        #         self.poke_player = self.poke_evol
+        #         print(self.poke_evol)
+        # if self.poke_player["level"] == 36:
+        #     if self.poke_evol and self.poke_evol["evol"] == 3:
+        #         self.poke_player = self.poke_evol
+        #         print(self.poke_evol)             
+    
+    def exp_max(self, level):        
+        if 1 <= level <= 2 :
+            self.exp_max_poke = 15            
+        if 3 < level < 4:
+            self.exp_max_poke = 25
+        if 5 < level < 10:
+            self.exp_max_poke = 30
+        if 11 < level < 20:
+            self.exp_max_poke = 60
+        if 21 < level < 35:
+            self.exp_max_poke = 140
+        if 36 < level < 50:
+            self.exp_max_poke = 290            
+        return self.exp_max_poke

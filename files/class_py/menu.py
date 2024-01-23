@@ -76,11 +76,11 @@ class Menu(Element, Screen):
                                 starter.starter()
                                 pokedex.poke_rencontre(starter.poke_player["nom"])
                             else:
-                                pokemon_random = pokedex.rand_pokemon()                           
-                                maps = Maps(starter.poke_player,pokemon_random)
-                                maps.combat_run = True
-                                maps.home()
+                                pokemon_random = pokedex.rand_pokemon()
                                 pokedex.poke_rencontre(pokemon_random["nom"])
+                                maps = Maps(starter.poke_player,pokemon_random)
+                                maps.home()
+                                maps.combat_run = True                               
 
                         elif c == 2:
                             pokedex.pokedex_run = True
