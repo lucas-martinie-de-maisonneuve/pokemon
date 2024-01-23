@@ -145,5 +145,12 @@
     "rencontre": 1,
     "true_num": 11,
     "level": 1
+  },
+  {
+    "numero": 22,
+    "nom": "Kyogre",
+    "rencontre": 1,
+    "true_num": 48,
+    "level": 1
   }
 ]
