@@ -30,6 +30,8 @@ class Element:
         self.darkgrey = (100,100,100)
         self.lightgrey = (160, 160, 160)
 
+        self.rotation = 0
+
     def img(self, x, y, largeur, hauteur, image_name):
         image = pygame.image.load(f'files/image/{image_name}.png')
         image = pygame.transform.scale(image, (largeur, hauteur))
@@ -57,6 +59,13 @@ class Element:
         image = pygame.image.load(f'files/image/{image_name}.png').convert()
         image = pygame.transform.scale(image, (largeur, hauteur))
         image.set_alpha(115)
+        screen.Fenetre.blit(image, (x - image.get_width()//2, y - image.get_height()//2))
+
+    def img_rotate(self, x, y, largeur, hauteur, image_name, rotate):
+        image = pygame.image.load(f'files/image/{image_name}.png')
+        image = pygame.transform.scale(image, (largeur, hauteur))
+        self.rotation = self.rotation + rotate
+        image = pygame.transform.rotate(image, self.rotation)
         screen.Fenetre.blit(image, (x - image.get_width()//2, y - image.get_height()//2))
 
     def texte(self, texte_size, texte_content,color, x, y):

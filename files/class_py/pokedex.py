@@ -8,11 +8,12 @@ class Pokedex(Element, Screen):
     def __init__(self):
         Element.__init__(self)
         Screen.__init__(self)
+        self.choose_save = 'save1'
         self.info_pokemon = self.ouverture_pokemonjson()
         self.pkmn_rencontre = self.ouverture_pokemonrencontre()
         self.pokedex_run = False
         self.detailed_pokemon = False
-    
+
     def print_pkmn(self):
         print(self.pkmn_rencontre)
 
@@ -22,12 +23,12 @@ class Pokedex(Element, Screen):
             return self.donnees_pokemon
 
     def ouverture_pokemonrencontre(self):
-        with open('rencontre.json', 'r') as file:
+        with open(f'{self.choose_save}.json', 'r') as file:
             self.donnees_rencontre = json.load(file)
             return self.donnees_rencontre
 
     def vider_fichier_json(self):
-        with open('rencontre.json', 'w') as fichier:
+        with open(f'{self.choose_save}.json', 'w') as fichier:
             json.dump([], fichier)
         self.pkmn_rencontre = self.ouverture_pokemonrencontre()
         
@@ -38,7 +39,7 @@ class Pokedex(Element, Screen):
         return last_pokemon['numero']
 
     def get_last_pokemon_rencontre_number(self):
-        with open('rencontre.json', 'r') as fichier:
+        with open(f'{self.choose_save}.json', 'r') as fichier:
             data = json.load(fichier)
             max_poke_rencontre = len(data)
         return max_poke_rencontre
@@ -68,10 +69,9 @@ class Pokedex(Element, Screen):
                 if pokemon_info['nom'] == pokemon_name:
                     pokemon_num = pokemon_info['numero']
             rencontre_num = self.get_last_pokemon_rencontre_number()
-            if self.ouverture_pokemonjson() != []:
-                self.pkmn_rencontre.append({'numero': rencontre_num + 1, 'nom': pokemon_name, 'rencontre': 1, 'true_num': pokemon_num, 'level': 1})
+            self.pkmn_rencontre.append({'numero': rencontre_num + 1, 'nom': pokemon_name, 'rencontre': 1, 'true_num': pokemon_num, 'level': 1})
 
-        with open('rencontre.json', 'w') as file:
+        with open(f'{self.choose_save}.json', 'w') as file:
             json.dump(self.pkmn_rencontre, file, indent=2)
 
         return False
