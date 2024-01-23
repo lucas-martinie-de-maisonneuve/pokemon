@@ -90,12 +90,9 @@ class Element:
         else:
             pygame.draw.rect(screen.Fenetre, (239, 71, 111), pygame.Rect(x, y, longueur * hp // hp_max, largeur))
     
-    def rect_exp(self, x, y, longueur, largeur, exp, exp_max):
-        if exp is not None:
-            pygame.draw.rect(screen.Fenetre, (37, 107, 247), pygame.Rect(x, y, longueur * exp // exp_max, largeur), 0, 5)
-        else:            
-            default_exp_value = 0  
-            pygame.draw.rect(screen.Fenetre, (37, 107, 247), pygame.Rect(x, y, longueur * default_exp_value // exp_max, largeur), 0, 5)
+    def rect_exp(self, x, y, longueur, largeur, exp, exp_max):        
+        pygame.draw.rect(screen.Fenetre, (37, 107, 247), pygame.Rect(x, y, longueur * exp // exp_max, largeur), 0, 5)
+        
 
         
     def draw_overlay(self, coloralpha, x, y, largeur, longueur):

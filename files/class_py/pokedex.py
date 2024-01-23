@@ -3,6 +3,9 @@ import random
 import pygame
 from files.class_py.element import Element
 from files.class_py.screen import Screen
+# from files.class_py.experience import Experience
+
+# experience = Experience()
 
 class Pokedex(Element, Screen):
     def __init__(self):
@@ -23,6 +26,13 @@ class Pokedex(Element, Screen):
         with open('rencontre.json', 'r') as file:
             self.donnees_rencontre = json.load(file)
             return self.donnees_rencontre
+        
+    def recup_level(self):
+        for info_poke_rencontre in self.pkmn_rencontre:
+            for pokemon in self.info_pokemon: 
+                if info_poke_rencontre["nom"] == pokemon["nom"]:
+                    poke_lvls = info_poke_rencontre["level"]
+                    return poke_lvls 
 
     def vider_fichier_json(self):
         with open('rencontre.json', 'w') as fichier:
@@ -63,10 +73,10 @@ class Pokedex(Element, Screen):
         if not existe:
             for index, pokemon_info in enumerate(self.info_pokemon):
                 if pokemon_info['nom'] == pokemon_name:
-                    pokemon_num = pokemon_info['numero']
-            rencontre_num = self.get_last_pokemon_rencontre_number()
+                    self.pokemon_num = pokemon_info['numero']
+            self.rencontre_num = self.get_last_pokemon_rencontre_number()
             if self.ouverture_pokemonjson() != []:
-                self.pkmn_rencontre.append({'numero': rencontre_num + 1, 'nom': pokemon_name, 'rencontre': 1, 'true_num': pokemon_num, 'level': 1})
+                self.pkmn_rencontre.append({'numero': self.rencontre_num + 1, 'nom': pokemon_name, 'rencontre': 1, 'true_num': self.pokemon_num, 'level': self.recup_level()})
 
         with open('rencontre.json', 'w') as file:
             json.dump(self.pkmn_rencontre, file, indent=2)
@@ -187,5 +197,4 @@ class Pokedex(Element, Screen):
                             self.texte(18, "Atq : ???", (0,0,0), 750, 480)
                             self.texte(18, "Def : ???", (0,0,0), 750, 530)
                             self.texte(18, f"{pokemon['numero']} / {self.get_last_pokemon_number()}",(255,255,255),1000, 680)
-
                 self.update()
