@@ -68,11 +68,10 @@ class Menu(Element, Screen):
                     elif event.key == pygame.K_RETURN and not self.load_home:
                         if c == 1:
                             self.load_home = False
-                            if pokedex.poke_rencontre == []:
+                            if starter.poke_player == "":
                                 starter.choose_starter = True
                                 starter.starter()
-                                if not any(pokemon['nom'] == starter.poke_player["nom"] for pokemon in pokedex.pkmn_rencontre):
-                                    pokedex.poke_rencontre(starter.poke_player["nom"])
+                                pokedex.poke_rencontre(starter.poke_player["nom"])
                             else:
                                 pokemon_random = pokedex.rand_pokemon()                           
                                 maps = Maps(starter.poke_player,pokemon_random)
@@ -93,7 +92,11 @@ class Menu(Element, Screen):
                             setting.setting()
                         elif c == 0:
                             self.load_home = True
-                            
+            if setting.reset :
+                pokedex.vider_fichier_json()
+                starter.poke_player = ""
+                setting.reset = False
+            
             if self.show_home:
                 self.img_background(525, 350, 1244, 700, 'background')
                 self.img(1000, 650, 70, 70,'pokeball')

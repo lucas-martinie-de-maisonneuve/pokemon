@@ -38,7 +38,6 @@ class Maps(Element, Screen, Combat, Experience):
 
     def home(self):
         while self.combat_run:
-            pokedex.pkmn_rencontre = pokedex.ouverture_pokemonrencontre()
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()

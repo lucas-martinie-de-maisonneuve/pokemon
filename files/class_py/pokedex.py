@@ -15,8 +15,6 @@ class Pokedex(Element, Screen):
     
     def print_pkmn(self):
         print(self.pkmn_rencontre)
-        # for pokemon in self.pkmn_rencontre:
-        #     print(pokemon)
 
     def ouverture_pokemonjson(self):
         with open('pokemon.json', 'r') as fichier:
@@ -32,6 +30,7 @@ class Pokedex(Element, Screen):
         with open('rencontre.json', 'w') as fichier:
             json.dump([], fichier)
         self.pkmn_rencontre = self.ouverture_pokemonrencontre()
+        
         return self.pkmn_rencontre
 
     def get_last_pokemon_number(self):

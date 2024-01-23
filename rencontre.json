@@ -1,8 +1,20 @@
 [
   {
     "numero": 1,
-    "nom": "Salameche",
+    "nom": "Bulbizarre",
     "rencontre": 1,
-    "true_num": 1
+    "true_num": 4
+  },
+  {
+    "numero": 2,
+    "nom": "Chenipotte",
+    "rencontre": 1,
+    "true_num": 12
+  },
+  {
+    "numero": 3,
+    "nom": "Phyllali",
+    "rencontre": 1,
+    "true_num": 23
   }
 ]
