@@ -3,13 +3,15 @@
     "numero": 1,
     "nom": "Carapuce",
     "rencontre": 1,
-    "true_num": 7
+    "true_num": 7,
+    "level": 1
   },
   {
     "numero": 2,
     "nom": "Aquali",
     "rencontre": 1,
-    "true_num": 13
+    "true_num": 13,
+    "level": 1
   },
   {
     "numero": 3,
