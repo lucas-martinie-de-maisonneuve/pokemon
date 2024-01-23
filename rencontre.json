@@ -19,5 +19,131 @@
     "rencontre": 1,
     "true_num": 30,
     "level": 1
+  },
+  {
+    "numero": 4,
+    "nom": "Voltali",
+    "rencontre": 2,
+    "true_num": 21,
+    "level": 1
+  },
+  {
+    "numero": 5,
+    "nom": "Phyllali",
+    "rencontre": 1,
+    "true_num": 23,
+    "level": 1
+  },
+  {
+    "numero": 6,
+    "nom": "Elektek",
+    "rencontre": 1,
+    "true_num": 26,
+    "level": 1
+  },
+  {
+    "numero": 7,
+    "nom": "Florizarre",
+    "rencontre": 1,
+    "true_num": 6,
+    "level": 1
+  },
+  {
+    "numero": 8,
+    "nom": "Pyroli",
+    "rencontre": 1,
+    "true_num": 22,
+    "level": 1
+  },
+  {
+    "numero": 9,
+    "nom": "Evoli",
+    "rencontre": 1,
+    "true_num": 19,
+    "level": 1
+  },
+  {
+    "numero": 10,
+    "nom": "Kangourex",
+    "rencontre": 2,
+    "true_num": 25,
+    "level": 1
+  },
+  {
+    "numero": 11,
+    "nom": "Gravalanch",
+    "rencontre": 3,
+    "true_num": 17,
+    "level": 1
+  },
+  {
+    "numero": 12,
+    "nom": "Racaillou",
+    "rencontre": 1,
+    "true_num": 16,
+    "level": 1
+  },
+  {
+    "numero": 13,
+    "nom": "Magmar",
+    "rencontre": 1,
+    "true_num": 27,
+    "level": 1
+  },
+  {
+    "numero": 14,
+    "nom": "Sulfura",
+    "rencontre": 1,
+    "true_num": 47,
+    "level": 1
+  },
+  {
+    "numero": 15,
+    "nom": "Tortank",
+    "rencontre": 1,
+    "true_num": 9,
+    "level": 1
+  },
+  {
+    "numero": 16,
+    "nom": "Blindalys",
+    "rencontre": 1,
+    "true_num": 13,
+    "level": 1
+  },
+  {
+    "numero": 17,
+    "nom": "Grolem",
+    "rencontre": 2,
+    "true_num": 18,
+    "level": 1
+  },
+  {
+    "numero": 18,
+    "nom": "Tauros",
+    "rencontre": 1,
+    "true_num": 24,
+    "level": 1
+  },
+  {
+    "numero": 19,
+    "nom": "Roucoups",
+    "rencontre": 1,
+    "true_num": 35,
+    "level": 1
+  },
+  {
+    "numero": 20,
+    "nom": "Chenipotte",
+    "rencontre": 1,
+    "true_num": 12,
+    "level": 1
+  },
+  {
+    "numero": 21,
+    "nom": "Raichu",
+    "rencontre": 1,
+    "true_num": 11,
+    "level": 1
   }
 ]

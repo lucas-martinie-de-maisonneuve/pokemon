@@ -34,8 +34,9 @@ class Maps(Element, Screen, Combat, Experience):
         self.poke_advers = pokemon_random['nom']
         self.game_over = False
         self.attack_phase_advers = False
-        self.poke_evolve = poke_player["evol"]
-        self.exp_poke = poke_player["level"]                    
+        self.poke_evolve = poke_player["evol"]      
+        self.exp_poke = self.recup_level()
+        self.pokemon_list = pokedex.info_pokemon                   
 
     def home(self):
         while self.combat_run:
@@ -72,7 +73,7 @@ class Maps(Element, Screen, Combat, Experience):
                             if self.game_over == True:
                                 self.verif_exp(self.exp_poke)
                                 self.verif_for_evolve()
-                                self.exp_par_combat()
+                                self.exp_par_combat(self.exp_poke)
                                 self.verif_exp(self.exp_poke)
                                 self.verif_for_evolve()  
                             self.text_phase = True
