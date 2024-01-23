@@ -23,6 +23,9 @@ class Menu(Element, Screen):
         self.load_home = False
 
     def home(self):
+        if pokedex.pkmn_rencontre != []:
+            pokemon_default = pokedex.pkmn_rencontre[0]['true_num']
+            starter.poke_player = pokedex.info_pokemon[pokemon_default -1]
         c = 1
         d = 1 
         while self.menu_run:
