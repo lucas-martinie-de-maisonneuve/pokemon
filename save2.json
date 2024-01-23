@@ -22,5 +22,23 @@
     "nom": "Canarticho",
     "rencontre": 1,
     "true_num": 15
+  },
+  {
+    "numero": 5,
+    "nom": "Carapuce",
+    "rencontre": 1,
+    "true_num": 7
+  },
+  {
+    "numero": 6,
+    "nom": "Roucoups",
+    "rencontre": 1,
+    "true_num": 35
+  },
+  {
+    "numero": 7,
+    "nom": "Magicarpe",
+    "rencontre": 1,
+    "true_num": 29
   }
 ]

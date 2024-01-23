@@ -13,6 +13,8 @@ class Pokedex(Element, Screen):
         self.pkmn_rencontre = self.ouverture_pokemonrencontre()
         self.pokedex_run = False
         self.detailed_pokemon = False
+        self.changing_pokemon = False
+        self.pokemon_changed = False
 
     def print_pkmn(self):
         print(self.pkmn_rencontre)
@@ -192,3 +194,59 @@ class Pokedex(Element, Screen):
                             self.texte(18, f"{pokemon['numero']} / {self.get_last_pokemon_number()}",(255,255,255),1000, 680)
 
                 self.update()
+
+    def change_pokemon(self):
+        self.pkmn_rencontre = self.ouverture_pokemonrencontre()
+        self.choose_poke = 1
+        while self.changing_pokemon:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
+                        if self.choose_poke < self.get_last_pokemon_rencontre_number() +1:
+                            self.choose_poke += 1
+                        if self.choose_poke == self.get_last_pokemon_rencontre_number() +1:
+                            self.choose_poke = 1
+                    elif event.key == pygame.K_LEFT or event.key == pygame.K_q:
+                        if self.choose_poke > 0:
+                            self.choose_poke -= 1
+                        if self.choose_poke == 0:
+                            self.choose_poke = self.get_last_pokemon_rencontre_number()
+                    elif event.key == pygame.K_UP or event.key == pygame.K_z and not self.detailed_pokemon:
+                        if self.choose_poke > 9:
+                            self.choose_poke -= 9
+                    elif event.key == pygame.K_DOWN or event.key == pygame.K_s and not self.detailed_pokemon:
+                        if self.choose_poke < 45:
+                            self.choose_poke += 9
+                    elif event.key == pygame.K_RETURN:
+                        self.pokemon_changed = True
+                        return self.poke_player
+                    elif event.key == pygame.K_ESCAPE:
+                        self.changing_pokemon = False
+
+            self.img(525, 350, 1050, 743, 'pokedex/background')
+            for i, pokemon in enumerate(self.pkmn_rencontre):
+                for poke_info_index, poke_info in enumerate(self.info_pokemon):
+                    if poke_info['nom'] == pokemon['nom']:
+                        column = i % 9
+                        row = i // 9
+                        self.pokemon_name = poke_info['nom'].lower()
+                        if pokemon['numero'] == self.choose_poke:
+                            self.poke_player = self.info_pokemon[poke_info_index]
+                            if poke_info['numero'] <= 50:
+                                self.img(75 + column * 110, 90 + row * 110, 110, 110, f'pokemon/{self.pokemon_name}')
+                            else:
+                                self.img(75 + column * 110, 90 + row * 110, 110, 110, f'pokemon/default')
+                            self.simple_rect((255,255,255),75 + column * 110, 90 + row * 110, 120, 120,3)
+                            self.texte(18, f"{pokemon['numero']} / {self.get_last_pokemon_number()}",(255,255,255),1000, 680)
+                        else:
+                            if poke_info['numero'] <= 50:
+                                self.img(75 + column * 110, 90 + row * 110, 85, 85, f'pokemon/{self.pokemon_name}')
+                            else:
+                                self.img(75 + column * 110, 90 + row * 110, 85, 85, f'pokemon/default')
+
+            self.update()
+
+            
