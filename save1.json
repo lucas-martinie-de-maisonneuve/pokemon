@@ -6,5 +6,29 @@
     "true_num": 1,
     "level": 1,
     "exp": 0
+  },
+  {
+    "numero": 2,
+    "nom": "Goupix",
+    "rencontre": 1,
+    "true_num": 37,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 3,
+    "nom": "Magneti",
+    "rencontre": 1,
+    "true_num": 44,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 4,
+    "nom": "Canarticho",
+    "rencontre": 1,
+    "true_num": 15,
+    "level": 1,
+    "exp": 0
   }
 ]
