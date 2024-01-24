@@ -129,7 +129,7 @@ class Pokedex(Element, Screen):
                 print('level')
                    
 
-        with open('rencontre.json', 'w') as file:
+        with open(f'{self.choose_save}.json', 'w') as file:
                     json.dump(self.pkmn_rencontre, file, indent=2)
             
     
