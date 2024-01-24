@@ -19,7 +19,9 @@ class Setting(Element,Screen):
         c_verif_quit = 1
         c_verif_reset = 1
         c_audio = 0
-        pourcent = 0
+        pourcent = 100
+        self.confirmation_sound = pygame.mixer.Sound('files/song/confirm_button.mp3')
+        self.confirmation_enabled = True  # Par défaut, la confirmation est activée
         self.top_pokemon = sorted(pokedex.pkmn_rencontre,key=lambda x: x['rencontre'], reverse=True)
         pokedex = Pokedex()
         while self.setting_run:
@@ -32,7 +34,7 @@ class Setting(Element,Screen):
 #Touche Gauche
                     if event.key == pygame.K_LEFT or event.key == pygame.K_q:
                         #Gauche verif quit
-                        if self.verif_quitter and c_verif_quit == 2:
+                        if m == 4 and self.verif_quitter and c_verif_quit == 2:
                             self.play_confirmation_sound()
                             c_verif_quit = 1
                         #Gauche stat
@@ -40,13 +42,17 @@ class Setting(Element,Screen):
                             self.play_confirmation_sound()
                             c_stat -= 1
                         #Gauche reset
-                        if self.verif_reset and c_verif_reset == 2:
+                        elif m == 2 and self.verif_reset and c_verif_reset == 2:
                             self.play_confirmation_sound()
                             c_verif_reset = 1
+                        #Gauche audio
+                        elif m == 3 and c_audio > 0:
+                            self.play_confirmation_sound()
+                            c_audio -= 1
 #Touche Droite
                     elif event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                         #Droite vérif quitter
-                        if self.verif_quitter and c_verif_quit == 1:
+                        if m == 4 and self.verif_quitter and c_verif_quit == 1:
                             self.play_confirmation_sound()
                             c_verif_quit = 2
                         #Droite stat
@@ -54,9 +60,13 @@ class Setting(Element,Screen):
                             self.play_confirmation_sound()
                             c_stat += 1
                         # Droite reset
-                        if self.verif_reset and c_verif_reset == 1:
+                        elif m == 2 and self.verif_reset and c_verif_reset == 1:
                             self.play_confirmation_sound()
                             c_verif_reset = 2
+                        #Droite audio
+                        elif m == 3 and c_audio < 2:
+                            self.play_confirmation_sound()
+                            c_audio += 1
 #Touche Haut
                     elif event.key == pygame.K_UP or event.key == pygame.K_z:
                         #menu haut
@@ -101,6 +111,9 @@ class Setting(Element,Screen):
                             pokedex.vider_fichier_json()
                             self.top_pokemon = sorted(pokedex.pkmn_rencontre,key=lambda x: x['rencontre'], reverse=True)
                             self.verif_reset = False
+                        elif m == 3 and c_audio == 2:
+                            self.play_confirmation_sound()
+                            self.toggle_confirmation()
 #Touche Echap
                     elif event.key == pygame.K_ESCAPE:
                         #Quitter les paramètre 
@@ -230,9 +243,27 @@ class Setting(Element,Screen):
                     self.button_rect(self.lightgrey,570,170,450,60) #Barre de son
                     
                     if c_audio == 2:
-                        pass
+                        self.button_rect(self.darkbluesea,860,170,60,60) #Bouton Mute
+                        if pourcent == 0:
+                            self.img(860,170,60,60,"/setting/light_mute")
+                        elif pourcent > 1 and pourcent <= 33:
+                            self.img(860,170,60,60,"/setting/light_low_volume")
+                        elif pourcent > 34 and pourcent <= 63:
+                            self.img(860,170,60,60,"/setting/light_medium_volume")
+                        elif pourcent > 64 and pourcent <= 100:
+                            self.img(860,170,60,60,"/setting/light_high_volume")
                     else:
                         self.button_rect(self.lightgrey,860,170,60,60) #Bouton Mute
+                        if pourcent == 0:
+                            self.img(860,170,60,60,"/setting/solid_mute")
+                        elif pourcent > 1 and pourcent <= 33:
+                            self.img(860,170,60,60,"/setting/solid_low_volume")
+                        elif pourcent > 34 and pourcent <= 63:
+                            self.img(860,170,60,60,"/setting/solid_medium_volume")
+                        elif pourcent > 64 and pourcent <= 100:
+                            self.img(860,170,60,60,"/setting/solid_high_volume")
+                   
+
 
                 else:
                     self.button_rect(self.darkgreenblue, 205, 394, 160, 40)
@@ -304,3 +335,10 @@ class Setting(Element,Screen):
                         self.button_rect(self.darkgreenblue,715,400,70,50)
                         self.texte(13,"Oui", self.white,715,400)
                 self.update()
+
+    def toggle_confirmation(self):
+        self.confirmation_enabled = not self.confirmation_enabled
+    
+    def play_confirmation_sound(self):
+        if self.confirmation_enabled:
+            self.confirmation_sound.play()
