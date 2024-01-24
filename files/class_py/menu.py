@@ -23,7 +23,6 @@ class Menu(Element, Screen):
         self.load_home = False
 
         #initilisation de la musique
-        pygame.mixer.init()
         pygame.mixer.music.load('files/song/opening.mp3')
         pygame.mixer.music.play(-1)
 
@@ -43,29 +42,39 @@ class Menu(Element, Screen):
                         break
                     if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                         if c < 5 and not self.load_home and not self.show_home:
+                            self.play_confirmation_sound()
                             c += 1
                     elif event.key == pygame.K_LEFT or event.key == pygame.K_q:
                         if c > 1 and not self.load_home and not self.show_home:
+                            self.play_confirmation_sound()
                             c -= 1
                     elif event.key == pygame.K_UP or event.key == pygame.K_z:
                         if d > 1 and self.load_home:
+                            self.play_confirmation_sound()
                             d -= 1
                         if c == 3 or c == 4 or c == 5 and not self.load_home and not self.show_home:
+                            self.play_confirmation_sound()
                             c = 6
                         elif c == 1 or c == 2 and not self.load_home and not self.show_home:
+                            self.play_confirmation_sound()
                             c = 0                        
                     elif event.key == pygame.K_DOWN or event.key == pygame.K_s:
                         if d < 3 and self.load_home:
+                            self.play_confirmation_sound()
                             d += 1
                         if c == 6 and not self.load_home and not self.show_home:
+                            self.play_confirmation_sound()
                             c = 5
                         elif c == 0 and not self.load_home and not self.show_home:
+                            self.play_confirmation_sound()
                             c = 1                  
                     elif event.key == pygame.K_RETURN and self.load_home and not self.show_home:
                         if d == 1 and self.load_home:
+                            self.play_confirmation_sound()
                             self.load_home = False
                             c = 1
                         if d == 2 and self.load_home:
+                            self.play_confirmation_sound()
                             self.load_home = False
                             # + fonction_save
                         if d == 3 and self.load_home:
@@ -73,13 +82,16 @@ class Menu(Element, Screen):
                             quit()
                     elif event.key == pygame.K_RETURN and not self.load_home:
                         if c == 1:
+                            self.play_confirmation_sound()
                             self.load_home = False
                             if starter.poke_player == "":
+                                self.play_confirmation_sound()
                                 starter.choose_starter = True
                                 starter.starter()
                                 if not any(pokemon['nom'] == starter.poke_player["nom"] for pokemon in pokedex.pkmn_rencontre):
                                     pokedex.poke_rencontre(starter.poke_player["nom"])
                             else:
+                                self.play_confirmation_sound()
                                 self.stop_and_new("battle")
                                 pokemon_random = pokedex.rand_pokemon()                           
                                 maps = Maps(starter.poke_player,pokemon_random)
@@ -90,19 +102,24 @@ class Menu(Element, Screen):
 
 
                         elif c == 2:
+                            self.play_confirmation_sound()
                             self.stop_and_new("pokedex")
                             pokedex.pokedex_run = True
                             pokedex.show_pokedex()
                             self.stop_and_new("bicycle")
                         elif c == 4:
+                            self.play_confirmation_sound()
                             addpokemon.ajout_pokemon()
                         elif c == 5:
+                            self.play_confirmation_sound()
                             starter.changing_pokemon = True
                             starter.change_pokemon()
                         elif c == 6:
+                            self.play_confirmation_sound()
                             setting.setting_run = True
                             setting.setting()
                         elif c == 0:
+                            self.play_confirmation_sound()
                             self.load_home = True
                             
             if self.show_home:
@@ -192,16 +209,3 @@ class Menu(Element, Screen):
                     self.texte(14,'Settings',self.black,990,110)
                     
                 self.update()
-
-
-    def stop_and_new(self, music_name):
-        pygame.mixer.music.stop()
-        pygame.mixer.music.load(f'files/song/{music_name}.mp3')
-        pygame.mixer.music.play(-1)
-    
-
-    def sound_event(self, music_name):
-        pygame.mixer.music.stop()
-        pygame.mixer.music.load(f'files/song/{music_name}.mp3',)
-        pygame.mixer.music.play(0)
-

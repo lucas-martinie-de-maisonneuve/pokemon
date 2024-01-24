@@ -45,51 +45,68 @@ class Maps(Element, Screen, Combat, Experience):
                 if event.type == pygame.KEYDOWN: 
                     if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                         if self.action < 4:
+                            self.play_confirmation_sound()
                             self.action += 1
                     elif event.key == pygame.K_LEFT or event.key == pygame.K_q:
                         if self.action > 1:
+                            self.play_confirmation_sound()
                             self.action -= 1
                     elif event.key == pygame.K_UP or event.key == pygame.K_z and self.action > 2:
+                        self.play_confirmation_sound()
                         self.action -= 2
                     elif event.key == pygame.K_DOWN or event.key == pygame.K_s and self.action < 3:
+                        self.play_confirmation_sound()
                         self.action += 2
                     elif event.key == pygame.K_RETURN and not self.attack_phase and not self.game_over:
                         if self.action == 1 and not self.attack_phase:
+                            self.play_confirmation_sound()
                             self.attack_phase = True
                         elif self.action == 2 and not self.attack_phase:
+                            self.play_confirmation_sound()
                             self.combat_run = False
                         elif self.action == 3 and not self.attack_phase:
                             pass
                         elif self.action == 4 and not self.attack_phase:
+                            self.play_confirmation_sound()
                             pokedex.pokedex_run = True
                             pokedex.show_pokedex()
                     elif event.key == pygame.K_RETURN and self.attack_phase and not self.text_phase and not self.game_over:
+                        self.play_confirmation_sound()
                         self.text = 1
-                        if self.action == 1:                            
+                        if self.action == 1:           
+                            self.play_confirmation_sound()                 
                             self.pokemon_random_hp = self.attack(self.pokemon_random_hp, self.poke_player['attaque'],self.pokemon_type_player,self.type_pokemon_advers, self.pokemon_def_advers)                            
                             self.recup_poke_winner(self.poke_player['nom'], self.pokemon_random['nom'], self.poke_player_hp, self.pokemon_random_hp)                            
                             self.text_phase = True
                         elif self.action == 2:
+                            self.play_confirmation_sound()
                             self.pokemon_random_hp = self.attack(self.pokemon_random_hp, self.poke_player['attaque'],self.pokemon_type_player,self.type_pokemon_advers, self.pokemon_def_advers)                            
                             self.recup_poke_winner(self.poke_player['nom'], self.pokemon_random['nom'], self.poke_player_hp, self.pokemon_random_hp)
                             self.text_phase = True
                         elif self.action == 3 and not self.attack_phase:
+                            self.play_confirmation_sound()
                             self.attack_phase = False
                         elif self.action == 4 and not self.attack_phase:
+                            self.play_confirmation_sound()
                             self.attack_phase = False
                     elif event.key == pygame.K_RETURN and self.attack_phase and not self.game_over:
                         if self.text == 3:
+                            self.play_confirmation_sound()
                             self.text_phase = False
                             self.attack_phase = False
                             self.action = 1
                         if self.text_phase:
+                            self.play_confirmation_sound()
                             self.text += 1
                             if self.text == 2:
+                                self.play_confirmation_sound()
                                 self.attack_phase_advers = True                        
                     elif event.key == pygame.K_ESCAPE and self.attack_phase:
+                        self.play_confirmation_sound()
                         self.attack_phase = False
                         self.action = 1
                     elif event.key == pygame.K_RETURN and self.game_over:
+                        self.play_confirmation_sound()
                         self.combat_run = False 
                             
             self.img(525, 200, 1244, 700,'combat/fight_background')
@@ -193,7 +210,7 @@ class Maps(Element, Screen, Combat, Experience):
                 self.texte(20, f"What will {self.poke_player['nom']} do?", self.black, 300, 625)         
             
             if self.game_over:
-                self.sound_event("win")
+                self.sound_event()
                 self.img(540, 280, 470, 190, "combat/background_texte")
                 self.texte(18, f"{self.win} a gagné le combat", self.black, 540, 280)
                 self.texte(12, "PRESS RETURN TO ESCAPE", self.black, 540, 400)                               
@@ -205,7 +222,3 @@ class Maps(Element, Screen, Combat, Experience):
             # self.texte(20, f"{self.poke_player['nom']} avait {self.poke_player_hp + self.dmg_poke}", self.black, 300, 625)
             # self.texte(20, f"Il lui reste {self.poke_hp}", self.black, 300, 660)
 
-    def sound_event(self, music_name):
-        pygame.mixer.music.stop()
-        pygame.mixer.music.load(f'files/song/{music_name}.mp3',)
-        pygame.mixer.music.play(0)
