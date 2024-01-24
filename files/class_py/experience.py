@@ -1,5 +1,5 @@
 from files.class_py.pokedex import Pokedex
-import json
+# import json
 pokedex = Pokedex()
 
 class Experience:
@@ -12,39 +12,36 @@ class Experience:
         # self.liste_poke = pokedex.info_pokemon
         self.poke_sherch_name = pokedex.rand_pokemon()
         self.pokemons_name = self.poke_sherch_name['nom']
-        # self.liste_rencontre_poke = pokedex.pkmn_rencontre
-    
-    def recup_level(self):
-        for info_poke_rencontre in pokedex.pkmn_rencontre:
-            for pokemon in pokedex.info_pokemon: 
-                if info_poke_rencontre["nom"] == pokemon["nom"]:
-                    poke_lvl = info_poke_rencontre["level"]
-                    return poke_lvl
+        # self.liste_rencontre_poke = pokedex.pkmn_rencontre   
         
     def exp_par_combat(self, level):
         if level is not None and 1 <= level <= 2:
-            self.exp_poke += 15            
+            exp_poke = 15
+                        
         elif level is not None and 3 <= level <= 4:
-            self.exp_poke += 25
+            exp_poke = 25
+            
         elif level is not None and 5 <= level <= 10:
-            self.exp_poke += 30
+            exp_poke = 30
+            
         elif level is not None and 11 <= level <= 20:
-            self.exp_poke += 45
+            exp_poke = 45
+            
         elif level is not None and 21 <= level <= 35:
-            self.exp_poke += 75
+            exp_poke = 75
+            
         elif level is not None and 36 <= level <= 50:
-            self.exp_poke += 125
+            exp_poke = 125
+            
         else:            
             print("j'ai pas reussit a recup level pour faire fonctionner 'exp_par_combat'")
-            
-        pokedex.pkmn_rencontre.append({'Exp': self.exp_poke})       
-        
-        with open('rencontre.json', 'w') as file:
-            json.dump(pokedex.pkmn_rencontre, file, indent=2)
+        print(exp_poke)
+        print(self.poke_player)
+        pokedex.update_exp(self.poke_player['nom'],exp_poke)    
     
-    def verif_exp(self, level):
-        if level == self.exp_max(level):
-            level =+ 1            
+    def verif_exp(self, level, exp_poke):
+        if exp_poke >= self.exp_max(level):
+            pokedex.update_lvl(self.poke_player['nom'],self.exp_max(level))           
     
     def verif_for_evolve(self):
         for info_poke_rencontre in pokedex.pkmn_rencontre:
@@ -57,8 +54,7 @@ class Experience:
                     if info_poke_rencontre["level"] == 36:
                         next_poke = pokedex.info_pokemon[position + 1]
                         if next_poke["evol"] == 3:
-                            self.poke_player = next_poke
-     
+                            self.poke_player = next_poke    
                      
         # if self.poke_player["level"] == 16:
         #     if self.poke_evol and self.poke_evol["evol"] == 2:

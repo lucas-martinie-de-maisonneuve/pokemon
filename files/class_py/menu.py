@@ -21,6 +21,7 @@ class Menu(Element, Screen):
         self.menu_run = True
         self.show_home = True
         self.load_home = False
+        self.home_bag = False
 
     def home(self):
         c = 1
@@ -65,6 +66,8 @@ class Menu(Element, Screen):
                         if d == 3 and self.load_home:
                             pygame.quit()
                             quit()
+                    elif event.key == pygame.K_ESCAPE or event.key == pygame.K_BACKSPACE and self.home_bag:
+                        self.home_bag = False
                     elif event.key == pygame.K_RETURN and not self.load_home:
                         if c == 1:
                             self.load_home = False
@@ -84,6 +87,8 @@ class Menu(Element, Screen):
                         elif c == 2:
                             pokedex.pokedex_run = True
                             pokedex.show_pokedex()
+                        elif c == 3:
+                            self.home_bag = True
                         elif c == 4:
                             addpokemon.ajout_pokemon()
                         elif c == 5:
@@ -180,5 +185,10 @@ class Menu(Element, Screen):
                 else:
                     self.img(990, 60, 80, 80, 'menu/settings')
                     self.texte(14,'Settings',self.black,990,110)
+                
+                if self.home_bag:
+                    self.img(525, 350, 1244, 700, 'bag/background_bag')
+                    # self.img(525, 350, 600, 580,'bag/background_texte')
+                    self.texte(30,"Votre sac est actuellement vide",(0, 255, 233), 525, 350)
                     
                 self.update()

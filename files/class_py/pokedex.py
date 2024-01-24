@@ -15,7 +15,7 @@ class Pokedex(Element, Screen):
         self.pkmn_rencontre = self.ouverture_pokemonrencontre()
         self.pokedex_run = False
         self.detailed_pokemon = False
-        
+               
 
     def ouverture_pokemonjson(self):
         with open('pokemon.json', 'r') as fichier:
@@ -27,12 +27,11 @@ class Pokedex(Element, Screen):
             self.donnees_rencontre = json.load(file)
             return self.donnees_rencontre
         
-    def recup_level(self):
-        for info_poke_rencontre in self.pkmn_rencontre:
-            for pokemon in self.info_pokemon: 
-                if info_poke_rencontre["nom"] == pokemon["nom"]:
-                    poke_lvls = info_poke_rencontre["level"]
-                    return poke_lvls 
+    def recup_level_exp(self, poke_name):
+        self.ouverture_pokemonrencontre()        
+        for pokemon in self.pkmn_rencontre:
+            if pokemon['nom'] == poke_name:
+                return pokemon 
 
     def vider_fichier_json(self):
         with open('rencontre.json', 'w') as fichier:
@@ -76,12 +75,46 @@ class Pokedex(Element, Screen):
                     self.pokemon_num = pokemon_info['numero']
             self.rencontre_num = self.get_last_pokemon_rencontre_number()
             if self.ouverture_pokemonjson() != []:
-                self.pkmn_rencontre.append({'numero': self.rencontre_num + 1, 'nom': pokemon_name, 'rencontre': 1, 'true_num': self.pokemon_num, 'level': self.recup_level()})
+                self.pkmn_rencontre.append({'numero': self.rencontre_num + 1, 'nom': pokemon_name, 'rencontre': 1, 'true_num': self.pokemon_num, 'level': 1, 'exp': 0})
 
         with open('rencontre.json', 'w') as file:
             json.dump(self.pkmn_rencontre, file, indent=2)
 
         return False
+    
+    def update_lvl(self, poke_name, exps_max):               
+        for pokemon in self.pkmn_rencontre:
+            if pokemon['nom'] == poke_name:
+                pokemon['exp'] = pokemon['exp'] - exps_max  
+                pokemon['level'] + 1
+                print('level')
+                   
+
+        with open('rencontre.json', 'w') as file:
+                    json.dump(self.pkmn_rencontre, file, indent=2)
+            
+    
+    def update_exp(self, poke_name, exp):
+        for pokemon in self.pkmn_rencontre:
+            if pokemon['nom'] == poke_name:
+                pokemon['exp'] += exp
+                print(f"exp ajoutée pour {poke_name}: {exp}")
+
+            # Assurez-vous que le fichier est correctement fermé après la modification
+        with open('rencontre.json', 'w') as file:
+            json.dump(self.pkmn_rencontre, file, indent=2)
+                   
+
+        # if not existe:
+        #     for index, pokemon_info in enumerate(self.info_pokemon):
+        #         if pokemon_info['nom'] == poke_name:
+        #             self.pokemon_num = pokemon_info['numero']
+        #     self.rencontre_num = self.get_last_pokemon_rencontre_number()
+        #     if self.ouverture_pokemonjson() != []:
+        #         self.pkmn_rencontre.append({'numero': self.rencontre_num + 1, 'nom': poke_name, 'rencontre': 1, 'true_num': self.pokemon_num, 'level': 1, 'exp': exp})
+
+        
+            
     
     def info_rencontre(self):
         self.liste_rencontre = []

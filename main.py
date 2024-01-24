@@ -6,4 +6,3 @@ pygame.init()
 
 menu.home()
 
-
