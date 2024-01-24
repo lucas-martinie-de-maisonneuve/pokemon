@@ -33,44 +33,55 @@ class Setting(Element,Screen):
                     if event.key == pygame.K_LEFT or event.key == pygame.K_q:
                         #Gauche verif quit
                         if self.verif_quitter and c_verif_quit == 2:
+                            self.play_confirmation_sound()
                             c_verif_quit = 1
                         #Gauche stat
                         elif m == 2 and c_stat > 0:
+                            self.play_confirmation_sound()
                             c_stat -= 1
                         #Gauche reset
                         if self.verif_reset and c_verif_reset == 2:
+                            self.play_confirmation_sound()
                             c_verif_reset = 1
 #Touche Droite
                     elif event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                         #Droite vérif quitter
                         if self.verif_quitter and c_verif_quit == 1:
+                            self.play_confirmation_sound()
                             c_verif_quit = 2
                         #Droite stat
                         elif m == 2 and c_stat < 1:
+                            self.play_confirmation_sound()
                             c_stat += 1
                         # Droite reset
                         if self.verif_reset and c_verif_reset == 1:
+                            self.play_confirmation_sound()
                             c_verif_reset = 2
 #Touche Haut
                     elif event.key == pygame.K_UP or event.key == pygame.K_z:
                         #menu haut
                         if not self.verif_quitter and not self.verif_reset and m > 0:
+                            self.play_confirmation_sound()
                             m -= 1
 #Touche Bas
                     elif event.key == pygame.K_DOWN or event.key == pygame.K_s:
                         #menu bas
                         if not self.verif_quitter and not self.verif_reset and m < 4:
+                            self.play_confirmation_sound()
                             m += 1
 #Touche Entrée
                     elif event.key == pygame.K_RETURN:
                         #Croix exit setting
                         if m == 0:
+                            self.play_confirmation_sound()
                             self.setting_run = False
                         #Lance la fonction "voulez vous vraiment quitter"
                         elif m == 4 and not self.verif_quitter and not self.verif_reset:
+                            self.play_confirmation_sound()
                             self.verif_quitter = True
                         #Action à "non" à "voulez vous vraiment quitter"
                         elif c_verif_quit == 1 and self.verif_quitter:
+                            self.play_confirmation_sound()
                             self.verif_quitter = False
                         #Action à "oui" à "voulez vous vraiment quitter"
                         elif c_verif_quit == 2 :
@@ -78,28 +89,34 @@ class Setting(Element,Screen):
                             quit()
                         #Vérification reset
                         elif c_stat == 1 and m == 2 and not self.verif_reset:
+                            self.play_confirmation_sound()
                             self.verif_reset = True
                         #Action à "non" au reset
                         elif c_verif_reset == 1 and self.verif_reset:
+                            self.play_confirmation_sound()
                             self.verif_reset = False
                         #Action à "oui" au reset 
                         elif c_verif_reset == 2 and self.verif_reset:
+                            self.play_confirmation_sound()
                             pokedex.vider_fichier_json()
                             self.top_pokemon = sorted(pokedex.pkmn_rencontre,key=lambda x: x['rencontre'], reverse=True)
                             self.verif_reset = False
-
 #Touche Echap
-                    #Quitter les paramètre 
-                    elif event.key == pygame.K_ESCAPE and not self.verif_quitter and not self.verif_reset:
-                        self.setting_run = False
-                    #Quitter verif_quitter 
-                    elif event.key == pygame.K_ESCAPE and self.verif_quitter :
-                        self.verif_quitter = False
-                        c_verif_quit = 1
-                    #Quitter verif_reset
-                    elif event.key == pygame.K_ESCAPE and self.verif_reset :
-                        self.verif_reset = False
-                        c_verif_reset = 1
+                    elif event.key == pygame.K_ESCAPE:
+                        #Quitter les paramètre 
+                        if not self.verif_quitter and not self.verif_reset:
+                            self.play_confirmation_sound()
+                            self.setting_run = False
+                        #Quitter verif_quitter 
+                        elif self.verif_quitter :
+                            self.play_confirmation_sound()
+                            self.verif_quitter = False
+                            c_verif_quit = 1
+                        #Quitter verif_reset
+                        elif self.verif_reset :
+                            self.play_confirmation_sound()
+                            self.verif_reset = False
+                            c_verif_reset = 1
 
                 self.img(525, 350, 1244, 700, 'menu/backgroundmenu')
                 self.img(990, 60, 80, 80, 'menu/settings')

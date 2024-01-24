@@ -25,24 +25,30 @@ class Starter(Element, Screen):
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                         if self.action < 4:
+                            self.play_confirmation_sound()
                             self.action += 1
                     elif event.key == pygame.K_LEFT or event.key == pygame.K_q:
                         if self.action > 1:
+                            self.play_confirmation_sound()
                             self.action -= 1
                     elif event.key == pygame.K_RETURN:
                         if self.action == 1:
+                            self.play_confirmation_sound()
                             self.poke_player = self.pokedex.starter()[0]
                             self.choose_starter = False
                             return self.poke_player
                         elif self.action == 2:
+                            self.play_confirmation_sound()
                             self.poke_player = self.pokedex.starter()[1]
                             self.choose_starter = False
                             return self.poke_player
                         elif self.action == 3:
+                            self.play_confirmation_sound()
                             self.poke_player = self.pokedex.starter()[2]
                             self.choose_starter = False
                             return self.poke_player
                         elif self.action == 4:
+                            self.play_confirmation_sound()
                             self.poke_player = self.pokedex.starter()[3]
                             self.choose_starter = False
                             return self.poke_player

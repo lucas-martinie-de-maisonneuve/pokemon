@@ -99,7 +99,6 @@ class Maps(Element, Screen, Combat, Experience):
                             self.play_confirmation_sound()
                             self.text += 1
                             if self.text == 2:
-                                self.play_confirmation_sound()
                                 self.attack_phase_advers = True                        
                     elif event.key == pygame.K_ESCAPE and self.attack_phase:
                         self.play_confirmation_sound()
@@ -107,7 +106,9 @@ class Maps(Element, Screen, Combat, Experience):
                         self.action = 1
                     elif event.key == pygame.K_RETURN and self.game_over:
                         self.play_confirmation_sound()
-                        self.combat_run = False 
+                        self.game_over = False
+                        self.combat_run = False
+                        self.stop_and_new("bicycle")
                             
             self.img(525, 200, 1244, 700,'combat/fight_background')
             self.img_mir(350, 350, 310, 310, f"pokemon/{self.poke_player['nom'].lower()}")
@@ -210,7 +211,7 @@ class Maps(Element, Screen, Combat, Experience):
                 self.texte(20, f"What will {self.poke_player['nom']} do?", self.black, 300, 625)         
             
             if self.game_over:
-                self.sound_event()
+                self.win_music()
                 self.img(540, 280, 470, 190, "combat/background_texte")
                 self.texte(18, f"{self.win} a gagné le combat", self.black, 540, 280)
                 self.texte(12, "PRESS RETURN TO ESCAPE", self.black, 540, 400)                               

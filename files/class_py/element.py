@@ -109,7 +109,7 @@ class Element:
         pygame.mixer.music.play(-1)
     
 
-    def sound_event(self):
+    def win_music(self):
         pygame.mixer.music.stop()
         self.win_song.play()
 

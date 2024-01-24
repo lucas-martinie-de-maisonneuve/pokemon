@@ -1,92 +1,44 @@
 [
   {
     "numero": 1,
-    "nom": "Bulbizarre",
-    "rencontre": 1,
-    "true_num": 4
-  },
-  {
-    "numero": 2,
-    "nom": "Carapuce",
-    "rencontre": 2,
-    "true_num": 7
-  },
-  {
-    "numero": 3,
-    "nom": "Grolem",
-    "rencontre": 2,
-    "true_num": 18
-  },
-  {
-    "numero": 4,
-    "nom": "Magneti",
-    "rencontre": 1,
-    "true_num": 44
-  },
-  {
-    "numero": 5,
-    "nom": "Dracaufeu",
-    "rencontre": 1,
-    "true_num": 3
-  },
-  {
-    "numero": 6,
-    "nom": "Kangourex",
-    "rencontre": 1,
-    "true_num": 25
-  },
-  {
-    "numero": 7,
-    "nom": "Pyroli",
-    "rencontre": 1,
-    "true_num": 22
-  },
-  {
-    "numero": 1,
-    "nom": "Carabaffe",
-    "rencontre": 1,
-    "true_num": 8
-  },
-  {
-    "numero": 1,
-    "nom": "Artikodin",
-    "rencontre": 1,
-    "true_num": 45
-  },
-  {
-    "numero": 10,
-    "nom": "Grainipiot",
-    "rencontre": 1,
-    "true_num": 31
-  },
-  {
-    "numero": 11,
     "nom": "Salameche",
     "rencontre": 1,
     "true_num": 1
   },
   {
-    "numero": 12,
-    "nom": "Sulfura",
-    "rencontre": 1,
-    "true_num": 47
+    "numero": 2,
+    "nom": "Magicarpe",
+    "rencontre": 2,
+    "true_num": 29
   },
   {
-    "numero": 13,
-    "nom": "Phyllali",
-    "rencontre": 1,
-    "true_num": 23
-  },
-  {
-    "numero": 14,
+    "numero": 3,
     "nom": "Pikachu",
     "rencontre": 1,
     "true_num": 10
   },
   {
-    "numero": 15,
-    "nom": "Scarabrute",
+    "numero": 4,
+    "nom": "Grolem",
     "rencontre": 1,
-    "true_num": 28
+    "true_num": 18
+  },
+  {
+    "numero": 5,
+    "nom": "Herbizarre",
+    "rencontre": 2,
+    "true_num": 5
+  },
+  {
+    "numero": 6,
+    "nom": "Chenipotte",
+    "rencontre": 1,
+    "true_num": 12
+  },
+  {
+    "numero": 7,
+    "nom": "Carabaffe",
+    "rencontre": 1,
+    "true_num": 8
   }
 ]

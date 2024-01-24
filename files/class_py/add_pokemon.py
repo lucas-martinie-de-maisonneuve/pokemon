@@ -32,14 +32,18 @@ class AddPokemon(Element, Screen):
                         pygame.quit()
                     elif event.type == pygame.KEYDOWN:
                         if event.key == pygame.K_ESCAPE:
+                            self.play_confirmation_sound()
                             active = False
                         elif event.key == pygame.K_DOWN and confirm == 0:
+                            self.play_confirmation_sound()
                             if self.cate < 5:
                                 self.cate +=1
                         elif event.key == pygame.K_UP and confirm == 0:
+                            self.play_confirmation_sound()
                             if self.cate > 1:
                                 self.cate -= 1
                         elif event.key == pygame.K_RIGHT :
+                            self.play_confirmation_sound()
                             if self.cate == 2 and add_pokemon_level < 3:
                                  add_pokemon_level += 1
                             elif self.cate == 3:
@@ -52,6 +56,7 @@ class AddPokemon(Element, Screen):
                             if confirm == 3:
                                 self.menu_selec = 2
                         elif event.key == pygame.K_LEFT:
+                            self.play_confirmation_sound()
                             if self.cate == 2 and add_pokemon_level > 1:
                                 add_pokemon_level -= 1
                             elif self.cate == 3:
@@ -64,6 +69,7 @@ class AddPokemon(Element, Screen):
                             if confirm == 3:
                                 self.menu_selec = 1
                         elif event.key == pygame.K_RETURN and self.cate == 5 and add_pokemon_name != "" and add_pokemon_attaque != "" and add_pokemon_hp != "" and add_pokemon_def != "":
+                            self.play_confirmation_sound()
                             if confirm < 3:
                                 confirm += 1
                             elif confirm == 3:

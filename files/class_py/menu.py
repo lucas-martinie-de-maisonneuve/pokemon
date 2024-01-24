@@ -37,6 +37,7 @@ class Menu(Element, Screen):
                     quit()
                 if event.type == pygame.KEYDOWN and not setting.setting_run:
                     if self.show_home:
+                        self.play_confirmation_sound()
                         self.show_home = False
                         self.load_home = True
                         break
@@ -85,13 +86,11 @@ class Menu(Element, Screen):
                             self.play_confirmation_sound()
                             self.load_home = False
                             if starter.poke_player == "":
-                                self.play_confirmation_sound()
                                 starter.choose_starter = True
                                 starter.starter()
                                 if not any(pokemon['nom'] == starter.poke_player["nom"] for pokemon in pokedex.pkmn_rencontre):
                                     pokedex.poke_rencontre(starter.poke_player["nom"])
                             else:
-                                self.play_confirmation_sound()
                                 self.stop_and_new("battle")
                                 pokemon_random = pokedex.rand_pokemon()                           
                                 maps = Maps(starter.poke_player,pokemon_random)
