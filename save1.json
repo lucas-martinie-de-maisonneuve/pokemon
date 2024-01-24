@@ -2,7 +2,109 @@
   {
     "numero": 1,
     "nom": "Bulbizarre",
-    "rencontre": 1,
+    "rencontre": 2,
     "true_num": 4
+  },
+  {
+    "numero": 2,
+    "nom": "Gravalanch",
+    "rencontre": 1,
+    "true_num": 17
+  },
+  {
+    "numero": 3,
+    "nom": "Osselait",
+    "rencontre": 3,
+    "true_num": 41
+  },
+  {
+    "numero": 4,
+    "nom": "Fenard",
+    "rencontre": 1,
+    "true_num": 38
+  },
+  {
+    "numero": 5,
+    "nom": "Elektek",
+    "rencontre": 1,
+    "true_num": 26
+  },
+  {
+    "numero": 6,
+    "nom": "Tauros",
+    "rencontre": 2,
+    "true_num": 24
+  },
+  {
+    "numero": 7,
+    "nom": "Canarticho",
+    "rencontre": 2,
+    "true_num": 15
+  },
+  {
+    "numero": 8,
+    "nom": "Grainipiot",
+    "rencontre": 1,
+    "true_num": 31
+  },
+  {
+    "numero": 9,
+    "nom": "Reptincelle",
+    "rencontre": 1,
+    "true_num": 2
+  },
+  {
+    "numero": 10,
+    "nom": "Aquali",
+    "rencontre": 1,
+    "true_num": 20
+  },
+  {
+    "numero": 11,
+    "nom": "Pyroli",
+    "rencontre": 2,
+    "true_num": 22
+  },
+  {
+    "numero": 12,
+    "nom": "Racaillou",
+    "rencontre": 1,
+    "true_num": 16
+  },
+  {
+    "numero": 13,
+    "nom": "Evoli",
+    "rencontre": 1,
+    "true_num": 19
+  },
+  {
+    "numero": 14,
+    "nom": "Tengalice",
+    "rencontre": 1,
+    "true_num": 33
+  },
+  {
+    "numero": 15,
+    "nom": "Voltali",
+    "rencontre": 1,
+    "true_num": 21
+  },
+  {
+    "numero": 16,
+    "nom": "Scarabrute",
+    "rencontre": 1,
+    "true_num": 28
+  },
+  {
+    "numero": 17,
+    "nom": "Salameche",
+    "rencontre": 1,
+    "true_num": 1
+  },
+  {
+    "numero": 18,
+    "nom": "Ossatueur",
+    "rencontre": 1,
+    "true_num": 42
   }
 ]

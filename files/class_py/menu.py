@@ -23,7 +23,6 @@ class Menu(Pokedex):
         self.load_home = False
         self.load_game = False
         self.new_game = False
-
     def home(self):
         self.ouverture_pokemonrencontre()
         if self.pkmn_rencontre != []:
@@ -44,54 +43,61 @@ class Menu(Pokedex):
                         self.load_home = True
                         break
                     if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
-                        if c < 5 and not self.load_home and not self.show_home:
-                            c += 1
+                        if c < 5:
+                            if not self.load_home and not self.show_home:
+                                c += 1
                     elif event.key == pygame.K_LEFT or event.key == pygame.K_q:
-                        if c > 1 and not self.load_home and not self.show_home:
-                            c -= 1
+                        if c > 1:
+                            if not self.load_home and not self.show_home:
+                                c -= 1
                     elif event.key == pygame.K_UP or event.key == pygame.K_z:
-                        if d > 1 and self.load_home:
-                            d -= 1
-                        if c >= 3 and not self.load_home and not self.show_home:
-                            c = 6
-                        elif c < 3 and not self.load_home and not self.show_home:
-                            c = 0                        
+                        if d > 1:
+                            if self.load_home:
+                                d -= 1
+                        if c >= 3:
+                            if not self.load_home and not self.show_home:
+                                c = 6
+                        elif c < 3: 
+                            if not self.load_home and not self.show_home:
+                                c = 0                        
                     elif event.key == pygame.K_DOWN or event.key == pygame.K_s:
-                        if d < 3 and self.load_home:
-                            d += 1
-                        if c == 6 and not self.load_home and not self.show_home:
-                            c = 5
-                        elif c == 0 and not self.load_home and not self.show_home:
-                            c = 1                  
+                        if d < 3: 
+                            if self.load_home:
+                                d += 1
+                        if c == 6: 
+                            if not self.load_home and not self.show_home:
+                                c = 5
+                        elif c == 0: 
+                            if not self.load_home and not self.show_home:
+                                c = 1                  
                     elif event.key == pygame.K_RETURN and self.load_home and not self.show_home:
-                        if d == 1 and self.load_home:
-                            if not self.load_game and not self.new_game:
-                                self.load_game = True
-                            elif self.load_game:
-                                self.load_home = False
-                                self.load_game = False
-                                self.ouverture_pokemonrencontre()
-                                print(self.choose_save)
-                            c = 1
-                        if d == 2 and self.load_home:
-                            if not self.load_game and not self.new_game:
-                                self.load_game = True
-                            elif self.load_game:
-                                self.load_home = False
-                                self.load_game = False
-                                self.ouverture_pokemonrencontre()
-                                print(self.choose_save)
-                            c = 1
-                        if d == 3 and self.load_home:
-                            if not self.load_game and not self.new_game:
-                                pygame.quit()
-                                quit()
-                            elif self.load_game:
-                                self.load_home = False
-                                self.load_game = False
-                                self.ouverture_pokemonrencontre()
-                                print(self.choose_save)
-                            c = 1
+                        if d == 1: 
+                            if self.load_home:
+                                if not self.load_game and not self.new_game:
+                                    self.load_game = True
+                                elif self.load_game:
+                                    self.load_home = False
+                                    self.load_game = False
+                                    self.ouverture_pokemonrencontre()
+                                    c = 1
+                        if d == 2:
+                            if self.load_home:
+                                if not self.load_game and not self.new_game:
+                                    self.load_game = True
+                                elif self.load_game:
+                                    self.load_home = False
+                                    self.load_game = False
+                                    self.ouverture_pokemonrencontre()
+                                    c = 1
+                        if d == 3: 
+                            if self.load_home:
+                                if not self.load_game and not self.new_game:
+                                    pygame.quit()
+                                    quit()
+                                elif self.load_game:
+                                    self.load_home = False
+                                    self.load_game = False
+                                    self.ouverture_pokemonrencontre()
                     elif event.key == pygame.K_RETURN and not self.load_home:
                         if c == 1:
                             self.load_home = False
@@ -140,11 +146,11 @@ class Menu(Pokedex):
                 self.img(100, 680, 17,17, 'menu/copyright')
                 self.texte(15, "Le  patron  (Lucas)  -  L'autre  Lucas  avec  les  lunettes (rondes)  -  Keviiiineu (le bg au yeux bleu)", self.white, 525, 680)
                 self.update()
-                
             
             if self.load_home and not self.show_home:
                 self.img(525, 350, 1244, 700, "menu_load/img_background_load")
                 self.img(525, 180, 540, 220, "menu_load/titre_jeu-removebg-preview")
+            
                 if not self.load_game and not self.new_game:
                     if d == 1:
                         self.button_rect(self.black, 525, 385, 300, 60 )
@@ -165,36 +171,59 @@ class Menu(Pokedex):
                         self.texte(20, "Quitter le jeu", self.white, 525, 635)
                     else:
                         self.button_rect(self.white, 525, 635, 300, 60 )
-                        self.texte(20, "Quitter le jeu", self.black, 525, 635)                                    
+                        self.texte(20, "Quitter le jeu", self.black, 525, 635) 
+                    self.update()
+                                   
             
-                if self.load_game:
-                    d == 1
-                    if d == 1:
-                        self.button_rect(self.white, 100, 175, 120, 120)
-                        self.texte(20, "Save 1", self.white, 100, 250)
-                        self.img_rotate(100, 175, 100,100,'menu_load/loading', 5)
-                        self.choose_save = 'save1'
+            if self.load_game:
+                self.img(600, 350, 600, 480, 'menu_load/load_game')
+                if d == 1:
+                    self.button_rect(self.white, 100, 175, 120, 120)
+                    self.texte(22, "Save 1", self.black, 600, 145)
+                    self.img_rotate(100, 175, 100, 100, 'menu_load/loading', 5)
+                    self.choose_save = 'save1'
+                    if self.pkm_save1 != []:
+                        self.texte_not_align(18, f"Dernier pokemon découvert: {self.pkm_save1[-1]['nom']}", self.black, 320 , 280)
+                        self.img(600, 450, 250,250, f'pokemon/{self.pkm_save1[-1]['nom'].lower()}')
+                        self.texte_not_align(18, f"Nombre de pokemon dans le Pokedex: {len(self.pkm_save1)}/50", self.black, 320 , 230)
                     else:
-                        self.button_rect(self.white, 100, 175, 100, 100)
-                        self.texte(20, "Save 1", self.black, 100, 175)
-                        
-                    if d == 2:
-                        self.button_rect(self.white, 100, 350, 120, 120)
-                        self.texte(20, "Save 2", self.white, 100, 425)
-                        self.img_rotate(100, 350, 100,100,'menu_load/loading', 5)
-                        self.choose_save = 'save2'
+                        self.texte_not_align(18, f"Aucun pokemon dans le pokedex", self.black, 320 , 280)
+
+                else:
+                    self.button_rect(self.white, 100, 175, 100, 100)
+                    self.texte(20, "Save 1", self.black, 100, 175)
+
+                if d == 2:
+                    self.button_rect(self.white, 100, 350, 120, 120)
+                    self.texte(22, "Save 2", self.black, 600, 145)
+                    self.img_rotate(100, 350, 100, 100, 'menu_load/loading', 5)
+                    self.choose_save = 'save2'
+                    if self.pkm_save2 != []:
+                        self.texte_not_align(18, f"Dernier pokemon découvert: {self.pkm_save2[-1]['nom']}", self.black, 320 , 280)
+                        self.img(600, 450, 250,250, f'pokemon/{self.pkm_save2[-1]['nom'].lower()}')
+
+                        self.texte_not_align(18, f"Nombre de pokemon dans le Pokedex: {len(self.pkm_save2)}/50", self.black, 320 , 230)
                     else:
-                        self.button_rect(self.white, 100, 350, 100, 100)
-                        self.texte(20, "Save 2", self.black, 100, 350)
-                        
-                    if d == 3:
-                        self.button_rect(self.white, 100, 525, 120, 120)
-                        self.texte(20, "Save 3", self.white, 100, 600)
-                        self.img_rotate(100, 525, 100,100,'menu_load/loading', 5)
-                        self.choose_save = 'save3'
+                        self.texte_not_align(18, f"Aucun pokemon dans le pokedex", self.black, 320 , 280)
+                else:
+                    self.button_rect(self.white, 100, 350, 100, 100)
+                    self.texte(20, "Save 2", self.black, 100, 350)
+
+                if d == 3:
+                    self.button_rect(self.white, 100, 525, 120, 120)
+                    self.texte(22, "Save 3", self.black, 600, 145)
+                    self.img_rotate(100, 525, 100, 100, 'menu_load/loading', 5)
+                    self.choose_save = 'save3'
+                    if self.pkm_save3 != []:
+                        self.texte_not_align(18, f"Dernier pokemon découvert: {self.pkm_save3[-1]['nom']}", self.black, 320 , 280)
+                        self.img(600, 450, 250,250, f'pokemon/{self.pkm_save3[-1]['nom'].lower()}')
+                        self.texte_not_align(18, f"Nombre de pokemon dans le Pokedex: {len(self.pkm_save3)}/50", self.black, 320 , 230)
+
                     else:
-                        self.button_rect(self.white, 100, 525, 100, 100)
-                        self.texte(20, "Save 3", self.black, 100, 525)                                    
+                        self.texte_not_align(18, f"Aucun pokemon dans le pokedex", self.black, 320 , 280)                
+                else:
+                    self.button_rect(self.white, 100, 525, 100, 100)
+                    self.texte(20, "Save 3", self.black, 100, 525)
                 self.update()
 
             if not self.show_home and not self.load_home:      

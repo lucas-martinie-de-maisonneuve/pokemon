@@ -11,6 +11,9 @@ class Pokedex(Element, Screen):
         self.choose_save = 'save1'
         self.info_pokemon = self.ouverture_pokemonjson()
         self.pkmn_rencontre = self.ouverture_pokemonrencontre()
+        self.pkm_save1 = self.open_save1()
+        self.pkm_save2 = self.open_save2()
+        self.pkm_save3 = self.open_save3()
         self.pokedex_run = False
         self.detailed_pokemon = False
         self.changing_pokemon = False
@@ -26,6 +29,18 @@ class Pokedex(Element, Screen):
 
     def ouverture_pokemonrencontre(self):
         with open(f'{self.choose_save}.json', 'r') as file:
+            self.donnees_rencontre = json.load(file)
+            return self.donnees_rencontre
+    def open_save1(self):
+        with open('save1.json', 'r') as file:
+            self.donnees_rencontre = json.load(file)
+            return self.donnees_rencontre
+    def open_save2(self):
+        with open('save2.json', 'r') as file:
+            self.donnees_rencontre = json.load(file)
+            return self.donnees_rencontre
+    def open_save3(self):
+        with open('save3.json', 'r') as file:
             self.donnees_rencontre = json.load(file)
             return self.donnees_rencontre
 
