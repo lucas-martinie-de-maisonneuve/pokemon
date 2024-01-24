@@ -13,6 +13,8 @@ class Starter(Element, Screen):
         self.action = 1
         self.poke_player = ""
         self.choose_starter = False
+        self.starter_choosed = False
+        self.pokechoose = 1
 
     def starter(self):
         while self.choose_starter:

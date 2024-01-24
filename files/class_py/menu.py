@@ -1,4 +1,4 @@
-import pygame
+import pygame, time
 from files.class_py.screen import Screen
 from files.class_py.element import Element
 from files.class_py.pokedex import Pokedex
@@ -8,23 +8,39 @@ from files.class_py.starter import Starter
 from files.class_py.add_pokemon import AddPokemon
 from files.class_py.setting import Setting
 
-pokedex = Pokedex()
 combat = Combat()
 starter = Starter()
 addpokemon = AddPokemon()
 setting = Setting()
 
-class Menu(Element, Screen):
+class Menu(Pokedex):
     def __init__(self):
         Element.__init__(self)
         Screen.__init__(self)
+        Pokedex.__init__(self)
         self.menu_run = True
         self.show_home = True
         self.load_home = False
+        self.load_game = False
+        self.new_game = False
+        self.home_bag = False
 
+    def default_pkmn(self):
+        self.pkmn_rencontre = self.ouverture_pokemonrencontre()
+        if self.pkmn_rencontre != []:
+            pokemon_default = self.pkmn_rencontre[0]['true_num']
+            starter.poke_player = self.info_pokemon[pokemon_default - 1]
+            self.poke_player = self.info_pokemon[pokemon_default - 1]
+            starter.starter_choosed = True
     def home(self):
-        c = 1
-        d = 1 
+        self.default_pkmn()
+        # if self.pkmn_rencontre != []:
+        #     pokemon_default = self.pkmn_rencontre[0]['true_num']
+        #     starter.poke_player = self.info_pokemon[pokemon_default - 1]
+        #     self.poke_player = self.info_pokemon[pokemon_default - 1]
+        #     starter.starter_choosed = True
+        c = 1 #Navigation menu home
+        d = 1 #Navigation menu sauvegarde
         while self.menu_run:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -37,63 +53,132 @@ class Menu(Element, Screen):
                         break
                     if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                         if c < 5:
-                            c += 1
+                            if not self.load_home and not self.show_home:
+                                c += 1
                     elif event.key == pygame.K_LEFT or event.key == pygame.K_q:
                         if c > 1:
-                            c -= 1
+                            if not self.load_home and not self.show_home:
+                                c -= 1
                     elif event.key == pygame.K_UP or event.key == pygame.K_z:
-                        if d > 1 and self.load_home:
-                            d -= 1
-                        if c == 3 or c == 4 or c == 5:
-                            c = 6
-                        elif c == 1 or c == 2:
-                            c = 0                        
+                        if d > 1:
+                            if self.load_home:
+                                d -= 1
+                        if c >= 3:
+                            if not self.load_home and not self.show_home:
+                                c = 6
+                        elif c < 3: 
+                            if not self.load_home and not self.show_home:
+                                c = 0                        
                     elif event.key == pygame.K_DOWN or event.key == pygame.K_s:
-                        if d < 3 and self.load_home:
-                            d += 1
-                        if c == 6:
-                            c = 5
-                        elif c == 0:
-                            c = 1                   
-                    elif event.key == pygame.K_RETURN and self.load_home and not self.show_home:
-                        if d == 1 and self.load_home:
-                            self.load_home = False
-                        if d == 2 and self.load_home:
-                            self.load_home = False
-                            # + fonction_save
-                        if d == 3 and self.load_home:
-                            self.menu_run = False
-                            self.show_home = False
-                            pygame.quit()
-                            quit()
-                    elif event.key == pygame.K_RETURN and not self.load_home:
+                        if d < 3: 
+                            if self.load_home:
+                                d += 1
+                        if c == 6: 
+                            if not self.load_home and not self.show_home:
+                                c = 5
+                        elif c == 0: 
+                            if not self.load_home and not self.show_home:
+                                c = 1
+# Menu New/Load/Quit
+                    elif event.key == pygame.K_RETURN and self.load_home:
+                        if d == 1: 
+                            if self.load_home:
+                                if not self.load_game and not self.new_game: # Menu New/Load/Quit
+                                    self.new_game = True
+                                elif self.new_game:                          # Menu New_game
+                                    self.new_game_save1()
+                                    self.poke_player = ""
+                                    starter.poke_player = ""
+                                    self.new_game = False
+                                    self.load_home = False
+                                elif self.load_game:                         # Menu charger partie
+                                    self.default_pkmn()
+                                    self.load_game = False
+                                    self.load_home = False
+                        if d == 2:
+                            if self.load_home:
+                                if not self.load_game and not self.new_game: # Menu New/Load/Quit
+                                    self.load_game = True
+                                    d = 1
+                                elif self.new_game:                          # Menu New_game
+                                    self.new_game_save2()
+                                    self.poke_player = ""
+                                    starter.poke_player = ""
+                                    self.new_game = False
+                                    self.load_home = False
+                                elif self.load_game:                         # Menu charger partie
+                                    self.default_pkmn()
+                                    self.load_game = False
+                                    self.load_home = False
+                        if d == 3: 
+                            if self.load_home:
+                                if not self.load_game and not self.new_game: # Menu New/Load/Quit
+                                    pygame.quit()
+                                    quit()
+                                elif self.new_game:                          # Menu New_game
+                                    self.new_game_save3()
+                                    self.load_home = False
+                                    self.poke_player = ""
+                                    starter.poke_player = ""
+                                    self.new_game = False
+                                elif self.load_game:                         # Menu charger partie
+                                    self.default_pkmn()
+                                    self.load_game = False
+                                    self.load_home = False
+
+# Menu principal
+                    elif event.key == pygame.K_RETURN and not self.load_home and not self.show_home:
                         if c == 1:
-                            self.load_home = False
                             if starter.poke_player == "":
                                 starter.choose_starter = True
                                 starter.starter()
-                                if not any(pokemon['nom'] == starter.poke_player["nom"] for pokemon in pokedex.pkmn_rencontre):
-                                    pokedex.poke_rencontre(starter.poke_player["nom"])
+                                self.poke_rencontre(starter.poke_player["nom"])
                             else:
-                                pokemon_random = pokedex.rand_pokemon()                           
+                                pokemon_random = self.rand_pokemon()                           
                                 maps = Maps(starter.poke_player,pokemon_random)
                                 maps.home()
                                 maps.combat_run = True
-                                pokedex.poke_rencontre(pokemon_random["nom"])
-
+                                maps.home()
+                                self.poke_rencontre(pokemon_random["nom"])
                         elif c == 2:
-                            pokedex.pokedex_run = True
-                            pokedex.show_pokedex()
+                            self.pokedex_run = True
+                            self.show_pokedex()
+                        elif c == 3:
+                            self.home_bag = True
                         elif c == 4:
                             addpokemon.ajout_pokemon()
-                            pass
+                        elif c == 5:
+                            self.changing_pokemon = True
+                            self.change_pokemon()
                         elif c == 6:
                             setting.setting_run = True
                             setting.setting()
                         elif c == 0:
+                            if not self.load_home:
+                                self.maj_save()
                             self.load_home = True
-                            
-            if self.show_home:
+                    elif event.key == pygame.K_ESCAPE or event.key == pygame.K_BACKSPACE:
+                        if self.home_bag:
+                            self.home_bag = False
+                        elif self.load_game:
+                            self.load_home = True
+                            self.load_game = False
+                        elif self.new_game:
+                            self.load_home = True
+                            self.new_game = False
+
+            if self.pokemon_changed:
+                starter.poke_player = self.poke_player
+                self.pokedex_changed = False
+
+            if setting.reset :
+                self.vider_fichier_json()
+                self.poke_player = ""
+                starter.poke_player = ""
+                setting.reset = False
+
+# 1er menu lancement du jeu
+            if self.show_home:  
                 self.img_background(525, 350, 1244, 700, 'background')
                 self.img(1000, 650, 70, 70,'pokeball')
                 self.img_mir(50, 50, 70,70,'pokeball')
@@ -101,42 +186,129 @@ class Menu(Element, Screen):
                 self.img(385, 660, 20, 20, 'menu/copyright')
                 self.texte(15, '2024 - LaPlateforme', self.white, 525, 660)
                 self.img(100, 680, 17,17, 'menu/copyright')
-                self.texte(15, "Le  patron  (Lucas)  -  L'autre  Lucas  avec  les  lunettes (rondes)  -  Keviiiineu", self.white, 525, 680)
+                self.texte(15, "Le  patron  (Lucas)  -  L'autre  Lucas  avec  les  lunettes (rondes)  -  Keviiiineu (le bg au yeux bleu)", self.white, 525, 680)
                 self.update()
-                
-            
+
+#Menu Save/Load/Quit
             if self.load_home and not self.show_home:
                 self.img(525, 350, 1244, 700, "menu_load/img_background_load")
+                self.img(525, 180, 540, 220, "menu_load/titre_jeu-removebg-preview")
+            
+                if not self.load_game and not self.new_game:
+                    if d == 1:
+                        self.button_rect(self.black, 525, 385, 300, 60 )
+                        self.texte(20, "Nouvelle Partie", self.white, 525, 385)
+                    else:
+                        self.button_rect(self.white, 525, 385, 300, 60 )
+                        self.texte(20, "Nouvelle Partie", self.black, 525, 385)
+                        
+                    if d == 2:
+                        self.button_rect(self.black, 525, 510, 300, 60 )
+                        self.texte(20, "Charger une partie", self.white, 525, 510)
+                    else:
+                        self.button_rect(self.white, 525, 510, 300, 60 )
+                        self.texte(20, "Charger une partie", self.black, 525, 510)
+                        
+                    if d == 3:
+                        self.button_rect(self.black, 525, 635, 300, 60  )
+                        self.texte(20, "Quitter le jeu", self.white, 525, 635)
+                    else:
+                        self.button_rect(self.white, 525, 635, 300, 60 )
+                        self.texte(20, "Quitter le jeu", self.black, 525, 635) 
+                    self.update()
+# Menu New_game
+            if self.new_game:
                 if d == 1:
-                    self.button_rect(self.black, 525, 200, 300, 80 )
-                    self.texte(20, "Nouvelle Partie", self.white, 525, 200)
+                    self.button_rect(self.black, 275, 400, 300, 60 )
+                    self.texte(20, "Save1", self.white, 275, 400)
+                    self.choose_save = 'save1'
                 else:
-                    self.button_rect(self.white, 525, 200, 300, 80 )
-                    self.texte(20, "Nouvelle Partie", self.black, 525, 200)
+                    self.button_rect(self.white, 275, 400, 300, 60 )
+                    self.texte(20, "Save1", self.black, 275, 400)
                     
                 if d == 2:
-                    self.button_rect(self.black, 525, 400, 300, 80 )
-                    self.texte(20, "Charger une partie", self.white, 525, 400)
+                    self.button_rect(self.black, 525, 400, 300, 60 )
+                    self.texte(20, "Save2", self.white, 525, 400)
+                    self.choose_save = 'save2'
                 else:
-                    self.button_rect(self.white, 525, 400, 300, 80 )
-                    self.texte(20, "Charger une partie", self.black, 525, 400)
+                    self.button_rect(self.white, 525, 400, 300, 60 )
+                    self.texte(20, "Save2", self.black, 525, 400)
                     
                 if d == 3:
-                    self.button_rect(self.black, 525, 600, 300, 80  )
-                    self.texte(20, "Quitter le jeu", self.white, 525, 600)
+                    self.button_rect(self.black, 775, 400, 300, 60  )
+                    self.texte(20, "Save3", self.white, 775, 400)
+                    self.choose_save = 'save3'
                 else:
-                    self.button_rect(self.white, 525, 600, 300, 80 )
-                    self.texte(20, "Quitter le jeu", self.black, 525, 600)                                    
+                    self.button_rect(self.white, 775, 400, 300, 60 )
+                    self.texte(20, "Save3", self.black, 775, 400)   
                 self.update()
-                                
+#Menu Charger partie                  
+            if self.load_game:
+                self.img(600, 350, 600, 480, 'menu_load/load_game')
+                if d == 1:
+                    self.button_rect(self.white, 100, 175, 120, 120)
+                    self.texte(22, "Save 1", self.black, 600, 145)
+                    self.img_rotate(100, 175, 100, 100, 'menu_load/loading', 5)
+                    self.choose_save = 'save1'
+                    if self.pkm_save1 != []:
+                        self.texte_not_align(18, f"Dernier pokemon découvert: {self.pkm_save1[-1]['nom']}", self.black, 320 , 280)
+                        self.img(600, 450, 250,250, f'pokemon/{self.pkm_save1[-1]['nom'].lower()}')
+                        self.texte_not_align(18, f"Nombre de pokemon dans le Pokedex: {len(self.pkm_save1)}/50", self.black, 320 , 230)
+                    else:
+                        self.texte_not_align(18, f"Aucun pokemon dans le pokedex", self.black, 320 , 280)
+                else:
+                    self.button_rect(self.white, 100, 175, 100, 100)
+                    self.texte(20, "Save 1", self.black, 100, 175)
 
-            if not self.show_home and not self.load_home:      
+                if d == 2:
+                    self.button_rect(self.white, 100, 350, 120, 120)
+                    self.texte(22, "Save 2", self.black, 600, 145)
+                    self.img_rotate(100, 350, 100, 100, 'menu_load/loading', 5)
+                    self.choose_save = 'save2'
+                    if self.pkm_save2 != []:
+                        self.texte_not_align(18, f"Dernier pokemon découvert: {self.pkm_save2[-1]['nom']}", self.black, 320 , 280)
+                        self.img(600, 450, 250,250, f'pokemon/{self.pkm_save2[-1]['nom'].lower()}')
+
+                        self.texte_not_align(18, f"Nombre de pokemon dans le Pokedex: {len(self.pkm_save2)}/50", self.black, 320 , 230)
+                    else:
+                        self.texte_not_align(18, f"Aucun pokemon dans le pokedex", self.black, 320 , 280)
+                else:
+                    self.button_rect(self.white, 100, 350, 100, 100)
+                    self.texte(20, "Save 2", self.black, 100, 350)
+
+                if d == 3:
+                    self.button_rect(self.white, 100, 525, 120, 120)
+                    self.texte(22, "Save 3", self.black, 600, 145)
+                    self.img_rotate(100, 525, 100, 100, 'menu_load/loading', 5)
+                    self.choose_save = 'save3'
+                    if self.pkm_save3 != []:
+                        self.texte_not_align(18, f"Dernier pokemon découvert: {self.pkm_save3[-1]['nom']}", self.black, 320 , 280)
+                        self.img(600, 450, 250,250, f'pokemon/{self.pkm_save3[-1]['nom'].lower()}')
+                        self.texte_not_align(18, f"Nombre de pokemon dans le Pokedex: {len(self.pkm_save3)}/50", self.black, 320 , 230)
+                    else:
+                        self.texte_not_align(18, f"Aucun pokemon dans le pokedex", self.black, 320 , 280)                
+                else:
+                    self.button_rect(self.white, 100, 525, 100, 100)
+                    self.texte(20, "Save 3", self.black, 100, 525)
+
+                self.update()
+
+# Menu Sac
+            if self.home_bag:
+                self.img(525, 350, 1244, 700, 'bag/background_bag')
+                # self.img(525, 350, 600, 580,'bag/background_texte')
+                self.texte(30,"Votre sac est actuellement vide",(0, 255, 233), 525, 350)
+                
+                self.update()
+
+# Menu principal
+            if not self.show_home and not self.load_home and not self.home_bag:      
                 self.img(525, 350, 1244, 700, 'menu/backgroundmenu')
                 if starter.poke_player != "":
                     self.img(525, 250, 400, 400, f'pokemon/{starter.poke_player["nom"].lower()}')
 
                 if c == 0:
-                    self.img(30, 30, 53, 53, "setting/croix_rouge")                
+                    self.img(30, 30, 53, 53, "setting/croix_jaune")                
                 else:
                     self.img(30, 30, 46, 46, "setting/croix_rouge")
                 if c == 1 : 
@@ -177,5 +349,6 @@ class Menu(Element, Screen):
                 else:
                     self.img(990, 60, 80, 80, 'menu/settings')
                     self.texte(14,'Settings',self.black,990,110)
-                    
+
                 self.update()
+            
