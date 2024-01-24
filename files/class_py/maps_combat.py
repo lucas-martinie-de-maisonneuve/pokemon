@@ -34,9 +34,18 @@ class Maps(Element, Screen, Combat, Experience):
         self.poke_advers = pokemon_random['nom']
         self.game_over = False
         self.attack_phase_advers = False
-        self.poke_evolve = poke_player["evol"]      
-        self.exp_poke = self.recup_level()
-        self.pokemon_list = pokedex.info_pokemon                   
+        self.poke_evolve = poke_player["evol"]
+              
+        self.levelss_poke = pokedex.recup_level_exp(poke_player['nom'])
+        print(self.levelss_poke)  
+        
+        self.levels_poke = self.levelss_poke['level']
+        print(self.levels_poke)
+        # # self.experiencess_pokemon = pokedex.recup_level_exp(poke_player)
+        self.experience_pokemon = self.levelss_poke['exp']
+        print(self.experience_pokemon)       
+        self.pokemon_list = pokedex.info_pokemon
+        # self.rajout_exp = self.exp_par_combat()                   
 
     def home(self):
         while self.combat_run:
@@ -71,10 +80,10 @@ class Maps(Element, Screen, Combat, Experience):
                             self.pokemon_random_hp = self.attack(self.pokemon_random_hp, self.poke_player['attaque'],self.pokemon_type_player,self.type_pokemon_advers, self.pokemon_def_advers)                            
                             self.recup_poke_winner(self.poke_player['nom'], self.pokemon_random['nom'], self.poke_player_hp, self.pokemon_random_hp)
                             if self.game_over == True:
-                                self.verif_exp(self.exp_poke)
+                                self.verif_exp(self.levels_poke, self.experience_pokemon)
                                 self.verif_for_evolve()
-                                self.exp_par_combat(self.exp_poke)
-                                self.verif_exp(self.exp_poke)
+                                self.exp_par_combat(self.levels_poke)
+                                self.verif_exp(self.levels_poke, self.experience_pokemon)
                                 self.verif_for_evolve()  
                             self.text_phase = True
                         elif self.action == 2:
@@ -115,7 +124,7 @@ class Maps(Element, Screen, Combat, Experience):
             self.rect_hp(709, 478, 170, 12, self.poke_player_hp, self.poke_player_hp_max)
             self.img(839, 454, 350, 128, 'combat/player_hp')            
             self.texte(25, f"{self.poke_player['nom']}", self.black, 830, 420)
-            self.rect_exp(706, 455, 243, 11, self.exp_par_combat(self.exp_poke), self.exp_max(self.exp_poke))            
+            self.rect_exp(706, 455, 243, 11, self.experience_pokemon, self.exp_max(self.levels_poke))            
             self.img(855, 558, 430, 330, "combat/player_exp")
 
             self.button_rect(self.brown, 257, 130, 170, 12)

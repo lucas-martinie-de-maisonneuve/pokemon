@@ -1,44 +1,42 @@
 [
   {
     "numero": 1,
-    "nom": "Salameche",
-    "rencontre": 1,
-    "true_num": 1
+    "nom": "Bulbizarre",
+    "rencontre": 2,
+    "true_num": 4,
+    "level": 1,
+    "exp": 0
   },
   {
     "numero": 2,
-    "nom": "Grainipiot",
+    "nom": "Tauros",
     "rencontre": 1,
-    "true_num": 31
+    "true_num": 24,
+    "level": 1,
+    "exp": 0
   },
   {
     "numero": 3,
-    "nom": "Tortank",
+    "nom": "Salameche",
     "rencontre": 1,
-    "true_num": 9
+    "true_num": 1,
+    "level": 1,
+    "exp": 0
   },
   {
-    "numero": 3,
-    "nom": "Canarticho",
+    "numero": 4,
+    "nom": "Ossatueur",
     "rencontre": 1,
-    "true_num": 15
+    "true_num": 42,
+    "level": 1,
+    "exp": 0
   },
   {
     "numero": 5,
-    "nom": "Carapuce",
+    "nom": "Grolem",
     "rencontre": 1,
-    "true_num": 7
-  },
-  {
-    "numero": 6,
-    "nom": "Roucoups",
-    "rencontre": 1,
-    "true_num": 35
-  },
-  {
-    "numero": 7,
-    "nom": "Magicarpe",
-    "rencontre": 1,
-    "true_num": 29
+    "true_num": 18,
+    "level": 1,
+    "exp": 0
   }
 ]

@@ -1,51 +1,10 @@
 [
   {
     "numero": 1,
-    "nom": "Carapuce",
+    "nom": "Pikachu",
     "rencontre": 1,
-    "true_num": 7,
-    "level": 1
-  },
-  {
-    "numero": 2,
-    "nom": "Aquali",
-    "rencontre": 1,
-    "true_num": 13,
-    "level": 1
-  },
-  {
-    "numero": 3,
-    "nom": "Magneti",
-    "rencontre": 1,
-    "true_num": 44,
-    "level": 1
-  },
-  {
-    "numero": 4,
-    "nom": "Bulbizarre",
-    "rencontre": 1,
-    "true_num": 4,
-    "level": 1
-  },
-  {
-    "numero": 5,
-    "nom": "Rayquaza",
-    "rencontre": 1,
-    "true_num": 50,
-    "level": 1
-  },
-  {
-    "numero": 6,
-    "nom": "Herbizarre",
-    "rencontre": 1,
-    "true_num": 5,
-    "level": 1
-  },
-  {
-    "numero": 22,
-    "nom": "Kyogre",
-    "rencontre": 1,
-    "true_num": 48,
-    "level": 1
+    "true_num": 10,
+    "level": 1,
+    "exp": 0
   }
 ]
