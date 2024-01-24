@@ -19,8 +19,6 @@ class Pokedex(Element, Screen):
         self.pkm_save3 = self.open_save3()
         self.pokedex_run = False
         self.detailed_pokemon = False
-        self.changing_pokemon = False
-        self.pokemon_changed = False
 
     def print_pkmn(self):
         print(self.pkmn_rencontre)
@@ -113,11 +111,12 @@ class Pokedex(Element, Screen):
         if not existe:
             for index, pokemon_info in enumerate(self.info_pokemon):
                 if pokemon_info['nom'] == pokemon_name:
-                    self.pokemon_num = pokemon_info['numero']
-            self.rencontre_num = self.get_last_pokemon_rencontre_number()
-            self.pkmn_rencontre.append({'numero': self.rencontre_num + 1, 'nom': pokemon_name, 'rencontre': 1, 'true_num': self.pokemon_num, 'level': 1, 'exp': 0})
-            with open(f'{self.choose_save}.json', 'w') as file:
-                json.dump(self.pkmn_rencontre, file, indent=2)  
+                    pokemon_num = pokemon_info['numero']
+            rencontre_num = self.get_last_pokemon_rencontre_number()
+            self.pkmn_rencontre.append({'numero': rencontre_num + 1, 'nom': pokemon_name, 'rencontre': 1, 'true_num': pokemon_num, 'level': 1})
+
+        with open(f'{self.choose_save}.json', 'w') as file:
+            json.dump(self.pkmn_rencontre, file, indent=2)
 
         return False
     

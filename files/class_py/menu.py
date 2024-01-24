@@ -138,9 +138,11 @@ class Menu(Pokedex):
                             else:
                                 pokemon_random = self.rand_pokemon()                           
                                 maps = Maps(starter.poke_player,pokemon_random)
+                                maps.home()
                                 maps.combat_run = True
                                 maps.home()
                                 self.poke_rencontre(pokemon_random["nom"])
+
                         elif c == 2:
                             self.pokedex_run = True
                             self.show_pokedex()

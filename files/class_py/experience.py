@@ -8,12 +8,17 @@ class Experience:
         # self.exp_max_poke = 0        
         # self.numero_poke = poke_player["numero"]
         # self.poke_evol = self.numero_poke["numero"]+ 1
-        self.exp_poke = 0
-        # self.liste_poke = pokedex.info_pokemon
-        self.poke_sherch_name = pokedex.rand_pokemon()
-        self.pokemons_name = self.poke_sherch_name['nom']
-        # self.liste_rencontre_poke = pokedex.pkmn_rencontre   
+        self.liste_poke = pokedex.info_pokemon
+        self.liste_rencontre_poke = pokedex.pkmn_rencontre
+    
+    def recup_level(self):
+        for info_poke_rencontre in self.liste_rencontre_poke:
+            for pokemon in self.liste_poke:
+                if info_poke_rencontre["nom"] == pokemon["nom"]:
+                    poke_level = info_poke_rencontre["level"]
+                    return poke_level
         
+           
     def exp_par_combat(self, level):
         if level is not None and 1 <= level <= 2:
             exp_poke = 15
