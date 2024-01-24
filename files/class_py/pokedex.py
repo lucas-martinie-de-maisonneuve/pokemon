@@ -44,12 +44,32 @@ class Pokedex(Element, Screen):
             self.donnees_rencontre = json.load(file)
             return self.donnees_rencontre
 
+    def maj_save(self):
+        self.pkm_save1 = self.open_save1()
+        self.pkm_save2 = self.open_save2()
+        self.pkm_save3 = self.open_save3()
+
     def vider_fichier_json(self):
         with open(f'{self.choose_save}.json', 'w') as fichier:
             json.dump([], fichier)
         self.pkmn_rencontre = self.ouverture_pokemonrencontre()
-        
         return self.pkmn_rencontre
+    
+    def new_game_save1(self):
+            with open(f'save1.json', 'w') as fichier:
+                json.dump([], fichier)
+            self.pkmn_rencontre = self.ouverture_pokemonrencontre()
+            return self.pkmn_rencontre
+    def new_game_save2(self):
+            with open(f'save2.json', 'w') as fichier:
+                json.dump([], fichier)
+            self.pkmn_rencontre = self.ouverture_pokemonrencontre()
+            return self.pkmn_rencontre
+    def new_game_save3(self):
+            with open(f'save3.json', 'w') as fichier:
+                json.dump([], fichier)
+            self.pkmn_rencontre = self.ouverture_pokemonrencontre()
+            return self.pkmn_rencontre
 
     def get_last_pokemon_number(self):
         last_pokemon = self.info_pokemon[-1]
