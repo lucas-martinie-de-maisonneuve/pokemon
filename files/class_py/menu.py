@@ -32,6 +32,10 @@ class Menu(Pokedex):
             starter.poke_player = self.info_pokemon[pokemon_default - 1]
             self.poke_player = self.info_pokemon[pokemon_default - 1]
             starter.starter_choosed = True
+        if self.pokemon_changed:
+            starter.poke_player = self.poke_player
+            self.pokedex_changed = False
+            
     def home(self):
         self.default_pkmn()
         # if self.pkmn_rencontre != []:
@@ -168,11 +172,7 @@ class Menu(Pokedex):
                             self.load_game = False
                         elif self.new_game:
                             self.load_home = True
-                            self.new_game = False
-
-            if self.pokemon_changed:
-                starter.poke_player = self.poke_player
-                self.pokedex_changed = False
+                            self.new_game = False           
 
             if setting.reset :
                 self.vider_fichier_json()
