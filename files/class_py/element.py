@@ -99,9 +99,11 @@ class Element:
         else:
             pygame.draw.rect(screen.Fenetre, (239, 71, 111), pygame.Rect(x, y, longueur * hp // hp_max, largeur))
     
-    def rect_exp(self, x, y, longueur, largeur, exp, exp_max):
+    def rect_exp(self, x, y, longueur, largeur, exp, exp_max):        
         pygame.draw.rect(screen.Fenetre, (37, 107, 247), pygame.Rect(x, y, longueur * exp // exp_max, largeur), 0, 5)
+        
 
+        
     def draw_overlay(self, coloralpha, x, y, largeur, longueur):
         overlay_surface = pygame.Surface((largeur, longueur), pygame.SRCALPHA)
         overlay_surface.fill(coloralpha)

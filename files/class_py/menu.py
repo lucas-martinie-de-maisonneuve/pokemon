@@ -23,6 +23,7 @@ class Menu(Pokedex):
         self.load_home = False
         self.load_game = False
         self.new_game = False
+        self.home_bag = False
 
     def home(self):
         self.ouverture_pokemonrencontre()
@@ -108,7 +109,9 @@ class Menu(Pokedex):
                                 if not self.load_game and not self.new_game: # Menu New/Load/Quit
                                     pygame.quit()
                                     quit()
-                                elif self.new_game:                          # Menu New_game
+                                elif event.key == pygame.K_ESCAPE or event.key == pygame.K_BACKSPACE and self.home_bag:
+                        self.home_bag = False
+                    elif self.new_game:                          # Menu New_game
                                     self.new_game_save3()
                                     self.poke_player = ""
                                     starter.poke_player = ""
@@ -133,8 +136,10 @@ class Menu(Pokedex):
                                 maps.home()
                                 self.poke_rencontre(pokemon_random["nom"])
                         elif c == 2:
-                            self.pokedex_run = True
-                            self.show_pokedex()
+                            pokedex.pokedex_run = True
+                            pokedex.show_pokedex()
+                        elif c == 3:
+                            self.home_bag = True
                         elif c == 4:
                             addpokemon.ajout_pokemon()
                         elif c == 5:
@@ -319,5 +324,10 @@ class Menu(Pokedex):
                 else:
                     self.img(990, 60, 80, 80, 'menu/settings')
                     self.texte(14,'Settings',self.black,990,110)
+                
+                if self.home_bag:
+                    self.img(525, 350, 1244, 700, 'bag/background_bag')
+                    # self.img(525, 350, 600, 580,'bag/background_texte')
+                    self.texte(30,"Votre sac est actuellement vide",(0, 255, 233), 525, 350)
                     
                 self.update()

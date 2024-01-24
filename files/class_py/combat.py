@@ -1,9 +1,9 @@
 from files.class_py.type import Type
-from files.class_py.experience import Experience
+# from files.class_py.experience import Experience
 
 type = Type()
 
-class Combat(Experience):
+class Combat:
     def __init__(self):
         self.combat = True       
         self.game_over = False

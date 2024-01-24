@@ -1,0 +1,338 @@
+[
+  {
+    "numero": 1,
+    "nom": "Salameche",
+    "rencontre": 1,
+    "true_num": 1,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 2,
+    "nom": "Gravalanch",
+    "rencontre": 3,
+    "true_num": 17,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 3,
+    "nom": "Tauros",
+    "rencontre": 3,
+    "true_num": 24,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 4,
+    "nom": "Insecateur",
+    "rencontre": 4,
+    "true_num": 43,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 5,
+    "nom": "Osselait",
+    "rencontre": 3,
+    "true_num": 41,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 6,
+    "nom": "Kyogre",
+    "rencontre": 5,
+    "true_num": 48,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 7,
+    "nom": "Sablaireau",
+    "rencontre": 2,
+    "true_num": 40,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 7,
+    "nom": "Ossatueur",
+    "rencontre": 3,
+    "true_num": 42,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 7,
+    "nom": "Goupix",
+    "rencontre": 3,
+    "true_num": 37,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 10,
+    "nom": "Fenard",
+    "rencontre": 3,
+    "true_num": 38,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 11,
+    "nom": "Elektek",
+    "rencontre": 7,
+    "true_num": 26,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 12,
+    "nom": "Artikodin",
+    "rencontre": 2,
+    "true_num": 45,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 13,
+    "nom": "Groudon",
+    "rencontre": 3,
+    "true_num": 49,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 12,
+    "nom": "Pifeuil",
+    "rencontre": 2,
+    "true_num": 32,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 15,
+    "nom": "Magneti",
+    "rencontre": 3,
+    "true_num": 44,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 15,
+    "nom": "Roucarnage",
+    "rencontre": 2,
+    "true_num": 36,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 17,
+    "nom": "Phyllali",
+    "rencontre": 3,
+    "true_num": 23,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 18,
+    "nom": "Carapuce",
+    "rencontre": 2,
+    "true_num": 7,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 19,
+    "nom": "Pikachu",
+    "rencontre": 5,
+    "true_num": 10,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 20,
+    "nom": "Roucoups",
+    "rencontre": 2,
+    "true_num": 35,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 21,
+    "nom": "Roucool",
+    "rencontre": 3,
+    "true_num": 34,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 22,
+    "nom": "Reptincelle",
+    "rencontre": 1,
+    "true_num": 2,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 23,
+    "nom": "Herbizarre",
+    "rencontre": 1,
+    "true_num": 5,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 24,
+    "nom": "Papinox",
+    "rencontre": 3,
+    "true_num": 14,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 25,
+    "nom": "Tengalice",
+    "rencontre": 1,
+    "true_num": 33,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 26,
+    "nom": "Scarabrute",
+    "rencontre": 3,
+    "true_num": 28,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 27,
+    "nom": "Carabaffe",
+    "rencontre": 1,
+    "true_num": 8,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 28,
+    "nom": "Metamorphe",
+    "rencontre": 2,
+    "true_num": 51,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 29,
+    "nom": "Raichu",
+    "rencontre": 3,
+    "true_num": 11,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 29,
+    "nom": "Canarticho",
+    "rencontre": 3,
+    "true_num": 15,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 29,
+    "nom": "Sabelette",
+    "rencontre": 1,
+    "true_num": 39,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 29,
+    "nom": "Pyroli",
+    "rencontre": 1,
+    "true_num": 22,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 29,
+    "nom": "Tortank",
+    "rencontre": 2,
+    "true_num": 9,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 34,
+    "nom": "Leviator",
+    "rencontre": 1,
+    "true_num": 30,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 29,
+    "nom": "Electhor",
+    "rencontre": 2,
+    "true_num": 46,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 29,
+    "nom": "Grainipiot",
+    "rencontre": 3,
+    "true_num": 31,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 29,
+    "nom": "Magicarpe",
+    "rencontre": 1,
+    "true_num": 29,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 38,
+    "nom": "Kangourex",
+    "rencontre": 1,
+    "true_num": 25,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 39,
+    "nom": "Evoli",
+    "rencontre": 1,
+    "true_num": 19,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 40,
+    "nom": "Aquali",
+    "rencontre": 1,
+    "true_num": 20,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 41,
+    "nom": "Chenipotte",
+    "rencontre": 1,
+    "true_num": 12,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 41,
+    "nom": "Blindalys",
+    "rencontre": 1,
+    "true_num": 13,
+    "level": 1,
+    "exp": 0
+  }
+]
