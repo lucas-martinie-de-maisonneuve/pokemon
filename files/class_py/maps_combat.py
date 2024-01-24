@@ -36,7 +36,7 @@ class Maps(Element, Screen, Combat, Experience):
         self.attack_phase_advers = False
         self.poke_evolve = poke_player["evol"]                    
 
-    def home(self):
+    def battle(self):
         while self.combat_run:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -193,8 +193,9 @@ class Maps(Element, Screen, Combat, Experience):
                 self.texte(20, f"What will {self.poke_player['nom']} do?", self.black, 300, 625)         
             
             if self.game_over:
+                self.sound_event("win")
                 self.img(540, 280, 470, 190, "combat/background_texte")
-                self.texte(18, f"{self.win} a gagner le combat", self.black, 540, 280)
+                self.texte(18, f"{self.win} a gagné le combat", self.black, 540, 280)
                 self.texte(12, "PRESS RETURN TO ESCAPE", self.black, 540, 400)                               
             self.update()
             
@@ -203,3 +204,8 @@ class Maps(Element, Screen, Combat, Experience):
             # self.texte(20, f"{self.pokemon_random['nom']} inflige {self.dmg_poke}", self.black, 300, 590)
             # self.texte(20, f"{self.poke_player['nom']} avait {self.poke_player_hp + self.dmg_poke}", self.black, 300, 625)
             # self.texte(20, f"Il lui reste {self.poke_hp}", self.black, 300, 660)
+
+    def sound_event(self, music_name):
+        pygame.mixer.music.stop()
+        pygame.mixer.music.load(f'files/song/{music_name}.mp3',)
+        pygame.mixer.music.play(0)
