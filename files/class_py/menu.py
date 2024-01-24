@@ -22,12 +22,18 @@ class Menu(Element, Screen):
         self.show_home = True
         self.load_home = False
 
+        #initilisation de la musique
+        pygame.mixer.init()
+        pygame.mixer.music.load('files/song/opening.mp3')
+        pygame.mixer.music.play(-1)
+
     def home(self):
         c = 1
         d = 1 
         while self.menu_run:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
+                    pygame.mixer.music.stop()
                     pygame.quit()
                     quit()
                 if event.type == pygame.KEYDOWN and not setting.setting_run:
@@ -74,15 +80,20 @@ class Menu(Element, Screen):
                                 if not any(pokemon['nom'] == starter.poke_player["nom"] for pokemon in pokedex.pkmn_rencontre):
                                     pokedex.poke_rencontre(starter.poke_player["nom"])
                             else:
+                                self.stop_and_new("battle")
                                 pokemon_random = pokedex.rand_pokemon()                           
                                 maps = Maps(starter.poke_player,pokemon_random)
-                                maps.home()
+                                maps.battle()
                                 maps.combat_run = True
                                 pokedex.poke_rencontre(pokemon_random["nom"])
+                                self.stop_and_new("bicycle")
+
 
                         elif c == 2:
+                            self.stop_and_new("pokedex")
                             pokedex.pokedex_run = True
                             pokedex.show_pokedex()
+                            self.stop_and_new("bicycle")
                         elif c == 4:
                             addpokemon.ajout_pokemon()
                         elif c == 5:
@@ -181,3 +192,16 @@ class Menu(Element, Screen):
                     self.texte(14,'Settings',self.black,990,110)
                     
                 self.update()
+
+
+    def stop_and_new(self, music_name):
+        pygame.mixer.music.stop()
+        pygame.mixer.music.load(f'files/song/{music_name}.mp3')
+        pygame.mixer.music.play(-1)
+    
+
+    def sound_event(self, music_name):
+        pygame.mixer.music.stop()
+        pygame.mixer.music.load(f'files/song/{music_name}.mp3',)
+        pygame.mixer.music.play(0)
+

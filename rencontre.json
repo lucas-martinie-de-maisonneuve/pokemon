@@ -21,7 +21,7 @@
   },
   {
     "nom": "Herbizarre",
-    "rencontre": 1
+    "rencontre": 2
   },
   {
     "nom": "Magicarpe",
@@ -30,5 +30,71 @@
   {
     "nom": "Kyogre",
     "rencontre": 1
+  },
+  {
+    "numero": 9,
+    "nom": "Reptincelle",
+    "rencontre": 1,
+    "true_num": 2
+  },
+  {
+    "numero": 10,
+    "nom": "Metamorphe",
+    "rencontre": 1,
+    "true_num": 51
+  },
+  {
+    "numero": 11,
+    "nom": "Pyroli",
+    "rencontre": 2,
+    "true_num": 22
+  },
+  {
+    "numero": 12,
+    "nom": "Aquali",
+    "rencontre": 2,
+    "true_num": 20
+  },
+  {
+    "numero": 13,
+    "nom": "Grolem",
+    "rencontre": 1,
+    "true_num": 18
+  },
+  {
+    "numero": 14,
+    "nom": "Carapuce",
+    "rencontre": 1,
+    "true_num": 7
+  },
+  {
+    "numero": 15,
+    "nom": "Bulbizarre",
+    "rencontre": 1,
+    "true_num": 4
+  },
+  {
+    "numero": 16,
+    "nom": "Insecateur",
+    "rencontre": 1,
+    "true_num": 43
+  },
+  {
+    "numero": 17,
+    "nom": "Evoli",
+    "rencontre": 1,
+    "true_num": 19
+  },
+  {
+    "numero": 18,
+    "nom": "Goupix",
+    "rencontre": 1,
+    "true_num": 37
+  },
+  {
+    "numero": 19,
+    "nom": "Raichu",
+    "rencontre": 2,
+    "true_num": 11
   }
 ]

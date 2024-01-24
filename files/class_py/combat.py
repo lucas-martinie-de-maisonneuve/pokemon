@@ -82,7 +82,9 @@ class Combat(Experience):
         if poke_player_hp <= 0:
             self.game_over = True
             self.win = poke_advers   
+            
         elif poke_rand_hp <= 0:
             self.game_over = True
             self.win = poke_player            
         return self.win
+    
