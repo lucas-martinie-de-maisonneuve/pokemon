@@ -252,7 +252,7 @@ class Menu(Pokedex):
                     self.choose_save = 'save1'
                     if self.pkm_save1 != []:
                         self.texte_not_align(18, f"Dernier pokemon découvert: {self.pkm_save1[-1]['nom']}", self.black, 320 , 280)
-                        self.img(600, 450, 250,250, f'pokemon/{self.pkm_save1[-1]['nom'].lower()}')
+                        self.img(600, 450, 250,250, f"pokemon/{self.pkm_save1[-1]['nom'].lower()}")
                         self.texte_not_align(18, f"Nombre de pokemon dans le Pokedex: {len(self.pkm_save1)}/50", self.black, 320 , 230)
                     else:
                         self.texte_not_align(18, f"Aucun pokemon dans le pokedex", self.black, 320 , 280)
@@ -267,7 +267,7 @@ class Menu(Pokedex):
                     self.choose_save = 'save2'
                     if self.pkm_save2 != []:
                         self.texte_not_align(18, f"Dernier pokemon découvert: {self.pkm_save2[-1]['nom']}", self.black, 320 , 280)
-                        self.img(600, 450, 250,250, f'pokemon/{self.pkm_save2[-1]['nom'].lower()}')
+                        self.img(600, 450, 250,250, f"pokemon/{self.pkm_save2[-1]['nom'].lower()}")
 
                         self.texte_not_align(18, f"Nombre de pokemon dans le Pokedex: {len(self.pkm_save2)}/50", self.black, 320 , 230)
                     else:
@@ -283,7 +283,7 @@ class Menu(Pokedex):
                     self.choose_save = 'save3'
                     if self.pkm_save3 != []:
                         self.texte_not_align(18, f"Dernier pokemon découvert: {self.pkm_save3[-1]['nom']}", self.black, 320 , 280)
-                        self.img(600, 450, 250,250, f'pokemon/{self.pkm_save3[-1]['nom'].lower()}')
+                        self.img(600, 450, 250,250, f"pokemon/{self.pkm_save3[-1]['nom'].lower()}")
                         self.texte_not_align(18, f"Nombre de pokemon dans le Pokedex: {len(self.pkm_save3)}/50", self.black, 320 , 230)
                     else:
                         self.texte_not_align(18, f"Aucun pokemon dans le pokedex", self.black, 320 , 280)                
