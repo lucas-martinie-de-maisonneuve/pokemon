@@ -108,10 +108,8 @@ class Menu(Pokedex):
                             if self.load_home:
                                 if not self.load_game and not self.new_game: # Menu New/Load/Quit
                                     pygame.quit()
-                                    quit()
-                                elif event.key == pygame.K_ESCAPE or event.key == pygame.K_BACKSPACE and self.home_bag:
-                        self.home_bag = False
-                    elif self.new_game:                          # Menu New_game
+                                    quit()                            
+                                elif self.new_game:                          # Menu New_game
                                     self.new_game_save3()
                                     self.poke_player = ""
                                     starter.poke_player = ""
@@ -121,6 +119,8 @@ class Menu(Pokedex):
                                     self.load_game = False
                                     self.ouverture_pokemonrencontre()
                                     self.load_home = False
+                    elif event.key == pygame.K_ESCAPE or event.key == pygame.K_BACKSPACE and self.home_bag:
+                        self.home_bag = False
 
 # Menu principal
                     elif event.key == pygame.K_RETURN and not self.load_home and not self.show_home:
@@ -136,8 +136,8 @@ class Menu(Pokedex):
                                 maps.home()
                                 self.poke_rencontre(pokemon_random["nom"])
                         elif c == 2:
-                            pokedex.pokedex_run = True
-                            pokedex.show_pokedex()
+                            self.pokedex_run = True
+                            self.show_pokedex()
                         elif c == 3:
                             self.home_bag = True
                         elif c == 4:
@@ -235,7 +235,7 @@ class Menu(Pokedex):
                     self.choose_save = 'save1'
                     if self.pkm_save1 != []:
                         self.texte_not_align(18, f"Dernier pokemon découvert: {self.pkm_save1[-1]['nom']}", self.black, 320 , 280)
-                        self.img(600, 450, 250,250, f'pokemon/{self.pkm_save1[-1]['nom'].lower()}')
+                        self.img(600, 450, 250,250, f"pokemon/{self.pkm_save1[-1]['nom'].lower()}")
                         self.texte_not_align(18, f"Nombre de pokemon dans le Pokedex: {len(self.pkm_save1)}/50", self.black, 320 , 230)
                     else:
                         self.texte_not_align(18, f"Aucun pokemon dans le pokedex", self.black, 320 , 280)
@@ -250,7 +250,7 @@ class Menu(Pokedex):
                     self.choose_save = 'save2'
                     if self.pkm_save2 != []:
                         self.texte_not_align(18, f"Dernier pokemon découvert: {self.pkm_save2[-1]['nom']}", self.black, 320 , 280)
-                        self.img(600, 450, 250,250, f'pokemon/{self.pkm_save2[-1]['nom'].lower()}')
+                        self.img(600, 450, 250,250, f"pokemon/{self.pkm_save2[-1]['nom'].lower()}")
 
                         self.texte_not_align(18, f"Nombre de pokemon dans le Pokedex: {len(self.pkm_save2)}/50", self.black, 320 , 230)
                     else:
@@ -266,7 +266,7 @@ class Menu(Pokedex):
                     self.choose_save = 'save3'
                     if self.pkm_save3 != []:
                         self.texte_not_align(18, f"Dernier pokemon découvert: {self.pkm_save3[-1]['nom']}", self.black, 320 , 280)
-                        self.img(600, 450, 250,250, f'pokemon/{self.pkm_save3[-1]['nom'].lower()}')
+                        self.img(600, 450, 250,250, f"pokemon/{self.pkm_save3[-1]['nom'].lower()}")
                         self.texte_not_align(18, f"Nombre de pokemon dans le Pokedex: {len(self.pkm_save3)}/50", self.black, 320 , 230)
                     else:
                         self.texte_not_align(18, f"Aucun pokemon dans le pokedex", self.black, 320 , 280)                
@@ -325,9 +325,8 @@ class Menu(Pokedex):
                     self.img(990, 60, 80, 80, 'menu/settings')
                     self.texte(14,'Settings',self.black,990,110)
                 
-                if self.home_bag:
-                    self.img(525, 350, 1244, 700, 'bag/background_bag')
+            if self.home_bag:
+                self.img(525, 350, 1244, 700, 'bag/background_bag')
                     # self.img(525, 350, 600, 580,'bag/background_texte')
-                    self.texte(30,"Votre sac est actuellement vide",(0, 255, 233), 525, 350)
-                    
-                self.update()
+                self.texte(30,"Votre sac est actuellement vide",(0, 255, 233), 525, 350)                   
+        self.update()
