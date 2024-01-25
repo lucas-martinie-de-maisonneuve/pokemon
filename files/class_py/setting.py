@@ -31,7 +31,6 @@ class Setting(Element,Screen):
                     pygame.quit()
                     quit()
                 if event.type == pygame.KEYDOWN:
-                    print(self.current_volume)
 #Touche Gauche
                     if event.key == pygame.K_LEFT or event.key == pygame.K_q:
                         #Gauche verif quit
