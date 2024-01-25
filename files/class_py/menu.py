@@ -159,7 +159,6 @@ class Menu(Pokedex):
                                 maps = Maps(starter.poke_player,pokemon_random, self.choose_save)
                                 self.poke_rencontre(pokemon_random["nom"])
                                 maps.combat_run = True
-                                self.stop_and_new("battle")
                                 maps.battle()
                                 self.stop_and_new("bicycle")
                         elif c == 2:
