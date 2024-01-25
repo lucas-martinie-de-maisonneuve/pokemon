@@ -5,6 +5,7 @@ from files.class_py.combat import Combat
 from files.class_py.starter import Starter
 from files.class_py.add_pokemon import AddPokemon
 from files.class_py.setting import Setting
+from files.class_py.config import confirmation_sound,current_volume,volume_levels
 
 combat = Combat()
 starter = Starter()
@@ -18,6 +19,12 @@ class Menu(Pokedex):
         self.menu_run = True
         self.show_home = True
         self.load_home = False
+        self.confirmation_sound = confirmation_sound
+        self.current_volume = current_volume
+        self.volume_levels = volume_levels
+        #initilisation de la musique
+        pygame.mixer.music.load('files/song/opening.mp3')
+        pygame.mixer.music.play(-1)
         self.load_game = False
         self.new_game = False
         self.home_bag = False
@@ -42,40 +49,51 @@ class Menu(Pokedex):
         while self.menu_run:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
+                    pygame.mixer.music.stop()
                     pygame.quit()
                     quit()
                 if event.type == pygame.KEYDOWN and not setting.setting_run:
+                    print(self.current_volume)
                     if self.show_home:
+                        self.play_confirmation_sound()
                         self.show_home = False
                         self.load_home = True
                         break
                     if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                         if c < 5:
                             if not self.load_home and not self.show_home:
+                                self.play_confirmation_sound()
                                 c += 1
                     elif event.key == pygame.K_LEFT or event.key == pygame.K_q:
                         if c > 1:
                             if not self.load_home and not self.show_home:
+                                self.play_confirmation_sound()
                                 c -= 1
                     elif event.key == pygame.K_UP or event.key == pygame.K_z:
                         if d > 1:
                             if self.load_home:
+                                self.play_confirmation_sound()
                                 d -= 1
                         if c >= 3:
                             if not self.load_home and not self.show_home:
+                                self.play_confirmation_sound()
                                 c = 6
                         elif c < 3: 
                             if not self.load_home and not self.show_home:
+                                self.play_confirmation_sound()
                                 c = 0                        
                     elif event.key == pygame.K_DOWN or event.key == pygame.K_s:
                         if d < 3: 
                             if self.load_home:
+                                self.play_confirmation_sound()
                                 d += 1
                         if c == 6: 
                             if not self.load_home and not self.show_home:
+                                self.play_confirmation_sound()
                                 c = 5
                         elif c == 0: 
                             if not self.load_home and not self.show_home:
+                                self.play_confirmation_sound()
                                 c = 1
 
 # Menu New/Load/Quit
@@ -105,10 +123,12 @@ class Menu(Pokedex):
                                     self.poke_player = ""
                                     starter.poke_player = ""
                                     self.new_game = False
+                                    self.play_confirmation_sound()
                                     self.load_home = False
                                 elif self.load_game:                         # Menu charger partie
                                     self.default_pkmn()
                                     self.load_game = False
+                                    self.play_confirmation_sound()
                                     self.load_home = False
 
                         if d == 3: 
@@ -126,35 +146,44 @@ class Menu(Pokedex):
                                     self.default_pkmn()
                                     self.load_game = False
                                     self.load_home = False
-
 # Menu principal
                     elif event.key == pygame.K_RETURN and not self.load_home and not self.show_home:
                         if c == 1:
+                            self.play_confirmation_sound()
                             if starter.poke_player == "":
                                 starter.choose_starter = True
                                 starter.starter()
                                 self.poke_rencontre(starter.poke_player["nom"])
                             else:
-                                self.pkmn_rencontre = self.ouverture_pokemonrencontre()  
+                                self.pkmn_rencontre = self.ouverture_pokemonrencontre()
                                 pokemon_random = self.rand_pokemon()                           
                                 maps = Maps(starter.poke_player,pokemon_random, self.choose_save)
-                                maps.combat_run = True
                                 self.poke_rencontre(pokemon_random["nom"])
-                                maps.home()
+                                maps.combat_run = True
+                                self.stop_and_new("battle")
+                                maps.battle()
+                                self.stop_and_new("bicycle")
                         elif c == 2:
+                            self.play_confirmation_sound()
+                            self.stop_and_new("pokedex")
                             self.pokedex_run = True
                             self.show_pokedex()
+                            self.stop_and_new("bicycle")
                         elif c == 3:
                             self.home_bag = True
                         elif c == 4:
+                            self.play_confirmation_sound()
                             addpokemon.ajout_pokemon()
                         elif c == 5:
+                            self.play_confirmation_sound()
                             self.changing_pokemon = True
                             self.change_pokemon()
                         elif c == 6:
+                            self.play_confirmation_sound()
                             setting.setting_run = True
                             setting.setting()
                         elif c == 0:
+                            self.play_confirmation_sound()
                             if not self.load_home:
                                 self.maj_save()
                             self.load_home = True
@@ -162,11 +191,9 @@ class Menu(Pokedex):
                         if self.home_bag:
                             self.home_bag = False
                         elif self.load_game:
-                            self.load_home = True
                             self.load_game = False
                         elif self.new_game:
-                            self.load_home = True
-                            self.new_game = False
+                            self.new_game = False           
 
             if self.pokemon_changed:
                 self.pkmn_rencontre = self.ouverture_pokemonrencontre()

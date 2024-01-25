@@ -1,10 +1,13 @@
 from files.class_py.type import Type
 # from files.class_py.experience import Experience
+from files.class_py.element import Element
+# from config import confirmation_sound, current_volume, volume_levels
 
 type = Type()
 
 class Combat:
     def __init__(self):
+        self.element = Element()
         self.combat = True       
         self.game_over = False
         self.win = ""
@@ -82,7 +85,10 @@ class Combat:
         if poke_player_hp <= 0:
             self.game_over = True
             self.win = poke_advers   
+            self.element.win_song_play = True
         elif poke_rand_hp <= 0:
             self.game_over = True
-            self.win = poke_player            
+            self.win = poke_player 
+            self.element.win_song_play = True           
         return self.win
+    
