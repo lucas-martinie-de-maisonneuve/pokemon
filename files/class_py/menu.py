@@ -33,12 +33,11 @@ class Menu(Pokedex):
             self.poke_player = self.info_pokemon[pokemon_default - 1]
             starter.starter_choosed = True
     def home(self):
-        self.default_pkmn()
-        # if self.pkmn_rencontre != []:
-        #     pokemon_default = self.pkmn_rencontre[0]['true_num']
-        #     starter.poke_player = self.info_pokemon[pokemon_default - 1]
-        #     self.poke_player = self.info_pokemon[pokemon_default - 1]
-        #     starter.starter_choosed = True
+        if self.pkmn_rencontre != []:
+            pokemon_default = self.pkmn_rencontre[0]['true_num']
+            starter.poke_player = self.info_pokemon[pokemon_default - 1]
+            self.poke_player = self.info_pokemon[pokemon_default - 1]
+            starter.starter_choosed = True
         c = 1 #Navigation menu home
         d = 1 #Navigation menu sauvegarde
         while self.menu_run:

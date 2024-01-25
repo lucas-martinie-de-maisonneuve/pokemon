@@ -140,7 +140,7 @@ class Pokedex(Element, Screen):
                 print(f"exp ajoutée pour {poke_name}: {exp}")
 
             # Assurez-vous que le fichier est correctement fermé après la modification
-        with open('rencontre.json', 'w') as file:
+        with open(f'{self.choose_save}.json', 'w') as file:
             json.dump(self.pkmn_rencontre, file, indent=2)
                    
 
@@ -150,10 +150,7 @@ class Pokedex(Element, Screen):
         #             self.pokemon_num = pokemon_info['numero']
         #     self.rencontre_num = self.get_last_pokemon_rencontre_number()
         #     if self.ouverture_pokemonjson() != []:
-        #         self.pkmn_rencontre.append({'numero': self.rencontre_num + 1, 'nom': poke_name, 'rencontre': 1, 'true_num': self.pokemon_num, 'level': 1, 'exp': exp})
-
-        
-            
+        #         self.pkmn_rencontre.append({'numero': self.rencontre_num + 1, 'nom': poke_name, 'rencontre': 1, 'true_num': self.pokemon_num, 'level': 1, 'exp': exp})           
     
     def info_rencontre(self):
         self.liste_rencontre = []
