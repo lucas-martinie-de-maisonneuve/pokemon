@@ -38,5 +38,21 @@
     "true_num": 18,
     "level": 1,
     "exp": 0
+  },
+  {
+    "numero": 6,
+    "nom": "Goupix",
+    "save2": 1,
+    "true_num": 37,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 7,
+    "nom": "Artikodin",
+    "save2": 1,
+    "true_num": 45,
+    "level": 1,
+    "exp": 0
   }
 ]

@@ -6,5 +6,21 @@
     "true_num": 10,
     "level": 1,
     "exp": 0
+  },
+  {
+    "numero": 2,
+    "nom": "Sabelette",
+    "save3": 1,
+    "true_num": 39,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 3,
+    "nom": "Gravalanch",
+    "save3": 1,
+    "true_num": 17,
+    "level": 1,
+    "exp": 0
   }
 ]

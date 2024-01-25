@@ -6,5 +6,29 @@
     "true_num": 1,
     "level": 1,
     "exp": 0
+  },
+  {
+    "numero": 2,
+    "nom": "Osselait",
+    "rencontre": 1,
+    "true_num": 41,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 3,
+    "nom": "Electhor",
+    "rencontre": 1,
+    "true_num": 46,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 4,
+    "nom": "Reptincelle",
+    "save1": 1,
+    "true_num": 2,
+    "level": 1,
+    "exp": 0
   }
 ]
