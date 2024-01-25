@@ -7,15 +7,16 @@ from files.class_py.starter import Starter
 from files.class_py.experience import Experience
 
 
-pokedex = Pokedex()
 class Maps(Element, Screen, Combat, Experience):
 
-    def __init__(self, poke_player, pokemon_random):
+    def __init__(self, poke_player, pokemon_random, save):
         Element.__init__(self)
         Screen.__init__(self)
         Combat.__init__(self)
         Experience.__init__(self, poke_player)        
-        self.starter = Starter()        
+        self.pokedex = Pokedex()
+        self.starter = Starter()
+        self.pokedex.change_save(save)
         self.combat_run = False
         self.action = 1
         self.attack_phase = False
@@ -34,17 +35,12 @@ class Maps(Element, Screen, Combat, Experience):
         self.poke_advers = pokemon_random['nom']
         self.game_over = False
         self.attack_phase_advers = False
-        self.poke_evolve = poke_player["evol"]
-              
-        self.levelss_poke = pokedex.recup_level_exp(poke_player['nom'])
-        print(self.levelss_poke)  
-        
+        self.poke_evolve = poke_player["evol"] 
+        self.levelss_poke = self.pokedex.recup_level_exp(poke_player['nom'])
         self.levels_poke = self.levelss_poke['level']
-        print(self.levels_poke)
-        # # self.experiencess_pokemon = pokedex.recup_level_exp(poke_player)
+        # # self.experiencess_pokemon = self.pokedex.recup_level_exp(poke_player)
         self.experience_pokemon = self.levelss_poke['exp']
-        print(self.experience_pokemon)       
-        self.pokemon_list = pokedex.info_pokemon
+        self.pokemon_list = self.pokedex.info_pokemon
         # self.rajout_exp = self.exp_par_combat()                   
 
     def home(self):
@@ -72,19 +68,16 @@ class Maps(Element, Screen, Combat, Experience):
                         elif self.action == 3 and not self.attack_phase:
                             pass
                         elif self.action == 4 and not self.attack_phase:
-                            pokedex.pokedex_run = True
-                            pokedex.show_pokedex()
+                            self.pokedex.pokedex_run = True
+                            self.pokedex.show_pokedex()
                     elif event.key == pygame.K_RETURN and self.attack_phase and not self.text_phase and not self.game_over:
                         self.text = 1
                         if self.action == 1:                            
                             self.pokemon_random_hp = self.attack(self.pokemon_random_hp, self.poke_player['attaque'],self.pokemon_type_player,self.type_pokemon_advers, self.pokemon_def_advers)                            
                             self.recup_poke_winner(self.poke_player['nom'], self.pokemon_random['nom'], self.poke_player_hp, self.pokemon_random_hp)
                             if self.game_over == True:
-                                self.verif_exp(self.levels_poke, self.experience_pokemon)
-                                self.verif_for_evolve()
                                 self.exp_par_combat(self.levels_poke)
-                                self.verif_exp(self.levels_poke, self.experience_pokemon)
-                                self.verif_for_evolve()  
+                                self.experience_pokemon = self.levelss_poke['exp']
                             self.text_phase = True
                         elif self.action == 2:
                             self.pokemon_random_hp = self.attack(self.pokemon_random_hp, self.poke_player['attaque'],self.pokemon_type_player,self.type_pokemon_advers, self.pokemon_def_advers)                            

@@ -46,5 +46,45 @@
     "true_num": 42,
     "level": 1,
     "exp": 0
+  },
+  {
+    "numero": 2,
+    "nom": "Sabelette",
+    "rencontre": 1,
+    "true_num": 39,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 3,
+    "nom": "Gravalanch",
+    "rencontre": 1,
+    "true_num": 17,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 4,
+    "nom": "Tortank",
+    "rencontre": 1,
+    "true_num": 9,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 5,
+    "nom": "Rayquaza",
+    "rencontre": 1,
+    "true_num": 50,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 6,
+    "nom": "Tengalice",
+    "rencontre": 1,
+    "true_num": 33,
+    "level": 1,
+    "exp": 0
   }
 ]

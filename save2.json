@@ -6,5 +6,160 @@
     "true_num": 4,
     "level": 1,
     "exp": 0
+<<<<<<< HEAD
+=======
+  },
+  {
+    "numero": 2,
+    "nom": "Tauros",
+    "rencontre": 1,
+    "true_num": 24,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 3,
+    "nom": "Salameche",
+    "rencontre": 1,
+    "true_num": 1,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 4,
+    "nom": "Ossatueur",
+    "rencontre": 1,
+    "true_num": 42,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 5,
+    "nom": "Grolem",
+    "rencontre": 1,
+    "true_num": 18,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 6,
+    "nom": "Goupix",
+    "rencontre": 1,
+    "true_num": 37,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 7,
+    "nom": "Artikodin",
+    "rencontre": 1,
+    "true_num": 45,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 8,
+    "nom": "Roucoups",
+    "rencontre": 1,
+    "true_num": 35,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 9,
+    "nom": "Metamorphe",
+    "rencontre": 1,
+    "true_num": 51,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 10,
+    "nom": "Grainipiot",
+    "rencontre": 1,
+    "true_num": 31,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 11,
+    "nom": "Pikachu",
+    "rencontre": 1,
+    "true_num": 10,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 12,
+    "nom": "Kyogre",
+    "rencontre": 1,
+    "true_num": 48,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 13,
+    "nom": "Leviator",
+    "rencontre": 1,
+    "true_num": 30,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 14,
+    "nom": "Roucarnage",
+    "rencontre": 1,
+    "true_num": 36,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 15,
+    "nom": "Carapuce",
+    "rencontre": 1,
+    "true_num": 7,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 16,
+    "nom": "Canarticho",
+    "rencontre": 1,
+    "true_num": 15,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 17,
+    "nom": "Groudon",
+    "rencontre": 1,
+    "true_num": 49,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 18,
+    "nom": "Reptincelle",
+    "rencontre": 1,
+    "true_num": 2,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 19,
+    "nom": "Sablaireau",
+    "rencontre": 1,
+    "true_num": 40,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 20,
+    "nom": "Evoli",
+    "rencontre": 1,
+    "true_num": 19,
+    "level": 1,
+    "exp": 0
+>>>>>>> main.test
   }
 ]
