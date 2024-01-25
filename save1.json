@@ -9,25 +9,33 @@
   },
   {
     "numero": 2,
-    "nom": "Goupix",
+    "nom": "Osselait",
     "rencontre": 1,
-    "true_num": 37,
+    "true_num": 41,
     "level": 1,
     "exp": 0
   },
   {
     "numero": 3,
-    "nom": "Magneti",
+    "nom": "Electhor",
     "rencontre": 1,
-    "true_num": 44,
+    "true_num": 46,
     "level": 1,
     "exp": 0
   },
   {
     "numero": 4,
-    "nom": "Canarticho",
-    "rencontre": 1,
-    "true_num": 15,
+    "nom": "Reptincelle",
+    "save1": 1,
+    "true_num": 2,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 5,
+    "nom": "Sablaireau",
+    "save1": 1,
+    "true_num": 40,
     "level": 1,
     "exp": 0
   }

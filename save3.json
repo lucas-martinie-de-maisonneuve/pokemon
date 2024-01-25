@@ -3,47 +3,48 @@
     "numero": 1,
     "nom": "Pikachu",
     "rencontre": 1,
-    "true_num": 10
+    "true_num": 10,
+    "level": 1,
+    "exp": 0
   },
   {
     "numero": 2,
-    "nom": "Blindalys",
-    "rencontre": 1,
-    "true_num": 13
+    "nom": "Sabelette",
+    "save3": 1,
+    "true_num": 39,
+    "level": 1,
+    "exp": 0
   },
   {
     "numero": 3,
-    "nom": "Magneti",
-    "rencontre": 1,
-    "true_num": 44,
-    "level": 1
+    "nom": "Gravalanch",
+    "save3": 1,
+    "true_num": 17,
+    "level": 1,
+    "exp": 0
   },
   {
     "numero": 4,
-    "nom": "Bulbizarre",
-    "rencontre": 1,
-    "true_num": 4,
-    "level": 1
+    "nom": "Tortank",
+    "save3": 1,
+    "true_num": 9,
+    "level": 1,
+    "exp": 0
   },
   {
     "numero": 5,
     "nom": "Rayquaza",
-    "rencontre": 1,
+    "save3": 1,
     "true_num": 50,
-    "level": 1
+    "level": 1,
+    "exp": 0
   },
   {
     "numero": 6,
-    "nom": "Herbizarre",
-    "rencontre": 1,
-    "true_num": 5,
-    "level": 1
-  },
-  {
-    "numero": 22,
-    "nom": "Kyogre",
-    "rencontre": 1,
-    "true_num": 48,
-    "level": 1
+    "nom": "Tengalice",
+    "save3": 1,
+    "true_num": 33,
+    "level": 1,
+    "exp": 0
   }
 ]
