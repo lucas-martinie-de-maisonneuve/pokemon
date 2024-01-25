@@ -47,8 +47,6 @@ class Pokedex(Element, Screen):
     def recup_level_exp(self, poke_name):
         self.pkmn_rencontre = self.ouverture_pokemonrencontre()        
         for pokemon in self.pkmn_rencontre:
-            print(poke_name)
-            print(pokemon)
             if pokemon['nom'] == poke_name:
                 return pokemon    
 
@@ -102,11 +100,11 @@ class Pokedex(Element, Screen):
             self.pokemon_liste(info_pokemon[data])  
 
     def poke_rencontre(self, pokemon_name):
-        self.ouverture_pokemonrencontre()
+        self.pkmn_rencontre = self.ouverture_pokemonrencontre()
         existe = False
         for pokemon in self.pkmn_rencontre:
             if pokemon['nom'] == pokemon_name:
-                pokemon[f'{self.choose_save}'] += 1
+                pokemon['rencontre'] += 1
                 existe = True
 
         if not existe:
@@ -119,38 +117,7 @@ class Pokedex(Element, Screen):
                 json.dump(self.pkmn_rencontre, file, indent=2)  
 
         return False
-    
-    def update_lvl(self, poke_name, exps_max):               
-        for pokemon in self.pkmn_rencontre:
-            if pokemon['nom'] == poke_name:
-                pokemon['exp'] = pokemon['exp'] - exps_max  
-                pokemon['level'] + 1
-                print('level')                   
 
-        with open(f'{self.choose_save}.json', 'w') as file:
-                    json.dump(self.pkmn_rencontre, file, indent=2)
-            
-    
-    def update_exp(self, poke_name, exp):
-        for pokemon in self.pkmn_rencontre:
-            if pokemon['nom'] == poke_name:
-                pokemon['exp'] += exp
-                print(f"exp ajoutée pour {poke_name}: {exp}")
-
-            # Assurez-vous que le fichier est correctement fermé après la modification
-        with open(f'{self.choose_save}.json', 'w') as file:
-            json.dump(self.pkmn_rencontre, file, indent=2)
-                   
-
-        # if not existe:
-        #     for index, pokemon_info in enumerate(self.info_pokemon):
-        #         if pokemon_info['nom'] == poke_name:
-        #             self.pokemon_num = pokemon_info['numero']
-        #     self.rencontre_num = self.get_last_pokemon_rencontre_number()
-        #     if self.ouverture_pokemonjson() != []:
-        #         self.pkmn_rencontre.append({'numero': self.rencontre_num + 1, 'nom': poke_name, f'{self.choose_save}': 1, 'true_num': self.pokemon_num, 'level': 1, 'exp': exp})
-
-        
     def change_save(self, choose_save):
         self.choose_save = choose_save
         return self.choose_save

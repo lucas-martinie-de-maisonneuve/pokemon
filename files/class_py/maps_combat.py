@@ -40,7 +40,6 @@ class Maps(Element, Screen, Combat, Experience):
         self.levels_poke = self.levelss_poke['level']
         # # self.experiencess_pokemon = self.pokedex.recup_level_exp(poke_player)
         self.experience_pokemon = self.levelss_poke['exp']
-        print(self.experience_pokemon)       
         self.pokemon_list = self.pokedex.info_pokemon
         # self.rajout_exp = self.exp_par_combat()                   
 
@@ -77,11 +76,8 @@ class Maps(Element, Screen, Combat, Experience):
                             self.pokemon_random_hp = self.attack(self.pokemon_random_hp, self.poke_player['attaque'],self.pokemon_type_player,self.type_pokemon_advers, self.pokemon_def_advers)                            
                             self.recup_poke_winner(self.poke_player['nom'], self.pokemon_random['nom'], self.poke_player_hp, self.pokemon_random_hp)
                             if self.game_over == True:
-                                self.verif_exp(self.levels_poke, self.experience_pokemon)
-                                self.verif_for_evolve()
                                 self.exp_par_combat(self.levels_poke)
-                                self.verif_exp(self.levels_poke, self.experience_pokemon)
-                                self.verif_for_evolve()  
+                                self.experience_pokemon = self.levelss_poke['exp']
                             self.text_phase = True
                         elif self.action == 2:
                             self.pokemon_random_hp = self.attack(self.pokemon_random_hp, self.poke_player['attaque'],self.pokemon_type_player,self.type_pokemon_advers, self.pokemon_def_advers)                            

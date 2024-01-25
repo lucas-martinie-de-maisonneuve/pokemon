@@ -23,8 +23,8 @@ class Menu(Pokedex):
         self.home_bag = False
 
     def default_pkmn(self):
-        self.pkmn_rencontre = self.ouverture_pokemonrencontre()
         if self.pkmn_rencontre != []:
+            self.pkmn_rencontre = self.ouverture_pokemonrencontre()
             pokemon_default = self.pkmn_rencontre[0]['true_num']
             self.poke_player = self.info_pokemon[pokemon_default - 1]
             starter.poke_player = self.info_pokemon[pokemon_default - 1]
@@ -133,6 +133,8 @@ class Menu(Pokedex):
                                 starter.starter()
                                 self.poke_rencontre(starter.poke_player["nom"])
                             else:
+                                self.pkmn_rencontre = self.ouverture_pokemonrencontre()
+  
                                 pokemon_random = self.rand_pokemon()                           
                                 maps = Maps(starter.poke_player,pokemon_random, self.choose_save)
                                 maps.combat_run = True
@@ -162,6 +164,11 @@ class Menu(Pokedex):
                             self.load_game = False
                         elif self.new_game:
                             self.new_game = False           
+
+            if self.pokemon_changed:
+                self.pkmn_rencontre = self.ouverture_pokemonrencontre()
+                starter.poke_player = self.poke_player
+                self.pokedex_changed = False
 
             if setting.reset :
                 self.vider_fichier_json()

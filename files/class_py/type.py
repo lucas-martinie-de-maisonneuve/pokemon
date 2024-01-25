@@ -105,40 +105,40 @@ class Type:
             return damage
         
     def elecvol(self,type,damage):
-        if type == "elec" or type ==  "sol":
+        if type == "elec" or type ==  "sol" or type == "elec.vol":
             damage = damage // 2
             return damage
             
-        elif type == "eau" or type == "vol" or type == "insecte":
+        elif type == "eau" or type == "vol" or type == "insecte" or type == "eau.vol":
             damage = damage * 2
             return damage
             
-        elif type == "normal" or type == type == "feu" or type == "plante":
+        elif type == "normal" or type == type == "feu" or type == "plante" or type == "feu.vol":
             damage = damage
             return damage
         
     def feuvol(self,type,damage):
-        if type == "feu" or type ==  "eau" or type == "elec":
+        if type == "feu" or type ==  "eau" or type == "elec" or type == "eau.vol":
             damage = damage // 2
             return damage
             
-        elif type == "plante" or type == "insecte":
+        elif type == "plante" or type == "insecte" or type == "feu.vol":
             damage = damage * 2
             return damage
             
-        elif type == "normal" or type == type == "vol" or type == "sol":
+        elif type == "normal" or type == type == "vol" or type == "sol" or type == "elec.vol":
             damage = damage
             return damage
         
     def eauvol(self,type,damage):
-        if type == "eau" or type ==  "elec":
+        if type == "eau" or type ==  "elec" or type == "elec.vol":
             damage = damage // 2
             return damage
             
-        elif type == "feu" or type == "insecte" or type == "sol":
+        elif type == "feu" or type == "insecte" or type == "sol" or type == "feu.vol":
             damage = damage * 2
             return damage
             
-        elif type == "normal" or type == "plante" or type == "vol":
+        elif type == "normal" or type == "plante" or type == "vol" or type == "eau.vol":
             damage = damage
             return damage
