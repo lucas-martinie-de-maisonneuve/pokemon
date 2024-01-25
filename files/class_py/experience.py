@@ -89,11 +89,9 @@ class Experience:
                     pokemon['exp'] = pokemon['exp'] - exps_max
                     pokemon['level'] += 1
             
-
         with open(f'{pokedex.choose_save}.json', 'w') as file:
                     json.dump(pokedex.pkmn_rencontre, file, indent=2)
             
-    
     def update_exp(self, poke_name, exp):
         pokedex.pkmn_rencontre = pokedex.ouverture_pokemonrencontre()
         for pokemon in pokedex.pkmn_rencontre:

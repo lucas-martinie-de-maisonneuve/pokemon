@@ -101,12 +101,12 @@ class Maps(Element, Screen, Combat, Experience):
                         self.action = 1
                     elif event.key == pygame.K_RETURN and self.game_over:
                         self.combat_run = False 
-                            
+    
             self.img(525, 200, 1244, 700,'combat/fight_background')
             self.img_mir(350, 350, 310, 310, f"pokemon/{self.poke_player['nom'].lower()}")
             if self.pokemon_random['numero'] <=50: 
                 self.img(725, 225, 175, 175, f"pokemon/{self.pokemon_random['nom'].lower()}")
-            else: 
+            else:
                 self.img(725, 225, 175, 175, f"pokemon/default")
             # combat.afficher_capacite()
             self.button_rect(self.brown,525,650,self.W,210)            
@@ -115,20 +115,21 @@ class Maps(Element, Screen, Combat, Experience):
 
             self.button_rect(self.brown, 794, 484, 170, 12)
             self.rect_hp(709, 478, 170, 12, self.poke_player_hp, self.poke_player_hp_max)
-            self.img(839, 454, 350, 128, 'combat/player_hp')            
-            self.texte(25, f"{self.poke_player['nom']}", self.black, 830, 420)
-            self.rect_exp(706, 455, 243, 11, self.experience_pokemon, self.exp_max(self.levels_poke))            
+            self.img(839, 454, 350, 128, 'combat/player_hp')
+            self.texte_not_align(25, f"{self.poke_player['nom']}", self.black, 712, 405)
+            self.texte_not_align(20, f'lvl {self.levels_poke}', self.black, 940, 405)
+            self.rect_exp(706, 455, 243, 11, self.experience_pokemon, self.exp_max(self.levels_poke))
             self.img(855, 558, 430, 330, "combat/player_exp")
-
             self.button_rect(self.brown, 257, 130, 170, 12)
             self.rect_hp(172, 124, 170, 12, self.pokemon_random_hp, self.pokemon_random_hp_max)            
             self.img(211, 100, 350, 128, 'combat/rand_pokemon_hp')
-            self.texte(25, f"{self.pokemon_random['nom']}", self.black, 160, 70)            
+            self.texte_not_align(25, f"{self.pokemon_random['nom']}", self.black, 52, 50)            
+            self.texte_not_align(20, f'lvl {self.levels_poke}', self.black, 280, 50)
             
 
             if not self.attack_phase:
                 self.button_rect(self.darkred,765,600,145,45)
-                self.simple_rect(self.red,765,600,135,35,2)
+                self.simple_rect(self.red,765,600,135,35,2) 
 
                 self.button_rect(self.darkblue,945,600,145,45)
                 self.simple_rect(self.blue, 945,600,135,35,2)
