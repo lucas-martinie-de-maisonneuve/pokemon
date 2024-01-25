@@ -194,10 +194,10 @@ class Pokedex(Element, Screen):
                             poke_choose -= 1
                         if poke_choose == 0:
                             poke_choose = self.get_last_pokemon_number()
-                    elif event.key == pygame.K_UP or event.key == pygame.K_z and not self.detailed_pokemon:
+                    elif (event.key == pygame.K_UP or event.key == pygame.K_z) and not self.detailed_pokemon:
                         if poke_choose > 9:
                             poke_choose -= 9
-                    elif event.key == pygame.K_DOWN or event.key == pygame.K_s and not self.detailed_pokemon:
+                    elif (event.key == pygame.K_DOWN or event.key == pygame.K_s) and not self.detailed_pokemon:
                         if poke_choose < 45:
                             poke_choose += 9
                     elif event.key == pygame.K_RETURN:
