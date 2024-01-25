@@ -9,17 +9,9 @@
   },
   {
     "numero": 2,
-    "nom": "Goupix",
+    "nom": "Pyroli",
     "rencontre": 1,
-    "true_num": 37,
-    "level": 1,
-    "exp": 0
-  },
-  {
-    "numero": 3,
-    "nom": "Grolem",
-    "rencontre": 1,
-    "true_num": 18,
+    "true_num": 22,
     "level": 1,
     "exp": 0
   }
