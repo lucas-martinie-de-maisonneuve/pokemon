@@ -22,5 +22,29 @@
     "true_num": 45,
     "level": 1,
     "exp": 0
+  },
+  {
+    "numero": 4,
+    "nom": "Ossatueur",
+    "save2": 1,
+    "true_num": 42,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 5,
+    "nom": "Roucool",
+    "save2": 1,
+    "true_num": 34,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 6,
+    "nom": "Kangourex",
+    "save2": 1,
+    "true_num": 25,
+    "level": 1,
+    "exp": 0
   }
 ]

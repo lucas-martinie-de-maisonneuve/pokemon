@@ -24,18 +24,13 @@ class Menu(Pokedex):
 
     def default_pkmn(self):
         self.pkmn_rencontre = self.ouverture_pokemonrencontre()
-        pokemon_default = self.pkmn_rencontre[0]['true_num']
-        self.poke_player = self.info_pokemon[pokemon_default - 1]
-        starter.poke_player = self.info_pokemon[pokemon_default - 1]
+        if self.pkmn_rencontre != []:
+            pokemon_default = self.pkmn_rencontre[0]['true_num']
+            self.poke_player = self.info_pokemon[pokemon_default - 1]
+            starter.poke_player = self.info_pokemon[pokemon_default - 1]
 
     def home(self):
         self.pkmn_rencontre = self.ouverture_pokemonrencontre()
-        if self.pkmn_rencontre != []:
-            pokemon_default = self.pkmn_rencontre[0]['true_num']
-            starter.poke_player = self.info_pokemon[pokemon_default - 1]
-            self.poke_player = self.info_pokemon[pokemon_default - 1]
-            starter.starter_choosed = True
-    def home(self):
         if self.pkmn_rencontre != []:
             pokemon_default = self.pkmn_rencontre[0]['true_num']
             starter.poke_player = self.info_pokemon[pokemon_default - 1]
@@ -130,9 +125,6 @@ class Menu(Pokedex):
                                     self.default_pkmn()
                                     self.load_game = False
                                     self.load_home = False
-                    elif event.key == pygame.K_ESCAPE or event.key == pygame.K_BACKSPACE and self.home_bag:
-                        self.home_bag = False
-
 # Menu principal
                     elif event.key == pygame.K_RETURN and not self.load_home and not self.show_home:
                         if c == 1:
@@ -167,10 +159,8 @@ class Menu(Pokedex):
                         if self.home_bag:
                             self.home_bag = False
                         elif self.load_game:
-                            self.load_home = True
                             self.load_game = False
                         elif self.new_game:
-                            self.load_home = True
                             self.new_game = False           
 
             if setting.reset :
