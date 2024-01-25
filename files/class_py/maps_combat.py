@@ -212,7 +212,7 @@ class Maps(Element, Screen, Combat, Experience):
             if self.game_over:
                 self.img(540, 280, 470, 190, "combat/background_texte")
                 self.texte(18, f"{self.win} a gagner le combat", self.black, 540, 280)
-                self.texte(12, "PRESS RETURN TO ESCAPE", self.black, 540, 400)                               
+                self.texte(12, "PRESS 'RETURN' TO ESCAPE", self.black, 540, 400)                               
             self.update()
             
             # self.poke_hp = self.attack(self.poke_player_hp, self.pokemon_random['attaque'],self.type_pokemon_advers, self.pokemon_type_player, self.def_poke_player)                            

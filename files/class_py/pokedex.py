@@ -126,8 +126,7 @@ class Pokedex(Element, Screen):
             if pokemon['nom'] == poke_name:
                 pokemon['exp'] = pokemon['exp'] - exps_max  
                 pokemon['level'] + 1
-                print('level')
-                   
+                print('level')                   
 
         with open(f'{self.choose_save}.json', 'w') as file:
                     json.dump(self.pkmn_rencontre, file, indent=2)

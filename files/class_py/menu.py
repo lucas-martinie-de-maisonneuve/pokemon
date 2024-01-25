@@ -13,6 +13,7 @@ starter = Starter()
 addpokemon = AddPokemon()
 setting = Setting()
 
+
 class Menu(Pokedex):
     def __init__(self):
         Element.__init__(self)
