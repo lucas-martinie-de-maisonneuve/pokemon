@@ -32,7 +32,7 @@
   {
     "numero": 6,
     "nom": "Chenipotte",
-    "rencontre": 1,
+    "rencontre": 2,
     "true_num": 12
   },
   {
@@ -40,5 +40,71 @@
     "nom": "Carabaffe",
     "rencontre": 1,
     "true_num": 8
+  },
+  {
+    "numero": 8,
+    "nom": "Florizarre",
+    "rencontre": 1,
+    "true_num": 6
+  },
+  {
+    "numero": 9,
+    "nom": "Pyroli",
+    "rencontre": 2,
+    "true_num": 22
+  },
+  {
+    "numero": 10,
+    "nom": "Evoli",
+    "rencontre": 1,
+    "true_num": 19
+  },
+  {
+    "numero": 11,
+    "nom": "Artikodin",
+    "rencontre": 1,
+    "true_num": 45
+  },
+  {
+    "numero": 12,
+    "nom": "Raichu",
+    "rencontre": 1,
+    "true_num": 11
+  },
+  {
+    "numero": 13,
+    "nom": "Tortank",
+    "rencontre": 1,
+    "true_num": 9
+  },
+  {
+    "numero": 14,
+    "nom": "Rayquaza",
+    "rencontre": 2,
+    "true_num": 50
+  },
+  {
+    "numero": 15,
+    "nom": "Insecateur",
+    "rencontre": 1,
+    "true_num": 43
+  },
+  {
+    "numero": 16,
+    "nom": "Sulfura",
+    "rencontre": 1,
+    "true_num": 47
+  },
+  {
+    "numero": 17,
+    "nom": "Metamorphe",
+    "rencontre": 1,
+    "true_num": 51
+  },
+  {
+    "numero": 18,
+    "nom": "Bulbizarre",
+    "rencontre": 1,
+    "true_num": 4
   }
 ]

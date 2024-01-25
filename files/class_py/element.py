@@ -33,7 +33,7 @@ class Element:
         pygame.mixer.init()
         self.confirmation_sound = pygame.mixer.Sound('files/song/confirm_button.mp3')
         self.win_song = pygame.mixer.Sound('files/song/win.mp3')
-
+        self.win_song_play = False
 
     def img(self, x, y, largeur, hauteur, image_name):
         image = pygame.image.load(f'files/image/{image_name}.png')

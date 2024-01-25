@@ -7,6 +7,7 @@ from files.class_py.combat import Combat
 from files.class_py.starter import Starter
 from files.class_py.add_pokemon import AddPokemon
 from files.class_py.setting import Setting
+from files.class_py.config import confirmation_sound,current_volume,volume_levels
 
 pokedex = Pokedex()
 combat = Combat()
@@ -21,7 +22,9 @@ class Menu(Element, Screen):
         self.menu_run = True
         self.show_home = True
         self.load_home = False
-
+        self.confirmation_sound = confirmation_sound
+        self.current_volume = current_volume
+        self.volume_levels = volume_levels
         #initilisation de la musique
         pygame.mixer.music.load('files/song/opening.mp3')
         pygame.mixer.music.play(-1)
@@ -36,6 +39,7 @@ class Menu(Element, Screen):
                     pygame.quit()
                     quit()
                 if event.type == pygame.KEYDOWN and not setting.setting_run:
+                    print(self.current_volume)
                     if self.show_home:
                         self.play_confirmation_sound()
                         self.show_home = False
