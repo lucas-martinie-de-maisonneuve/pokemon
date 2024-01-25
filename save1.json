@@ -4,7 +4,7 @@
     "nom": "Pikachu",
     "rencontre": 1,
     "true_num": 10,
-    "level": 4,
+    "level": 11,
     "exp": 0
   },
   {
@@ -356,7 +356,7 @@
     "nom": "Pikachu",
     "rencontre": 1,
     "true_num": 10,
-    "level": 1,
+    "level": 8,
     "exp": 0
   },
   {
@@ -452,6 +452,30 @@
     "nom": "Sulfura",
     "rencontre": 1,
     "true_num": 47,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 58,
+    "nom": "Salameche",
+    "rencontre": 1,
+    "true_num": 1,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 59,
+    "nom": "Grainipiot",
+    "rencontre": 1,
+    "true_num": 31,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 60,
+    "nom": "Magicarpe",
+    "rencontre": 1,
+    "true_num": 29,
     "level": 1,
     "exp": 0
   }

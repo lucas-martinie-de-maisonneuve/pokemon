@@ -135,8 +135,7 @@ class Menu(Pokedex):
                                 starter.starter()
                                 self.poke_rencontre(starter.poke_player["nom"])
                             else:
-                                self.pkmn_rencontre = self.ouverture_pokemonrencontre()
-  
+                                self.pkmn_rencontre = self.ouverture_pokemonrencontre()  
                                 pokemon_random = self.rand_pokemon()                           
                                 maps = Maps(starter.poke_player,pokemon_random, self.choose_save)
                                 maps.combat_run = True
