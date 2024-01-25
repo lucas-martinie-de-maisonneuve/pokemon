@@ -1,41 +1,137 @@
 [
   {
     "numero": 1,
-    "nom": "Salameche",
+    "nom": "Pikachu",
     "rencontre": 1,
-    "true_num": 1,
-    "level": 1,
+    "true_num": 10,
+    "level": 4,
     "exp": 0
   },
   {
     "numero": 2,
-    "nom": "Osselait",
-    "rencontre": 1,
-    "true_num": 41,
-    "level": 1,
-    "exp": 0
-  },
-  {
-    "numero": 3,
-    "nom": "Electhor",
-    "rencontre": 1,
-    "true_num": 46,
-    "level": 1,
-    "exp": 0
-  },
-  {
-    "numero": 4,
     "nom": "Reptincelle",
-    "save1": 1,
+    "rencontre": 1,
     "true_num": 2,
     "level": 1,
     "exp": 0
   },
   {
+    "numero": 3,
+    "nom": "Rayquaza",
+    "rencontre": 1,
+    "true_num": 50,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 4,
+    "nom": "Goupix",
+    "rencontre": 1,
+    "true_num": 37,
+    "level": 1,
+    "exp": 0
+  },
+  {
     "numero": 5,
+    "nom": "Grolem",
+    "rencontre": 1,
+    "true_num": 18,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 6,
+    "nom": "Elektek",
+    "rencontre": 1,
+    "true_num": 26,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 7,
+    "nom": "Chenipotte",
+    "rencontre": 1,
+    "true_num": 12,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 8,
+    "nom": "Insecateur",
+    "rencontre": 1,
+    "true_num": 43,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 9,
     "nom": "Sablaireau",
-    "save1": 1,
+    "rencontre": 1,
     "true_num": 40,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 10,
+    "nom": "Tortank",
+    "rencontre": 1,
+    "true_num": 9,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 11,
+    "nom": "Gravalanch",
+    "rencontre": 1,
+    "true_num": 17,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 12,
+    "nom": "Tauros",
+    "rencontre": 1,
+    "true_num": 24,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 13,
+    "nom": "Dracaufeu",
+    "rencontre": 1,
+    "true_num": 3,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 14,
+    "nom": "Canarticho",
+    "rencontre": 1,
+    "true_num": 15,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 15,
+    "nom": "Magneti",
+    "rencontre": 1,
+    "true_num": 44,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 16,
+    "nom": "Kyogre",
+    "rencontre": 1,
+    "true_num": 48,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 17,
+    "nom": "Scarabrute",
+    "rencontre": 1,
+    "true_num": 28,
     "level": 1,
     "exp": 0
   }
