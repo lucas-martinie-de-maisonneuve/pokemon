@@ -1,9 +1,49 @@
 [
   {
     "numero": 1,
-    "nom": "Pikachu",
+    "nom": "Salameche",
     "rencontre": 1,
-    "true_num": 10,
+    "true_num": 1,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 2,
+    "nom": "Osselait",
+    "rencontre": 1,
+    "true_num": 41,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 3,
+    "nom": "Roucoups",
+    "rencontre": 1,
+    "true_num": 35,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 4,
+    "nom": "Tengalice",
+    "rencontre": 1,
+    "true_num": 33,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 5,
+    "nom": "Evoli",
+    "rencontre": 1,
+    "true_num": 19,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 6,
+    "nom": "Ossatueur",
+    "rencontre": 1,
+    "true_num": 42,
     "level": 1,
     "exp": 0
   }

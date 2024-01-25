@@ -6,5 +6,21 @@
     "true_num": 1,
     "level": 1,
     "exp": 0
+  },
+  {
+    "numero": 2,
+    "nom": "Insecateur",
+    "rencontre": 1,
+    "true_num": 43,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 3,
+    "nom": "Pikachu",
+    "rencontre": 1,
+    "true_num": 10,
+    "level": 1,
+    "exp": 0
   }
 ]
