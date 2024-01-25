@@ -2,40 +2,8 @@
   {
     "numero": 1,
     "nom": "Bulbizarre",
-    "rencontre": 2,
+    "rencontre": 1,
     "true_num": 4,
-    "level": 1,
-    "exp": 0
-  },
-  {
-    "numero": 2,
-    "nom": "Tauros",
-    "rencontre": 1,
-    "true_num": 24,
-    "level": 1,
-    "exp": 0
-  },
-  {
-    "numero": 3,
-    "nom": "Salameche",
-    "rencontre": 1,
-    "true_num": 1,
-    "level": 1,
-    "exp": 0
-  },
-  {
-    "numero": 4,
-    "nom": "Ossatueur",
-    "rencontre": 1,
-    "true_num": 42,
-    "level": 1,
-    "exp": 0
-  },
-  {
-    "numero": 5,
-    "nom": "Grolem",
-    "rencontre": 1,
-    "true_num": 18,
     "level": 1,
     "exp": 0
   },
