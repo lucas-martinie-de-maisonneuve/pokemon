@@ -2,11 +2,14 @@ import pygame
 from files.class_py.element import Element
 from files.class_py.screen import Screen
 from files.class_py.pokedex import Pokedex
-
+from files.class_py.config import confirmation_sound,current_volume,volume_levels
 class Setting(Element,Screen):
     def __init__(self):
         Element.__init__(self)
         Screen.__init__(self)
+        self.confirmation_sound = confirmation_sound
+        self.current_volume = current_volume
+        self.volume_levels = volume_levels
         self.verif_quitter = False
         self.setting_run = False
         self.verif_reset = False
@@ -19,8 +22,8 @@ class Setting(Element,Screen):
         c_stat = 0
         c_verif_quit = 1
         c_verif_reset = 1
-        c_audio = 0
-        pourcent = 0
+        horiz_c_audio = 0
+        vert_c_audio = 1
         self.top_pokemon = sorted(pokedex.pkmn_rencontre,key=lambda x: x['rencontre'], reverse=True)
         while self.setting_run:
             for event in pygame.event.get():
@@ -31,45 +34,71 @@ class Setting(Element,Screen):
 #Touche Gauche
                     if event.key == pygame.K_LEFT or event.key == pygame.K_q:
                         #Gauche verif quit
-                        if self.verif_quitter and c_verif_quit == 2:
+                        if m == 4 and self.verif_quitter and c_verif_quit == 2:
+                            self.play_confirmation_sound()
                             c_verif_quit = 1
                         #Gauche stat
                         elif m == 2 and c_stat > 0:
+                            self.play_confirmation_sound()
                             c_stat -= 1
                         #Gauche reset
-                        if self.verif_reset and c_verif_reset == 2:
+                        elif m == 2 and self.verif_reset and c_verif_reset == 2:
+                            self.play_confirmation_sound()
                             c_verif_reset = 1
+                        #Gauche audio
+                        elif m == 3 and horiz_c_audio > 0:
+                            self.play_confirmation_sound()
+                            horiz_c_audio -= 1
+                            if horiz_c_audio == 0:
+                                vert_c_audio = 1
 #Touche Droite
                     elif event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                         #Droite vérif quitter
-                        if self.verif_quitter and c_verif_quit == 1:
+                        if m == 4 and self.verif_quitter and c_verif_quit == 1:
+                            self.play_confirmation_sound()
                             c_verif_quit = 2
                         #Droite stat
                         elif m == 2 and c_stat < 1:
+                            self.play_confirmation_sound()
                             c_stat += 1
                         # Droite reset
-                        if self.verif_reset and c_verif_reset == 1:
+                        elif m == 2 and self.verif_reset and c_verif_reset == 1:
+                            self.play_confirmation_sound()
                             c_verif_reset = 2
+                        #Droite audio
+                        elif m == 3 and horiz_c_audio < 4 :
+                            self.play_confirmation_sound()
+                            horiz_c_audio += 1
+                        
 #Touche Haut
                     elif event.key == pygame.K_UP or event.key == pygame.K_z:
                         #menu haut
-                        if not self.verif_quitter and not self.verif_reset and m > 0:
+                        if not self.verif_quitter and not self.verif_reset and m > 0 and horiz_c_audio < 1 and vert_c_audio == 1:
+                            self.play_confirmation_sound()
                             m -= 1
+                        if m == 3 and horiz_c_audio > 0 and vert_c_audio > 0:
+                            vert_c_audio -= 1
 #Touche Bas
                     elif event.key == pygame.K_DOWN or event.key == pygame.K_s:
                         #menu bas
-                        if not self.verif_quitter and not self.verif_reset and m < 4:
+                        if not self.verif_quitter and not self.verif_reset and m < 4 and horiz_c_audio < 1:
+                            self.play_confirmation_sound()
                             m += 1
+                        if m == 3 and horiz_c_audio > 0 and vert_c_audio < 2:
+                            vert_c_audio += 1
 #Touche Entrée
                     elif event.key == pygame.K_RETURN:
                         #Croix exit setting
                         if m == 0:
+                            self.play_confirmation_sound()
                             self.setting_run = False
                         #Lance la fonction "voulez vous vraiment quitter"
                         elif m == 4 and not self.verif_quitter and not self.verif_reset:
+                            self.play_confirmation_sound()
                             self.verif_quitter = True
                         #Action à "non" à "voulez vous vraiment quitter"
                         elif c_verif_quit == 1 and self.verif_quitter:
+                            self.play_confirmation_sound()
                             self.verif_quitter = False
                         #Action à "oui" à "voulez vous vraiment quitter"
                         elif c_verif_quit == 2 :
@@ -77,29 +106,51 @@ class Setting(Element,Screen):
                             quit()
                         #Vérification reset
                         elif c_stat == 1 and m == 2 and not self.verif_reset:
+                            self.play_confirmation_sound()
                             self.verif_reset = True
                         #Action à "non" au reset
                         elif c_verif_reset == 1 and self.verif_reset:
+                            self.play_confirmation_sound()
                             self.verif_reset = False
                         #Action à "oui" au reset 
                         elif c_verif_reset == 2 and self.verif_reset:
+                            self.play_confirmation_sound()
                             pokedex.vider_fichier_json()
                             self.top_pokemon = sorted(pokedex.pkmn_rencontre,key=lambda x: x['rencontre'], reverse=True)
                             self.verif_reset = False
                             self.reset = True
+                        #Action mute son confirm
+                        elif m == 3 and horiz_c_audio == 1 and vert_c_audio == 2:
+                            self.set_volume_level('mute')
+                        elif m == 3 and horiz_c_audio == 2 and vert_c_audio == 2:
+                            self.set_volume_level('low')
+                            self.play_confirmation_sound()
+                        elif m == 3 and horiz_c_audio == 3 and vert_c_audio == 2:
+                            self.set_volume_level('medium')
+                            self.play_confirmation_sound()
+                        elif m == 3 and horiz_c_audio == 4 and vert_c_audio == 2:
+                            self.set_volume_level('high')
+                            self.play_confirmation_sound()
 
 #Touche Echap
-                    #Quitter les paramètre 
-                    elif event.key == pygame.K_ESCAPE and not self.verif_quitter and not self.verif_reset:
-                        self.setting_run = False
-                    #Quitter verif_quitter 
-                    elif event.key == pygame.K_ESCAPE and self.verif_quitter :
-                        self.verif_quitter = False
-                        c_verif_quit = 1
-                    #Quitter verif_reset
-                    elif event.key == pygame.K_ESCAPE and self.verif_reset :
-                        self.verif_reset = False
-                        c_verif_reset = 1
+                    elif event.key == pygame.K_ESCAPE:
+                        #Quitter les paramètre 
+                        if not self.verif_quitter and not self.verif_reset:
+                            self.play_confirmation_sound()
+                            self.setting_run = False
+                        #Quitter verif_quitter 
+                        elif self.verif_quitter :
+                            self.play_confirmation_sound()
+                            self.verif_quitter = False
+                            c_verif_quit = 1
+                        #Quitter verif_reset
+                        elif self.verif_reset :
+                            self.play_confirmation_sound()
+                            self.verif_reset = False
+                            c_verif_reset = 1
+                        #Quitter audio reset variable
+                        elif m == 3 and vert_c_audio > 1:
+                            vert_c_audio = 1
 
                 self.img(525, 350, 1244, 700, 'menu/backgroundmenu')
                 self.img(990, 60, 80, 80, 'menu/settings')
@@ -208,15 +259,72 @@ class Setting(Element,Screen):
 
                 # Selecteur 3 Audio
                 if m == 3:
-                    self.img(205,576,150,150,"/setting/pikachu_music")
+                    self.img(205,596,150,150,"/setting/pikachu_music")
                     self.button_rect(self.lightbluesea, 205, 394, 160, 40)
-                    self.button_rect(self.lightgrey,570,170,450,60) #Barre de son
-                    
-                    if c_audio == 2:
-                        pass
-                    else:
-                        self.button_rect(self.lightgrey,860,170,60,60) #Bouton Mute
 
+                    #Titre musique
+                    self.button_rect(self.lightgrey,615,190,500,50)
+                    self.texte_not_align(15,"Musique :",self.black,380,183)
+                    #Titre effets sonore
+                    self.button_rect(self.lightgrey,615,390,500,50)
+                    self.texte_not_align(15,"Effets Sonores :",self.black,380,383)
+                    #Vertical 1 Rectangle 1 Mute
+                    if horiz_c_audio == 1 and vert_c_audio == 1:
+                        self.button_rect(self.darkbluesea,460,270,60,60) 
+                        self.img(460,270,45,45,"/setting/light_mute")
+                    else:
+                        self.button_rect(self.lightgrey,460,270,60,60)
+                        self.img(460,270,45,45,"/setting/solid_mute")
+                    #Vertical 1 Rectangle 2 Low volume
+                    if horiz_c_audio == 2 and vert_c_audio == 1:
+                        self.button_rect(self.darkbluesea,560,270,60,60) 
+                        self.img(560,270,45,45,"/setting/light_low_volume")
+                    else:
+                        self.button_rect(self.lightgrey,560,270,60,60) 
+                        self.img(560,270,45,45,"/setting/solid_low_volume")
+                    #Vertical 1 Rectangle 3 Medium volume
+                    if horiz_c_audio == 3 and vert_c_audio == 1:
+                        self.button_rect(self.darkbluesea,660,270,60,60) 
+                        self.img(660,270,45,45,"/setting/light_medium_volume")
+                    else:
+                        self.button_rect(self.lightgrey,660,270,60,60) 
+                        self.img(660,270,45,45,"/setting/solid_medium_volume")
+                    #Vertical 1 Rectangle 4 High volume
+                    if horiz_c_audio == 4 and vert_c_audio == 1:
+                        self.button_rect(self.darkbluesea,760,270,60,60)
+                        self.img(760,270,45,45,"/setting/light_high_volume")
+                    else:
+                        self.button_rect(self.lightgrey,760,270,60,60)
+                        self.img(760,270,45,45,"/setting/solid_high_volume")
+
+                    #Vertical 2 Rectangle 1 Mute
+                    if horiz_c_audio == 1 and vert_c_audio == 2:
+                        self.button_rect(self.darkbluesea,460,470,60,60) 
+                        self.img(460,470,45,45,"/setting/light_mute")
+                    else:
+                        self.button_rect(self.lightgrey,460,470,60,60)
+                        self.img(460,470,45,45,"/setting/solid_mute")
+                    #Vertical 2 Rectangle 2 Low volume
+                    if horiz_c_audio == 2 and vert_c_audio == 2:
+                        self.button_rect(self.darkbluesea,560,470,60,60) 
+                        self.img(560,470,45,45,"/setting/light_low_volume")
+                    else:
+                        self.button_rect(self.lightgrey,560,470,60,60) 
+                        self.img(560,470,45,45,"/setting/solid_low_volume")
+                    #Vertical 2 Rectangle 3 Medium volume
+                    if horiz_c_audio == 3 and vert_c_audio == 2:
+                        self.button_rect(self.darkbluesea,660,470,60,60) 
+                        self.img(660,470,45,45,"/setting/light_medium_volume")
+                    else:
+                        self.button_rect(self.lightgrey,660,470,60,60) 
+                        self.img(660,470,45,45,"/setting/solid_medium_volume")
+                    #Vertical 2 Rectangle 4 High volume
+                    if horiz_c_audio == 4 and vert_c_audio == 2:
+                        self.button_rect(self.darkbluesea,760,470,60,60)
+                        self.img(760,470,45,45,"/setting/light_high_volume")
+                    else:
+                        self.button_rect(self.lightgrey,760,470,60,60) 
+                        self.img(760,470,45,45,"/setting/solid_high_volume")
                 else:
                     self.button_rect(self.darkgreenblue, 205, 394, 160, 40)
                 self.texte(15, 'Audio', self.white, 205, 394)
@@ -245,8 +353,15 @@ class Setting(Element,Screen):
                     self.button_rect(self.darkbluesea,615,175,350,50) #Rectangle bleu
                     self.texte(20,"Effacer les données",self.white,615,175)
                     self.simple_rect(self.black,615,350,350,400,2) #Bordure
-                    self.texte(13,"Les données de sauvergarde de Pokémon seront complétements effacées. Une fois effacées, les données ne pourront plus être utilisées ou récupérées. Voulez vous continuer ?",self.darkgreenblue,700,350)
+                    self.texte(13,"Les données de sauvergarde  ",self.darkgreenblue,615,245)
+                    self.texte(13,"de Pokémon seront",self.darkgreenblue,615,270)
+                    self.texte(13,"complétements effacées.",self.darkgreenblue,615,295)
+                    self.texte(13,"Une fois effacées,",self.darkgreenblue,615,320)
+                    self.texte(13,"les données ne pourront",self.darkgreenblue,615,345)
+                    self.texte(13,"plus etre utilisées ou récupérées.",self.darkgreenblue,615,370)
+                    self.texte(13,"Voulez vous continuer ?",self.darkgreenblue,615,395)
 
+    
                     if c_verif_reset == 1:
                         self.button_rect(self.darkbluesea,515,500,70,50)
                         self.texte(13,"Non", self.white,515,500)
@@ -280,3 +395,22 @@ class Setting(Element,Screen):
                         self.button_rect(self.darkgreenblue,715,400,70,50)
                         self.texte(13,"Oui", self.white,715,400)
                 self.update()
+
+    def toggle_confirmation(self):
+        self.confirmation_sound = not self.confirmation_sound
+    
+    def play_confirmation_sound(self):
+        if self.confirmation_sound:
+            volume = self.volume_levels[self.current_volume]
+            self.confirmation_sound.set_volume(volume)
+            self.confirmation_sound.play()
+
+    def set_volume_level(self, volume_option):
+        if volume_option in self.volume_levels:
+            self.current_volume = volume_option
+
+#if event.type == pygame.KEYDOWN:
+#   print(f"""
+#       menu: {m}
+#       horiz: {horiz_c_audio}
+#       verti: {vert_c_audio}""")

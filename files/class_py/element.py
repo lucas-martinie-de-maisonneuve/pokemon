@@ -30,6 +30,11 @@ class Element:
         self.darkgrey = (100,100,100)
         self.lightgrey = (160, 160, 160)
 
+        pygame.mixer.init()
+        self.confirmation_sound = pygame.mixer.Sound('files/song/confirm_button.mp3')
+        self.win_song = pygame.mixer.Sound('files/song/win.mp3')
+        self.win_song_play = False
+
         self.rotation = 0
 
     def img(self, x, y, largeur, hauteur, image_name):
@@ -108,3 +113,17 @@ class Element:
         overlay_surface = pygame.Surface((largeur, longueur), pygame.SRCALPHA)
         overlay_surface.fill(coloralpha)
         screen.Fenetre.blit(overlay_surface, (x - largeur // 2, y - longueur // 2))
+
+    def stop_and_new(self, music_name):
+        pygame.mixer.music.stop()
+        pygame.mixer.music.load(f'files/song/{music_name}.mp3')
+        pygame.mixer.music.play(-1)
+    
+
+    def win_music(self):
+        pygame.mixer.music.stop()
+        self.win_song.play()
+
+
+    def play_confirmation_sound(self):
+        self.confirmation_sound.play()
