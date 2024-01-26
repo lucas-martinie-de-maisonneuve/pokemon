@@ -13,7 +13,8 @@ class Maps(Element, Screen, Combat, Experience):
         Element.__init__(self)
         Screen.__init__(self)
         Combat.__init__(self)
-        Experience.__init__(self, poke_player) 
+        
+        Experience.__init__(self, poke_player, save) 
         self.pokedex = Pokedex()
         self.starter = Starter()
         self.pokedex.change_save(save)
