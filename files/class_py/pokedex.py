@@ -3,6 +3,7 @@ import random
 import pygame
 from files.class_py.element import Element
 from files.class_py.screen import Screen
+from files.class_py.config import sound_config
 # from files.class_py.experience import Experience
 
 # experience = Experience()
@@ -21,6 +22,7 @@ class Pokedex(Element, Screen):
         self.detailed_pokemon = False
         self.changing_pokemon = False
         self.pokemon_changed = False
+        self.sound_config = sound_config
 
     def ouverture_pokemonjson(self):
         with open('pokemon.json', 'r') as fichier:
@@ -169,6 +171,7 @@ class Pokedex(Element, Screen):
                     pygame.quit()
                     quit()
                 if event.type == pygame.KEYDOWN:
+                    self.update_sound_parameters()
                     if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                         if poke_choose < self.get_last_pokemon_number() +1:
                             poke_choose += 1

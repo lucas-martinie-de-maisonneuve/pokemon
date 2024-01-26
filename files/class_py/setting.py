@@ -1,15 +1,17 @@
+# setting.py
 import pygame
 from files.class_py.element import Element
 from files.class_py.screen import Screen
 from files.class_py.pokedex import Pokedex
-from files.class_py.config import confirmation_sound,current_volume,volume_levels
+from files.class_py.config import sound_config
+
 class Setting(Element,Screen):
     def __init__(self):
         Element.__init__(self)
         Screen.__init__(self)
-        self.confirmation_sound = confirmation_sound
-        self.current_volume = current_volume
-        self.volume_levels = volume_levels
+
+        self.sound_config = sound_config
+
         self.verif_quitter = False
         self.setting_run = False
         self.verif_reset = False
@@ -55,7 +57,7 @@ class Setting(Element,Screen):
                     elif event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                         #Droite vérif quitter
                         if m == 4 and self.verif_quitter and c_verif_quit == 1:
-                            self.play_confirmation_sound()
+                            self.play_confirmation_sound()                            
                             c_verif_quit = 2
                         #Droite stat
                         elif m == 2 and c_stat < 1:
@@ -119,18 +121,46 @@ class Setting(Element,Screen):
                             self.top_pokemon = sorted(pokedex.pkmn_rencontre,key=lambda x: x['rencontre'], reverse=True)
                             self.verif_reset = False
                             self.reset = True
-                        #Action mute son confirm
+                        ######## MUSIC ########
+                        #Action mute sounds_effect confirm
+                        elif m == 3 and horiz_c_audio == 1 and vert_c_audio == 1:
+                            self.sound_config.set_current_volume_music('mute')
+                            self.update_music_parameters()
+                        #Action low sounds_effect confirm
+                        elif m == 3 and horiz_c_audio == 2 and vert_c_audio == 1:
+                            self.sound_config.set_current_volume_music('low')
+                            self.update_music_parameters()
+                            self.play_confirmation_sound()
+                        #Action medium sounds_effect confirm
+                        elif m == 3 and horiz_c_audio == 3 and vert_c_audio == 1:
+                            self.sound_config.set_current_volume_music('medium')
+                            self.update_music_parameters()
+                            self.play_confirmation_sound()
+                        #Action high sounds_effect confirm
+                        elif m == 3 and horiz_c_audio == 4 and vert_c_audio == 1:
+                            self.sound_config.set_current_volume_music('high')
+                            self.update_music_parameters()
+                            self.play_confirmation_sound()
+                        ######## SOUNDS EFFECTS ########
+                        #Action mute sounds_effect confirm
                         elif m == 3 and horiz_c_audio == 1 and vert_c_audio == 2:
-                            self.set_volume_level('mute')
+                            self.sound_config.set_current_volume_effect('mute')
+                            self.update_sound_parameters()
+                        #Action low sounds_effect confirm
                         elif m == 3 and horiz_c_audio == 2 and vert_c_audio == 2:
-                            self.set_volume_level('low')
+                            self.sound_config.set_current_volume_effect('low')
+                            self.update_sound_parameters()
                             self.play_confirmation_sound()
+                        #Action medium sounds_effect confirm
                         elif m == 3 and horiz_c_audio == 3 and vert_c_audio == 2:
-                            self.set_volume_level('medium')
+                            self.sound_config.set_current_volume_effect('medium')
+                            self.update_sound_parameters()
                             self.play_confirmation_sound()
+                        #Action high sounds_effect confirm
                         elif m == 3 and horiz_c_audio == 4 and vert_c_audio == 2:
-                            self.set_volume_level('high')
-                            self.play_confirmation_sound()
+                            self.sound_config.set_current_volume_effect('high')
+                            self.update_sound_parameters()
+                            self.play_confirmation_sound()                        
 
 #Touche Echap
                     elif event.key == pygame.K_ESCAPE:
@@ -396,21 +426,4 @@ class Setting(Element,Screen):
                         self.texte(13,"Oui", self.white,715,400)
                 self.update()
 
-    def toggle_confirmation(self):
-        self.confirmation_sound = not self.confirmation_sound
-    
-    def play_confirmation_sound(self):
-        if self.confirmation_sound:
-            volume = self.volume_levels[self.current_volume]
-            self.confirmation_sound.set_volume(volume)
-            self.confirmation_sound.play()
 
-    def set_volume_level(self, volume_option):
-        if volume_option in self.volume_levels:
-            self.current_volume = volume_option
-
-#if event.type == pygame.KEYDOWN:
-#   print(f"""
-#       menu: {m}
-#       horiz: {horiz_c_audio}
-#       verti: {vert_c_audio}""")

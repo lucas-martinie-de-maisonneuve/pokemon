@@ -1,19 +1,9 @@
 [
   {
     "numero": 1,
-    "nom": "Bulbizarre",
+    "nom": "Salameche",
     "rencontre": 1,
-    "true_num": 4,
-    "level": 1,
-    "exp": 0,
-    "victoire": 0,
-    "fuite": 0
-  },
-  {
-    "numero": 2,
-    "nom": "Gravalanch",
-    "rencontre": 1,
-    "true_num": 17,
+    "true_num": 1,
     "level": 1,
     "exp": 0,
     "victoire": 0,

@@ -5,7 +5,7 @@ from files.class_py.combat import Combat
 from files.class_py.starter import Starter
 from files.class_py.add_pokemon import AddPokemon
 from files.class_py.setting import Setting
-from files.class_py.config import confirmation_sound,current_volume,volume_levels
+from files.class_py.config import sound_config
 
 combat = Combat()
 starter = Starter()
@@ -19,15 +19,13 @@ class Menu(Pokedex):
         self.menu_run = True
         self.show_home = True
         self.load_home = False
-        self.confirmation_sound = confirmation_sound
-        self.current_volume = current_volume
-        self.volume_levels = volume_levels
         #initilisation de la musique
         pygame.mixer.music.load('files/song/opening.mp3')
         pygame.mixer.music.play(-1)
         self.load_game = False
         self.new_game = False
         self.home_bag = False
+        self.sound_config = sound_config
 
     def default_pkmn(self):
         if self.pkmn_rencontre != []:
@@ -52,6 +50,7 @@ class Menu(Pokedex):
                     pygame.quit()
                     quit()
                 if event.type == pygame.KEYDOWN and not setting.setting_run:
+                    self.update_sound_parameters()
                     if self.show_home:
                         self.play_confirmation_sound()
                         self.show_home = False

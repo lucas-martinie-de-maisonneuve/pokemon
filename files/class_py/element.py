@@ -1,5 +1,7 @@
 import pygame
 from files.class_py.screen import Screen
+from files.class_py.config import sound_config
+
 screen = Screen()
 
 class Element:
@@ -32,10 +34,12 @@ class Element:
 
         pygame.mixer.init()
         self.confirmation_sound = pygame.mixer.Sound('files/song/confirm_button.mp3')
+        self.confirmation_sound.set_volume(sound_config.current_volume_effect)
         self.win_song = pygame.mixer.Sound('files/song/win.mp3')
         self.win_song_play = False
 
         self.rotation = 0
+
 
     def img(self, x, y, largeur, hauteur, image_name):
         image = pygame.image.load(f'files/image/{image_name}.png')
@@ -127,3 +131,10 @@ class Element:
 
     def play_confirmation_sound(self):
         self.confirmation_sound.play()
+
+    def update_sound_parameters(self):
+        self.confirmation_sound.set_volume(sound_config.current_volume_effect)
+        
+    def update_music_parameters(self):
+        pygame.mixer.music.set_volume(sound_config.current_volume_music)
+        

@@ -3,6 +3,7 @@ import json
 from files.class_py.pokedex import Pokedex
 from files.class_py.screen import Screen
 from files.class_py.element import Element
+from files.class_py.config import sound_config
 
 pokedex = Pokedex()
 
@@ -10,6 +11,8 @@ class AddPokemon(Element, Screen):
     def __init__(self):
         Element.__init__(self)
         Screen.__init__(self)
+
+        self.sound_config = sound_config
         
     def ajout_pokemon(self):
             self.i = 0
@@ -31,6 +34,7 @@ class AddPokemon(Element, Screen):
                     if event.type == pygame.QUIT:
                         pygame.quit()
                     elif event.type == pygame.KEYDOWN:
+                        self.update_sound_parameters()
                         if event.key == pygame.K_ESCAPE:
                             self.play_confirmation_sound()
                             active = False

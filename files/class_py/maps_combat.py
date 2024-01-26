@@ -5,6 +5,8 @@ from files.class_py.pokedex import Pokedex
 from files.class_py.combat import Combat
 from files.class_py.starter import Starter
 from files.class_py.experience import Experience
+from files.class_py.config import sound_config
+from files.class_py.config import sound_config
 
 
 class Maps(Element, Screen, Combat, Experience):
@@ -46,8 +48,10 @@ class Maps(Element, Screen, Combat, Experience):
         self.experience_pokemon = self.levelss_poke['exp']
         self.pokemon_list = self.pokedex.info_pokemon
 
-        pygame.mixer.music.load('files/song/battle.mp3')
+        pygame.mixer.music.load('files/song/battle_champion.mp3')
         pygame.mixer.music.play(-1)
+
+        self.sound_config = sound_config
         # self.rajout_exp = self.exp_par_combat()                   
 
     def battle(self):
@@ -57,6 +61,7 @@ class Maps(Element, Screen, Combat, Experience):
                     pygame.quit()
                     quit()
                 if event.type == pygame.KEYDOWN: 
+                    self.update_sound_parameters()
                     if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                         if self.action < 4:
                             self.play_confirmation_sound()
@@ -214,18 +219,19 @@ class Maps(Element, Screen, Combat, Experience):
                     self.img(860, 650, 15, 15, f'combat/arrow')
             if self.text_phase:
                 if self.text == 1:
-                    if self.poke_player_hp == self.poke_player_hp_before:
-                        self.texte(20, f"{self.poke_player['nom']} inflige {int(self.dmg_poke)}", self.black, 325, 590)
-                        self.texte(20, f'Il lui reste {int(self.pokemon_random_hp)}', self.black, 325, 620)
-                    else:
+                    if self.pokemon_random == self.pokemon_random_hp_before:
                         self.texte(20, f"{self.poke_player['nom']} a raté son attaque!", self.black, 325, 625)
+                    else:
+                        self.texte(20, f"{self.poke_player['nom']} inflige {int(self.dmg_poke)}", self.black, 325, 590)             
+                        self.texte(20, f"a {self.pokemon_random['nom']}", self.black, 325, 620)
                 elif self.text == 2:
                     if self.attack_phase_advers:
-                        if self.pokemon_random_hp == self.pokemon_random_hp_before:
+                        if self.poke_player_hp == self.poke_player_hp_before:
                             self.texte(20, f"{self.pokemon_random['nom']} a raté son attaque!", self.black, 325, 625)
                         else:
                             self.poke_player_hp = self.attack(self.poke_player_hp, self.pokemon_random['attaque'],self.type_pokemon_advers, self.pokemon_type_player, self.def_poke_player)
-                            self.texte(20, f"Il lui reste {int(self.poke_player_hp)}", self.black, 325, 660)
+                            self.texte(20, f"{self.pokemon_random['nom']} inflige {int(self.dmg_poke)}", self.black, 325, 590)
+                            self.texte(20, f"a {self.poke_player['nom']}", self.black, 325, 620)
                     self.recup_poke_winner(self.poke_player['nom'], self.pokemon_random['nom'], self.poke_player_hp, self.pokemon_random_hp)
             else:
                 self.texte(20, f"Que doit faire {self.poke_player['nom']}?", self.black, 325, 625)         
