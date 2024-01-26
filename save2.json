@@ -2,17 +2,17 @@
   {
     "numero": 1,
     "nom": "Salameche",
-    "rencontre": 1,
+    "rencontre": 2,
     "true_num": 1,
-    "level": 4,
-    "exp": 0,
+    "level": 16,
+    "exp": 15,
     "victoire": 0,
     "fuite": 0
   },
   {
     "numero": 2,
     "nom": "Reptincelle",
-    "rencontre": 1,
+    "rencontre": 2,
     "true_num": 2,
     "level": 1,
     "exp": 0,
@@ -22,7 +22,7 @@
   {
     "numero": 3,
     "nom": "Artikodin",
-    "rencontre": 1,
+    "rencontre": 2,
     "true_num": 45,
     "level": 1,
     "exp": 0,
@@ -32,7 +32,7 @@
   {
     "numero": 4,
     "nom": "Phyllali",
-    "rencontre": 1,
+    "rencontre": 2,
     "true_num": 23,
     "level": 1,
     "exp": 0,
@@ -52,7 +52,7 @@
   {
     "numero": 6,
     "nom": "Florizarre",
-    "rencontre": 1,
+    "rencontre": 2,
     "true_num": 6,
     "level": 1,
     "exp": 0,
@@ -62,7 +62,7 @@
   {
     "numero": 7,
     "nom": "Roucarnage",
-    "rencontre": 1,
+    "rencontre": 2,
     "true_num": 36,
     "level": 1,
     "exp": 0,
@@ -74,6 +74,306 @@
     "nom": "Roucool",
     "rencontre": 1,
     "true_num": 34,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 9,
+    "nom": "Sablaireau",
+    "rencontre": 2,
+    "true_num": 40,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 10,
+    "nom": "Chenipotte",
+    "rencontre": 2,
+    "true_num": 12,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 11,
+    "nom": "Ossatueur",
+    "rencontre": 1,
+    "true_num": 42,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 12,
+    "nom": "Fenard",
+    "rencontre": 4,
+    "true_num": 38,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 13,
+    "nom": "Kyogre",
+    "rencontre": 1,
+    "true_num": 48,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 14,
+    "nom": "Insecateur",
+    "rencontre": 1,
+    "true_num": 43,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 15,
+    "nom": "Gravalanch",
+    "rencontre": 4,
+    "true_num": 17,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 16,
+    "nom": "Elektek",
+    "rencontre": 2,
+    "true_num": 26,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 17,
+    "nom": "Tauros",
+    "rencontre": 1,
+    "true_num": 24,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 18,
+    "nom": "Rayquaza",
+    "rencontre": 1,
+    "true_num": 50,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 19,
+    "nom": "Pifeuil",
+    "rencontre": 1,
+    "true_num": 32,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 20,
+    "nom": "Leviator",
+    "rencontre": 1,
+    "true_num": 30,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 21,
+    "nom": "Dracaufeu",
+    "rencontre": 3,
+    "true_num": 3,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 22,
+    "nom": "Papinox",
+    "rencontre": 2,
+    "true_num": 14,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 23,
+    "nom": "Raichu",
+    "rencontre": 2,
+    "true_num": 11,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 24,
+    "nom": "Pikachu",
+    "rencontre": 2,
+    "true_num": 10,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 25,
+    "nom": "Roucoups",
+    "rencontre": 1,
+    "true_num": 35,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 26,
+    "nom": "Sulfura",
+    "rencontre": 4,
+    "true_num": 47,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 27,
+    "nom": "Blindalys",
+    "rencontre": 2,
+    "true_num": 13,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 28,
+    "nom": "Carapuce",
+    "rencontre": 1,
+    "true_num": 7,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 29,
+    "nom": "Tortank",
+    "rencontre": 1,
+    "true_num": 9,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 30,
+    "nom": "Aquali",
+    "rencontre": 1,
+    "true_num": 20,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 31,
+    "nom": "Carabaffe",
+    "rencontre": 1,
+    "true_num": 8,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 32,
+    "nom": "Scarabrute",
+    "rencontre": 1,
+    "true_num": 28,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 33,
+    "nom": "Grolem",
+    "rencontre": 2,
+    "true_num": 18,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 34,
+    "nom": "Goupix",
+    "rencontre": 1,
+    "true_num": 37,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 35,
+    "nom": "Bulbizarre",
+    "rencontre": 1,
+    "true_num": 4,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 36,
+    "nom": "Tengalice",
+    "rencontre": 1,
+    "true_num": 33,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 37,
+    "nom": "Kangourex",
+    "rencontre": 1,
+    "true_num": 25,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 38,
+    "nom": "Evoli",
+    "rencontre": 1,
+    "true_num": 19,
     "level": 1,
     "exp": 0,
     "victoire": 0,

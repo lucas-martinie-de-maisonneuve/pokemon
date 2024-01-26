@@ -4,7 +4,7 @@
     "nom": "Salameche",
     "rencontre": 1,
     "true_num": 1,
-    "level": 1,
+    "level": 2,
     "exp": 0
   },
   {
@@ -18,7 +18,7 @@
   {
     "numero": 3,
     "nom": "Rayquaza",
-    "rencontre": 2,
+    "rencontre": 3,
     "true_num": 50,
     "level": 1,
     "exp": 0
@@ -106,7 +106,7 @@
   {
     "numero": 14,
     "nom": "Roucool",
-    "rencontre": 1,
+    "rencontre": 2,
     "true_num": 34,
     "level": 1,
     "exp": 0,
@@ -128,6 +128,26 @@
     "nom": "Florizarre",
     "rencontre": 1,
     "true_num": 6,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 17,
+    "nom": "Electhor",
+    "rencontre": 1,
+    "true_num": 46,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 18,
+    "nom": "Grainipiot",
+    "rencontre": 1,
+    "true_num": 31,
     "level": 1,
     "exp": 0,
     "victoire": 0,

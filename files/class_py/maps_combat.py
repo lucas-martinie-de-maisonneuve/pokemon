@@ -5,6 +5,7 @@ from files.class_py.pokedex import Pokedex
 from files.class_py.combat import Combat
 from files.class_py.starter import Starter
 from files.class_py.experience import Experience
+import random
 
 
 class Maps(Element, Screen, Combat, Experience):
@@ -22,6 +23,8 @@ class Maps(Element, Screen, Combat, Experience):
         self.action = 1
         self.attack_phase = False
         self.text_phase = False
+        self.poke_rand_flee = False
+        self.run_fail = False
         self.text = 1
         self.poke_player = poke_player
         self.poke_player_hp = poke_player['hp']
@@ -71,7 +74,11 @@ class Maps(Element, Screen, Combat, Experience):
                             self.attack_phase = True
                         elif self.action == 2 and not self.attack_phase:
                             self.play_confirmation_sound()
-                            self.combat_run = False
+                            random_number = random.random()
+                            if random_number <= 0.8:
+                                self.combat_run = False
+                            else:                                
+                                pass                                
                         elif self.action == 3 and not self.attack_phase:
                             pass
                         elif self.action == 4 and not self.attack_phase:
@@ -142,8 +149,7 @@ class Maps(Element, Screen, Combat, Experience):
             self.rect_hp(172, 124, 170, 12, self.pokemon_random_hp, self.pokemon_random_hp_max)            
             self.img(211, 100, 350, 128, 'combat/rand_pokemon_hp')
             self.texte_not_align(25, f"{self.pokemon_random['nom']}", self.black, 52, 50)            
-            self.texte_not_align(20, f'lvl {self.levels_poke}', self.black, 280, 50)
-            
+            self.texte_not_align(20, f'lvl {self.levels_poke}', self.black, 280, 50)            
 
             if not self.attack_phase:
                 self.button_rect(self.darkred,765,600,145,45)
@@ -202,7 +208,7 @@ class Maps(Element, Screen, Combat, Experience):
                     self.img(860, 600, 15, 15, f'combat/arrow')
                 elif self.action == 3 :
                     self.img(680, 650, 15, 15, f'combat/arrow')
-                elif self.action ==4 :
+                elif self.action == 4 :
                     self.img(860, 650, 15, 15, f'combat/arrow')
 
             if self.text_phase:
@@ -211,13 +217,16 @@ class Maps(Element, Screen, Combat, Experience):
                     self.texte(20, f"{self.pokemon_random['nom']} avait {int(self.pokemon_random_hp + self.dmg_poke)}", self.black, 300, 625)
                     self.texte(20, f'Il lui reste {int(self.pokemon_random_hp)}', self.black, 300, 660)
                 elif self.text == 2:
-                    if self.attack_phase_advers:
+                    if self.attack_phase_advers:                           
                         self.poke_player_hp = self.attack(self.poke_player_hp, self.pokemon_random['attaque'],self.type_pokemon_advers, self.pokemon_type_player, self.def_poke_player)
                         self.attack_phase_advers = False                            
                     self.recup_poke_winner(self.poke_player['nom'], self.pokemon_random['nom'], self.poke_player_hp, self.pokemon_random_hp)
                     self.texte(20, f"{self.pokemon_random['nom']} inflige {int(self.dmg_poke)}", self.black, 300, 590)
                     self.texte(20, f"{self.poke_player['nom']} avait {int(self.poke_player_hp + self.dmg_poke)}", self.black, 300, 625)
                     self.texte(20, f"Il lui reste {int(self.poke_player_hp)}", self.black, 300, 660)
+            # elif self.run_fail and self.text_phase:
+            #     if self.text == 3:
+            #         self.texte(20, f"{self.poke_player['nom']} n'a pas reussit a fuir", self.black, 300, 625)
             else:
                 self.texte(20, f"What will {self.poke_player['nom']} do?", self.black, 300, 625)         
             
