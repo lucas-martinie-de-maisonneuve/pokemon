@@ -5,46 +5,18 @@
     "rencontre": 1,
     "true_num": 4,
     "level": 1,
-    "exp": 0
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
   },
   {
     "numero": 2,
-    "nom": "Aquali",
+    "nom": "Gravalanch",
     "rencontre": 1,
-    "true_num": 20,
+    "true_num": 17,
     "level": 1,
-    "exp": 0
-  },
-  {
-    "numero": 3,
-    "nom": "Dracaufeu",
-    "rencontre": 1,
-    "true_num": 3,
-    "level": 1,
-    "exp": 0
-  },
-  {
-    "numero": 4,
-    "nom": "Ossatueur",
-    "rencontre": 1,
-    "true_num": 42,
-    "level": 1,
-    "exp": 0
-  },
-  {
-    "numero": 5,
-    "nom": "Pifeuil",
-    "rencontre": 1,
-    "true_num": 32,
-    "level": 1,
-    "exp": 0
-  },
-  {
-    "numero": 6,
-    "nom": "Sulfura",
-    "rencontre": 1,
-    "true_num": 47,
-    "level": 1,
-    "exp": 0
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
   }
 ]

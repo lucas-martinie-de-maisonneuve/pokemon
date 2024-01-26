@@ -4,8 +4,10 @@ from files.class_py.pokedex import Pokedex
 pokedex = Pokedex()
 
 class Experience:
-    def __init__(self, poke_player):
+    def __init__(self, poke_player, save):
         self.poke_player = poke_player
+        self.choose_save = save
+
         # self.exp_max_poke = 0        
         # self.numero_poke = poke_player["numero"]
         # self.poke_evol = self.numero_poke["numero"]+ 1
@@ -14,7 +16,20 @@ class Experience:
         # self.liste_poke = pokedex.info_pokemon
         self.poke_sherch_name = pokedex.rand_pokemon()
         self.pokemons_name = self.poke_sherch_name['nom']
-        # self.liste_rencontre_poke = pokedex.pkmn_rencontre   
+        self.current_save()
+        # self.liste_rencontre_poke = pokedex.pkmn_rencontre
+    def current_save(self):
+        if self.choose_save == 'save1':
+            pokedex.pkmn_rencontre = pokedex.open_save1()
+        elif self.choose_save == 'save2':
+            self.pkmn_rencontre = pokedex.open_save2()
+            print (f"""'self'
+                    {self.pkmn_rencontre}""")
+            pokedex.pkmn_rencontre = pokedex.open_save2()
+            print (f"""pokedex
+                   {pokedex.pkmn_rencontre}""")
+        elif self.choose_save == 'save3':
+            pokedex.pkmn_rencontre = pokedex.open_save3()
         
     def exp_par_combat(self, level):
         if level is not None and level <= 2:
@@ -60,6 +75,8 @@ class Experience:
             self.update_lvl(self.poke_player['nom'],self.exp_max(level))
 
     def verif_for_evolve(self):
+        self.current_save()
+
         for info_poke_rencontre in pokedex.pkmn_rencontre:
             for position, poke_player in enumerate(pokedex.info_pokemon):
                 if self.poke_player["nom"] == poke_player["nom"]:  
@@ -98,7 +115,7 @@ class Experience:
         #         print(self.poke_evol)             
 
     def update_lvl(self, poke_name, exps_max):
-        pokedex.pkmn_rencontre = pokedex.ouverture_pokemonrencontre()                  
+        self.current_save()
         for pokemon in pokedex.pkmn_rencontre:
             if pokemon['nom'] == poke_name:
                 while pokemon['exp'] >= exps_max:
@@ -110,13 +127,12 @@ class Experience:
             json.dump(pokedex.pkmn_rencontre, file, indent=2)                   
     
     def update_exp(self, poke_name, exp):
-        pokedex.pkmn_rencontre = pokedex.ouverture_pokemonrencontre()
+        self.current_save()
         for pokemon in pokedex.pkmn_rencontre:
             if pokemon['nom'] == poke_name:
                 pokemon['exp'] += exp
                 exp_maj = pokemon['exp']
-
             # Assurez-vous que le fichier est correctement fermé après la modification
-        with open(f'{pokedex.choose_save}.json', 'w') as file:
+        with open(f'{self.choose_save}.json', 'w') as file:
             json.dump(pokedex.pkmn_rencontre, file, indent=2)
         self.verif_exp(self.level, exp_maj)

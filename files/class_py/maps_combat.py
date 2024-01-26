@@ -13,7 +13,8 @@ class Maps(Element, Screen, Combat, Experience):
         Element.__init__(self)
         Screen.__init__(self)
         Combat.__init__(self)
-        Experience.__init__(self, poke_player) 
+        
+        Experience.__init__(self, poke_player, save) 
         self.pokedex = Pokedex()
         self.starter = Starter()
         self.pokedex.change_save(save)
@@ -123,7 +124,7 @@ class Maps(Element, Screen, Combat, Experience):
             self.img_mir(350, 350, 310, 310, f"pokemon/{self.poke_player['nom'].lower()}")
             if self.pokemon_random['numero'] <=50: 
                 self.img(725, 225, 175, 175, f"pokemon/{self.pokemon_random['nom'].lower()}")
-            else: 
+            else:
                 self.img(725, 225, 175, 175, f"pokemon/default")
             # combat.afficher_capacite()
             self.button_rect(self.brown,525,650,self.W,210)            
@@ -146,7 +147,7 @@ class Maps(Element, Screen, Combat, Experience):
 
             if not self.attack_phase:
                 self.button_rect(self.darkred,765,600,145,45)
-                self.simple_rect(self.red,765,600,135,35,2)
+                self.simple_rect(self.red,765,600,135,35,2) 
 
                 self.button_rect(self.darkblue,945,600,145,45)
                 self.simple_rect(self.blue, 945,600,135,35,2)
