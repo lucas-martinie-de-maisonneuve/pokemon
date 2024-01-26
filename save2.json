@@ -1,19 +1,79 @@
 [
   {
     "numero": 1,
-    "nom": "Bulbizarre",
+    "nom": "Salameche",
     "rencontre": 1,
-    "true_num": 4,
-    "level": 1,
+    "true_num": 1,
+    "level": 4,
     "exp": 0,
     "victoire": 0,
     "fuite": 0
   },
   {
     "numero": 2,
-    "nom": "Gravalanch",
+    "nom": "Reptincelle",
     "rencontre": 1,
-    "true_num": 17,
+    "true_num": 2,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 3,
+    "nom": "Artikodin",
+    "rencontre": 1,
+    "true_num": 45,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 4,
+    "nom": "Phyllali",
+    "rencontre": 1,
+    "true_num": 23,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 5,
+    "nom": "Metamorphe",
+    "rencontre": 1,
+    "true_num": 51,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 6,
+    "nom": "Florizarre",
+    "rencontre": 1,
+    "true_num": 6,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 7,
+    "nom": "Roucarnage",
+    "rencontre": 1,
+    "true_num": 36,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 8,
+    "nom": "Roucool",
+    "rencontre": 1,
+    "true_num": 34,
     "level": 1,
     "exp": 0,
     "victoire": 0,

@@ -18,7 +18,7 @@
   {
     "numero": 3,
     "nom": "Rayquaza",
-    "rencontre": 1,
+    "rencontre": 2,
     "true_num": 50,
     "level": 1,
     "exp": 0
@@ -42,7 +42,7 @@
   {
     "numero": 6,
     "nom": "Ossatueur",
-    "rencontre": 1,
+    "rencontre": 2,
     "true_num": 42,
     "level": 1,
     "exp": 0
@@ -82,7 +82,7 @@
   {
     "numero": 11,
     "nom": "Grolem",
-    "rencontre": 1,
+    "rencontre": 2,
     "true_num": 18,
     "level": 1,
     "exp": 0
@@ -100,7 +100,37 @@
     "nom": "Elektek",
     "rencontre": 1,
     "true_num": 26,
-    "level": 1,
+    "level": 4,
     "exp": 0
+  },
+  {
+    "numero": 14,
+    "nom": "Roucool",
+    "rencontre": 1,
+    "true_num": 34,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 15,
+    "nom": "Raichu",
+    "rencontre": 1,
+    "true_num": 11,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 16,
+    "nom": "Florizarre",
+    "rencontre": 1,
+    "true_num": 6,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
   }
 ]

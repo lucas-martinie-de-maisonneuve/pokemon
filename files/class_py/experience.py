@@ -76,12 +76,10 @@ class Experience:
 
     def verif_for_evolve(self):
         self.current_save()
-
         for info_poke_rencontre in pokedex.pkmn_rencontre:
             for position, poke_player in enumerate(pokedex.info_pokemon):
                 if self.poke_player["nom"] == poke_player["nom"]:  
                     if info_poke_rencontre["level"] == 16:
-                        # self.poke_actuelle = self.poke_player
                         next_poke = pokedex.info_pokemon[position + 1]
                         if next_poke["evol"] == 2:
                             self.poke_player = next_poke
@@ -89,21 +87,9 @@ class Experience:
                         next_poke = pokedex.info_pokemon[position + 1]
                         if next_poke["evol"] == 3:
                             self.poke_player = next_poke
-                        # self.reset_exp_lvl(self,self.poke_actuelle)
-                        # print(self.reset_exp_lvl(self,self.poke_actuelle))    
                             
-                    with open(f'{pokedex.choose_save}.json', 'w') as file:
-                        json.dump(pokedex.pkmn_rencontre, file, indent=2)
-                        
-    # def reset_exp_lvl(self, poke_actuelle):
-    #     if poke_actuelle['level'] > 0 and poke_actuelle['exp'] > 0:
-    #         poke_actuelle['level'] = 0
-    #         poke_actuelle['exp'] = 0
-    #         return True
-    #     else:
-    #         return False
-
-        
+            with open(f'{self.choose_save}.json', 'w') as file:
+                json.dump(pokedex.pkmn_rencontre, file, indent=2)    
 
         # if self.poke_player["level"] == 16:
         #     if self.poke_evol and self.poke_evol["evol"] == 2:
@@ -121,11 +107,10 @@ class Experience:
                 while pokemon['exp'] >= exps_max:
                     pokemon['exp'] = pokemon['exp'] - exps_max
                     pokemon['level'] += 1
-                                
-                self.verif_for_evolve()
-        with open(f'{pokedex.choose_save}.json', 'w') as file:
-            json.dump(pokedex.pkmn_rencontre, file, indent=2)                   
-    
+            
+        with open(f'{self.choose_save}.json', 'w') as file:
+                    json.dump(pokedex.pkmn_rencontre, file, indent=2)
+            
     def update_exp(self, poke_name, exp):
         self.current_save()
         for pokemon in pokedex.pkmn_rencontre:
