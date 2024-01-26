@@ -4,8 +4,8 @@
     "nom": "Salameche",
     "rencontre": 2,
     "true_num": 1,
-    "level": 16,
-    "exp": 15,
+    "level": 17,
+    "exp": 0,
     "victoire": 0,
     "fuite": 0
   },
@@ -32,7 +32,7 @@
   {
     "numero": 4,
     "nom": "Phyllali",
-    "rencontre": 2,
+    "rencontre": 3,
     "true_num": 23,
     "level": 1,
     "exp": 0,
@@ -72,7 +72,7 @@
   {
     "numero": 8,
     "nom": "Roucool",
-    "rencontre": 1,
+    "rencontre": 2,
     "true_num": 34,
     "level": 1,
     "exp": 0,

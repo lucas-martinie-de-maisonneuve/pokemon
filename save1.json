@@ -4,16 +4,16 @@
     "nom": "Salameche",
     "rencontre": 1,
     "true_num": 1,
-    "level": 1,
-    "exp": 0,
+    "level": 16,
+    "exp": 37.6577394827395,
     "victoire": 0,
     "fuite": 0
   },
   {
     "numero": 2,
-    "nom": "Carabaffe",
-    "rencontre": 1,
-    "true_num": 8,
+    "nom": "Kangourex",
+    "rencontre": 3,
+    "true_num": 25,
     "level": 1,
     "exp": 0,
     "victoire": 0,
@@ -21,6 +21,126 @@
   },
   {
     "numero": 3,
+    "nom": "Electhor",
+    "rencontre": 3,
+    "true_num": 46,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 4,
+    "nom": "Blindalys",
+    "rencontre": 3,
+    "true_num": 13,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 5,
+    "nom": "Pifeuil",
+    "rencontre": 1,
+    "true_num": 32,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 6,
+    "nom": "Magicarpe",
+    "rencontre": 1,
+    "true_num": 29,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 7,
+    "nom": "Herbizarre",
+    "rencontre": 2,
+    "true_num": 5,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 8,
+    "nom": "Metamorphe",
+    "rencontre": 1,
+    "true_num": 51,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 9,
+    "nom": "Sulfura",
+    "rencontre": 1,
+    "true_num": 47,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 10,
+    "nom": "Osselait",
+    "rencontre": 1,
+    "true_num": 41,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 11,
+    "nom": "Florizarre",
+    "rencontre": 3,
+    "true_num": 6,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 12,
+    "nom": "Roucool",
+    "rencontre": 1,
+    "true_num": 34,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 13,
+    "nom": "Elektek",
+    "rencontre": 1,
+    "true_num": 26,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 14,
+    "nom": "Tauros",
+    "rencontre": 1,
+    "true_num": 24,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 15,
     "nom": "Magmar",
     "rencontre": 1,
     "true_num": 27,
@@ -30,10 +150,110 @@
     "fuite": 0
   },
   {
-    "numero": 4,
-    "nom": "Kyogre",
+    "numero": 16,
+    "nom": "Evoli",
     "rencontre": 1,
-    "true_num": 48,
+    "true_num": 19,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 17,
+    "nom": "Fenard",
+    "rencontre": 1,
+    "true_num": 38,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 18,
+    "nom": "Phyllali",
+    "rencontre": 1,
+    "true_num": 23,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 19,
+    "nom": "Gravalanch",
+    "rencontre": 1,
+    "true_num": 17,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 20,
+    "nom": "Leviator",
+    "rencontre": 1,
+    "true_num": 30,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 21,
+    "nom": "Artikodin",
+    "rencontre": 1,
+    "true_num": 45,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 22,
+    "nom": "Tengalice",
+    "rencontre": 1,
+    "true_num": 33,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 23,
+    "nom": "Raichu",
+    "rencontre": 1,
+    "true_num": 11,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 24,
+    "nom": "Scarabrute",
+    "rencontre": 1,
+    "true_num": 28,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 25,
+    "nom": "Grolem",
+    "rencontre": 1,
+    "true_num": 18,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 26,
+    "nom": "Bulbizarre",
+    "rencontre": 1,
+    "true_num": 4,
     "level": 1,
     "exp": 0,
     "victoire": 0,

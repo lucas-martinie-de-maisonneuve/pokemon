@@ -18,6 +18,7 @@ class Experience:
         self.pokemons_name = self.poke_sherch_name['nom']
         self.current_save()
         # self.liste_rencontre_poke = pokedex.pkmn_rencontre
+        
     def current_save(self):
         if self.choose_save == 'save1':
             pokedex.pkmn_rencontre = pokedex.open_save1()
@@ -55,18 +56,18 @@ class Experience:
 
     def exp_max(self, level):
         if level is not None:        
-            if level <= 2 :
+            if level <= 2:
                 self.exp_max_poke = 15            
             elif level <= 4:
                 self.exp_max_poke = 25
             elif level <= 10:
-                self.exp_max_poke = 30
+                self.exp_max_poke = 30 + (5 / level)
             elif level <= 20:
-                self.exp_max_poke = 60
+                self.exp_max_poke = 60 + (8 / level)  
             elif level <= 35:
-                self.exp_max_poke = 140
+                self.exp_max_poke = 140 + (10 / level)  
             elif level <= 50:
-                self.exp_max_poke = 290            
+                self.exp_max_poke = 290 + (10 / level)  
 
         return self.exp_max_poke
 
@@ -78,27 +79,33 @@ class Experience:
         self.current_save()
         for info_poke_rencontre in pokedex.pkmn_rencontre:
             for position, poke_player in enumerate(pokedex.info_pokemon):
-                if self.poke_player["nom"] == poke_player["nom"]:  
+                if self.poke_player["nom"] == poke_player["nom"]:
                     if info_poke_rencontre["level"] == 16:
                         next_poke = pokedex.info_pokemon[position + 1]
                         if next_poke["evol"] == 2:
                             self.poke_player = next_poke
-                    if info_poke_rencontre["level"] == 36:
+                            self.reset_lvl_exp(self.poke_player)
+                            self.gain_lvl_exp_poke_evol_before(next_poke, info_poke_rencontre)
+                    elif info_poke_rencontre["level"] == 36:
                         next_poke = pokedex.info_pokemon[position + 1]
                         if next_poke["evol"] == 3:
                             self.poke_player = next_poke
-                            
-            with open(f'{self.choose_save}.json', 'w') as file:
-                json.dump(pokedex.pkmn_rencontre, file, indent=2)    
+                            self.reset_lvl_exp(self.poke_player)
+                            self.gain_lvl_exp_poke_evol_before(next_poke, info_poke_rencontre)
 
-        # if self.poke_player["level"] == 16:
-        #     if self.poke_evol and self.poke_evol["evol"] == 2:
-        #         self.poke_player = self.poke_evol
-        #         print(self.poke_evol)
-        # if self.poke_player["level"] == 36:
-        #     if self.poke_evol and self.poke_evol["evol"] == 3:
-        #         self.poke_player = self.poke_evol
-        #         print(self.poke_evol)             
+        with open(f'{self.choose_save}.json', 'w') as file:
+            json.dump(pokedex.pkmn_rencontre, file, indent=2)
+
+    def reset_lvl_exp(self, poke_actuelle):
+        poke_actuelle['level'] = 0 
+        poke_actuelle['exp'] = 0  
+
+    def gain_lvl_exp_poke_evol_before(self, poke_evolue, info_poke):
+        if info_poke['level'] == 16:
+            poke_evolue['level'] = 16
+        elif info_poke['level'] == 36:
+            poke_evolue['level'] = 36 
+                   
 
     def update_lvl(self, poke_name, exps_max):
         self.current_save()
