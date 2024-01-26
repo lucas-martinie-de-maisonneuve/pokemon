@@ -132,15 +132,16 @@ class Maps(Element, Screen, Combat, Experience):
 
             self.button_rect(self.brown, 794, 484, 170, 12)
             self.rect_hp(709, 478, 170, 12, self.poke_player_hp, self.poke_player_hp_max)
-            self.img(839, 454, 350, 128, 'combat/player_hp')            
-            self.texte(25, f"{self.poke_player['nom']}", self.black, 830, 420)
-            self.rect_exp(706, 455, 243, 11, self.experience_pokemon, self.exp_max(self.levels_poke))            
+            self.img(839, 454, 350, 128, 'combat/player_hp')
+            self.texte_not_align(25, f"{self.poke_player['nom']}", self.black, 712, 405)
+            self.texte_not_align(20, f'lvl {self.levels_poke}', self.black, 940, 405)
+            self.rect_exp(706, 455, 243, 11, self.experience_pokemon, self.exp_max(self.levels_poke))
             self.img(855, 558, 430, 330, "combat/player_exp")
-
             self.button_rect(self.brown, 257, 130, 170, 12)
             self.rect_hp(172, 124, 170, 12, self.pokemon_random_hp, self.pokemon_random_hp_max)            
             self.img(211, 100, 350, 128, 'combat/rand_pokemon_hp')
-            self.texte(25, f"{self.pokemon_random['nom']}", self.black, 160, 70)            
+            self.texte_not_align(25, f"{self.pokemon_random['nom']}", self.black, 52, 50)            
+            self.texte_not_align(20, f'lvl {self.levels_poke}', self.black, 280, 50)
             
 
             if not self.attack_phase:

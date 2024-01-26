@@ -14,5 +14,13 @@
     "true_num": 22,
     "level": 1,
     "exp": 0
+  },
+  {
+    "numero": 3,
+    "nom": "Chenipotte",
+    "rencontre": 1,
+    "true_num": 12,
+    "level": 1,
+    "exp": 0
   }
 ]

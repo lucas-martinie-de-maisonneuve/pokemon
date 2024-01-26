@@ -53,7 +53,6 @@ class Menu(Pokedex):
                     pygame.quit()
                     quit()
                 if event.type == pygame.KEYDOWN and not setting.setting_run:
-                    print(self.current_volume)
                     if self.show_home:
                         self.play_confirmation_sound()
                         self.show_home = False
