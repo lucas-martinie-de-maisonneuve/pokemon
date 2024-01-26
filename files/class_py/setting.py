@@ -155,7 +155,7 @@ class Setting(Element,Screen):
 
                 self.img(525, 350, 1244, 700, 'menu/backgroundmenu')
                 self.img(990, 60, 80, 80, 'menu/settings')
-                self.draw_overlay((0,0,0,200), 525,350, self.W, self.H)
+                self.draw_overlay((0,0,0,200), 525,350, self.W, self.H) #Ombre arrière plan
                 self.texte(14,'Settings',self.black,990,110)     
                 
                 self.button_rect(self.grey,525,350,830,560) #Bloc Principal Parametre

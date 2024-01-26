@@ -2,6 +2,7 @@ from files.class_py.type import Type
 # from files.class_py.experience import Experience
 from files.class_py.element import Element
 # from config import confirmation_sound, current_volume, volume_levels
+import random
 
 type = Type()
 
@@ -15,6 +16,8 @@ class Combat:
         
     def attack(self, vie, pokemon_attack, type_pokemon_starter, type_pokemon_advers, poke_def):
         
+        if self.miss_attack(15):
+            return vie
         if type_pokemon_starter == "feu":
             poke_dmg = type.feu(type_pokemon_advers, pokemon_attack)
             self.dmg_poke = round(poke_dmg * (1 - poke_def / 200)) 
@@ -92,3 +95,10 @@ class Combat:
             self.element.win_song_play = True           
         return self.win
     
+    def miss_attack(self, chance_to_miss):
+# Vérifie si l'attaque rate en fonction d'un pourcentage donné.
+# Parameters:
+#  chance_to_miss (float): Pourcentage de chance de rater l'attaque.
+# Returns:
+#  bool: True si l'attaque rate, False sinon.
+        return random.random() < chance_to_miss / 100.0
