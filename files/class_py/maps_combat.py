@@ -48,7 +48,7 @@ class Maps(Element, Screen, Combat, Experience):
         self.experience_pokemon = self.levelss_poke['exp']
         self.pokemon_list = self.pokedex.info_pokemon
 
-        pygame.mixer.music.load('files/song/battle_champion.mp3')
+        pygame.mixer.music.load('files/song/battle.mp3')
         pygame.mixer.music.play(-1)
 
         self.sound_config = sound_config
