@@ -106,6 +106,7 @@ class Menu(Pokedex):
                                     starter.poke_player = ""
                                     self.new_game = False
                                     self.load_home = False
+                            
                                 elif self.load_game:                         # Menu charger partie
                                     self.default_pkmn()
                                     self.load_game = False
@@ -152,6 +153,7 @@ class Menu(Pokedex):
                                 starter.choose_starter = True
                                 starter.starter()
                                 self.poke_rencontre(starter.poke_player["nom"])
+                                self.poke_player = starter.poke_player
                             else:
                                 self.pkmn_rencontre = self.ouverture_pokemonrencontre()
                                 pokemon_random = self.rand_pokemon()                           

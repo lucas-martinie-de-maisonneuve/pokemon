@@ -8,7 +8,7 @@ from files.class_py.screen import Screen
 # experience = Experience()
 
 class Pokedex(Element, Screen):
-    def __init__(self, ):
+    def __init__(self):
         Element.__init__(self)
         Screen.__init__(self)
         self.choose_save = 'save1'
@@ -105,15 +105,15 @@ class Pokedex(Element, Screen):
         for pokemon in self.pkmn_rencontre:
             if pokemon['nom'] == pokemon_name:
                 pokemon['rencontre'] += 1
-                existe = True
                 print(pokemon['rencontre'])
+                existe = True
 
         if not existe:
             for index, pokemon_info in enumerate(self.info_pokemon):
                 if pokemon_info['nom'] == pokemon_name:
                     self.pokemon_num = pokemon_info['numero']
             self.rencontre_num = self.get_last_pokemon_rencontre_number()
-            self.pkmn_rencontre.append({'numero': self.rencontre_num + 1, 'nom': pokemon_name, 'rencontre': 1, 'true_num': self.pokemon_num, 'level': 1, 'exp': 0})
+            self.pkmn_rencontre.append({'numero': self.rencontre_num + 1, 'nom': pokemon_name, 'rencontre': 1, 'true_num': self.pokemon_num, 'level': 1, 'exp': 0, 'victoire': 0, 'fuite': 0})
         with open(f'{self.choose_save}.json', 'w') as file:
             json.dump(self.pkmn_rencontre, file, indent=2)  
 
@@ -140,6 +140,24 @@ class Pokedex(Element, Screen):
             'def': random_pokemon['def']
         }
 
+    def poke_defeated(self, pokemon_name):
+        self.pkmn_rencontre = self.ouverture_pokemonrencontre()
+        for pokemon in self.pkmn_rencontre:
+            if pokemon['nom'] == pokemon_name:
+                pokemon['victoire'] += 1
+
+        with open(f'{self.choose_save}.json', 'w') as file:
+            json.dump(self.pkmn_rencontre, file, indent=2) 
+
+    def flee(self, pokemon_name):
+        self.pkmn_rencontre = self.ouverture_pokemonrencontre()
+        for pokemon in self.pkmn_rencontre:
+            if pokemon['nom'] == pokemon_name:
+                pokemon['fuite'] += 1
+
+        with open(f'{self.choose_save}.json', 'w') as file:
+            json.dump(self.pkmn_rencontre, file, indent=2)
+            
     def show_pokedex(self):
         self.info_pokemon = self.ouverture_pokemonjson()
         self.pkmn_rencontre = self.ouverture_pokemonrencontre()

@@ -4,135 +4,19 @@
     "nom": "Salameche",
     "rencontre": 1,
     "true_num": 1,
-    "level": 7,
-    "exp": 0
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
   },
   {
     "numero": 2,
-    "nom": "Pifeuil",
+    "nom": "Roucool",
     "rencontre": 1,
-    "true_num": 32,
+    "true_num": 34,
     "level": 1,
-    "exp": 0
-  },
-  {
-    "numero": 3,
-    "nom": "Raichu",
-    "rencontre": 1,
-    "true_num": 11,
-    "level": 1,
-    "exp": 0
-  },
-  {
-    "numero": 4,
-    "nom": "Carabaffe",
-    "rencontre": 1,
-    "true_num": 8,
-    "level": 1,
-    "exp": 0
-  },
-  {
-    "numero": 5,
-    "nom": "Blindalys",
-    "rencontre": 1,
-    "true_num": 13,
-    "level": 1,
-    "exp": 0
-  },
-  {
-    "numero": 6,
-    "nom": "Pikachu",
-    "rencontre": 2,
-    "true_num": 10,
-    "level": 1,
-    "exp": 0
-  },
-  {
-    "numero": 7,
-    "nom": "Osselait",
-    "rencontre": 1,
-    "true_num": 41,
-    "level": 1,
-    "exp": 0
-  },
-  {
-    "numero": 8,
-    "nom": "Elektek",
-    "rencontre": 1,
-    "true_num": 26,
-    "level": 1,
-    "exp": 0
-  },
-  {
-    "numero": 9,
-    "nom": "Pyroli",
-    "rencontre": 1,
-    "true_num": 22,
-    "level": 1,
-    "exp": 0
-  },
-  {
-    "numero": 10,
-    "nom": "Reptincelle",
-    "rencontre": 1,
-    "true_num": 2,
-    "level": 1,
-    "exp": 0
-  },
-  {
-    "numero": 11,
-    "nom": "Chenipotte",
-    "rencontre": 1,
-    "true_num": 12,
-    "level": 1,
-    "exp": 0
-  },
-  {
-    "numero": 12,
-    "nom": "Artikodin",
-    "rencontre": 1,
-    "true_num": 45,
-    "level": 1,
-    "exp": 0
-  },
-  {
-    "numero": 13,
-    "nom": "Kangourex",
-    "rencontre": 1,
-    "true_num": 25,
-    "level": 1,
-    "exp": 0
-  },
-  {
-    "numero": 14,
-    "nom": "Voltali",
-    "rencontre": 1,
-    "true_num": 21,
-    "level": 1,
-    "exp": 0
-  },
-  {
-    "numero": 15,
-    "nom": "Roucoups",
-    "rencontre": 1,
-    "true_num": 35,
-    "level": 1,
-    "exp": 0
-  },
-  {
-    "numero": 16,
-    "nom": "Florizarre",
-    "rencontre": 1,
-    "true_num": 6,
-    "level": 1,
-    "exp": 0
-  },
-  {
-    "numero": 17,
-    "nom": "Phyllali",
-    "rencontre": 1,
-    "true_num": 23,
-    "level": 1,
-    "exp": 0
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
   }
 ]
