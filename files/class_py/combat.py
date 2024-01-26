@@ -1,9 +1,11 @@
 from files.class_py.type import Type
 # from files.class_py.experience import Experience
 from files.class_py.element import Element
+from files.class_py.pokedex import Pokedex
 # from config import confirmation_sound, current_volume, volume_levels
 
 type = Type()
+pokedex = Pokedex()
 
 class Combat:
     def __init__(self):
@@ -89,6 +91,15 @@ class Combat:
         elif poke_rand_hp <= 0:
             self.game_over = True
             self.win = poke_player 
-            self.element.win_song_play = True           
+            self.element.win_song_play = True          
         return self.win
+    
+    def chance_to_enemy_flee(self, poke_advers):
+        pass
+    
+    def cant_run_away(self, poke_player):
+        pass
+
+    
+    
     

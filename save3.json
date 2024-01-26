@@ -9,57 +9,17 @@
   },
   {
     "numero": 2,
-    "nom": "Osselait",
+    "nom": "Artikodin",
     "rencontre": 1,
-    "true_num": 41,
+    "true_num": 45,
     "level": 1,
     "exp": 0
   },
   {
     "numero": 3,
-    "nom": "Roucoups",
+    "nom": "Rayquaza",
     "rencontre": 1,
-    "true_num": 35,
-    "level": 1,
-    "exp": 0
-  },
-  {
-    "numero": 4,
-    "nom": "Tengalice",
-    "rencontre": 1,
-    "true_num": 33,
-    "level": 1,
-    "exp": 0
-  },
-  {
-    "numero": 5,
-    "nom": "Evoli",
-    "rencontre": 1,
-    "true_num": 19,
-    "level": 1,
-    "exp": 0
-  },
-  {
-    "numero": 6,
-    "nom": "Ossatueur",
-    "rencontre": 1,
-    "true_num": 42,
-    "level": 1,
-    "exp": 0
-  },
-  {
-    "numero": 2,
-    "nom": "Sabelette",
-    "rencontre": 1,
-    "true_num": 39,
-    "level": 1,
-    "exp": 0
-  },
-  {
-    "numero": 3,
-    "nom": "Gravalanch",
-    "rencontre": 1,
-    "true_num": 17,
+    "true_num": 50,
     "level": 1,
     "exp": 0
   },
@@ -73,17 +33,73 @@
   },
   {
     "numero": 5,
-    "nom": "Rayquaza",
+    "nom": "Goupix",
     "rencontre": 1,
-    "true_num": 50,
+    "true_num": 37,
     "level": 1,
     "exp": 0
   },
   {
     "numero": 6,
-    "nom": "Tengalice",
+    "nom": "Ossatueur",
     "rencontre": 1,
-    "true_num": 33,
+    "true_num": 42,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 7,
+    "nom": "Fenard",
+    "rencontre": 1,
+    "true_num": 38,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 8,
+    "nom": "Voltali",
+    "rencontre": 1,
+    "true_num": 21,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 9,
+    "nom": "Aquali",
+    "rencontre": 1,
+    "true_num": 20,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 10,
+    "nom": "Phyllali",
+    "rencontre": 1,
+    "true_num": 23,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 11,
+    "nom": "Grolem",
+    "rencontre": 1,
+    "true_num": 18,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 12,
+    "nom": "Sulfura",
+    "rencontre": 1,
+    "true_num": 47,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 13,
+    "nom": "Elektek",
+    "rencontre": 1,
+    "true_num": 26,
     "level": 1,
     "exp": 0
   }
