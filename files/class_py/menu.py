@@ -19,7 +19,6 @@ class Menu(Pokedex):
         self.menu_run = True
         self.show_home = True
         self.load_home = False
-        #initilisation de la musique
         pygame.mixer.music.load('files/song/opening.mp3')
         pygame.mixer.music.play(-1)
         self.load_game = False
@@ -213,8 +212,8 @@ class Menu(Pokedex):
                 self.texte(30, 'Appuyer sur une touche pour continuer', self.white, self.W // 2, self.H // 2)
                 self.img(385, 660, 20, 20, 'menu/copyright')
                 self.texte(15, '2024 - LaPlateforme', self.white, 525, 660)
-                self.img(100, 680, 17,17, 'menu/copyright')
-                self.texte(15, "Le  patron  (Lucas)  -  L'autre  Lucas  avec  les  lunettes (rondes)  -  Keviiiineu (le bg au yeux bleu)", self.white, 525, 680)
+                self.img(250, 680, 20,20, 'menu/copyright')
+                self.texte(15, "Lucas Martinie - Lucas Iribaren - Kévin Péretti", self.white, 525, 680)
                 self.update()
 
 #Menu Save/Load/Quit
