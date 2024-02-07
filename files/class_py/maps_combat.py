@@ -39,6 +39,7 @@ class Maps(Element, Screen, Combat, Experience):
         self.poke_advers = pokemon_random['nom']
         self.game_over = False
         self.attack_phase_advers = False
+        self.attack_pkmn_random = False
         self.poke_evolve = poke_player["evol"] 
         self.levelss_poke = self.pokedex.recup_level_exp(poke_player['nom'])
         self.levels_poke = self.levelss_poke['level']
@@ -123,7 +124,8 @@ class Maps(Element, Screen, Combat, Experience):
                             self.play_confirmation_sound()
                             self.text += 1
                             if self.text == 2:
-                                self.attack_phase_advers = True                        
+                                self.attack_pkmn_random = True                      
+                                self.attack_phase_advers = True
                     elif event.key == pygame.K_ESCAPE and self.attack_phase:
                         self.play_confirmation_sound()
                         self.attack_phase = False
@@ -219,17 +221,20 @@ class Maps(Element, Screen, Combat, Experience):
                     self.img(860, 650, 15, 15, f'combat/arrow')
             if self.text_phase:
                 if self.text == 1:
-                    if self.pokemon_random == self.pokemon_random_hp_before:
+                    if self.pokemon_random_hp == self.pokemon_random_hp_before:
                         self.texte(20, f"{self.poke_player['nom']} a raté son attaque!", self.black, 325, 625)
                     else:
                         self.texte(20, f"{self.poke_player['nom']} inflige {int(self.dmg_poke)}", self.black, 325, 590)             
                         self.texte(20, f"a {self.pokemon_random['nom']}", self.black, 325, 620)
                 elif self.text == 2:
                     if self.attack_phase_advers:
+                        if self.attack_pkmn_random:
+                            self.poke_player_hp = self.attack(self.poke_player_hp, self.pokemon_random['attaque'],self.type_pokemon_advers, self.pokemon_type_player, self.def_poke_player)
+                            self.attack_pkmn_random = False
+                        print(self.poke_player_hp, self.poke_player_hp_before)
                         if self.poke_player_hp == self.poke_player_hp_before:
                             self.texte(20, f"{self.pokemon_random['nom']} a raté son attaque!", self.black, 325, 625)
                         else:
-                            self.poke_player_hp = self.attack(self.poke_player_hp, self.pokemon_random['attaque'],self.type_pokemon_advers, self.pokemon_type_player, self.def_poke_player)
                             self.texte(20, f"{self.pokemon_random['nom']} inflige {int(self.dmg_poke)}", self.black, 325, 590)
                             self.texte(20, f"a {self.poke_player['nom']}", self.black, 325, 620)
                     self.recup_poke_winner(self.poke_player['nom'], self.pokemon_random['nom'], self.poke_player_hp, self.pokemon_random_hp)

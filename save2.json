@@ -4,6 +4,36 @@
     "nom": "Salameche",
     "rencontre": 1,
     "true_num": 1,
+    "level": 2,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 2,
+    "nom": "Metamorphe",
+    "rencontre": 1,
+    "true_num": 51,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 3,
+    "nom": "Roucoups",
+    "rencontre": 1,
+    "true_num": 35,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 4,
+    "nom": "Canarticho",
+    "rencontre": 1,
+    "true_num": 15,
     "level": 1,
     "exp": 0,
     "victoire": 0,
