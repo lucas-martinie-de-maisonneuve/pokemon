@@ -3,6 +3,7 @@ import json
 from files.class_py.pokedex import Pokedex
 from files.class_py.screen import Screen
 from files.class_py.element import Element
+from files.class_py.config import sound_config
 
 pokedex = Pokedex()
 
@@ -10,6 +11,8 @@ class AddPokemon(Element, Screen):
     def __init__(self):
         Element.__init__(self)
         Screen.__init__(self)
+
+        self.sound_config = sound_config
         
     def ajout_pokemon(self):
             self.i = 0
@@ -31,42 +34,56 @@ class AddPokemon(Element, Screen):
                     if event.type == pygame.QUIT:
                         pygame.quit()
                     elif event.type == pygame.KEYDOWN:
+                        self.update_sound_parameters()
                         if event.key == pygame.K_ESCAPE:
+                            self.play_confirmation_sound()
                             active = False
                         elif event.key == pygame.K_DOWN and confirm == 0:
                             if self.cate < 5:
+                                self.play_confirmation_sound()
                                 self.cate +=1
                         elif event.key == pygame.K_UP and confirm == 0:
                             if self.cate > 1:
+                                self.play_confirmation_sound()
                                 self.cate -= 1
                         elif event.key == pygame.K_RIGHT :
+                            self.play_confirmation_sound()
                             if self.cate == 2 and add_pokemon_level < 3:
                                  add_pokemon_level += 1
                             elif self.cate == 3:
+                                self.play_confirmation_sound()
                                 if self.i == 8:
                                     self.i = 0
                                 self.i +=1
                                 add_pokemon_type = select_type[self.i]
                             elif self.cate == 4 and self.select_stat < 3:
+                                self.play_confirmation_sound()
                                 self.select_stat += 1
                             if confirm == 3:
+                                self.play_confirmation_sound()
                                 self.menu_selec = 2
                         elif event.key == pygame.K_LEFT:
                             if self.cate == 2 and add_pokemon_level > 1:
                                 add_pokemon_level -= 1
+                                self.play_confirmation_sound()
                             elif self.cate == 3:
+                                self.play_confirmation_sound()
                                 if self.i == 0:
                                     self.i = 8
                                 self.i -=1
                                 add_pokemon_type = select_type[self.i]
                             elif self.cate ==4 and self.select_stat > 1:
+                                self.play_confirmation_sound()
                                 self.select_stat -= 1
                             if confirm == 3:
+                                self.play_confirmation_sound()
                                 self.menu_selec = 1
                         elif event.key == pygame.K_RETURN and self.cate == 5 and add_pokemon_name != "" and add_pokemon_attaque != "" and add_pokemon_hp != "" and add_pokemon_def != "":
                             if confirm < 3:
+                                self.play_confirmation_sound()
                                 confirm += 1
                             elif confirm == 3:
+                                self.play_confirmation_sound()
                                 if self.menu_selec == 1:
                                     active = False
                                 else:

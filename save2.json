@@ -1,42 +1,42 @@
 [
   {
     "numero": 1,
-    "nom": "Bulbizarre",
-    "rencontre": 2,
-    "true_num": 4,
-    "level": 1,
-    "exp": 0
-  },
-  {
-    "numero": 2,
-    "nom": "Tauros",
-    "rencontre": 1,
-    "true_num": 24,
-    "level": 1,
-    "exp": 0
-  },
-  {
-    "numero": 3,
     "nom": "Salameche",
     "rencontre": 1,
     "true_num": 1,
+    "level": 2,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 2,
+    "nom": "Metamorphe",
+    "rencontre": 1,
+    "true_num": 51,
     "level": 1,
-    "exp": 0
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 3,
+    "nom": "Roucoups",
+    "rencontre": 1,
+    "true_num": 35,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
   },
   {
     "numero": 4,
-    "nom": "Ossatueur",
+    "nom": "Canarticho",
     "rencontre": 1,
-    "true_num": 42,
+    "true_num": 15,
     "level": 1,
-    "exp": 0
-  },
-  {
-    "numero": 5,
-    "nom": "Grolem",
-    "rencontre": 1,
-    "true_num": 18,
-    "level": 1,
-    "exp": 0
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
   }
 ]

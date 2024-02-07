@@ -2,6 +2,7 @@ import pygame
 from files.class_py.pokedex import Pokedex
 from files.class_py.element import Element
 from files.class_py.screen import Screen
+from files.class_py.config import sound_config
 
 pygame.font.init()
 
@@ -15,6 +16,7 @@ class Starter(Element, Screen):
         self.choose_starter = False
         self.starter_choosed = False
         self.pokechoose = 1
+        self.sound_config = sound_config
 
     def starter(self):
         while self.choose_starter:
@@ -23,26 +25,33 @@ class Starter(Element, Screen):
                     pygame.quit()
                     quit()
                 if event.type == pygame.KEYDOWN:
+                    self.update_sound_parameters()
                     if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                         if self.action < 4:
+                            self.play_confirmation_sound()
                             self.action += 1
                     elif event.key == pygame.K_LEFT or event.key == pygame.K_q:
                         if self.action > 1:
+                            self.play_confirmation_sound()
                             self.action -= 1
                     elif event.key == pygame.K_RETURN:
                         if self.action == 1:
+                            self.play_confirmation_sound()
                             self.poke_player = self.pokedex.starter()[0]
                             self.choose_starter = False
                             return self.poke_player
                         elif self.action == 2:
+                            self.play_confirmation_sound()
                             self.poke_player = self.pokedex.starter()[1]
                             self.choose_starter = False
                             return self.poke_player
                         elif self.action == 3:
+                            self.play_confirmation_sound()
                             self.poke_player = self.pokedex.starter()[2]
                             self.choose_starter = False
                             return self.poke_player
                         elif self.action == 4:
+                            self.play_confirmation_sound()
                             self.poke_player = self.pokedex.starter()[3]
                             self.choose_starter = False
                             return self.poke_player

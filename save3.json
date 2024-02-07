@@ -1,10 +1,120 @@
 [
   {
     "numero": 1,
-    "nom": "Pikachu",
+    "nom": "Salameche",
     "rencontre": 1,
-    "true_num": 10,
+    "true_num": 1,
     "level": 1,
     "exp": 0
+  },
+  {
+    "numero": 2,
+    "nom": "Osselait",
+    "rencontre": 1,
+    "true_num": 41,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 3,
+    "nom": "Roucoups",
+    "rencontre": 1,
+    "true_num": 35,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 4,
+    "nom": "Tengalice",
+    "rencontre": 1,
+    "true_num": 33,
+    "level": 8,
+    "exp": 0
+  },
+  {
+    "numero": 5,
+    "nom": "Evoli",
+    "rencontre": 3,
+    "true_num": 19,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 6,
+    "nom": "Ossatueur",
+    "rencontre": 1,
+    "true_num": 42,
+    "level": 1,
+    "exp": 0
+  },
+  {
+    "numero": 7,
+    "nom": "Tauros",
+    "rencontre": 2,
+    "true_num": 24,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 8,
+    "nom": "Sabelette",
+    "rencontre": 1,
+    "true_num": 39,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 9,
+    "nom": "Canarticho",
+    "rencontre": 1,
+    "true_num": 15,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 10,
+    "nom": "Raichu",
+    "rencontre": 1,
+    "true_num": 11,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 11,
+    "nom": "Voltali",
+    "rencontre": 2,
+    "true_num": 21,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 12,
+    "nom": "Metamorphe",
+    "rencontre": 1,
+    "true_num": 51,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 13,
+    "nom": "Kyogre",
+    "rencontre": 1,
+    "true_num": 48,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
   }
 ]

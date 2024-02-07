@@ -3,6 +3,7 @@ import random
 import pygame
 from files.class_py.element import Element
 from files.class_py.screen import Screen
+from files.class_py.config import sound_config
 # from files.class_py.experience import Experience
 
 # experience = Experience()
@@ -21,9 +22,7 @@ class Pokedex(Element, Screen):
         self.detailed_pokemon = False
         self.changing_pokemon = False
         self.pokemon_changed = False
-
-    def print_pkmn(self):
-        print(self.pkmn_rencontre)
+        self.sound_config = sound_config
 
     def ouverture_pokemonjson(self):
         with open('pokemon.json', 'r') as fichier:
@@ -48,7 +47,7 @@ class Pokedex(Element, Screen):
             return self.donnees_rencontre
         
     def recup_level_exp(self, poke_name):
-        self.ouverture_pokemonrencontre()        
+        self.pkmn_rencontre = self.ouverture_pokemonrencontre()        
         for pokemon in self.pkmn_rencontre:
             if pokemon['nom'] == poke_name:
                 return pokemon    
@@ -103,11 +102,12 @@ class Pokedex(Element, Screen):
             self.pokemon_liste(info_pokemon[data])  
 
     def poke_rencontre(self, pokemon_name):
-        self.ouverture_pokemonrencontre()
+        self.pkmn_rencontre = self.ouverture_pokemonrencontre()
         existe = False
         for pokemon in self.pkmn_rencontre:
             if pokemon['nom'] == pokemon_name:
                 pokemon['rencontre'] += 1
+                print(pokemon['rencontre'])
                 existe = True
 
         if not existe:
@@ -115,46 +115,16 @@ class Pokedex(Element, Screen):
                 if pokemon_info['nom'] == pokemon_name:
                     self.pokemon_num = pokemon_info['numero']
             self.rencontre_num = self.get_last_pokemon_rencontre_number()
-            self.pkmn_rencontre.append({'numero': self.rencontre_num + 1, 'nom': pokemon_name, 'rencontre': 1, 'true_num': self.pokemon_num, 'level': 1, 'exp': 0})
-            with open(f'{self.choose_save}.json', 'w') as file:
-                json.dump(self.pkmn_rencontre, file, indent=2)  
+            self.pkmn_rencontre.append({'numero': self.rencontre_num + 1, 'nom': pokemon_name, 'rencontre': 1, 'true_num': self.pokemon_num, 'level': 1, 'exp': 0, 'victoire': 0, 'fuite': 0})
+        with open(f'{self.choose_save}.json', 'w') as file:
+            json.dump(self.pkmn_rencontre, file, indent=2)  
 
         return False
-    
-    def update_lvl(self, poke_name, exps_max):               
-        for pokemon in self.pkmn_rencontre:
-            if pokemon['nom'] == poke_name:
-                pokemon['exp'] = pokemon['exp'] - exps_max  
-                pokemon['level'] + 1
-                print('level')
-                   
 
-        with open(f'{self.choose_save}.json', 'w') as file:
-                    json.dump(self.pkmn_rencontre, file, indent=2)
-            
-    
-    def update_exp(self, poke_name, exp):
-        for pokemon in self.pkmn_rencontre:
-            if pokemon['nom'] == poke_name:
-                pokemon['exp'] += exp
-                print(f"exp ajoutée pour {poke_name}: {exp}")
+    def change_save(self, choose_save):
+        self.choose_save = choose_save
+        return self.choose_save
 
-            # Assurez-vous que le fichier est correctement fermé après la modification
-        with open('rencontre.json', 'w') as file:
-            json.dump(self.pkmn_rencontre, file, indent=2)
-                   
-
-        # if not existe:
-        #     for index, pokemon_info in enumerate(self.info_pokemon):
-        #         if pokemon_info['nom'] == poke_name:
-        #             self.pokemon_num = pokemon_info['numero']
-        #     self.rencontre_num = self.get_last_pokemon_rencontre_number()
-        #     if self.ouverture_pokemonjson() != []:
-        #         self.pkmn_rencontre.append({'numero': self.rencontre_num + 1, 'nom': poke_name, 'rencontre': 1, 'true_num': self.pokemon_num, 'level': 1, 'exp': exp})
-
-        
-            
-    
     def info_rencontre(self):
         self.liste_rencontre = []
         for pokemon in self.pkmn_rencontre:
@@ -172,6 +142,24 @@ class Pokedex(Element, Screen):
             'def': random_pokemon['def']
         }
 
+    def poke_defeated(self, pokemon_name):
+        self.pkmn_rencontre = self.ouverture_pokemonrencontre()
+        for pokemon in self.pkmn_rencontre:
+            if pokemon['nom'] == pokemon_name:
+                pokemon['victoire'] += 1
+
+        with open(f'{self.choose_save}.json', 'w') as file:
+            json.dump(self.pkmn_rencontre, file, indent=2) 
+
+    def flee(self, pokemon_name):
+        self.pkmn_rencontre = self.ouverture_pokemonrencontre()
+        for pokemon in self.pkmn_rencontre:
+            if pokemon['nom'] == pokemon_name:
+                pokemon['fuite'] += 1
+
+        with open(f'{self.choose_save}.json', 'w') as file:
+            json.dump(self.pkmn_rencontre, file, indent=2)
+            
     def show_pokedex(self):
         self.info_pokemon = self.ouverture_pokemonjson()
         self.pkmn_rencontre = self.ouverture_pokemonrencontre()
@@ -183,6 +171,7 @@ class Pokedex(Element, Screen):
                     pygame.quit()
                     quit()
                 if event.type == pygame.KEYDOWN:
+                    self.update_sound_parameters()
                     if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                         if poke_choose < self.get_last_pokemon_number() +1:
                             poke_choose += 1
@@ -193,10 +182,10 @@ class Pokedex(Element, Screen):
                             poke_choose -= 1
                         if poke_choose == 0:
                             poke_choose = self.get_last_pokemon_number()
-                    elif event.key == pygame.K_UP or event.key == pygame.K_z and not self.detailed_pokemon:
+                    elif (event.key == pygame.K_UP or event.key == pygame.K_z) and not self.detailed_pokemon:
                         if poke_choose > 9:
                             poke_choose -= 9
-                    elif event.key == pygame.K_DOWN or event.key == pygame.K_s and not self.detailed_pokemon:
+                    elif (event.key == pygame.K_DOWN or event.key == pygame.K_s) and not self.detailed_pokemon:
                         if poke_choose < 45:
                             poke_choose += 9
                     elif event.key == pygame.K_RETURN:
@@ -291,10 +280,10 @@ class Pokedex(Element, Screen):
                         if self.choose_poke == 0:
                             self.choose_poke = self.get_last_pokemon_rencontre_number()
                     elif event.key == pygame.K_UP or event.key == pygame.K_z and not self.detailed_pokemon:
-                        if self.choose_poke > 9:
+                        if self.choose_poke > 9 :
                             self.choose_poke -= 9
                     elif event.key == pygame.K_DOWN or event.key == pygame.K_s and not self.detailed_pokemon:
-                        if self.choose_poke < 45:
+                        if self.choose_poke < 45 and self.get_last_pokemon_rencontre_number() >= self.choose_poke +9:
                             self.choose_poke += 9
                     elif event.key == pygame.K_RETURN:
                         self.pokemon_changed = True
@@ -324,5 +313,4 @@ class Pokedex(Element, Screen):
                                 self.img(75 + column * 110, 90 + row * 110, 85, 85, f'pokemon/default')
 
             self.update()
-
-            
+    
