@@ -28,13 +28,13 @@
     "nom": "Tengalice",
     "rencontre": 1,
     "true_num": 33,
-    "level": 1,
+    "level": 8,
     "exp": 0
   },
   {
     "numero": 5,
     "nom": "Evoli",
-    "rencontre": 1,
+    "rencontre": 3,
     "true_num": 19,
     "level": 1,
     "exp": 0
@@ -48,43 +48,73 @@
     "exp": 0
   },
   {
-    "numero": 2,
+    "numero": 7,
+    "nom": "Tauros",
+    "rencontre": 2,
+    "true_num": 24,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 8,
     "nom": "Sabelette",
     "rencontre": 1,
     "true_num": 39,
     "level": 1,
-    "exp": 0
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
   },
   {
-    "numero": 3,
-    "nom": "Gravalanch",
+    "numero": 9,
+    "nom": "Canarticho",
     "rencontre": 1,
-    "true_num": 17,
+    "true_num": 15,
     "level": 1,
-    "exp": 0
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
   },
   {
-    "numero": 4,
-    "nom": "Tortank",
+    "numero": 10,
+    "nom": "Raichu",
     "rencontre": 1,
-    "true_num": 9,
+    "true_num": 11,
     "level": 1,
-    "exp": 0
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
   },
   {
-    "numero": 5,
-    "nom": "Rayquaza",
-    "rencontre": 1,
-    "true_num": 50,
+    "numero": 11,
+    "nom": "Voltali",
+    "rencontre": 2,
+    "true_num": 21,
     "level": 1,
-    "exp": 0
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
   },
   {
-    "numero": 6,
-    "nom": "Tengalice",
+    "numero": 12,
+    "nom": "Metamorphe",
     "rencontre": 1,
-    "true_num": 33,
+    "true_num": 51,
     "level": 1,
-    "exp": 0
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 13,
+    "nom": "Kyogre",
+    "rencontre": 1,
+    "true_num": 48,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
   }
 ]

@@ -280,10 +280,10 @@ class Pokedex(Element, Screen):
                         if self.choose_poke == 0:
                             self.choose_poke = self.get_last_pokemon_rencontre_number()
                     elif event.key == pygame.K_UP or event.key == pygame.K_z and not self.detailed_pokemon:
-                        if self.choose_poke > 9:
+                        if self.choose_poke > 9 :
                             self.choose_poke -= 9
                     elif event.key == pygame.K_DOWN or event.key == pygame.K_s and not self.detailed_pokemon:
-                        if self.choose_poke < 45:
+                        if self.choose_poke < 45 and self.get_last_pokemon_rencontre_number() >= self.choose_poke +9:
                             self.choose_poke += 9
                     elif event.key == pygame.K_RETURN:
                         self.pokemon_changed = True
@@ -313,5 +313,4 @@ class Pokedex(Element, Screen):
                                 self.img(75 + column * 110, 90 + row * 110, 85, 85, f'pokemon/default')
 
             self.update()
-
-            
+    
