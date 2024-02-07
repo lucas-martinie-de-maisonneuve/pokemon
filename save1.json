@@ -2,10 +2,10 @@
   {
     "numero": 1,
     "nom": "Salameche",
-    "rencontre": 1,
+    "rencontre": 2,
     "true_num": 1,
-    "level": 11,
-    "exp": 45,
+    "level": 16,
+    "exp": 56.88591408591411,
     "victoire": 0,
     "fuite": 0
   },
@@ -42,7 +42,7 @@
   {
     "numero": 5,
     "nom": "Pifeuil",
-    "rencontre": 3,
+    "rencontre": 4,
     "true_num": 32,
     "level": 1,
     "exp": 0,
@@ -52,7 +52,7 @@
   {
     "numero": 6,
     "nom": "Kangourex",
-    "rencontre": 1,
+    "rencontre": 2,
     "true_num": 25,
     "level": 1,
     "exp": 0,
@@ -62,7 +62,7 @@
   {
     "numero": 7,
     "nom": "Carapuce",
-    "rencontre": 3,
+    "rencontre": 4,
     "true_num": 7,
     "level": 1,
     "exp": 0,
@@ -72,7 +72,7 @@
   {
     "numero": 8,
     "nom": "Gravalanch",
-    "rencontre": 1,
+    "rencontre": 2,
     "true_num": 17,
     "level": 1,
     "exp": 0,
@@ -82,7 +82,7 @@
   {
     "numero": 9,
     "nom": "Tengalice",
-    "rencontre": 2,
+    "rencontre": 3,
     "true_num": 33,
     "level": 1,
     "exp": 0,
@@ -92,7 +92,7 @@
   {
     "numero": 10,
     "nom": "Chenipotte",
-    "rencontre": 1,
+    "rencontre": 2,
     "true_num": 12,
     "level": 1,
     "exp": 0,
@@ -102,7 +102,7 @@
   {
     "numero": 11,
     "nom": "Kyogre",
-    "rencontre": 1,
+    "rencontre": 2,
     "true_num": 48,
     "level": 13,
     "exp": 15,
@@ -112,7 +112,7 @@
   {
     "numero": 12,
     "nom": "Evoli",
-    "rencontre": 1,
+    "rencontre": 2,
     "true_num": 19,
     "level": 1,
     "exp": 0,
@@ -132,7 +132,7 @@
   {
     "numero": 14,
     "nom": "Magicarpe",
-    "rencontre": 2,
+    "rencontre": 3,
     "true_num": 29,
     "level": 1,
     "exp": 0,
@@ -142,7 +142,7 @@
   {
     "numero": 15,
     "nom": "Grolem",
-    "rencontre": 4,
+    "rencontre": 6,
     "true_num": 18,
     "level": 1,
     "exp": 0,
@@ -152,7 +152,7 @@
   {
     "numero": 16,
     "nom": "Herbizarre",
-    "rencontre": 2,
+    "rencontre": 3,
     "true_num": 5,
     "level": 1,
     "exp": 0,
@@ -162,9 +162,9 @@
   {
     "numero": 17,
     "nom": "Electhor",
-    "rencontre": 1,
+    "rencontre": 2,
     "true_num": 46,
-    "level": 1,
+    "level": 5,
     "exp": 0,
     "victoire": 0,
     "fuite": 0
@@ -182,7 +182,7 @@
   {
     "numero": 19,
     "nom": "Ossatueur",
-    "rencontre": 2,
+    "rencontre": 4,
     "true_num": 42,
     "level": 1,
     "exp": 0,
@@ -192,7 +192,7 @@
   {
     "numero": 20,
     "nom": "Pyroli",
-    "rencontre": 1,
+    "rencontre": 2,
     "true_num": 22,
     "level": 1,
     "exp": 0,
@@ -202,7 +202,7 @@
   {
     "numero": 21,
     "nom": "Voltali",
-    "rencontre": 1,
+    "rencontre": 2,
     "true_num": 21,
     "level": 1,
     "exp": 0,
@@ -212,7 +212,7 @@
   {
     "numero": 22,
     "nom": "Sulfura",
-    "rencontre": 1,
+    "rencontre": 2,
     "true_num": 47,
     "level": 1,
     "exp": 0,
@@ -222,17 +222,17 @@
   {
     "numero": 23,
     "nom": "Leviator",
-    "rencontre": 2,
+    "rencontre": 3,
     "true_num": 30,
-    "level": 1,
-    "exp": 0,
+    "level": 15,
+    "exp": 8.191072816072833,
     "victoire": 0,
     "fuite": 0
   },
   {
     "numero": 24,
     "nom": "Groudon",
-    "rencontre": 1,
+    "rencontre": 2,
     "true_num": 49,
     "level": 1,
     "exp": 0,
@@ -262,7 +262,7 @@
   {
     "numero": 27,
     "nom": "Racaillou",
-    "rencontre": 4,
+    "rencontre": 7,
     "true_num": 16,
     "level": 1,
     "exp": 0,
@@ -282,7 +282,7 @@
   {
     "numero": 29,
     "nom": "Tortank",
-    "rencontre": 1,
+    "rencontre": 2,
     "true_num": 9,
     "level": 1,
     "exp": 0,
@@ -302,7 +302,7 @@
   {
     "numero": 31,
     "nom": "Fenard",
-    "rencontre": 2,
+    "rencontre": 4,
     "true_num": 38,
     "level": 1,
     "exp": 0,
@@ -312,7 +312,7 @@
   {
     "numero": 32,
     "nom": "Papinox",
-    "rencontre": 2,
+    "rencontre": 4,
     "true_num": 14,
     "level": 1,
     "exp": 0,
@@ -322,7 +322,7 @@
   {
     "numero": 33,
     "nom": "Florizarre",
-    "rencontre": 1,
+    "rencontre": 3,
     "true_num": 6,
     "level": 1,
     "exp": 0,
@@ -332,7 +332,7 @@
   {
     "numero": 34,
     "nom": "Insecateur",
-    "rencontre": 1,
+    "rencontre": 2,
     "true_num": 43,
     "level": 1,
     "exp": 0,
@@ -342,7 +342,7 @@
   {
     "numero": 35,
     "nom": "Roucarnage",
-    "rencontre": 1,
+    "rencontre": 2,
     "true_num": 36,
     "level": 1,
     "exp": 0,
@@ -352,7 +352,7 @@
   {
     "numero": 36,
     "nom": "Roucool",
-    "rencontre": 1,
+    "rencontre": 2,
     "true_num": 34,
     "level": 1,
     "exp": 0,
@@ -362,8 +362,98 @@
   {
     "numero": 37,
     "nom": "Phyllali",
-    "rencontre": 1,
+    "rencontre": 3,
     "true_num": 23,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 38,
+    "nom": "Aquali",
+    "rencontre": 2,
+    "true_num": 20,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 39,
+    "nom": "Osselait",
+    "rencontre": 2,
+    "true_num": 41,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 40,
+    "nom": "Pikachu",
+    "rencontre": 2,
+    "true_num": 10,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 41,
+    "nom": "Magneti",
+    "rencontre": 1,
+    "true_num": 44,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 42,
+    "nom": "Sablaireau",
+    "rencontre": 1,
+    "true_num": 40,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 43,
+    "nom": "Artikodin",
+    "rencontre": 1,
+    "true_num": 45,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 44,
+    "nom": "Elektek",
+    "rencontre": 1,
+    "true_num": 26,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 45,
+    "nom": "Roucoups",
+    "rencontre": 1,
+    "true_num": 35,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 46,
+    "nom": "Tauros",
+    "rencontre": 1,
+    "true_num": 24,
     "level": 1,
     "exp": 0,
     "victoire": 0,

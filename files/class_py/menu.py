@@ -41,6 +41,7 @@ class Menu(Pokedex):
             starter.poke_player = self.info_pokemon[pokemon_default - 1]
             self.poke_player = self.info_pokemon[pokemon_default - 1]
             starter.starter_choosed = True
+
         c = 1 #Navigation menu home
         d = 1 #Navigation menu sauvegarde
         while self.menu_run:
@@ -328,7 +329,6 @@ class Menu(Pokedex):
 # Menu Sac
             if self.home_bag:
                 self.img(525, 350, 1244, 700, 'bag/background_bag')
-                # self.img(525, 350, 600, 580,'bag/background_texte')
                 self.texte(30,"Votre sac est actuellement vide",(0, 255, 233), 525, 350)
                 self.update()
 

@@ -1,10 +1,10 @@
 from files.class_py.type import Type
-# from files.class_py.experience import Experience
 from files.class_py.element import Element
-# from config import confirmation_sound, current_volume, volume_levels
+from files.class_py.pokedex import Pokedex
 import random
 
 type = Type()
+pokedex = Pokedex()
 
 class Combat:
     def __init__(self):
@@ -12,7 +12,6 @@ class Combat:
         self.combat = True       
         self.game_over = False
         self.win = ""
-        # Experience.__init__(self)       
         
     def attack(self, vie, pokemon_attack, type_pokemon_starter, type_pokemon_advers, poke_def):
         
@@ -92,13 +91,9 @@ class Combat:
         elif poke_rand_hp <= 0:
             self.game_over = True
             self.win = poke_player 
-            self.element.win_song_play = True           
+            self.element.win_song_play = True          
         return self.win
     
     def miss_attack(self, chance_to_miss):
-# Vérifie si l'attaque rate en fonction d'un pourcentage donné.
-# Parameters:
-#  chance_to_miss (float): Pourcentage de chance de rater l'attaque.
-# Returns:
-#  bool: True si l'attaque rate, False sinon.
         return random.random() < chance_to_miss / 100.0
+    

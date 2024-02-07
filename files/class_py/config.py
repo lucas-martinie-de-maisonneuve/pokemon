@@ -11,7 +11,4 @@ class SoundConfig:
     def set_current_volume_music(self, level):
         self.current_volume_music = self.volume_levels[level]
 
-# Création d'une instance de la classe SoundConfig
 sound_config = SoundConfig()
-
-

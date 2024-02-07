@@ -2,30 +2,30 @@
   {
     "numero": 1,
     "nom": "Salameche",
-    "rencontre": 1,
+    "rencontre": 2,
     "true_num": 1,
-    "level": 1,
-    "exp": 0
+    "level": 16,
+    "exp": 27.96274509803922
   },
   {
     "numero": 2,
-    "nom": "Osselait",
+    "nom": "Artikodin",
     "rencontre": 1,
-    "true_num": 41,
+    "true_num": 45,
     "level": 1,
     "exp": 0
   },
   {
     "numero": 3,
-    "nom": "Roucoups",
-    "rencontre": 1,
-    "true_num": 35,
+    "nom": "Rayquaza",
+    "rencontre": 3,
+    "true_num": 50,
     "level": 1,
     "exp": 0
   },
   {
     "numero": 4,
-    "nom": "Tengalice",
+    "nom": "Tortank",
     "rencontre": 1,
     "true_num": 33,
     "level": 8,
@@ -42,7 +42,7 @@
   {
     "numero": 6,
     "nom": "Ossatueur",
-    "rencontre": 1,
+    "rencontre": 2,
     "true_num": 42,
     "level": 1,
     "exp": 0
@@ -61,7 +61,7 @@
     "numero": 8,
     "nom": "Sabelette",
     "rencontre": 1,
-    "true_num": 39,
+    "true_num": 38,
     "level": 1,
     "exp": 0,
     "victoire": 0,
@@ -110,8 +110,38 @@
   {
     "numero": 13,
     "nom": "Kyogre",
-    "rencontre": 1,
+    "rencontre": 2,
     "true_num": 48,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 14,
+    "nom": "Groudon",
+    "rencontre": 1,
+    "true_num": 49,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 15,
+    "nom": "Grainipiot",
+    "rencontre": 1,
+    "true_num": 31,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 16,
+    "nom": "Florizarre",
+    "rencontre": 1,
+    "true_num": 6,
     "level": 1,
     "exp": 0,
     "victoire": 0,

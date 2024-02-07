@@ -9,9 +9,7 @@ class Setting(Element,Screen):
     def __init__(self):
         Element.__init__(self)
         Screen.__init__(self)
-
         self.sound_config = sound_config
-
         self.verif_quitter = False
         self.setting_run = False
         self.verif_reset = False
@@ -425,5 +423,3 @@ class Setting(Element,Screen):
                         self.button_rect(self.darkgreenblue,715,400,70,50)
                         self.texte(13,"Oui", self.white,715,400)
                 self.update()
-
-

@@ -107,7 +107,6 @@ class Pokedex(Element, Screen):
         for pokemon in self.pkmn_rencontre:
             if pokemon['nom'] == pokemon_name:
                 pokemon['rencontre'] += 1
-                print(pokemon['rencontre'])
                 existe = True
 
         if not existe:

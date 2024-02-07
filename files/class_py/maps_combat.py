@@ -3,11 +3,8 @@ from files.class_py.screen import Screen
 from files.class_py.element import Element
 from files.class_py.pokedex import Pokedex
 from files.class_py.combat import Combat
-from files.class_py.starter import Starter
 from files.class_py.experience import Experience
 from files.class_py.config import sound_config
-from files.class_py.config import sound_config
-
 
 class Maps(Element, Screen, Combat, Experience):
 
@@ -18,13 +15,14 @@ class Maps(Element, Screen, Combat, Experience):
         
         Experience.__init__(self, poke_player, save) 
         self.pokedex = Pokedex()
-        self.starter = Starter()
         self.pokedex.change_save(save)
         self.dmg_poke = 0
         self.combat_run = False
         self.action = 1
         self.attack_phase = False
         self.text_phase = False
+        self.poke_rand_flee = False
+        self.run_fail = False
         self.text = 1
         self.poke_player = poke_player
         self.poke_player_hp = poke_player['hp']
@@ -82,8 +80,7 @@ class Maps(Element, Screen, Combat, Experience):
                             self.play_confirmation_sound()
                             self.attack_phase = True
                         elif self.action == 2 and not self.attack_phase:
-                            self.play_confirmation_sound()
-                            self.combat_run = False
+                            self.combat_run = False                       
                         elif self.action == 3 and not self.attack_phase:
                             pass
                         elif self.action == 4 and not self.attack_phase:
@@ -157,8 +154,7 @@ class Maps(Element, Screen, Combat, Experience):
             self.rect_hp(172, 124, 170, 12, self.pokemon_random_hp, self.pokemon_random_hp_max)            
             self.img(211, 100, 350, 128, 'combat/rand_pokemon_hp')
             self.texte_not_align(25, f"{self.pokemon_random['nom']}", self.black, 52, 50)            
-            self.texte_not_align(20, f'lvl {self.levels_poke}', self.black, 280, 50)
-            
+            self.texte_not_align(20, f'lvl {self.levels_poke}', self.black, 280, 50)            
 
             if not self.attack_phase:
                 self.button_rect(self.darkred,765,600,145,45)
@@ -217,7 +213,7 @@ class Maps(Element, Screen, Combat, Experience):
                     self.img(860, 600, 15, 15, f'combat/arrow')
                 elif self.action == 3 :
                     self.img(680, 650, 15, 15, f'combat/arrow')
-                elif self.action ==4 :
+                elif self.action == 4 :
                     self.img(860, 650, 15, 15, f'combat/arrow')
             if self.text_phase:
                 if self.text == 1:
@@ -231,7 +227,6 @@ class Maps(Element, Screen, Combat, Experience):
                         if self.attack_pkmn_random:
                             self.poke_player_hp = self.attack(self.poke_player_hp, self.pokemon_random['attaque'],self.type_pokemon_advers, self.pokemon_type_player, self.def_poke_player)
                             self.attack_pkmn_random = False
-                        print(self.poke_player_hp, self.poke_player_hp_before)
                         if self.poke_player_hp == self.poke_player_hp_before:
                             self.texte(20, f"{self.pokemon_random['nom']} a raté son attaque!", self.black, 325, 625)
                         else:
@@ -245,14 +240,8 @@ class Maps(Element, Screen, Combat, Experience):
                 if self.win_song_play:
                     self.win_music()
                     self.win_song_play = False 
-                self.img(540, 280, 470, 190, "combat/background_texte")
-                self.texte(18, f"{self.win} a gagné le combat", self.black, 540, 280)
-                self.texte(12, "PRESS 'RETURN' TO ESCAPE", self.black, 540, 400)                               
+                self.img(325, 625, 550, 150, "combat/background_texte")
+                self.texte(18, f"{self.win} a gagné le combat", self.black, 325, 600)
+                self.texte(12, "APPUYER SUR 'ENTRER' POUR CONTINUER", self.black, 325, 650)                               
             self.update()
             
-            # self.poke_hp = self.attack(self.poke_player_hp, self.pokemon_random['attaque'],self.type_pokemon_advers, self.pokemon_type_player, self.def_poke_player)                            
-            # self.recup_poke_winner(self.poke_player['nom'], self.pokemon_random['nom'], self.poke_player_hp, self.pokemon_random_hp)
-            # self.texte(20, f"{self.pokemon_random['nom']} inflige {self.dmg_poke}", self.black, 300, 590)
-            # self.texte(20, f"{self.poke_player['nom']} avait {self.poke_player_hp + self.dmg_poke}", self.black, 300, 625)
-            # self.texte(20, f"Il lui reste {self.poke_hp}", self.black, 300, 660)
-
