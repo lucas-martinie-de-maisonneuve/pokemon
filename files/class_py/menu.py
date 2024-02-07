@@ -219,28 +219,28 @@ class Menu(Pokedex):
 # Menu New_game
             if self.new_game:
                 if d == 1:
-                    self.button_rect(self.black, 275, 400, 300, 60 )
-                    self.texte(20, "Save1", self.white, 275, 400)
+                    self.button_rect(self.black, 525, 385, 300, 60 )
+                    self.texte(20, "Slot1", self.white, 525, 385)
                     self.choose_save = 'save1'
                 else:
-                    self.button_rect(self.white, 275, 400, 300, 60 )
-                    self.texte(20, "Save1", self.black, 275, 400)
+                    self.button_rect(self.white, 525, 385, 300, 60 )
+                    self.texte(20, "Slot1", self.black, 525, 385)
                     
                 if d == 2:
-                    self.button_rect(self.black, 525, 400, 300, 60 )
-                    self.texte(20, "Save2", self.white, 525, 400)
+                    self.button_rect(self.black, 525, 510, 300, 60 )
+                    self.texte(20, "Slot2", self.white, 525, 510)
                     self.choose_save = 'save2'
                 else:
-                    self.button_rect(self.white, 525, 400, 300, 60 )
-                    self.texte(20, "Save2", self.black, 525, 400)
+                    self.button_rect(self.white, 525, 510, 300, 60 )
+                    self.texte(20, "Slot2", self.black, 525, 510)
                     
                 if d == 3:
-                    self.button_rect(self.black, 775, 400, 300, 60  )
-                    self.texte(20, "Save3", self.white, 775, 400)
+                    self.button_rect(self.black, 525, 635, 300, 60  )
+                    self.texte(20, "Slot3", self.white, 525, 635)
                     self.choose_save = 'save3'
                 else:
-                    self.button_rect(self.white, 775, 400, 300, 60 )
-                    self.texte(20, "Save3", self.black, 775, 400)   
+                    self.button_rect(self.white, 525, 635, 300, 60 )
+                    self.texte(20, "Slot3", self.black, 525, 635)   
                 self.update()
 #Menu Charger partie                  
             if self.load_game:
