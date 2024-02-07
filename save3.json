@@ -2,10 +2,10 @@
   {
     "numero": 1,
     "nom": "Salameche",
-    "rencontre": 1,
+    "rencontre": 2,
     "true_num": 1,
-    "level": 2,
-    "exp": 0
+    "level": 17,
+    "exp": 58.96666666666667
   },
   {
     "numero": 2,
@@ -34,7 +34,7 @@
   {
     "numero": 5,
     "nom": "Goupix",
-    "rencontre": 1,
+    "rencontre": 2,
     "true_num": 37,
     "level": 1,
     "exp": 0
@@ -84,7 +84,7 @@
     "nom": "Grolem",
     "rencontre": 2,
     "true_num": 18,
-    "level": 1,
+    "level": 3,
     "exp": 0
   },
   {
@@ -106,7 +106,7 @@
   {
     "numero": 14,
     "nom": "Roucool",
-    "rencontre": 2,
+    "rencontre": 3,
     "true_num": 34,
     "level": 1,
     "exp": 0,
@@ -116,7 +116,7 @@
   {
     "numero": 15,
     "nom": "Raichu",
-    "rencontre": 1,
+    "rencontre": 3,
     "true_num": 11,
     "level": 1,
     "exp": 0,
@@ -148,6 +148,76 @@
     "nom": "Grainipiot",
     "rencontre": 1,
     "true_num": 31,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 19,
+    "nom": "Carapuce",
+    "rencontre": 2,
+    "true_num": 7,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 20,
+    "nom": "Scarabrute",
+    "rencontre": 2,
+    "true_num": 28,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 21,
+    "nom": "Sablaireau",
+    "rencontre": 1,
+    "true_num": 40,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 22,
+    "nom": "Bulbizarre",
+    "rencontre": 1,
+    "true_num": 4,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 23,
+    "nom": "Metamorphe",
+    "rencontre": 1,
+    "true_num": 51,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 24,
+    "nom": "Racaillou",
+    "rencontre": 1,
+    "true_num": 16,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 25,
+    "nom": "Carabaffe",
+    "rencontre": 1,
+    "true_num": 8,
     "level": 1,
     "exp": 0,
     "victoire": 0,

@@ -234,9 +234,9 @@ class Maps(Element, Screen, Combat, Experience):
                 if self.win_song_play:
                     self.win_music()
                     self.win_song_play = False 
-                self.img(540, 280, 470, 190, "combat/background_texte")
-                self.texte(18, f"{self.win} a gagné le combat", self.black, 540, 280)
-                self.texte(12, "PRESS 'RETURN' TO ESCAPE", self.black, 540, 400)                               
+                self.img(300, 625, 470, 150, "combat/background_texte")
+                self.texte(18, f"{self.win} a gagné le combat", self.black, 300, 600)
+                self.texte(12, "APPUYER SUR 'ENTRER' POUR CONTINUER", self.black, 300, 650)                               
             self.update()
             
             # self.poke_hp = self.attack(self.poke_player_hp, self.pokemon_random['attaque'],self.type_pokemon_advers, self.pokemon_type_player, self.def_poke_player)                            

@@ -4,8 +4,8 @@
     "nom": "Salameche",
     "rencontre": 1,
     "true_num": 1,
-    "level": 16,
-    "exp": 37.6577394827395,
+    "level": 17,
+    "exp": 22.1577394827395,
     "victoire": 0,
     "fuite": 0
   },
@@ -14,7 +14,7 @@
     "nom": "Kangourex",
     "rencontre": 3,
     "true_num": 25,
-    "level": 1,
+    "level": 5,
     "exp": 0,
     "victoire": 0,
     "fuite": 0
@@ -62,7 +62,7 @@
   {
     "numero": 7,
     "nom": "Herbizarre",
-    "rencontre": 2,
+    "rencontre": 3,
     "true_num": 5,
     "level": 1,
     "exp": 0,
@@ -82,7 +82,7 @@
   {
     "numero": 9,
     "nom": "Sulfura",
-    "rencontre": 1,
+    "rencontre": 2,
     "true_num": 47,
     "level": 1,
     "exp": 0,
@@ -232,7 +232,7 @@
   {
     "numero": 24,
     "nom": "Scarabrute",
-    "rencontre": 1,
+    "rencontre": 2,
     "true_num": 28,
     "level": 1,
     "exp": 0,
@@ -242,7 +242,7 @@
   {
     "numero": 25,
     "nom": "Grolem",
-    "rencontre": 1,
+    "rencontre": 2,
     "true_num": 18,
     "level": 1,
     "exp": 0,
@@ -252,8 +252,38 @@
   {
     "numero": 26,
     "nom": "Bulbizarre",
-    "rencontre": 1,
+    "rencontre": 2,
     "true_num": 4,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 27,
+    "nom": "Sabelette",
+    "rencontre": 2,
+    "true_num": 39,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 28,
+    "nom": "Goupix",
+    "rencontre": 1,
+    "true_num": 37,
+    "level": 1,
+    "exp": 0,
+    "victoire": 0,
+    "fuite": 0
+  },
+  {
+    "numero": 29,
+    "nom": "Roucoups",
+    "rencontre": 1,
+    "true_num": 35,
     "level": 1,
     "exp": 0,
     "victoire": 0,
