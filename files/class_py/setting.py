@@ -232,7 +232,6 @@ class Setting(Element,Screen):
                     self.img(720,400,50,50,"/setting/key_up")
                 else:
                     self.button_rect(self.darkgreenblue, 205, 220, 160, 40)  # Couleur de base
-                    self.img(205,576,150,150,"/setting/pikachu_sleep")
                 self.texte(15, 'Controles', self.white, 205, 220)
 
                 # Selecteur 2 Statistiques/Reset
@@ -287,7 +286,7 @@ class Setting(Element,Screen):
 
                 # Selecteur 3 Audio
                 if m == 3:
-                    self.img(205,596,150,150,"/setting/pikachu_music")
+                    self.img(205,576,150,150,"/setting/pikachu_music")
                     self.button_rect(self.lightbluesea, 205, 394, 160, 40)
 
                     #Titre musique
