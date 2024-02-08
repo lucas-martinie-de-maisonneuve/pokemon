@@ -1,10 +1,8 @@
 from files.class_py.type import Type
 from files.class_py.element import Element
-from files.class_py.pokedex import Pokedex
 import random
 
 type = Type()
-pokedex = Pokedex()
 
 class Combat:
     def __init__(self):

@@ -32,7 +32,7 @@
   {
     "numero": 4,
     "nom": "Carabaffe",
-    "rencontre": 3,
+    "rencontre": 4,
     "true_num": 8,
     "level": 1,
     "exp": 0,
@@ -142,7 +142,7 @@
   {
     "numero": 15,
     "nom": "Grolem",
-    "rencontre": 6,
+    "rencontre": 7,
     "true_num": 18,
     "level": 1,
     "exp": 0,
@@ -242,7 +242,7 @@
   {
     "numero": 25,
     "nom": "Scarabrute",
-    "rencontre": 1,
+    "rencontre": 2,
     "true_num": 28,
     "level": 1,
     "exp": 0,
@@ -372,7 +372,7 @@
   {
     "numero": 38,
     "nom": "Aquali",
-    "rencontre": 2,
+    "rencontre": 3,
     "true_num": 20,
     "level": 1,
     "exp": 0,

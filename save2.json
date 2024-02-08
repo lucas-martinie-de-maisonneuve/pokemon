@@ -1,49 +1,19 @@
 [
   {
     "numero": 1,
-    "nom": "Salameche",
+    "nom": "Pikachu",
     "rencontre": 1,
-    "true_num": 1,
-    "level": 2,
+    "true_num": 10,
+    "level": 1,
     "exp": 0,
     "victoire": 0,
     "fuite": 0
   },
   {
     "numero": 2,
-    "nom": "Metamorphe",
+    "nom": "Dracaufeu",
     "rencontre": 1,
-    "true_num": 51,
-    "level": 1,
-    "exp": 0,
-    "victoire": 0,
-    "fuite": 0
-  },
-  {
-    "numero": 3,
-    "nom": "Roucoups",
-    "rencontre": 1,
-    "true_num": 35,
-    "level": 1,
-    "exp": 0,
-    "victoire": 0,
-    "fuite": 0
-  },
-  {
-    "numero": 4,
-    "nom": "Canarticho",
-    "rencontre": 1,
-    "true_num": 15,
-    "level": 1,
-    "exp": 0,
-    "victoire": 0,
-    "fuite": 0
-  },
-  {
-    "numero": 5,
-    "nom": "Kyogre",
-    "rencontre": 1,
-    "true_num": 48,
+    "true_num": 3,
     "level": 1,
     "exp": 0,
     "victoire": 0,

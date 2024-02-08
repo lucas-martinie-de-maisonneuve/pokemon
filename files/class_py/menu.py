@@ -1,13 +1,11 @@
 import pygame
 from files.class_py.pokedex import Pokedex
 from files.class_py.maps_combat import Maps
-from files.class_py.combat import Combat
 from files.class_py.starter import Starter
 from files.class_py.add_pokemon import AddPokemon
 from files.class_py.setting import Setting
 from files.class_py.config import sound_config
 
-combat = Combat()
 starter = Starter()
 addpokemon = AddPokemon()
 setting = Setting()

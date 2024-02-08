@@ -1,6 +1,3 @@
-from files.class_py.pokedex import Pokedex
-pokedex = Pokedex()
-
 class Type:
     def __init__(self) -> None:
         pass
